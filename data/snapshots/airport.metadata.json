@@ -1,0 +1,26 @@
+{
+  "area": "airport",
+  "source": "OpenStreetMap API 0.6 map (small-area fallback)",
+  "fetched_at": "2026-10-19T10:36:02+00:00",
+  "license": "ODbL 1.0",
+  "derivation": "Selected original category tags; contacts and mapper metadata omitted. Node coordinates unchanged; way and complete multipolygon centers computed from complete outer bbox geometry. Incomplete relations omitted.",
+  "coverage": "Four small landmark areas; NOT the full Overpass city/airport bounding boxes.",
+  "requests": [
+    {
+      "preset": "airport",
+      "endpoint": "https://api.openstreetmap.org/api/0.6/map",
+      "request_url": "https://api.openstreetmap.org/api/0.6/map?bbox=71.451%2C51.019%2C71.484%2C51.037",
+      "bbox_west_south_east_north": [
+        71.451,
+        51.019,
+        71.484,
+        51.037
+      ],
+      "fetched_at": "2026-10-19T10:36:02+00:00",
+      "original_xml_sha256": "0210e659cf5c768e36615bc0a8cf7de61be85a1e83d51cb9fb7e7b815200e317",
+      "original_xml_bytes": 1315652,
+      "category_elements": 3
+    }
+  ],
+  "raw_elements": 3
+}

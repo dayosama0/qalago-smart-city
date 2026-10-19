@@ -1,0 +1,3850 @@
+{
+  "version": 0.6,
+  "generator": "QalaGo OSM API XML-to-JSON conversion; sanitized category subset",
+  "copyright": "© OpenStreetMap contributors; ODbL 1.0",
+  "elements": [
+    {
+      "type": "node",
+      "id": 4965336822,
+      "tags": {
+        "name": "Мега Силк Вей",
+        "name:en": "Mega SilkWay Astana",
+        "shop": "mall"
+      },
+      "lat": 51.0890223,
+      "lon": 71.4075409
+    },
+    {
+      "type": "node",
+      "id": 6404769885,
+      "tags": {
+        "amenity": "restaurant",
+        "brand": "Ocean Basket",
+        "brand:wikidata": "Q62075311",
+        "cuisine": "seafood",
+        "name": "Ocean Basket"
+      },
+      "lat": 51.0885575,
+      "lon": 71.4098715
+    },
+    {
+      "type": "node",
+      "id": 6408255389,
+      "tags": {
+        "amenity": "cafe",
+        "name": "завтрак бар"
+      },
+      "lat": 51.0941798,
+      "lon": 71.4093574
+    },
+    {
+      "type": "node",
+      "id": 6567839586,
+      "tags": {
+        "addr:street": "Қабанбай Батыр даңғылы",
+        "amenity": "restaurant",
+        "cuisine": "oriental",
+        "name:en": "Azim",
+        "name:ru": "Азим",
+        "opening_hours": "Mo-Su 12:00-24:00"
+      },
+      "lat": 51.0953289,
+      "lon": 71.4099036
+    },
+    {
+      "type": "node",
+      "id": 9047331879,
+      "tags": {
+        "amenity": "cafe",
+        "brand": "Starbucks",
+        "brand:wikidata": "Q37158",
+        "brand:wikipedia": "en:Starbucks",
+        "cuisine": "coffee_shop",
+        "name": "Starbucks",
+        "name:en": "Starbucks",
+        "official_name": "Starbucks Coffee",
+        "opening_hours": "Mo-Su 08:00-22:00",
+        "operator": "\"Shaya Kazakhstan\"",
+        "takeaway": "yes"
+      },
+      "lat": 51.0890092,
+      "lon": 71.4089158
+    },
+    {
+      "type": "node",
+      "id": 9879159697,
+      "tags": {
+        "historic": "monument"
+      },
+      "lat": 51.0949722,
+      "lon": 71.4026959
+    },
+    {
+      "type": "node",
+      "id": 10861996205,
+      "tags": {
+        "amenity": "cafe",
+        "diet:vegan": "yes",
+        "diet:vegetarian": "yes",
+        "name:en": "Veggie House"
+      },
+      "lat": 51.0964416,
+      "lon": 71.4090062
+    },
+    {
+      "type": "node",
+      "id": 11993865901,
+      "tags": {
+        "amenity": "restaurant",
+        "facebook": "https://www.facebook.com/astanalinebrew/",
+        "name": "Line Brew",
+        "opening_hours": "Mo-Su 12:00-24:00"
+      },
+      "lat": 51.0888656,
+      "lon": 71.4150156
+    },
+    {
+      "type": "node",
+      "id": 12093489321,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Дареджани",
+        "opening_hours": "Mo-Su 10:00-23:00",
+        "operator": "Дареджани"
+      },
+      "lat": 51.0891636,
+      "lon": 71.4088848
+    },
+    {
+      "type": "node",
+      "id": 12093489323,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Del Papa",
+        "opening_hours": "Mo-Su 10:00-23:00",
+        "operator": "\"Del Papa\""
+      },
+      "lat": 51.088547,
+      "lon": 71.410156
+    },
+    {
+      "type": "node",
+      "id": 12293708057,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Paul",
+        "name:en": "Paul",
+        "opening_hours": "Mo-Su 10:00-22:00",
+        "operator": "TOO French Bakery"
+      },
+      "lat": 51.088657,
+      "lon": 71.408584
+    },
+    {
+      "type": "node",
+      "id": 12520559591,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "russian",
+        "name": "Лепим и варим",
+        "opening_hours": "Mo-Su 10:00-23:00"
+      },
+      "lat": 51.0891569,
+      "lon": 71.4078454
+    },
+    {
+      "type": "node",
+      "id": 13173517356,
+      "tags": {
+        "addr:city": "Астана",
+        "addr:housenumber": "62",
+        "addr:postcode": "Z05P1P8",
+        "addr:street": "ТРЦ MEGA Silk Way, Кабанбай батыр проспект",
+        "amenity": "cafe",
+        "name": "Gasteria",
+        "opening_hours": "Mo-Th 10:00-23:00; Fr-Su 10:00-00:00"
+      },
+      "lat": 51.0889451,
+      "lon": 71.4093464
+    },
+    {
+      "type": "node",
+      "id": 13397061026,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Luckee Yu",
+        "opening_hours": "Fr-Sa 10:00-00:00; Mo-Th,Su 10:00-23:00",
+        "operator": "Luckee Yu"
+      },
+      "lat": 51.0892714,
+      "lon": 71.4078873
+    },
+    {
+      "type": "node",
+      "id": 13397061028,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Coco",
+        "opening_hours": "Mo-Su 10:00-00:00"
+      },
+      "lat": 51.0891569,
+      "lon": 71.4087027
+    },
+    {
+      "type": "node",
+      "id": 13462282540,
+      "tags": {
+        "amenity": "cafe",
+        "name": "Kunde Cafe"
+      },
+      "lat": 51.0906659,
+      "lon": 71.395459
+    },
+    {
+      "type": "node",
+      "id": 14107301089,
+      "tags": {
+        "addr:floor": "1",
+        "addr:housenumber": "62",
+        "addr:street": "ТРЦ MEGA Silk Way, Кабанбай батыр проспект",
+        "amenity": "restaurant",
+        "check_date": "2026-08-20",
+        "cuisine": "korean",
+        "level": "0",
+        "name": "Korean House",
+        "opening_hours": "10:00-24:00",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "wheelchair": "yes"
+      },
+      "lat": 51.0883714,
+      "lon": 71.4094571
+    },
+    {
+      "type": "node",
+      "id": 14275682079,
+      "tags": {
+        "addr:city": "Астана",
+        "addr:housenumber": "62",
+        "addr:street": "Қабанбай Батыр даңғылы",
+        "amenity": "cafe",
+        "brand": "Drinkit",
+        "cuisine": "coffee_shop",
+        "internet_access": "yes",
+        "internet_access:fee": "no",
+        "level": "0",
+        "name": "Drinkit",
+        "opening_hours": "Mo-Su 08:00-22:00",
+        "payment:app": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes",
+        "smoking": "no",
+        "toilets": "yes"
+      },
+      "lat": 51.0890765,
+      "lon": 71.40609
+    },
+    {
+      "type": "way",
+      "id": 499328514,
+      "tags": {
+        "addr:city": "Астана",
+        "addr:country": "KZ",
+        "addr:housenumber": "62",
+        "addr:street": "Қабанбай Батыр даңғылы",
+        "air_conditioning": "yes",
+        "building": "yes",
+        "building:levels": "2",
+        "layer": "-1",
+        "name": "Mega Silk Way",
+        "opening_hours": "Mo-Su 10:00-22:00",
+        "payment:american_express": "yes",
+        "payment:cash": "yes",
+        "payment:coins": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "payment:mastercard": "yes",
+        "payment:notes": "yes",
+        "payment:visa": "yes",
+        "shop": "mall",
+        "source": "sentinel-2,MapBox",
+        "stroller": "yes",
+        "toilets": "yes"
+      },
+      "center": {
+        "lat": 51.0890897,
+        "lon": 71.40733035
+      }
+    },
+    {
+      "type": "way",
+      "id": 607963090,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.0907337,
+        "lon": 71.40753864999999
+      }
+    },
+    {
+      "type": "way",
+      "id": 607963091,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.0919703,
+        "lon": 71.4079866
+      }
+    },
+    {
+      "type": "way",
+      "id": 607963092,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.093189,
+        "lon": 71.4084345
+      }
+    },
+    {
+      "type": "way",
+      "id": 607963093,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.093530200000004,
+        "lon": 71.40603390000001
+      }
+    },
+    {
+      "type": "way",
+      "id": 607963094,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.0922735,
+        "lon": 71.40558060000001
+      }
+    },
+    {
+      "type": "way",
+      "id": 607963095,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.0910311,
+        "lon": 71.4051501
+      }
+    },
+    {
+      "type": "way",
+      "id": 1126613519,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.093723999999995,
+        "lon": 71.41878055000001
+      }
+    },
+    {
+      "type": "way",
+      "id": 1452597370,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.09127275,
+        "lon": 71.41592365
+      }
+    },
+    {
+      "type": "way",
+      "id": 1452597371,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.0913162,
+        "lon": 71.4154307
+      }
+    },
+    {
+      "type": "way",
+      "id": 1452597374,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.0913015,
+        "lon": 71.41492740000001
+      }
+    },
+    {
+      "type": "way",
+      "id": 1452597380,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.091523,
+        "lon": 71.41504425
+      }
+    },
+    {
+      "type": "way",
+      "id": 1452597386,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.09166245,
+        "lon": 71.41535615000001
+      }
+    },
+    {
+      "type": "way",
+      "id": 1452597435,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.0921116,
+        "lon": 71.41490225
+      }
+    },
+    {
+      "type": "way",
+      "id": 1452597436,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.09242965,
+        "lon": 71.4152574
+      }
+    },
+    {
+      "type": "way",
+      "id": 1452597437,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.092283249999994,
+        "lon": 71.4155739
+      }
+    },
+    {
+      "type": "way",
+      "id": 1452597438,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.0921575,
+        "lon": 71.4158133
+      }
+    },
+    {
+      "type": "way",
+      "id": 1456208624,
+      "tags": {
+        "alt_name": "Бейбітшілік пен Келісім саяжолы",
+        "leisure": "park",
+        "name": "Бейбітшілік пен Келісім аллеясы",
+        "name:kk": "Бейбітшілік пен келісім аллеясы",
+        "name:ru": "Аллея мира и согласия"
+      },
+      "center": {
+        "lat": 51.0938123,
+        "lon": 71.41694975
+      }
+    },
+    {
+      "type": "way",
+      "id": 1459874428,
+      "tags": {
+        "leisure": "park"
+      },
+      "center": {
+        "lat": 51.08413695,
+        "lon": 71.39428595
+      }
+    },
+    {
+      "type": "way",
+      "id": 1460763574,
+      "tags": {
+        "addr:city": "Астана",
+        "addr:country": "KZ",
+        "addr:place": "ЭКСПО-2017",
+        "area": "yes",
+        "building": "yes",
+        "height": "46",
+        "name": "Тәуелсіздіктің 25 жылдығы",
+        "name:en": "25th Anniversary of Independence",
+        "name:ru": "25-ти летие Независимости",
+        "roof:height": "46",
+        "roof:shape": "hipped",
+        "tourism": "attraction"
+      },
+      "center": {
+        "lat": 51.09345235000001,
+        "lon": 71.4175645
+      }
+    },
+    {
+      "type": "way",
+      "id": 1467797207,
+      "tags": {
+        "leisure": "park",
+        "name": "NU Park"
+      },
+      "center": {
+        "lat": 51.087269899999995,
+        "lon": 71.3994394
+      }
+    },
+    {
+      "type": "way",
+      "id": 1470723968,
+      "tags": {
+        "leisure": "garden",
+        "name:en": "Japanese garden",
+        "name:ru": "Японский сад"
+      },
+      "center": {
+        "lat": 51.09213615,
+        "lon": 71.39949924999999
+      }
+    },
+    {
+      "type": "node",
+      "id": 1843876259,
+      "tags": {
+        "amenity": "cafe",
+        "name": "Rafe"
+      },
+      "lat": 51.1279864,
+      "lon": 71.4372343
+    },
+    {
+      "type": "node",
+      "id": 2691137163,
+      "tags": {
+        "amenity": "childcare",
+        "leisure": "playground",
+        "name": "Gymboree"
+      },
+      "lat": 51.1289248,
+      "lon": 71.4220016
+    },
+    {
+      "type": "node",
+      "id": 2691375023,
+      "tags": {
+        "leisure": "playground",
+        "wheelchair": "limited"
+      },
+      "lat": 51.12852,
+      "lon": 71.4252029
+    },
+    {
+      "type": "node",
+      "id": 2691377551,
+      "tags": {
+        "leisure": "playground"
+      },
+      "lat": 51.122191,
+      "lon": 71.4204919
+    },
+    {
+      "type": "node",
+      "id": 4108293490,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "regional;steak",
+        "name": "Тайказан",
+        "opening_hours": "Mo-Su 08:00-5:00"
+      },
+      "lat": 51.126424,
+      "lon": 71.4375196
+    },
+    {
+      "type": "node",
+      "id": 4133836390,
+      "tags": {
+        "amenity": "cafe"
+      },
+      "lat": 51.1246666,
+      "lon": 71.4224207
+    },
+    {
+      "type": "node",
+      "id": 4133836392,
+      "tags": {
+        "addr:housenumber": "10",
+        "addr:street": "Сығанақ көшесі",
+        "amenity": "cafe",
+        "name": "Дастаркан",
+        "opening_hours": "24/7"
+      },
+      "lat": 51.1235526,
+      "lon": 71.4219552
+    },
+    {
+      "type": "node",
+      "id": 4133854089,
+      "tags": {
+        "amenity": "cafe",
+        "name": "Rafe"
+      },
+      "lat": 51.1297293,
+      "lon": 71.4259859
+    },
+    {
+      "type": "node",
+      "id": 4384857439,
+      "tags": {
+        "addr:street": "Достық көшесі",
+        "amenity": "restaurant",
+        "cuisine": "international",
+        "name": "The Kitchen",
+        "name:kk": "The Kitchen"
+      },
+      "lat": 51.1286563,
+      "lon": 71.4213807
+    },
+    {
+      "type": "node",
+      "id": 4792472508,
+      "tags": {
+        "amenity": "cafe",
+        "name": "HamStar"
+      },
+      "lat": 51.1360407,
+      "lon": 71.4219483
+    },
+    {
+      "type": "node",
+      "id": 4853972122,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "lebanese",
+        "internet_access": "wlan",
+        "name": "Фаттуш",
+        "name:en": "Fattoush",
+        "opening_hours": "Mo-Su 10:00-23:00",
+        "operator": "ИП INTELFOOD (ИНТЕЛФУД)"
+      },
+      "lat": 51.1277607,
+      "lon": 71.4251746
+    },
+    {
+      "type": "node",
+      "id": 4876041621,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Пивоварофф",
+        "name:en": "Pivovaroff",
+        "name:ja": "ドイツ料理"
+      },
+      "lat": 51.136019,
+      "lon": 71.4210794
+    },
+    {
+      "type": "node",
+      "id": 4915119663,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Арай"
+      },
+      "lat": 51.1344167,
+      "lon": 71.4356911
+    },
+    {
+      "type": "node",
+      "id": 4953253121,
+      "tags": {
+        "addr:housenumber": "5",
+        "addr:street": "Достық көшесі",
+        "amenity": "restaurant",
+        "cuisine": "oriental",
+        "name": "Саксаул",
+        "name:ru": "Саксаул"
+      },
+      "lat": 51.1281668,
+      "lon": 71.4228833
+    },
+    {
+      "type": "node",
+      "id": 5132817725,
+      "tags": {
+        "amenity": "cafe",
+        "brand": "Starbucks",
+        "brand:wikidata": "Q37158",
+        "brand:wikipedia": "en:Starbucks",
+        "cuisine": "coffee_shop",
+        "level": "1",
+        "name": "Starbucks",
+        "name:en": "Starbucks",
+        "official_name": "Starbucks Coffee",
+        "opening_hours": "Mo-Fr 07:30-23:00; Sa-Su 08:00-23:00",
+        "operator": "\"Shaya Kazakhstan\"",
+        "takeaway": "yes"
+      },
+      "lat": 51.1250687,
+      "lon": 71.4326558
+    },
+    {
+      "type": "node",
+      "id": 5244167885,
+      "tags": {
+        "amenity": "restaurant",
+        "cuisine": "regional",
+        "name": "Dastarkhan",
+        "opening_hours": "24/7"
+      },
+      "lat": 51.1205106,
+      "lon": 71.4315276
+    },
+    {
+      "type": "node",
+      "id": 5244250150,
+      "tags": {
+        "amenity": "restaurant",
+        "cuisine": "regional",
+        "name": "Рахат",
+        "opening_hours": "Mo-Su 08:00-21:00"
+      },
+      "lat": 51.1263242,
+      "lon": 71.4374239
+    },
+    {
+      "type": "node",
+      "id": 5936638686,
+      "tags": {
+        "amenity": "cafe",
+        "name": "Кафела",
+        "name:en": "Cafela",
+        "name:ru": "Кафела"
+      },
+      "lat": 51.1354068,
+      "lon": 71.4305421
+    },
+    {
+      "type": "node",
+      "id": 5936655589,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Мост"
+      },
+      "lat": 51.1325271,
+      "lon": 71.4346784
+    },
+    {
+      "type": "node",
+      "id": 5936676246,
+      "tags": {
+        "addr:street": "улица Сарайшык",
+        "amenity": "cafe",
+        "name": "Borough",
+        "opening_hours": "Mo-Su 12:30-23:00"
+      },
+      "lat": 51.1342545,
+      "lon": 71.436492
+    },
+    {
+      "type": "node",
+      "id": 6312771198,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Z-1",
+        "source": "survey"
+      },
+      "lat": 51.1289527,
+      "lon": 71.438478
+    },
+    {
+      "type": "node",
+      "id": 6404769888,
+      "tags": {
+        "amenity": "cafe",
+        "brand": "Mado",
+        "brand:kk": "Мадо",
+        "brand:ru": "Мадо",
+        "brand:wikidata": "Q17116336",
+        "cuisine": "coffee_shop",
+        "name": "Mado",
+        "name:kk": "Мадо",
+        "name:ru": "Мадо",
+        "takeaway": "yes"
+      },
+      "lat": 51.128348,
+      "lon": 71.4348209
+    },
+    {
+      "type": "node",
+      "id": 6404773385,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "ocean basket"
+      },
+      "lat": 51.1352771,
+      "lon": 71.4262225
+    },
+    {
+      "type": "node",
+      "id": 6408271985,
+      "tags": {
+        "amenity": "cafe",
+        "name": "CrepeCafe",
+        "opening_hours": "Mo-Fr 08:00-00:00; Sa-Su 09:00-00:00",
+        "operator": "AZAKI2019"
+      },
+      "lat": 51.1293821,
+      "lon": 71.4285934
+    },
+    {
+      "type": "node",
+      "id": 6494912582,
+      "tags": {
+        "amenity": "cafe",
+        "brand": "Coffee Like",
+        "brand:wikidata": "Q55662627",
+        "brand:wikipedia": "ru:Coffee Like",
+        "cuisine": "coffee_shop",
+        "name": "Coffee Like",
+        "opening_hours": "Mo-Fr 08:00-20:00",
+        "operator": "South Union",
+        "takeaway": "yes"
+      },
+      "lat": 51.1311886,
+      "lon": 71.4207674
+    },
+    {
+      "type": "node",
+      "id": 7569228633,
+      "tags": {
+        "addr:city": "Астана",
+        "addr:housenumber": "6",
+        "addr:street": "Қонаев көшесі",
+        "amenity": "cafe",
+        "brand": "Coffee Like",
+        "brand:wikidata": "Q55662627",
+        "brand:wikipedia": "ru:Coffee Like",
+        "cuisine": "coffee_shop",
+        "name": "Coffee Like",
+        "opening_hours": "Mo-Fr 08:00-18:00",
+        "takeaway": "yes"
+      },
+      "lat": 51.1302666,
+      "lon": 71.4215615
+    },
+    {
+      "type": "node",
+      "id": 9047331868,
+      "tags": {
+        "amenity": "cafe",
+        "brand": "Starbucks",
+        "brand:wikidata": "Q37158",
+        "brand:wikipedia": "en:Starbucks",
+        "cuisine": "coffee_shop",
+        "name": "Starbucks",
+        "name:en": "Starbucks",
+        "official_name": "Starbucks Coffee",
+        "opening_hours": "Mo-Fr 07:30-19:00",
+        "operator": "\"Shaya Kazakhstan\"",
+        "takeaway": "yes"
+      },
+      "lat": 51.130891,
+      "lon": 71.423656
+    },
+    {
+      "type": "node",
+      "id": 9047331880,
+      "tags": {
+        "amenity": "cafe",
+        "brand": "Starbucks",
+        "brand:wikidata": "Q37158",
+        "brand:wikipedia": "en:Starbucks",
+        "cuisine": "coffee_shop",
+        "name": "Starbucks",
+        "name:en": "Starbucks",
+        "official_name": "Starbucks Coffee",
+        "opening_hours": "Mo-Su 09:00-23:00",
+        "operator": "\"Shaya Kazakhstan\"",
+        "takeaway": "yes"
+      },
+      "lat": 51.1280727,
+      "lon": 71.4254906
+    },
+    {
+      "type": "node",
+      "id": 10168258158,
+      "tags": {
+        "air_conditioning": "yes",
+        "amenity": "restaurant",
+        "brand": "Yakitoriya",
+        "cuisine": "japanese",
+        "name": "Yakitoriya"
+      },
+      "lat": 51.1216511,
+      "lon": 71.4275073
+    },
+    {
+      "type": "node",
+      "id": 10170946741,
+      "tags": {
+        "amenity": "cafe",
+        "brand": "Starbucks",
+        "brand:wikidata": "Q37158",
+        "brand:wikipedia": "en:Starbucks",
+        "cuisine": "coffee_shop",
+        "name": "Starbucks",
+        "name:en": "Starbucks",
+        "official_name": "Starbucks Coffee",
+        "opening_hours": "Mo-Su 09:30-22:00",
+        "operator": "\"Shaya Kazakhstan\"",
+        "takeaway": "yes"
+      },
+      "lat": 51.1218424,
+      "lon": 71.4280501
+    },
+    {
+      "type": "node",
+      "id": 10170946742,
+      "tags": {
+        "amenity": "cafe",
+        "level": "2",
+        "name": "Coffee BOOM"
+      },
+      "lat": 51.1215924,
+      "lon": 71.4281745
+    },
+    {
+      "type": "node",
+      "id": 10170946745,
+      "tags": {
+        "amenity": "cafe",
+        "level": "2",
+        "name": "Chaleur"
+      },
+      "lat": 51.1215961,
+      "lon": 71.4279892
+    },
+    {
+      "type": "node",
+      "id": 10171023213,
+      "tags": {
+        "amenity": "restaurant",
+        "cuisine": "coffee_shop",
+        "level": "2",
+        "name": "Coffee Bus Expresso Luxury"
+      },
+      "lat": 51.1217738,
+      "lon": 71.4276052
+    },
+    {
+      "type": "node",
+      "id": 10171023214,
+      "tags": {
+        "amenity": "restaurant",
+        "cuisine": "pizza",
+        "level": "2",
+        "name": "Authentica Roni Napoletana"
+      },
+      "lat": 51.1216221,
+      "lon": 71.4277651
+    },
+    {
+      "type": "node",
+      "id": 10171023215,
+      "tags": {
+        "amenity": "restaurant",
+        "cuisine": "french",
+        "level": "2",
+        "name": "Pivovaroff"
+      },
+      "lat": 51.1216132,
+      "lon": 71.4278696
+    },
+    {
+      "type": "node",
+      "id": 10171023216,
+      "tags": {
+        "amenity": "restaurant",
+        "cuisine": "turkish",
+        "level": "2",
+        "name": "Bekbota"
+      },
+      "lat": 51.1216324,
+      "lon": 71.4276803
+    },
+    {
+      "type": "node",
+      "id": 10564988185,
+      "tags": {
+        "amenity": "cafe",
+        "name": "Degirmen",
+        "opening_hours": "Mo-Su 08:00-00:00"
+      },
+      "lat": 51.1285659,
+      "lon": 71.4333254
+    },
+    {
+      "type": "node",
+      "id": 10798946230,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Selfie",
+        "opening_hours": "Mo-Su 12:00-00:00"
+      },
+      "lat": 51.1250293,
+      "lon": 71.4322305
+    },
+    {
+      "type": "node",
+      "id": 11104886254,
+      "tags": {
+        "historic": "monument"
+      },
+      "lat": 51.13394,
+      "lon": 71.437832
+    },
+    {
+      "type": "node",
+      "id": 11162304905,
+      "tags": {
+        "addr:city": "Астана",
+        "addr:housenumber": "29",
+        "addr:postcode": "01000",
+        "addr:street": "Қонаев көшесі",
+        "amenity": "restaurant",
+        "cuisine": "beef_bowl;breakfast;cake;chicken;coffee_shop;curry;friture;asian;barbecue;grill;indian",
+        "diet:vegetarian": "yes",
+        "internet_access": "wlan",
+        "name": "Атлас",
+        "name:en": "Atlas",
+        "name:ru": "Атлас",
+        "opening_hours": "Su-Sa 10:00-02:00"
+      },
+      "lat": 51.131615,
+      "lon": 71.4275325
+    },
+    {
+      "type": "node",
+      "id": 11904395671,
+      "tags": {
+        "leisure": "playground"
+      },
+      "lat": 51.1218067,
+      "lon": 71.4320276
+    },
+    {
+      "type": "node",
+      "id": 11910202470,
+      "tags": {
+        "amenity": "cafe",
+        "name": "marrone rosso"
+      },
+      "lat": 51.1284058,
+      "lon": 71.4250639
+    },
+    {
+      "type": "node",
+      "id": 12041597269,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "RIBAMBELLE"
+      },
+      "lat": 51.1249938,
+      "lon": 71.4326174
+    },
+    {
+      "type": "node",
+      "id": 12041597369,
+      "tags": {
+        "amenity": "cafe",
+        "name": "MÖKKi"
+      },
+      "lat": 51.1251254,
+      "lon": 71.4318134
+    },
+    {
+      "type": "node",
+      "id": 12293708058,
+      "tags": {
+        "amenity": "restaurant",
+        "brand": "Paul",
+        "brand:wikidata": "Q3370417",
+        "name": "Paul",
+        "name:en": "Paul",
+        "opening_hours": "Mo-Su 09:00-22:00",
+        "operator": "TOO French Bakery",
+        "shop": "bakery"
+      },
+      "lat": 51.1277142,
+      "lon": 71.4249541
+    },
+    {
+      "type": "node",
+      "id": 12520559589,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "russian",
+        "name": "Лепим и варим",
+        "opening_hours": "Mo-Su 10:00-22:00"
+      },
+      "lat": 51.1279246,
+      "lon": 71.4254505
+    },
+    {
+      "type": "node",
+      "id": 12909752901,
+      "tags": {
+        "amenity": "restaurant",
+        "name:ru": "Центр плова и лагмана",
+        "opening_hours": "Mo-Su 11:00-23:00"
+      },
+      "lat": 51.1294267,
+      "lon": 71.4279654
+    },
+    {
+      "type": "node",
+      "id": 12959449801,
+      "tags": {
+        "addr:housenumber": "33",
+        "addr:street": "Сығанақ көшесі",
+        "amenity": "cafe",
+        "name": "Культура Диктует"
+      },
+      "lat": 51.1246776,
+      "lon": 71.4219553
+    },
+    {
+      "type": "node",
+      "id": 13230394599,
+      "tags": {
+        "addr:city": "Астана",
+        "addr:housenumber": "8Б",
+        "addr:street": "Достық көшесі",
+        "amenity": "restaurant",
+        "cuisine": "european;mexican;italian",
+        "instagram": "https://www.instagram.com/letocafe.astana/",
+        "name": "Leto Cafe",
+        "opening_hours": "Mo-Su 12:00-02:00",
+        "website:menu": "https://leto-cafe.kamiqr.com/menu/at-place"
+      },
+      "lat": 51.1267692,
+      "lon": 71.4217842
+    },
+    {
+      "type": "node",
+      "id": 13313122337,
+      "tags": {
+        "addr:city": "Астана",
+        "addr:housenumber": "8/1",
+        "addr:street": "Қонаев көшесі",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop;european;breakfast;brunch",
+        "internet_access:fee": "no",
+        "name": "Gasteria"
+      },
+      "lat": 51.1298475,
+      "lon": 71.4241936
+    },
+    {
+      "type": "node",
+      "id": 13467930244,
+      "tags": {
+        "amenity": "restaurant",
+        "cuisine": "turkish",
+        "name": "Divan",
+        "opening_hours": "closed"
+      },
+      "lat": 51.1285928,
+      "lon": 71.4331398
+    },
+    {
+      "type": "node",
+      "id": 13533633413,
+      "tags": {
+        "addr:city": "Астана",
+        "addr:housenumber": "8/1",
+        "addr:postcode": "010000",
+        "addr:street": "Динмухамед Конаев",
+        "amenity": "restaurant",
+        "cuisine": "regional",
+        "diet:local": "yes",
+        "name": "Asai Restaurant Astana",
+        "opening_hours": "Mo-Su 09:00-21:00"
+      },
+      "lat": 51.1299055,
+      "lon": 71.424491
+    },
+    {
+      "type": "node",
+      "id": 13858040201,
+      "tags": {
+        "addr:housenumber": "35",
+        "addr:street": "Қонаев көшесі",
+        "amenity": "cafe",
+        "name": "Master Coffee",
+        "opening_hours": "Mo-Fr 07:15-23:00; Sa-Su 08:15-00:00",
+        "outdoor_seating": "yes"
+      },
+      "lat": 51.1299661,
+      "lon": 71.4376735
+    },
+    {
+      "type": "node",
+      "id": 13947918427,
+      "tags": {
+        "leisure": "playground"
+      },
+      "lat": 51.1288298,
+      "lon": 71.4219293
+    },
+    {
+      "type": "node",
+      "id": 14089471172,
+      "tags": {
+        "amenity": "cafe",
+        "name": "Qaganat"
+      },
+      "lat": 51.1277749,
+      "lon": 71.422767
+    },
+    {
+      "type": "node",
+      "id": 14100100182,
+      "tags": {
+        "air_conditioning": "yes",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "internet_access": "yes",
+        "name": "Drinkit",
+        "toilets": "yes"
+      },
+      "lat": 51.1302883,
+      "lon": 71.4290105
+    },
+    {
+      "type": "node",
+      "id": 14100100183,
+      "tags": {
+        "air_conditioning": "yes",
+        "amenity": "restaurant",
+        "cuisine": "asian",
+        "name": "Peek-a-boo",
+        "toilets": "yes"
+      },
+      "lat": 51.1293276,
+      "lon": 71.428273
+    },
+    {
+      "type": "way",
+      "id": 69232075,
+      "tags": {
+        "barrier": "fence",
+        "int_name": "Jetisu",
+        "leisure": "park",
+        "name": "Жетісу саябағы",
+        "name:en": "Zhetysu Park",
+        "name:kk": "Жетісу саябағы",
+        "name:ru": "Парк Жетысу",
+        "wikidata": "Q104866925",
+        "wikipedia": "ru:Жетысу (парк)"
+      },
+      "center": {
+        "lat": 51.13598865,
+        "lon": 71.4384501
+      }
+    },
+    {
+      "type": "way",
+      "id": 108096984,
+      "tags": {
+        "addr:city": "Астана",
+        "addr:country": "KZ",
+        "addr:housenumber": "9",
+        "addr:street": "Достық көшесі",
+        "building": "yes",
+        "building:levels": "3",
+        "internet_access": "wlan",
+        "name": "Керуен",
+        "name:en": "Keruen",
+        "name:ja": "ケルエン",
+        "name:kk": "Керуен",
+        "name:ru": "Керуен",
+        "shop": "mall",
+        "toilets:wheelchair": "yes",
+        "wheelchair": "yes"
+      },
+      "center": {
+        "lat": 51.127790149999996,
+        "lon": 71.42530995
+      }
+    },
+    {
+      "type": "way",
+      "id": 230358847,
+      "tags": {
+        "addr:city": "Астана",
+        "addr:country": "KZ",
+        "addr:housenumber": "3",
+        "addr:street": "Достық көшесі",
+        "building": "yes",
+        "building:levels": "6",
+        "name": "Көрме",
+        "name:en": "Korme",
+        "name:es": "Korme",
+        "name:ru": "Корме",
+        "toilets:wheelchair": "no",
+        "tourism": "gallery",
+        "wheelchair": "limited"
+      },
+      "center": {
+        "lat": 51.12864055,
+        "lon": 71.42037955
+      }
+    },
+    {
+      "type": "way",
+      "id": 230358854,
+      "tags": {
+        "leisure": "park",
+        "name": "Сквер"
+      },
+      "center": {
+        "lat": 51.127997,
+        "lon": 71.42357055
+      }
+    },
+    {
+      "type": "way",
+      "id": 230358855,
+      "tags": {
+        "addr:city": "Астана",
+        "addr:country": "KZ",
+        "addr:housenumber": "11",
+        "addr:street": "Достық көшесі",
+        "amenity": "library",
+        "building": "yes",
+        "building:levels": "3",
+        "name": "Қазақстан Республикасының Ұлттық академиялық кітапханасы",
+        "name:en": "National Academic Library of Republic of Kazakhstan",
+        "name:ru": "Национальная академическая библиотека Республики Казахстан"
+      },
+      "center": {
+        "lat": 51.1272145,
+        "lon": 71.4271515
+      }
+    },
+    {
+      "type": "way",
+      "id": 230401645,
+      "tags": {
+        "access": "yes",
+        "addr:city": "Астана",
+        "addr:country": "KZ",
+        "addr:housenumber": "14",
+        "addr:street": "Нұржол желек жолы",
+        "building": "yes",
+        "building:levels": "27",
+        "historic": "monument",
+        "layer": "1",
+        "name": "Бәйтерек",
+        "name:de": "Bajterek-Turm",
+        "name:en": "Bayterek",
+        "name:ja": "バイテレック・タワー・タワー",
+        "name:kk": "Бәйтерек",
+        "name:ml": "ബൈറ്റെറെക് ടവർ",
+        "name:ru": "Байтерек",
+        "wikidata": "Q804210",
+        "wikipedia": "kk:Бәйтерек (монумент)",
+        "wikipedia:ru": "ru:Байтерек (монумент)"
+      },
+      "center": {
+        "lat": 51.12828825,
+        "lon": 71.4304546
+      }
+    },
+    {
+      "type": "way",
+      "id": 243041609,
+      "tags": {
+        "leisure": "park",
+        "name": "Арай саябағы",
+        "name:ru": "Парк Арай"
+      },
+      "center": {
+        "lat": 51.13393935,
+        "lon": 71.4437521
+      }
+    },
+    {
+      "type": "way",
+      "id": 258818058,
+      "tags": {
+        "leisure": "garden"
+      },
+      "center": {
+        "lat": 51.1281729,
+        "lon": 71.43113579999999
+      }
+    },
+    {
+      "type": "way",
+      "id": 258818059,
+      "tags": {
+        "leisure": "garden"
+      },
+      "center": {
+        "lat": 51.1283882,
+        "lon": 71.42979084999999
+      }
+    },
+    {
+      "type": "way",
+      "id": 258818060,
+      "tags": {
+        "leisure": "garden"
+      },
+      "center": {
+        "lat": 51.1276351,
+        "lon": 71.4308149
+      }
+    },
+    {
+      "type": "way",
+      "id": 258818061,
+      "tags": {
+        "leisure": "garden"
+      },
+      "center": {
+        "lat": 51.1287708,
+        "lon": 71.43122805
+      }
+    },
+    {
+      "type": "way",
+      "id": 258818062,
+      "tags": {
+        "leisure": "garden"
+      },
+      "center": {
+        "lat": 51.12893805,
+        "lon": 71.43011265
+      }
+    },
+    {
+      "type": "way",
+      "id": 258818063,
+      "tags": {
+        "leisure": "garden"
+      },
+      "center": {
+        "lat": 51.12780665,
+        "lon": 71.42970755
+      }
+    },
+    {
+      "type": "way",
+      "id": 609969185,
+      "tags": {
+        "leisure": "park"
+      },
+      "center": {
+        "lat": 51.122451850000004,
+        "lon": 71.43849735
+      }
+    },
+    {
+      "type": "way",
+      "id": 609969233,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.12603165,
+        "lon": 71.4365836
+      }
+    },
+    {
+      "type": "way",
+      "id": 610182662,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.13636605,
+        "lon": 71.4224333
+      }
+    },
+    {
+      "type": "way",
+      "id": 628842643,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.1372126,
+        "lon": 71.43877565
+      }
+    },
+    {
+      "type": "way",
+      "id": 674088598,
+      "tags": {
+        "leisure": "garden",
+        "source:geometry": "Bing Aerial Imagery"
+      },
+      "center": {
+        "lat": 51.12813545,
+        "lon": 71.43860535
+      }
+    },
+    {
+      "type": "way",
+      "id": 734514013,
+      "tags": {
+        "int_name": "Sızıqtıq sayabaq",
+        "leisure": "park",
+        "name": "Сызықтық саябақ",
+        "name:kk": "Сызықтық саябақ",
+        "name:ru": "Линейный парк"
+      },
+      "center": {
+        "lat": 51.118568100000005,
+        "lon": 71.4266471
+      }
+    },
+    {
+      "type": "way",
+      "id": 762780007,
+      "tags": {
+        "addr:city": "Астана",
+        "addr:country": "KZ",
+        "addr:housenumber": "60/5",
+        "addr:street": "Сығанақ көшесі",
+        "building": "yes",
+        "building:colour": "#48596a",
+        "building:levels": "2",
+        "building:material": "glass",
+        "layer": "1",
+        "name": "Abu Dhabi Plaza",
+        "opening_hours": "Mo-Su 10:00-22:00",
+        "operator": "Aldar Properties",
+        "roof:colour": "#c7c7c7",
+        "shop": "mall",
+        "wikidata": "Q1073433",
+        "wikipedia": "en:Abu Dhabi Plaza"
+      },
+      "center": {
+        "lat": 51.1219718,
+        "lon": 71.4279322
+      }
+    },
+    {
+      "type": "way",
+      "id": 1422579155,
+      "tags": {
+        "leisure": "garden"
+      },
+      "center": {
+        "lat": 51.1277221,
+        "lon": 71.42993820000001
+      }
+    },
+    {
+      "type": "way",
+      "id": 1422579156,
+      "tags": {
+        "leisure": "garden"
+      },
+      "center": {
+        "lat": 51.127642550000004,
+        "lon": 71.43047245
+      }
+    },
+    {
+      "type": "way",
+      "id": 1422579157,
+      "tags": {
+        "leisure": "garden"
+      },
+      "center": {
+        "lat": 51.12885285,
+        "lon": 71.4310007
+      }
+    },
+    {
+      "type": "way",
+      "id": 1422579158,
+      "tags": {
+        "leisure": "garden"
+      },
+      "center": {
+        "lat": 51.12893255,
+        "lon": 71.430455
+      }
+    },
+    {
+      "type": "way",
+      "id": 1422579159,
+      "tags": {
+        "leisure": "garden"
+      },
+      "center": {
+        "lat": 51.13015095,
+        "lon": 71.43152945
+      }
+    },
+    {
+      "type": "way",
+      "id": 1422579160,
+      "tags": {
+        "leisure": "garden"
+      },
+      "center": {
+        "lat": 51.130270249999995,
+        "lon": 71.43084214999999
+      }
+    },
+    {
+      "type": "way",
+      "id": 1422579161,
+      "tags": {
+        "leisure": "garden"
+      },
+      "center": {
+        "lat": 51.12992785,
+        "lon": 71.43077765
+      }
+    },
+    {
+      "type": "way",
+      "id": 1422579162,
+      "tags": {
+        "leisure": "garden"
+      },
+      "center": {
+        "lat": 51.12982905,
+        "lon": 71.43139195
+      }
+    },
+    {
+      "type": "way",
+      "id": 1422579163,
+      "tags": {
+        "leisure": "garden"
+      },
+      "center": {
+        "lat": 51.1295442,
+        "lon": 71.43128815
+      }
+    },
+    {
+      "type": "way",
+      "id": 1422579164,
+      "tags": {
+        "leisure": "garden"
+      },
+      "center": {
+        "lat": 51.1296561,
+        "lon": 71.4306618
+      }
+    },
+    {
+      "type": "way",
+      "id": 1422579165,
+      "tags": {
+        "leisure": "garden"
+      },
+      "center": {
+        "lat": 51.1293673,
+        "lon": 71.43055765
+      }
+    },
+    {
+      "type": "way",
+      "id": 1422579166,
+      "tags": {
+        "leisure": "garden"
+      },
+      "center": {
+        "lat": 51.1292688,
+        "lon": 71.4311736
+      }
+    },
+    {
+      "type": "way",
+      "id": 1490254180,
+      "tags": {
+        "leisure": "garden"
+      },
+      "center": {
+        "lat": 51.12730635,
+        "lon": 71.42974670000001
+      }
+    },
+    {
+      "type": "way",
+      "id": 1490254182,
+      "tags": {
+        "leisure": "garden"
+      },
+      "center": {
+        "lat": 51.1270191,
+        "lon": 71.4296178
+      }
+    },
+    {
+      "type": "way",
+      "id": 1490254183,
+      "tags": {
+        "leisure": "garden"
+      },
+      "center": {
+        "lat": 51.1267354,
+        "lon": 71.42950485
+      }
+    },
+    {
+      "type": "way",
+      "id": 1490254184,
+      "tags": {
+        "leisure": "garden"
+      },
+      "center": {
+        "lat": 51.126502,
+        "lon": 71.42940254999999
+      }
+    },
+    {
+      "type": "way",
+      "id": 1490254191,
+      "tags": {
+        "leisure": "garden"
+      },
+      "center": {
+        "lat": 51.12640315,
+        "lon": 71.4300859
+      }
+    },
+    {
+      "type": "way",
+      "id": 1490254193,
+      "tags": {
+        "leisure": "garden"
+      },
+      "center": {
+        "lat": 51.12664495,
+        "lon": 71.4301385
+      }
+    },
+    {
+      "type": "way",
+      "id": 1490254194,
+      "tags": {
+        "leisure": "garden"
+      },
+      "center": {
+        "lat": 51.12691275,
+        "lon": 71.43025259999999
+      }
+    },
+    {
+      "type": "way",
+      "id": 1490254195,
+      "tags": {
+        "leisure": "garden"
+      },
+      "center": {
+        "lat": 51.1272046,
+        "lon": 71.43035764999999
+      }
+    },
+    {
+      "type": "way",
+      "id": 1510554097,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.12497965,
+        "lon": 71.42627145
+      }
+    },
+    {
+      "type": "way",
+      "id": 1510554098,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.125828999999996,
+        "lon": 71.42613610000001
+      }
+    },
+    {
+      "type": "way",
+      "id": 1510554100,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.1255654,
+        "lon": 71.42649420000001
+      }
+    },
+    {
+      "type": "way",
+      "id": 1527868526,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.1198933,
+        "lon": 71.42804875
+      }
+    },
+    {
+      "type": "way",
+      "id": 1530378837,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.121034800000004,
+        "lon": 71.43059794999999
+      }
+    },
+    {
+      "type": "way",
+      "id": 1530378839,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.120901,
+        "lon": 71.43156364999999
+      }
+    },
+    {
+      "type": "way",
+      "id": 1530378843,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.1227648,
+        "lon": 71.42340525
+      }
+    },
+    {
+      "type": "way",
+      "id": 1530378859,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.1264594,
+        "lon": 71.43372719999999
+      }
+    },
+    {
+      "type": "way",
+      "id": 1530378860,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.12674355,
+        "lon": 71.43325395
+      }
+    },
+    {
+      "type": "relation",
+      "id": 19990578,
+      "tags": {
+        "leisure": "playground",
+        "type": "multipolygon"
+      },
+      "center": {
+        "lat": 51.126274699999996,
+        "lon": 71.43470199999999
+      }
+    },
+    {
+      "type": "relation",
+      "id": 21213420,
+      "tags": {
+        "leisure": "playground",
+        "type": "multipolygon"
+      },
+      "center": {
+        "lat": 51.1281751,
+        "lon": 71.42336764999999
+      }
+    },
+    {
+      "type": "relation",
+      "id": 21213421,
+      "tags": {
+        "leisure": "playground",
+        "type": "multipolygon"
+      },
+      "center": {
+        "lat": 51.128189649999996,
+        "lon": 71.42395485
+      }
+    },
+    {
+      "type": "node",
+      "id": 1278114185,
+      "tags": {
+        "historic": "memorial",
+        "memorial": "statue",
+        "name": "Кенесары хан"
+      },
+      "lat": 51.1604981,
+      "lon": 71.4240851
+    },
+    {
+      "type": "node",
+      "id": 1843876240,
+      "tags": {
+        "amenity": "restaurant",
+        "cuisine": "regional",
+        "name": "Фархи"
+      },
+      "lat": 51.1623558,
+      "lon": 71.4231817
+    },
+    {
+      "type": "node",
+      "id": 1843876263,
+      "tags": {
+        "amenity": "cafe",
+        "name": "Rafe"
+      },
+      "lat": 51.1624911,
+      "lon": 71.4239556
+    },
+    {
+      "type": "node",
+      "id": 2158757218,
+      "tags": {
+        "amenity": "cafe",
+        "name": "Ямайка"
+      },
+      "lat": 51.1678676,
+      "lon": 71.4176932
+    },
+    {
+      "type": "node",
+      "id": 2349679958,
+      "tags": {
+        "historic": "memorial",
+        "memorial": "statue",
+        "name": "С. Сейфуллин",
+        "name:kk": "С. Сейфуллин",
+        "name:ru": "С. Сейфуллину"
+      },
+      "lat": 51.1715412,
+      "lon": 71.4239674
+    },
+    {
+      "type": "node",
+      "id": 2389981591,
+      "tags": {
+        "amenity": "restaurant",
+        "cuisine": "regional;local",
+        "internet_access": "wlan",
+        "name": "Turfan",
+        "name:kk": "Турфан",
+        "name:ru": "Турфан",
+        "opening_hours": "Mo-Su 11:00-23:00"
+      },
+      "lat": 51.160515,
+      "lon": 71.4247196
+    },
+    {
+      "type": "node",
+      "id": 2638206825,
+      "tags": {
+        "amenity": "cafe",
+        "name": "Мангал",
+        "opening_hours": "Mo-Su 13:00-24:00"
+      },
+      "lat": 51.1719293,
+      "lon": 71.4283431
+    },
+    {
+      "type": "node",
+      "id": 2712544129,
+      "tags": {
+        "historic": "monument",
+        "name": "Памятник \"Жанибек и Керей хандары\"",
+        "name:kk": "Жәнібек пен Керей хандар ескерткіші"
+      },
+      "lat": 51.1664322,
+      "lon": 71.4169499
+    },
+    {
+      "type": "node",
+      "id": 2826095151,
+      "tags": {
+        "amenity": "cafe",
+        "indoor_seating": "yes",
+        "name": "Panda Lamian",
+        "opening_hours": "09:00-06:00",
+        "outdoor_seating": "no",
+        "smoking": "outside",
+        "wheelchair": "yes"
+      },
+      "lat": 51.1689014,
+      "lon": 71.4084238
+    },
+    {
+      "type": "node",
+      "id": 3743119878,
+      "tags": {
+        "historic": "memorial",
+        "memorial": "statue",
+        "name": "А. Құнанбайұлы",
+        "name:ru": "А. Кунанбайулы"
+      },
+      "lat": 51.1679151,
+      "lon": 71.420358
+    },
+    {
+      "type": "node",
+      "id": 3824846563,
+      "tags": {
+        "amenity": "arts_centre",
+        "check_date": "2025-04-12",
+        "name": "Органный зал Национальной академии музыки РК",
+        "wheelchair": "yes"
+      },
+      "lat": 51.1738815,
+      "lon": 71.4110111
+    },
+    {
+      "type": "node",
+      "id": 4106957689,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Bolognese",
+        "opening_hours": "Mo-Su 12:00-00:00"
+      },
+      "lat": 51.1677941,
+      "lon": 71.4171277
+    },
+    {
+      "type": "node",
+      "id": 4109068594,
+      "tags": {
+        "historic": "memorial",
+        "memorial": "statue",
+        "name": "Айтеке-би, Казыбек-би и Толе-би"
+      },
+      "lat": 51.1695299,
+      "lon": 71.4208049
+    },
+    {
+      "type": "node",
+      "id": 4113550330,
+      "tags": {
+        "historic": "memorial",
+        "memorial": "sculpture",
+        "name": "Памятник жертвам голодомора"
+      },
+      "lat": 51.1686561,
+      "lon": 71.4256941
+    },
+    {
+      "type": "node",
+      "id": 4207115191,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "french",
+        "internet_access": "wlan",
+        "name": "Пекарня Мишеля"
+      },
+      "lat": 51.1620143,
+      "lon": 71.4183997
+    },
+    {
+      "type": "node",
+      "id": 4246528694,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Pivovaroff"
+      },
+      "lat": 51.1738894,
+      "lon": 71.4198549
+    },
+    {
+      "type": "node",
+      "id": 4286102095,
+      "tags": {
+        "air_conditioning": "yes",
+        "amenity": "restaurant",
+        "check_date": "2025-04-19",
+        "check_date:toilets:wheelchair": "2025-04-19",
+        "indoor_seating": "yes",
+        "name": "Coffee BOOM",
+        "opening_hours": "Mo-Su 08:00-24:00",
+        "outdoor_seating": "no",
+        "smoking": "no",
+        "toilets": "yes",
+        "toilets:wheelchair": "no",
+        "wheelchair": "limited"
+      },
+      "lat": 51.1638848,
+      "lon": 71.4169176
+    },
+    {
+      "type": "node",
+      "id": 4499897795,
+      "tags": {
+        "amenity": "cafe",
+        "indoor_seating": "yes",
+        "name": "Рыба моей мечты",
+        "outdoor_seating": "no"
+      },
+      "lat": 51.173011,
+      "lon": 71.419872
+    },
+    {
+      "type": "node",
+      "id": 4529345494,
+      "tags": {
+        "name": "Студия 1337",
+        "name:en": "1337 Studio",
+        "name:ru": "Студия 1337",
+        "opening_hours": "24/7",
+        "tourism": "attraction"
+      },
+      "lat": 51.1723394,
+      "lon": 71.4142276
+    },
+    {
+      "type": "node",
+      "id": 4624217690,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Бистро Коктем",
+        "name:en": "Bistro Köktem",
+        "name:ru": "Бистро Коктем",
+        "wheelchair": "yes"
+      },
+      "lat": 51.1638752,
+      "lon": 71.4227548
+    },
+    {
+      "type": "node",
+      "id": 4713010890,
+      "tags": {
+        "amenity": "restaurant",
+        "cuisine": "italian_pizza",
+        "internet_access": "wlan",
+        "name": "Траттория",
+        "name:en": "TRATTORIA pizza",
+        "name:ru": "Траттория",
+        "opening_hours": "Mo-Su 10:00-23:00"
+      },
+      "lat": 51.1698522,
+      "lon": 71.4171027
+    },
+    {
+      "type": "node",
+      "id": 4913160607,
+      "tags": {
+        "amenity": "restaurant",
+        "check_date:opening_hours": "2024-07-27",
+        "indoor_seating": "yes",
+        "name": "Меруерт",
+        "opening_hours:signed": "no",
+        "outdoor_seating": "yes",
+        "wheelchair": "yes"
+      },
+      "lat": 51.1629057,
+      "lon": 71.4275426
+    },
+    {
+      "type": "node",
+      "id": 4916363251,
+      "tags": {
+        "amenity": "arts_centre",
+        "name": "Е. Рахмадиев атындағы Мемлекеттік академиялық филармония",
+        "name:ru": "Государственная академическая филармония им. Е. Рахмадиева"
+      },
+      "lat": 51.1636794,
+      "lon": 71.4223498
+    },
+    {
+      "type": "node",
+      "id": 4920065767,
+      "tags": {
+        "name": "Торговый дом Азат",
+        "opening_hours": "Mo-Su 10:00-20:00",
+        "shop": "mall",
+        "wheelchair": "yes"
+      },
+      "lat": 51.1704213,
+      "lon": 71.4122265
+    },
+    {
+      "type": "node",
+      "id": 4920075760,
+      "tags": {
+        "amenity": "cafe",
+        "indoor_seating": "yes",
+        "name": "Гурман",
+        "opening_hours": "Mo-Su,PH 08:00-01:00",
+        "outdoor_seating": "no",
+        "wheelchair": "yes"
+      },
+      "lat": 51.1696266,
+      "lon": 71.4083406
+    },
+    {
+      "type": "node",
+      "id": 4922406025,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Astana-Nury",
+        "name:kk": "Astana-Nury"
+      },
+      "lat": 51.1571953,
+      "lon": 71.42725
+    },
+    {
+      "type": "node",
+      "id": 4928350097,
+      "tags": {
+        "amenity": "cafe",
+        "indoor_seating": "yes",
+        "name": "Хиты ХХ века",
+        "opening_hours": "Tu-Su 19:00-06:00; Mo off",
+        "outdoor_seating": "no",
+        "wheelchair": "yes"
+      },
+      "lat": 51.1718642,
+      "lon": 71.4201598
+    },
+    {
+      "type": "node",
+      "id": 5074875221,
+      "tags": {
+        "amenity": "cafe",
+        "name:en": "Espresso Bar"
+      },
+      "lat": 51.1633098,
+      "lon": 71.4255601
+    },
+    {
+      "type": "node",
+      "id": 5077232622,
+      "tags": {
+        "amenity": "cafe",
+        "check_date:opening_hours": "2025-07-02",
+        "indoor_seating": "yes",
+        "name": "Amore Mio",
+        "opening_hours:signed": "no",
+        "outdoor_seating": "no",
+        "wheelchair": "no"
+      },
+      "lat": 51.1692226,
+      "lon": 71.4184717
+    },
+    {
+      "type": "node",
+      "id": 5244218857,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "pizza;sushi",
+        "name": "Сладкая Сказка"
+      },
+      "lat": 51.1597539,
+      "lon": 71.4293108
+    },
+    {
+      "type": "node",
+      "id": 5767712053,
+      "tags": {
+        "leisure": "playground"
+      },
+      "lat": 51.1552625,
+      "lon": 71.4283188
+    },
+    {
+      "type": "node",
+      "id": 5767712153,
+      "tags": {
+        "leisure": "playground"
+      },
+      "lat": 51.1553572,
+      "lon": 71.4282911
+    },
+    {
+      "type": "node",
+      "id": 5866018459,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Демалыс"
+      },
+      "lat": 51.1582681,
+      "lon": 71.4216068
+    },
+    {
+      "type": "node",
+      "id": 5889720185,
+      "tags": {
+        "amenity": "cafe",
+        "brand": "Costa",
+        "brand:wikidata": "Q608845",
+        "cuisine": "coffee_shop",
+        "indoor_seating": "yes",
+        "name": "Costa",
+        "opening_hours": "Mo-Su 08:00-22:00",
+        "outdoor_seating": "yes",
+        "takeaway": "yes"
+      },
+      "lat": 51.1597436,
+      "lon": 71.4285152
+    },
+    {
+      "type": "node",
+      "id": 5889814892,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Жагалау"
+      },
+      "lat": 51.1617496,
+      "lon": 71.4203975
+    },
+    {
+      "type": "node",
+      "id": 5889815192,
+      "tags": {
+        "amenity": "cafe",
+        "name": "Чили гриль"
+      },
+      "lat": 51.1618003,
+      "lon": 71.419618
+    },
+    {
+      "type": "node",
+      "id": 5890018687,
+      "tags": {
+        "amenity": "cafe",
+        "check_date:opening_hours": "2024-07-19",
+        "indoor_seating": "yes",
+        "name": "Столичная столовая",
+        "opening_hours:signed": "no",
+        "outdoor_seating": "no",
+        "wheelchair": "yes"
+      },
+      "lat": 51.1648691,
+      "lon": 71.4146694
+    },
+    {
+      "type": "node",
+      "id": 5890018987,
+      "tags": {
+        "air_conditioning": "yes",
+        "amenity": "cafe",
+        "indoor_seating": "yes",
+        "name": "Незнакомка",
+        "opening_hours": "Mo-Su 12:00-00:00",
+        "outdoor_seating": "no",
+        "wheelchair": "no"
+      },
+      "lat": 51.168938,
+      "lon": 71.4127041
+    },
+    {
+      "type": "node",
+      "id": 5890019985,
+      "tags": {
+        "air_conditioning": "yes",
+        "amenity": "cafe",
+        "check_date": "2023-01-21",
+        "cuisine": "korean;pizza;sushi",
+        "internet_access": "no",
+        "name": "Sushifox",
+        "name:kk": "Суши фокс",
+        "opening_hours": "11:00-23:00",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes"
+      },
+      "lat": 51.1669207,
+      "lon": 71.4123803
+    },
+    {
+      "type": "node",
+      "id": 5890156991,
+      "tags": {
+        "amenity": "restaurant",
+        "check_date": "2024-07-28",
+        "check_date:opening_hours": "2024-07-28",
+        "cuisine": "chicken;regional;russian",
+        "internet_access": "no",
+        "name": "Избушка",
+        "opening_hours": "Mo-Su 08:00-00:00",
+        "opening_hours:signed": "no",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes"
+      },
+      "lat": 51.1617944,
+      "lon": 71.4189552
+    },
+    {
+      "type": "node",
+      "id": 5890174288,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Fuller's Pub"
+      },
+      "lat": 51.1623207,
+      "lon": 71.4205834
+    },
+    {
+      "type": "node",
+      "id": 5890174289,
+      "tags": {
+        "leisure": "playground"
+      },
+      "lat": 51.1616068,
+      "lon": 71.4221111
+    },
+    {
+      "type": "node",
+      "id": 5890179089,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Самовар",
+        "opening_hours": "Mo-Su 10:00-02:00"
+      },
+      "lat": 51.164014,
+      "lon": 71.4179372
+    },
+    {
+      "type": "node",
+      "id": 5890195286,
+      "tags": {
+        "amenity": "restaurant",
+        "indoor_seating": "yes",
+        "name": "Рио",
+        "opening_hours": "Mo-Su 12:00-00:00",
+        "outdoor_seating": "no",
+        "wheelchair": "yes"
+      },
+      "lat": 51.1639134,
+      "lon": 71.4207311
+    },
+    {
+      "type": "node",
+      "id": 5966356086,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Lavash food",
+        "opening_hours": "Tu-Su 12:00-00:00; Mo 14:00-00:00"
+      },
+      "lat": 51.1629866,
+      "lon": 71.4240582
+    },
+    {
+      "type": "node",
+      "id": 5966393585,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Lugano"
+      },
+      "lat": 51.1685757,
+      "lon": 71.425229
+    },
+    {
+      "type": "node",
+      "id": 7142226485,
+      "tags": {
+        "historic": "monument",
+        "name": "М. Мәметова",
+        "name:kk": "М. Мәметова",
+        "name:ru": "М. Маметовой"
+      },
+      "lat": 51.1747187,
+      "lon": 71.4120391
+    },
+    {
+      "type": "node",
+      "id": 7149180388,
+      "tags": {
+        "historic": "monument",
+        "name": "Мемориал Великой Отечественной войны"
+      },
+      "lat": 51.1747138,
+      "lon": 71.4106272
+    },
+    {
+      "type": "node",
+      "id": 10064384671,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Del Papa",
+        "name:en": "Del Papa",
+        "opening_hours": "Fr-Sa 11:00-01:00; Mo-Th,Su 11:00-24:00",
+        "operator": "\"Del Papa\""
+      },
+      "lat": 51.1603117,
+      "lon": 71.429522
+    },
+    {
+      "type": "node",
+      "id": 10064384681,
+      "tags": {
+        "amenity": "restaurant",
+        "indoor_seating": "yes",
+        "name": "Дареджани",
+        "name:en": "Daredzhani",
+        "opening_hours": "Fr-Sa 10:00-01:00; Mo-Th,Su 10:00-24:00",
+        "operator": "Дареджани",
+        "outdoor_seating": "yes"
+      },
+      "lat": 51.161681,
+      "lon": 71.427725
+    },
+    {
+      "type": "node",
+      "id": 10295608316,
+      "tags": {
+        "amenity": "cafe",
+        "check_date": "2024-07-19",
+        "check_date:opening_hours": "2024-07-19",
+        "delivery": "yes",
+        "indoor_seating": "yes",
+        "name": "Coffee BOOM",
+        "name:kk": "Кофе бум",
+        "opening_hours": "08:00-24:00",
+        "outdoor_seating": "no",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes",
+        "reservation": "no",
+        "wheelchair": "no"
+      },
+      "lat": 51.1733913,
+      "lon": 71.4123132
+    },
+    {
+      "type": "node",
+      "id": 11149613015,
+      "tags": {
+        "amenity": "cafe",
+        "check_date": "2023-08-25",
+        "indoor_seating": "yes",
+        "name": "Еда города",
+        "opening_hours": "PH,Mo-Su 10:00-22:00",
+        "outdoor_seating": "no"
+      },
+      "lat": 51.168755,
+      "lon": 71.4078065
+    },
+    {
+      "type": "node",
+      "id": 11171945111,
+      "tags": {
+        "amenity": "cafe",
+        "check_date": "2023-09-06",
+        "indoor_seating": "yes",
+        "name": "SF",
+        "opening_hours": "24/7",
+        "outdoor_seating": "yes",
+        "wheelchair": "no"
+      },
+      "lat": 51.1681165,
+      "lon": 71.412983
+    },
+    {
+      "type": "node",
+      "id": 12093501445,
+      "tags": {
+        "amenity": "cafe",
+        "indoor_seating": "yes",
+        "name": "Zefir coffee",
+        "outdoor_seating": "yes"
+      },
+      "lat": 51.1722975,
+      "lon": 71.4127201
+    },
+    {
+      "type": "node",
+      "id": 12095545748,
+      "tags": {
+        "amenity": "cafe",
+        "name": "Qazaq coffee"
+      },
+      "lat": 51.1687273,
+      "lon": 71.4047151
+    },
+    {
+      "type": "node",
+      "id": 12095556432,
+      "tags": {
+        "amenity": "cafe",
+        "indoor_seating": "yes",
+        "name": "Dodo pizza",
+        "opening_hours": "Mo-Su 09:00-24:00",
+        "outdoor_seating": "no",
+        "wheelchair": "yes"
+      },
+      "lat": 51.1752792,
+      "lon": 71.4098905
+    },
+    {
+      "type": "node",
+      "id": 12101883884,
+      "tags": {
+        "amenity": "cafe",
+        "check_date:opening_hours": "2024-09-01",
+        "indoor_seating": "yes",
+        "name": "Манат",
+        "opening_hours:signed": "no",
+        "outdoor_seating": "no",
+        "wheelchair": "no"
+      },
+      "lat": 51.1706271,
+      "lon": 71.4147403
+    },
+    {
+      "type": "node",
+      "id": 12135824881,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "indoor_seating": "yes",
+        "name": "Moment coffee",
+        "outdoor_seating": "yes"
+      },
+      "lat": 51.1613972,
+      "lon": 71.4180679
+    },
+    {
+      "type": "node",
+      "id": 12135831824,
+      "tags": {
+        "amenity": "cafe",
+        "indoor_seating": "yes",
+        "name": "Sazan",
+        "outdoor_seating": "no"
+      },
+      "lat": 51.1640045,
+      "lon": 71.4176023
+    },
+    {
+      "type": "node",
+      "id": 12135832778,
+      "tags": {
+        "amenity": "cafe",
+        "name": "PizBurg"
+      },
+      "lat": 51.1573571,
+      "lon": 71.4194573
+    },
+    {
+      "type": "node",
+      "id": 12135837813,
+      "tags": {
+        "amenity": "cafe"
+      },
+      "lat": 51.1623565,
+      "lon": 71.4181976
+    },
+    {
+      "type": "node",
+      "id": 12135856708,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "indoor_seating": "yes",
+        "name": "Coffee Hub",
+        "outdoor_seating": "yes"
+      },
+      "lat": 51.1639767,
+      "lon": 71.4175268
+    },
+    {
+      "type": "node",
+      "id": 12145940573,
+      "tags": {
+        "historic": "memorial",
+        "memorial": "statue"
+      },
+      "lat": 51.1747119,
+      "lon": 71.4106202
+    },
+    {
+      "type": "node",
+      "id": 12146103477,
+      "tags": {
+        "air_conditioning": "yes",
+        "amenity": "cafe",
+        "check_date:opening_hours": "2025-04-11",
+        "indoor_seating": "yes",
+        "name": "Tez besh",
+        "opening_hours:signed": "no",
+        "outdoor_seating": "yes",
+        "smoking": "outside"
+      },
+      "lat": 51.1589604,
+      "lon": 71.4287741
+    },
+    {
+      "type": "node",
+      "id": 12146103478,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "indoor_seating": "yes",
+        "name": "Central pizza & coffee",
+        "outdoor_seating": "yes"
+      },
+      "lat": 51.1590561,
+      "lon": 71.4287385
+    },
+    {
+      "type": "node",
+      "id": 12744521222,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "bubble_tea",
+        "indoor_seating": "yes",
+        "name": "Boba",
+        "opening_hours": "Mo-Su 11:00-22:00",
+        "outdoor_seating": "no",
+        "wheelchair": "yes"
+      },
+      "lat": 51.1637745,
+      "lon": 71.4170517
+    },
+    {
+      "type": "node",
+      "id": 12744521223,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "indoor_seating": "yes",
+        "name": "Master Coffee",
+        "opening_hours": "Mo-Fr 07:14-23:00; Sa,Su,PH 08:14-23:00",
+        "outdoor_seating": "no",
+        "wheelchair": "yes"
+      },
+      "lat": 51.1636673,
+      "lon": 71.4170854
+    },
+    {
+      "type": "node",
+      "id": 12747390104,
+      "tags": {
+        "amenity": "cafe",
+        "branch": "Zanett",
+        "brand": "Segafredo",
+        "brand:wikidata": "Q21282762",
+        "cuisine": "coffee_shop",
+        "name": "Segafredo",
+        "takeaway": "yes"
+      },
+      "lat": 51.1625421,
+      "lon": 71.4108779
+    },
+    {
+      "type": "node",
+      "id": 12809042306,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "indoor_seating": "yes",
+        "internet_access": "wlan",
+        "internet_access:fee": "no",
+        "name": "Coffee BOOM",
+        "opening_hours": "Mo-Su 08:00-23:00",
+        "outdoor_seating": "no",
+        "payment:kaspi_qr": "yes",
+        "payment:kaspi_red": "yes",
+        "wheelchair": "yes"
+      },
+      "lat": 51.1598435,
+      "lon": 71.4298138
+    },
+    {
+      "type": "node",
+      "id": 12876977238,
+      "tags": {
+        "amenity": "cafe",
+        "indoor_seating": "yes",
+        "name": "Ma Famille French Cafe",
+        "outdoor_seating": "yes"
+      },
+      "lat": 51.1643026,
+      "lon": 71.4200215
+    },
+    {
+      "type": "node",
+      "id": 12896556565,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "name": "Vanil' Coffee"
+      },
+      "lat": 51.1730113,
+      "lon": 71.4066821
+    },
+    {
+      "type": "node",
+      "id": 12896579454,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "name": "La Belle"
+      },
+      "lat": 51.1718486,
+      "lon": 71.4069916
+    },
+    {
+      "type": "node",
+      "id": 12896585187,
+      "tags": {
+        "historic": "memorial",
+        "memorial": "bust"
+      },
+      "lat": 51.1706983,
+      "lon": 71.4070029
+    },
+    {
+      "type": "node",
+      "id": 12896611717,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "indoor_seating": "yes",
+        "name": "Coffee Way",
+        "outdoor_seating": "no"
+      },
+      "lat": 51.1748239,
+      "lon": 71.4063542
+    },
+    {
+      "type": "node",
+      "id": 12896623405,
+      "tags": {
+        "amenity": "cafe",
+        "check_date:opening_hours": "2025-06-08",
+        "indoor_seating": "yes",
+        "name": "Durum",
+        "opening_hours:signed": "no",
+        "outdoor_seating": "no",
+        "wheelchair": "limited"
+      },
+      "lat": 51.167479,
+      "lon": 71.408862
+    },
+    {
+      "type": "node",
+      "id": 12917088083,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "indoor_seating": "yes",
+        "name": "Baton coffee",
+        "outdoor_seating": "yes"
+      },
+      "lat": 51.1656088,
+      "lon": 71.4145469
+    },
+    {
+      "type": "node",
+      "id": 12917093975,
+      "tags": {
+        "amenity": "cafe",
+        "indoor_seating": "yes",
+        "name": "Дружба",
+        "outdoor_seating": "no"
+      },
+      "lat": 51.1630938,
+      "lon": 71.4210911
+    },
+    {
+      "type": "node",
+      "id": 12917106289,
+      "tags": {
+        "amenity": "cafe",
+        "indoor_seating": "yes",
+        "name": "Точка",
+        "outdoor_seating": "yes"
+      },
+      "lat": 51.1641016,
+      "lon": 71.4207113
+    },
+    {
+      "type": "node",
+      "id": 12917106648,
+      "tags": {
+        "amenity": "cafe",
+        "name": "#Забери с собой"
+      },
+      "lat": 51.1733806,
+      "lon": 71.4074535
+    },
+    {
+      "type": "node",
+      "id": 12917107318,
+      "tags": {
+        "amenity": "cafe",
+        "name": "EzHub"
+      },
+      "lat": 51.1624421,
+      "lon": 71.4078552
+    },
+    {
+      "type": "node",
+      "id": 12919520489,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "indoor_seating": "yes",
+        "name": "Зеленая чашка",
+        "opening_hours": "Mo-Su 07:30-22:00",
+        "outdoor_seating": "no",
+        "wheelchair": "no"
+      },
+      "lat": 51.1726842,
+      "lon": 71.4198338
+    },
+    {
+      "type": "node",
+      "id": 12919553164,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "indoor_seating": "yes",
+        "name": "Discovery Coffee",
+        "opening_hours": "Mo-Sa 08:00-24:00, Su 10:00-24:00",
+        "outdoor_seating": "yes",
+        "wheelchair": "yes"
+      },
+      "lat": 51.1747016,
+      "lon": 71.418438
+    },
+    {
+      "type": "node",
+      "id": 12947062984,
+      "tags": {
+        "amenity": "cafe",
+        "check_date:opening_hours": "2025-06-16",
+        "indoor_seating": "yes",
+        "name": "Asia mix",
+        "opening_hours:signed": "no",
+        "outdoor_seating": "no"
+      },
+      "lat": 51.1721341,
+      "lon": 71.4149766
+    },
+    {
+      "type": "node",
+      "id": 12973310461,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "indoor_seating": "yes",
+        "name": "Dala Coffee",
+        "outdoor_seating": "no"
+      },
+      "lat": 51.1678158,
+      "lon": 71.4233057
+    },
+    {
+      "type": "node",
+      "id": 12973341171,
+      "tags": {
+        "amenity": "cafe",
+        "name": "Аяшка"
+      },
+      "lat": 51.1589176,
+      "lon": 71.428777
+    },
+    {
+      "type": "node",
+      "id": 12973394495,
+      "tags": {
+        "amenity": "cafe",
+        "check_date:opening_hours": "2025-07-02",
+        "cuisine": "coffee_shop",
+        "indoor_seating": "yes",
+        "name": "Coffee Stories",
+        "opening_hours:signed": "no",
+        "outdoor_seating": "no",
+        "wheelchair": "limited"
+      },
+      "lat": 51.1692075,
+      "lon": 71.4183934
+    },
+    {
+      "type": "node",
+      "id": 12973408945,
+      "tags": {
+        "amenity": "restaurant",
+        "indoor_seating": "yes",
+        "name": "Uno",
+        "opening_hours": "Mo-Su 10:00-24:00",
+        "outdoor_seating": "yes",
+        "wheelchair": "yes"
+      },
+      "lat": 51.1635956,
+      "lon": 71.4106968
+    },
+    {
+      "type": "node",
+      "id": 12973410493,
+      "tags": {
+        "amenity": "restaurant",
+        "indoor_seating": "yes",
+        "name": "Асату",
+        "outdoor_seating": "yes"
+      },
+      "lat": 51.1666815,
+      "lon": 71.4091828
+    },
+    {
+      "type": "node",
+      "id": 12973411739,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "indoor_seating": "yes",
+        "name": "Zebra Coffee",
+        "opening_hours": "Mo-Su 08:00-24:00",
+        "outdoor_seating": "yes",
+        "wheelchair": "yes"
+      },
+      "lat": 51.1601864,
+      "lon": 71.4284463
+    },
+    {
+      "type": "node",
+      "id": 12973419508,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "indoor_seating": "yes",
+        "name": "Global Coffee",
+        "outdoor_seating": "no"
+      },
+      "lat": 51.1702359,
+      "lon": 71.4136175
+    },
+    {
+      "type": "node",
+      "id": 12973420129,
+      "tags": {
+        "amenity": "restaurant",
+        "indoor_seating": "yes",
+        "name": "Degirmen",
+        "opening_hours": "24/7",
+        "outdoor_seating": "yes",
+        "wheelchair": "yes"
+      },
+      "lat": 51.1629995,
+      "lon": 71.4276414
+    },
+    {
+      "type": "node",
+      "id": 12973421415,
+      "tags": {
+        "amenity": "cafe",
+        "check_date:opening_hours": "2025-07-02",
+        "cuisine": "coffee_shop",
+        "indoor_seating": "yes",
+        "name": "LatTea",
+        "opening_hours:signed": "no",
+        "outdoor_seating": "no",
+        "wheelchair": "no"
+      },
+      "lat": 51.1634818,
+      "lon": 71.4274865
+    },
+    {
+      "type": "node",
+      "id": 12973421955,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "indoor_seating": "yes",
+        "name": "Espresso Day",
+        "opening_hours": "Mo-Fr 07:00-24:00, Sa,Su 08:00-24:00",
+        "outdoor_seating": "no",
+        "wheelchair": "no"
+      },
+      "lat": 51.1642901,
+      "lon": 71.4272511
+    },
+    {
+      "type": "node",
+      "id": 12973424137,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "indoor_seating": "yes",
+        "name": "Basqur",
+        "outdoor_seating": "no"
+      },
+      "lat": 51.1589752,
+      "lon": 71.4298841
+    },
+    {
+      "type": "node",
+      "id": 12973428159,
+      "tags": {
+        "amenity": "arts_centre",
+        "name": "Artist"
+      },
+      "lat": 51.1700602,
+      "lon": 71.417062
+    },
+    {
+      "type": "node",
+      "id": 12990081601,
+      "tags": {
+        "addr:housenumber": "53",
+        "addr:street": "Жақып Омаров көшесі",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "name": "Coffee Stories"
+      },
+      "lat": 51.1692687,
+      "lon": 71.4184217
+    },
+    {
+      "type": "node",
+      "id": 12993934593,
+      "tags": {
+        "amenity": "cafe",
+        "indoor_seating": "yes",
+        "name": "ÖM",
+        "opening_hours": "Mo-Su,PH 12:00-22:00",
+        "outdoor_seating": "no",
+        "wheelchair": "no"
+      },
+      "lat": 51.1631384,
+      "lon": 71.4210714
+    },
+    {
+      "type": "node",
+      "id": 12993941023,
+      "tags": {
+        "amenity": "restaurant",
+        "indoor_seating": "yes",
+        "name": "Yessil",
+        "outdoor_seating": "no"
+      },
+      "lat": 51.1670048,
+      "lon": 71.4214842
+    },
+    {
+      "type": "node",
+      "id": 12993941564,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "indoor_seating": "yes",
+        "name": "Gold Coffee",
+        "opening_hours": "Mo-Su,PH 08:00-21:00",
+        "outdoor_seating": "no",
+        "wheelchair": "no"
+      },
+      "lat": 51.1693019,
+      "lon": 71.408925
+    },
+    {
+      "type": "node",
+      "id": 12993953677,
+      "tags": {
+        "amenity": "cafe",
+        "name": "Tagam"
+      },
+      "lat": 51.1624811,
+      "lon": 71.4077861
+    },
+    {
+      "type": "node",
+      "id": 12993958970,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "indoor_seating": "no",
+        "name": "Coffee Decaf",
+        "outdoor_seating": "no",
+        "takeaway": "only"
+      },
+      "lat": 51.1607308,
+      "lon": 71.4178093
+    },
+    {
+      "type": "node",
+      "id": 13230417216,
+      "tags": {
+        "addr:city": "Астана",
+        "addr:housenumber": "3",
+        "addr:postcode": "Z10H0X9",
+        "addr:street": "Жеңіс даңғылы",
+        "amenity": "restaurant",
+        "bar": "yes",
+        "cuisine": "european",
+        "instagram": "https://www.instagram.com/LABELLEOFFICIAL",
+        "level": "0",
+        "name": "La Belle restaurant&terrace",
+        "opening_hours": "Mo-Su 12:00-02:00",
+        "outdoor_seating": "yes",
+        "website:menu": "https://white.kz/la-belle-restaurant-terrace/"
+      },
+      "lat": 51.1603123,
+      "lon": 71.4149143
+    },
+    {
+      "type": "node",
+      "id": 13619962901,
+      "tags": {
+        "addr:housenumber": "16/2",
+        "addr:street": "проспект Республики",
+        "amenity": "cafe",
+        "cuisine": "asian;breakfast;burger;chinese;italian;japanese;local",
+        "name": "Sultani",
+        "opening_hours": "Mo-Su 08:00-05:00"
+      },
+      "lat": 51.1612111,
+      "lon": 71.4296696
+    },
+    {
+      "type": "way",
+      "id": 30614717,
+      "tags": {
+        "addr:city": "Астана",
+        "addr:country": "KZ",
+        "addr:housenumber": "40",
+        "addr:street": "Сарыарқа даңғылы",
+        "amenity": "restaurant",
+        "building": "yes",
+        "building:levels": "2",
+        "indoor_seating": "yes",
+        "name": "Turandot",
+        "opening_hours": "Mo-Su 12:00-24:00",
+        "outdoor_seating": "no",
+        "roof:shape": "flat",
+        "wheelchair": "yes"
+      },
+      "center": {
+        "lat": 51.17450665,
+        "lon": 71.40739405
+      }
+    },
+    {
+      "type": "way",
+      "id": 51431624,
+      "tags": {
+        "addr:city": "Астана",
+        "addr:country": "KZ",
+        "addr:housenumber": "11",
+        "addr:street": "Бейбітшілік көшесі",
+        "building": "yes",
+        "building:levels": "7",
+        "level": "7",
+        "name": "ҚР Тұңғыш Президенті Н. Ә. Назарбаевтың мұражайы",
+        "name:ru": "Музей первого президента РК Н. А. Назарбаева",
+        "roof:colour": "#94BED7",
+        "source": "Yahoo",
+        "tourism": "museum"
+      },
+      "center": {
+        "lat": 51.16671335,
+        "lon": 71.41903225
+      }
+    },
+    {
+      "type": "way",
+      "id": 158630906,
+      "tags": {
+        "addr:city": "Астана",
+        "addr:country": "KZ",
+        "addr:housenumber": "6/1",
+        "addr:street": "Мұхтар Әуезов көшесі",
+        "amenity": "cafe",
+        "building": "yes",
+        "building:levels": "5",
+        "name": "Тамсан"
+      },
+      "center": {
+        "lat": 51.163883850000005,
+        "lon": 71.42552334999999
+      }
+    },
+    {
+      "type": "way",
+      "id": 240376692,
+      "tags": {
+        "addr:city": "Астана",
+        "addr:country": "KZ",
+        "addr:housenumber": "20",
+        "addr:street": "Мұхтар Әуезов көшесі",
+        "building": "yes",
+        "name": "Сәкен Сейфуллин музейі",
+        "name:kk": "Сәкен Сейфуллин музейі",
+        "name:ru": "Музей Сакена Сейфуллина",
+        "tourism": "museum"
+      },
+      "center": {
+        "lat": 51.171482499999996,
+        "lon": 71.4235922
+      }
+    },
+    {
+      "type": "way",
+      "id": 242953032,
+      "tags": {
+        "addr:country": "KZ",
+        "addr:housenumber": "18",
+        "addr:street": "Әліби Жангелдин көшесі",
+        "building": "retail",
+        "building:levels": "2",
+        "name": "ТД Эверест",
+        "opening_hours": "24/7",
+        "payment:american_express": "yes",
+        "payment:cards": "yes",
+        "payment:cash": "yes",
+        "payment:coins": "yes",
+        "payment:contactless": "yes",
+        "payment:credit_cards": "yes",
+        "payment:cryptocurrencies": "yes",
+        "payment:debit_cards": "yes",
+        "payment:electronic_purses": "yes",
+        "payment:google_pay": "yes",
+        "payment:maestro": "yes",
+        "payment:mastercard": "yes",
+        "payment:mastercard_contactless": "yes",
+        "payment:nfc": "yes",
+        "payment:notes": "yes",
+        "payment:paypal": "yes",
+        "payment:samsung_pay": "yes",
+        "payment:unionpay": "yes",
+        "payment:visa": "yes",
+        "payment:visa_debit": "yes",
+        "payment:visa_electron": "yes",
+        "shop": "mall"
+      },
+      "center": {
+        "lat": 51.1729731,
+        "lon": 71.4168128
+      }
+    },
+    {
+      "type": "way",
+      "id": 258211220,
+      "tags": {
+        "barrier": "kerb",
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.1729711,
+        "lon": 71.42745945
+      }
+    },
+    {
+      "type": "way",
+      "id": 258215149,
+      "tags": {
+        "barrier": "kerb",
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.1722194,
+        "lon": 71.42763115
+      }
+    },
+    {
+      "type": "way",
+      "id": 262166875,
+      "tags": {
+        "leisure": "park",
+        "name": "Сквер шахматистов",
+        "name:en": "Chess Square",
+        "name:kk": "Шахматшылар саябағы"
+      },
+      "center": {
+        "lat": 51.1648537,
+        "lon": 71.42655415
+      }
+    },
+    {
+      "type": "way",
+      "id": 264403130,
+      "tags": {
+        "addr:city": "Астана",
+        "addr:country": "KZ",
+        "addr:housenumber": "29",
+        "addr:street": "Бөгенбай Батыр даңғылы",
+        "building": "yes",
+        "building:levels": "1",
+        "check_date:opening_hours": "2025-04-12",
+        "name": "Flowerhub",
+        "opening_hours:signed": "no",
+        "roof:shape": "flat",
+        "shop": "mall",
+        "wheelchair": "yes"
+      },
+      "center": {
+        "lat": 51.1759839,
+        "lon": 71.4055722
+      }
+    },
+    {
+      "type": "way",
+      "id": 384145040,
+      "tags": {
+        "leisure": "park"
+      },
+      "center": {
+        "lat": 51.1695141,
+        "lon": 71.41767135
+      }
+    },
+    {
+      "type": "way",
+      "id": 384145918,
+      "tags": {
+        "historic": "memorial",
+        "memorial": "statue",
+        "name": "Памятник Богенбай Батыру"
+      },
+      "center": {
+        "lat": 51.17553605,
+        "lon": 71.40487970000001
+      }
+    },
+    {
+      "type": "way",
+      "id": 452070818,
+      "tags": {
+        "leisure": "park"
+      },
+      "center": {
+        "lat": 51.161484,
+        "lon": 71.42190640000001
+      }
+    },
+    {
+      "type": "way",
+      "id": 452070820,
+      "tags": {
+        "leisure": "park"
+      },
+      "center": {
+        "lat": 51.16121525,
+        "lon": 71.42368859999999
+      }
+    },
+    {
+      "type": "way",
+      "id": 452070821,
+      "tags": {
+        "leisure": "park"
+      },
+      "center": {
+        "lat": 51.16195875,
+        "lon": 71.4234641
+      }
+    },
+    {
+      "type": "way",
+      "id": 452070822,
+      "tags": {
+        "leisure": "garden"
+      },
+      "center": {
+        "lat": 51.1641168,
+        "lon": 71.42266484999999
+      }
+    },
+    {
+      "type": "way",
+      "id": 452070823,
+      "tags": {
+        "leisure": "garden"
+      },
+      "center": {
+        "lat": 51.1642219,
+        "lon": 71.42114670000001
+      }
+    },
+    {
+      "type": "way",
+      "id": 500220321,
+      "tags": {
+        "leisure": "park",
+        "surface": "grass/trees"
+      },
+      "center": {
+        "lat": 51.1692049,
+        "lon": 71.4277833
+      }
+    },
+    {
+      "type": "way",
+      "id": 732085493,
+      "tags": {
+        "leisure": "park",
+        "surface": "grass/trees"
+      },
+      "center": {
+        "lat": 51.17119195,
+        "lon": 71.42638525000001
+      }
+    },
+    {
+      "type": "way",
+      "id": 732085495,
+      "tags": {
+        "leisure": "park",
+        "surface": "grass/trees"
+      },
+      "center": {
+        "lat": 51.17093335,
+        "lon": 71.42808149999999
+      }
+    },
+    {
+      "type": "way",
+      "id": 732085496,
+      "tags": {
+        "leisure": "park",
+        "surface": "grass/trees"
+      },
+      "center": {
+        "lat": 51.17087995,
+        "lon": 71.4273165
+      }
+    },
+    {
+      "type": "way",
+      "id": 765450049,
+      "tags": {
+        "leisure": "park",
+        "name": "Ақжайық сквері",
+        "name:kk": "Ақжайық сквері",
+        "name:ru": "Сквер Акжайык",
+        "opening_hours": "24/7"
+      },
+      "center": {
+        "lat": 51.17467255,
+        "lon": 71.41232099999999
+      }
+    },
+    {
+      "type": "way",
+      "id": 977003530,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.1593136,
+        "lon": 71.40588070000001
+      }
+    },
+    {
+      "type": "way",
+      "id": 1102266212,
+      "tags": {
+        "leisure": "park"
+      },
+      "center": {
+        "lat": 51.17125385,
+        "lon": 71.40615855
+      }
+    },
+    {
+      "type": "way",
+      "id": 1103997760,
+      "tags": {
+        "leisure": "park"
+      },
+      "center": {
+        "lat": 51.17060735,
+        "lon": 71.40643345000001
+      }
+    },
+    {
+      "type": "way",
+      "id": 1108108300,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.156632349999995,
+        "lon": 71.41322855
+      }
+    },
+    {
+      "type": "way",
+      "id": 1131552539,
+      "tags": {
+        "access": "customers",
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.15712345,
+        "lon": 71.42188475
+      }
+    },
+    {
+      "type": "way",
+      "id": 1239177393,
+      "tags": {
+        "bridge": "covered",
+        "bridge:structure": "beam",
+        "int_name": "Atıraw köpiri",
+        "layer": "1",
+        "man_made": "bridge",
+        "name": "Атырау көпірі",
+        "name:kk": "Атырау көпірі",
+        "name:ru": "Мост Атырау",
+        "tourism": "attraction"
+      },
+      "center": {
+        "lat": 51.1560749,
+        "lon": 71.4249916
+      }
+    },
+    {
+      "type": "way",
+      "id": 1333795504,
+      "tags": {
+        "amenity": "cafe",
+        "building": "commercial",
+        "building:levels": "1",
+        "cuisine": "coffee_shop;italian",
+        "height": "7",
+        "internet_access": "wlan",
+        "internet_access:fee": "no",
+        "name": "Coffee Original",
+        "opening_hours": "24/7"
+      },
+      "center": {
+        "lat": 51.1662235,
+        "lon": 71.42672285
+      }
+    },
+    {
+      "type": "way",
+      "id": 1340552842,
+      "tags": {
+        "leisure": "park",
+        "surface": "grass/trees"
+      },
+      "center": {
+        "lat": 51.1629158,
+        "lon": 71.41449865
+      }
+    },
+    {
+      "type": "way",
+      "id": 1342224679,
+      "tags": {
+        "addr:city": "Астана",
+        "addr:country": "KZ",
+        "addr:housenumber": "9Д",
+        "addr:street": "Сарыарқа даңғылы",
+        "amenity": "cafe",
+        "building": "yes",
+        "height": "5",
+        "indoor_seating": "yes",
+        "name": "Im",
+        "outdoor_seating": "yes"
+      },
+      "center": {
+        "lat": 51.16237925,
+        "lon": 71.4089814
+      }
+    },
+    {
+      "type": "way",
+      "id": 1376443433,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.16946135,
+        "lon": 71.41420289999999
+      }
+    },
+    {
+      "type": "way",
+      "id": 1376451147,
+      "tags": {
+        "access": "yes",
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.1655905,
+        "lon": 71.41555335
+      }
+    },
+    {
+      "type": "way",
+      "id": 1395465867,
+      "tags": {
+        "addr:city": "Астана",
+        "addr:country": "KZ",
+        "air_conditioning": "yes",
+        "amenity": "cafe",
+        "building": "yes",
+        "cuisine": "coffee_shop",
+        "drive_through": "no",
+        "indoor_seating": "yes",
+        "internet_access": "wlan",
+        "internet_access:fee": "no",
+        "internet_access:ssid": "ALTEL_5G_C223",
+        "name": "Estet Coffee",
+        "opening_hours": "24/7",
+        "outdoor_seating": "no",
+        "payment:kaspi_qr": "yes",
+        "payment:kaspi_red": "no",
+        "toilets": "yes",
+        "wheelchair": "yes"
+      },
+      "center": {
+        "lat": 51.175031000000004,
+        "lon": 71.40757805000001
+      }
+    },
+    {
+      "type": "way",
+      "id": 1428964223,
+      "tags": {
+        "leisure": "park",
+        "name": "Жастар сарайы алаңы",
+        "name:en": "Youth Palace Square",
+        "name:kk": "Жастар сарайы алаңы",
+        "name:ru": "Сквер Дворца Жастар"
+      },
+      "center": {
+        "lat": 51.17032585,
+        "lon": 71.42694405
+      }
+    },
+    {
+      "type": "way",
+      "id": 1428966977,
+      "tags": {
+        "leisure": "park",
+        "name": "Тұңғыш Президент мұражайының алаңы",
+        "name:en": "Square of the First President Museum",
+        "name:kk": "Тұңғыш Президент мұражайының алаңы",
+        "name:ru": "Сквер Музея первого президента"
+      },
+      "center": {
+        "lat": 51.16651795,
+        "lon": 71.41765945
+      }
+    },
+    {
+      "type": "way",
+      "id": 1431518862,
+      "tags": {
+        "access": "yes",
+        "leisure": "playground",
+        "surface": "unpaved"
+      },
+      "center": {
+        "lat": 51.171580750000004,
+        "lon": 71.41619745
+      }
+    },
+    {
+      "type": "way",
+      "id": 1432615636,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.17272375,
+        "lon": 71.4157468
+      }
+    },
+    {
+      "type": "way",
+      "id": 1432623456,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.1685492,
+        "lon": 71.4114048
+      }
+    },
+    {
+      "type": "way",
+      "id": 1460700602,
+      "tags": {
+        "leisure": "playground"
+      },
+      "center": {
+        "lat": 51.1612978,
+        "lon": 71.4226692
+      }
+    },
+    {
+      "type": "relation",
+      "id": 3573848,
+      "tags": {
+        "area:highway": "pedestrian",
+        "leisure": "park",
+        "name": "Гүл бақшасы",
+        "name:en": "Flower garden",
+        "name:ru": "Цветочный сад",
+        "type": "multipolygon"
+      },
+      "center": {
+        "lat": 51.16623405,
+        "lon": 71.41532635
+      }
+    },
+    {
+      "type": "relation",
+      "id": 15957444,
+      "tags": {
+        "leisure": "park",
+        "name": "Астана саябағы",
+        "name:en": "Astana Park",
+        "name:kk": "Астана саябағы",
+        "name:ru": "Парк Астана",
+        "type": "multipolygon"
+      },
+      "center": {
+        "lat": 51.15481525,
+        "lon": 71.4195693
+      }
+    }
+  ]
+}

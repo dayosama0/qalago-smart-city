@@ -1,0 +1,13 @@
+{
+  "_notice": "SYNTHETIC OFFLINE TEST FIXTURE ONLY. These are not genuine POIs and must never be used in the deployed application.",
+  "osm3s": {"timestamp_osm_base": "2026-01-01T00:00:00Z"},
+  "elements": [
+    {"type":"node","id":1,"lat":51.1,"lon":71.4,"tags":{"name":"SYNTHETIC test cafe","amenity":"cafe","opening_hours":"Mo-Fr 09:00-18:00","internet_access":"wlan","phone":"SYNTHETIC-CONTACT-OMIT"}},
+    {"type":"way","id":1,"center":{"lat":51.11,"lon":71.41},"tags":{"name":"SYNTHETIC test park","leisure":"park"}},
+    {"type":"relation","id":2,"center":{"lat":51.12,"lon":71.42},"tags":{"name":"SYNTHETIC test museum","tourism":"museum","indoor":"yes"}},
+    {"type":"node","id":3,"lat":51.1,"lon":71.4,"tags":{"amenity":"cafe"}},
+    {"type":"node","id":4,"lat":999,"lon":71.4,"tags":{"name":"SYNTHETIC invalid","amenity":"cafe"}},
+    {"type":"way","id":5,"tags":{"name":"SYNTHETIC missing geometry","tourism":"museum"}},
+    {"type":"node","id":6,"lat":51.1,"lon":71.4,"tags":{"name":"SYNTHETIC unselected","shop":"car"}}
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "version": 0.6,
+  "generator": "QalaGo OSM API XML-to-JSON conversion; sanitized category subset",
+  "copyright": "© OpenStreetMap contributors; ODbL 1.0",
+  "elements": [
+    {
+      "type": "node",
+      "id": 6552437087,
+      "tags": {
+        "amenity": "cafe",
+        "name:ru": "Столовая",
+        "opening_hours": "24/7"
+      },
+      "lat": 51.0306064,
+      "lon": 71.4653168
+    },
+    {
+      "type": "node",
+      "id": 10976892637,
+      "tags": {
+        "amenity": "cafe",
+        "brand": "Starbucks",
+        "brand:wikidata": "Q37158",
+        "brand:wikipedia": "en:Starbucks",
+        "cuisine": "coffee_shop",
+        "indoor_seating": "yes",
+        "name": "Starbucks",
+        "opening_hours": "24/7",
+        "operator": "\"Shaya Kazakhstan\"",
+        "outdoor_seating": "no"
+      },
+      "lat": 51.0268214,
+      "lon": 71.4613139
+    },
+    {
+      "type": "node",
+      "id": 13408518301,
+      "tags": {
+        "amenity": "cafe",
+        "name": "Cafe"
+      },
+      "lat": 51.0278051,
+      "lon": 71.4622238
+    }
+  ]
+}

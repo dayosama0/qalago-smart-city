@@ -1,0 +1,14 @@
+{
+  "provenance": "EXPLICITLY SYNTHETIC TEST FIXTURES. These are not real POIs and must never be used as the deployed dataset.",
+  "pois": [
+    {"id": "synthetic:park", "name": "SYNTHETIC Near Park", "lat": 51.1001, "lon": 71.4, "category": "park", "indoor_status": "outdoor", "visit_minutes": 20},
+    {"id": "synthetic:cafe-unknown", "name": "SYNTHETIC Cafe Unknown", "lat": 51.1002, "lon": 71.4, "category": "cafe", "indoor_status": "likely_indoor", "power_outlets_status": "unknown", "visit_minutes": 15},
+    {"id": "synthetic:cafe-confirmed", "name": "SYNTHETIC Cafe Confirmed", "lat": 51.101, "lon": 71.401, "category": "cafe", "indoor_status": "confirmed_indoor", "power_outlets_status": "confirmed", "wifi_status": "confirmed", "opening_hours": "Mo-Fr 09:00-18:00; PH off", "visit_minutes": 20},
+    {"id": "synthetic:museum", "name": "SYNTHETIC Museum", "lat": 51.102, "lon": 71.401, "category": "museum", "indoor_status": "likely_indoor", "visit_minutes": 30},
+    {"id": "synthetic:private", "name": "SYNTHETIC Private Park", "lat": 51.10001, "lon": 71.4, "category": "park", "indoor_status": "outdoor", "tags_json": "{\"access\":\"private\"}", "visit_minutes": 5},
+    {"id": "synthetic:far", "name": "SYNTHETIC Far Park", "lat": 51.18, "lon": 71.49, "category": "park", "indoor_status": "outdoor", "visit_minutes": 20},
+    {"id": "synthetic:over-budget", "name": "SYNTHETIC Long Visit", "lat": 51.1, "lon": 71.4, "category": "park", "indoor_status": "outdoor", "visit_minutes": 120},
+    {"id": "synthetic:invalid", "name": "SYNTHETIC Invalid", "lat": 999, "lon": 71.4, "category": "park", "visit_minutes": 20},
+    {"id": "synthetic:airport-nearby", "name": "SYNTHETIC Airport Cafe", "lat": 51.0279, "lon": 71.4669, "category": "cafe", "indoor_status": "likely_indoor", "visit_minutes": 15}
+  ]
+}

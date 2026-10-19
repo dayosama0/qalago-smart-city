@@ -1,0 +1,56 @@
+{
+  "area": "astana",
+  "source": "OpenStreetMap API 0.6 map (small-area fallback)",
+  "fetched_at": "2026-10-19T10:36:00+00:00",
+  "license": "ODbL 1.0",
+  "derivation": "Selected original category tags; contacts and mapper metadata omitted. Node coordinates unchanged; way and complete multipolygon centers computed from complete outer bbox geometry. Incomplete relations omitted.",
+  "coverage": "Four small landmark areas; NOT the full Overpass city/airport bounding boxes.",
+  "requests": [
+    {
+      "preset": "expo",
+      "endpoint": "https://api.openstreetmap.org/api/0.6/map",
+      "request_url": "https://api.openstreetmap.org/api/0.6/map?bbox=71.395%2C51.081%2C71.421%2C51.1",
+      "bbox_west_south_east_north": [
+        71.395,
+        51.081,
+        71.421,
+        51.1
+      ],
+      "fetched_at": "2026-10-19T10:35:52+00:00",
+      "original_xml_sha256": "c6bf0e1788132ffe6da97226a4111a204d9f91f83f1a9ac58ea4a5149aa47c9b",
+      "original_xml_bytes": 4803707,
+      "category_elements": 40
+    },
+    {
+      "preset": "baiterek",
+      "endpoint": "https://api.openstreetmap.org/api/0.6/map",
+      "request_url": "https://api.openstreetmap.org/api/0.6/map?bbox=71.419%2C51.12%2C71.442%2C51.138",
+      "bbox_west_south_east_north": [
+        71.419,
+        51.12,
+        71.442,
+        51.138
+      ],
+      "fetched_at": "2026-10-19T10:35:56+00:00",
+      "original_xml_sha256": "e66237ce8a218e0cc8bfc27627ca011be1a248ec02a1906a5bc53aa612249d63",
+      "original_xml_bytes": 5296536,
+      "category_elements": 109
+    },
+    {
+      "preset": "central_park",
+      "endpoint": "https://api.openstreetmap.org/api/0.6/map",
+      "request_url": "https://api.openstreetmap.org/api/0.6/map?bbox=71.404%2C51.155%2C71.43%2C51.176",
+      "bbox_west_south_east_north": [
+        71.404,
+        51.155,
+        71.43,
+        51.176
+      ],
+      "fetched_at": "2026-10-19T10:36:00+00:00",
+      "original_xml_sha256": "e2c6833cffbc5886b4b594ed411fe285cdb54ae1d2f5505f1f66445adb4d5e55",
+      "original_xml_bytes": 5306244,
+      "category_elements": 144
+    }
+  ],
+  "raw_elements": 293
+}

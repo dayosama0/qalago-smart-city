@@ -1,0 +1,32 @@
+{
+  "usable": 199,
+  "opening_hours_available": 80,
+  "descriptions_available": 0,
+  "merged_replaced": 199,
+  "removed_stale": 0,
+  "sqlite_integrity": "ok",
+  "downloaded_elements": 296,
+  "dropped_invalid_or_unnamed": 97,
+  "duplicate_osm_ids": 0,
+  "overrides_applied": 0,
+  "last_fetched_at": "2026-10-19T10:36:02+00:00",
+  "source_snapshots": [
+    {
+      "file": "astana.json",
+      "sha256": "fb45c09f37c7d97da322fdd631d873dffaab5be2b73eb1a576c6e43f7de079b4",
+      "raw_elements": 293,
+      "fetched_at": "2026-10-19T10:36:00+00:00",
+      "osm_timestamp": null
+    },
+    {
+      "file": "airport.json",
+      "sha256": "dd4fe276faa43c16f094f6ed3d53cfd260c1ec5a5ba8ed050327d501d0fd43bd",
+      "raw_elements": 3,
+      "fetched_at": "2026-10-19T10:36:02+00:00",
+      "osm_timestamp": null
+    }
+  ],
+  "database_sha256": "6848c9f6d314311bbfef97f9c7ebff31d24b356f8fc68c9e675183cc81d81278",
+  "build_mode": "offline_cached_osm",
+  "built_at": "2026-10-19T10:44:02+00:00"
+}

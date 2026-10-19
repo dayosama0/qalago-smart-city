@@ -1,0 +1,6 @@
+# Reproducible JSON hashes across Windows and Linux checkouts.
+* text=auto eol=lf
+*.db binary
+*.png binary
+*.jpg binary
+*.jpeg binary
