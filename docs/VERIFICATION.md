@@ -1,9 +1,106 @@
-# Executed verification — 19 October 2026
+# QalaGo verification history
+
+## Public Community Cloud check — 19 October 2026
+
+Verified public URL:
+[QalaGo](https://applago-smart-city-dwywv3hxsdtjbdhhj8qien.streamlit.app/).
+The account owner completed deployment in an ordinary browser. Verification
+used a separate signed-out embedded session, not the owner's screenshot.
+
+| Executed public check | Observed result |
+| --- | --- |
+| Root URL request and browser startup | HTTP 200; QalaGo form and 199 POIs rendered without sign-in |
+| EXPO / 60 minutes / architecture / simulated clear | Three independent cards; direct monument match, separately labeled Mega Silk Way and Luckee Yu alternatives; **Без LLM** |
+| Quick **Гуляю час** | Actual calculation; first direct option Тәуелсіздіктің 25 жылдығы, approximately 40 of 60 minutes including reserve |
+| Quick **С ребёнком** | Central Park origin / 120 minutes; three category matches, first Астана саябағы; unknown availability labeled |
+| Quick **Сильный ветер**, then comparison | OFF first NU Park: 35.0 estimated minutes outdoors; ON first alternative Mega Silk Way: 0.7. Shared calculation time `2026-10-19T16:45:16.124962+05:00`; simulated weather explicit |
+| Strict confirmed-outlet requirement | Zero results; unknown features are not treated as confirmed |
+| Quick **Перед вылетом** | NQZ / 120 minutes; no city excursion; conservative flight explanation |
+| Mega source details | OSM way `499328514`, operator description/schedule URLs and `2026-10-19` source/check date displayed; listed hours are not live access confirmation |
+| Map expander | Folium component rendered origin plus three POI markers, zoom controls, OSM attribution and center/entrance uncertainty note |
+| Generated 2GIS search | `Mega Silk Way Астана` opened as a search with results; no guaranteed organization identity or directory import claimed |
+| Public source toolbar button | Opens `dayosama0/qalago-smart-city/blob/codex/audit-product-improvements/app.py`; GitHub displayed the feature branch and file commit `d6611be` |
+| 390 px viewport width | App document/body scroll widths 390/390; stacked comparison, readable wrapping; [actual public capture](images/public-mobile-390.jpg) |
+| 1440 px viewport width | App document/body scroll widths 1440/1440; two-column comparison; [actual public capture](images/public-desktop-1440.jpg) |
+
+These measurements concern the rendered Streamlit app iframe, not just its
+outer Cloud wrapper. Viewport overrides were reset after testing. Captures
+contain public app content; the owner's browser screenshot was not committed.
+
+At verification, the feature branch head was
+`d6611beb739e00bd094de3589ad47dcd2e6e7923`; its
+[CI run](https://github.com/dayosama0/qalago-smart-city/actions/runs/39243890123)
+passed with 153 tests on each of Python 3.11 and 3.13. The source link identifies
+the deployed branch/entrypoint, but does not expose Cloud's exact build SHA,
+selected Python version or secret settings. Those admin details remain
+uninspected. Public template responses prove template mode worked; they do not
+prove Cloud has no configured key. No successful live OpenAI call is claimed.
+
+The public URL follows the feature branch. `main` was still `fe40dcd` and
+[PR #1](https://github.com/dayosama0/qalago-smart-city/pull/1) remained unmerged.
+See [deployment guidance](DEPLOYMENT.md) for future branch updates and a stable
+`main` deployment after review. This follow-up changes documentation and public
+captures only; application code and data remain at the tested audit revision.
+The unchanged application suite was rerun for this follow-up: **153 passed in
+10.63s**; the running local app's health endpoint returned **HTTP 200 / ok**.
+
+## Audit improvements — 19 October 2026
+
+Branch: `codex/audit-product-improvements`; base: `fe40dcd`. The baseline below
+is preserved as history, not used as evidence that the new revision passed.
+
+| Executed check | Actual result |
+| --- | --- |
+| Baseline suite before edits | 74 passed |
+| Current `python -m pytest -q` | 153 passed; offline backend, parser, data, comparison and Streamlit interaction tests |
+| `python -m pip check` | No broken requirements |
+| Feature app on `127.0.0.1:8502` | Started with no OpenAI key; real recommendations and comparison rendered |
+| Browser quick scenario: simulated wind / EXPO / 60 minutes | Real calls; OFF first NU Park, estimated 35.0 minutes outdoors; ON first Mega Silk Way, estimated 0.7 minutes outdoors |
+| Comparison honesty | Shared clock/weather, direct matches versus other-category alternatives explicit; the 34.3-minute difference is an estimate for different independent options |
+| Mobile source expander and map | Operator description/hours references and check date visible; three alternative markers plus origin rendered in Folium |
+| Snapshot preservation | Both source JSONs and both metadata files byte-identical to the baseline |
+| Enrichment | 8 evidenced field overrides on 6 existing POIs; 199 POIs, 81 hours fields, 6 descriptions; no new feature confirmations |
+| `python -m scripts.verify_live_llm` | `not_attempted`, reason `credentials_missing`; no live OpenAI success claimed |
+
+Real viewport checks used the running feature app, including the comparison
+view. DOM measurements and visual inspection found no horizontal page overflow:
+
+| Viewport (width × height) | Document/body scroll width | Layout and actual capture |
+| --- | --- | --- |
+| 390 × 844 | 390 / 390 | Stacked OFF/ON, full-width main actions, two-column quick buttons; [capture](images/mobile-390.jpg) |
+| 430 × 932 | 430 / 430 | Stacked comparison and wrapped text; [capture](images/mobile-430.jpg) |
+| 768 × 1024 | 768 / 768 | Two comparison columns; [capture](images/tablet-768.jpg) |
+| 1440 × 1000 | 1440 / 1440 | Two comparison columns and readable cards; [capture](images/desktop-1440.jpg) |
+
+Expanded source details also measured 390/390 at a 390 px viewport. These are
+actual local-browser JPEGs, not mockups, public-deployment captures, or native
+device tests. Browser viewport overrides were reset after checking.
+
+The weekly parser has regression coverage for days/ranges/lists, semicolon
+replacement, multiple spans, overnight/week rollover, partial `off` subtraction,
+arrival, full visit, exact closing boundaries, unsupported whole expressions,
+source evidence and timezone conversion. Unknown schedules stay unknown. No
+live opening or safe route is asserted.
+
+GitHub Actions remains unchanged and checks Python 3.11 and 3.13 on the PR.
+Consult the PR's checks for its exact published revision; successful historical
+main checks do not prove the feature revision passed.
+
+**Deployment was unverified at the original audit checkpoint.** The user reported signing into Streamlit
+through Google in another browser; the available embedded session did not gain
+that session. A new embedded tab's authentication reached a GitHub HTTP 500
+page, and the authentication tabs were subsequently closed. No public app URL
+was opened or verified at that checkpoint. The later successful public check
+above supersedes this status; the authentication failure remains historical.
+
+## Original MVP baseline — commit `fe40dcd`
+
+The following results were executed for the original MVP on 19 October 2026.
 
 Local environment: Windows, Python 3.13.7, isolated `.venv`, dependencies installed
 from the pinned root `requirements.txt`. No OpenAI API key was needed or used.
 
-## Automated and local runtime results
+### Automated and local runtime results
 
 | Check actually executed | Result |
 | --- | --- |
@@ -34,7 +131,7 @@ comparison tests demonstrate changed ranking/filtering on suitable data, not a
 guaranteed reduction for every request. All genuine records currently have
 unknown outlet availability, so strict outlet requests correctly return empty.
 
-## Live external checks
+### Live external checks
 
 - **OSM:** four official map API requests succeeded, yielding the documented
   sanitized small-area snapshot. Full bounded Overpass attempts failed; no

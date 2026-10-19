@@ -62,9 +62,10 @@ def test_cloud_start_and_recommend_without_secrets_network_or_db_writes(offline_
     assert not offline_app.exception
     response = offline_app.session_state["qalago_result"][1]
     assert response.answer_mode == "template"
-    assert 1 <= len(response.recommendations) <= 3
+    options = [*response.recommendations, *response.alternatives]
+    assert 1 <= len(options) <= 3
     assert response.weather.is_simulated
-    assert len(offline_app.subheader) == len(response.recommendations)
+    assert len(offline_app.subheader) == len(options)
     assert sha256(DATABASE.read_bytes()).hexdigest() == before
 
 

@@ -2,9 +2,29 @@
 
 Repository: [dayosama0/qalago-smart-city](https://github.com/dayosama0/qalago-smart-city).
 
-Deployment is **not yet verified**. The available browser session opens the Streamlit sign-in page, rather than an authenticated deployment workspace. No public URL has been claimed.
+**Public app verified on 19 October 2026:**
+[Open QalaGo](https://applago-smart-city-dwywv3hxsdtjbdhhj8qien.streamlit.app/).
+The account owner deployed it from an ordinary browser after embedded sign-in
+failed. A separate signed-out session then loaded the public app (HTTP 200),
+displayed 199 POIs and exercised ordinary, child, wind/comparison, strict-outlet
+and airport scenarios. Public mobile/desktop captures and results are in
+[verification](VERIFICATION.md#public-community-cloud-check--19-october-2026).
 
-## First deployment: account owner actions
+The app's **source** button opens
+[`codex/audit-product-improvements/app.py`](https://github.com/dayosama0/qalago-smart-city/blob/codex/audit-product-improvements/app.py).
+This confirms the source branch and entrypoint advertised by the deployment.
+The branch head during testing was `d6611beb739e00bd094de3589ad47dcd2e6e7923`;
+the Cloud build SHA, Python selection and secret settings were not inspected.
+The public app returned **Без LLM**; that establishes working template mode,
+not the contents of Cloud secrets.
+
+[PR #1](https://github.com/dayosama0/qalago-smart-city/pull/1) remains open;
+`main` is preserved at `fe40dcd`. Keep the working feature deployment intact.
+After review and merge, deploy a separate app from `main`, or deliberately
+recreate the existing deployment on `main`. Branch is part of the app identity;
+changing it requires redeployment under [Streamlit's migration instructions](https://docs.streamlit.io/deploy/streamlit-community-cloud/manage-your-app/rename-your-app).
+
+## Recreate deployment: account owner steps
 
 1. Sign in to [Streamlit Community Cloud](https://share.streamlit.io/) with the GitHub account that can access this repository. If the service requests new GitHub permissions, review and grant them yourself.
 2. Select **Create app → Yup, I have an app**.
@@ -27,7 +47,13 @@ These fields and the deploy flow follow the [official deployment instructions](h
 
 ## Future updates
 
-Community Cloud monitors the selected repository and branch. After the first deployment, each successful push to `main` is copied to the app automatically; changes to `requirements.txt` trigger dependency installation. See [Streamlit's update behavior](https://docs.streamlit.io/deploy/streamlit-community-cloud/manage-your-app/edit-your-app).
+Community Cloud monitors the selected repository and branch and automatically
+copies committed changes to the app. The verified URL currently follows
+`codex/audit-product-improvements`; pushes to `main` do not update this feature
+deployment. Once an app is deployed from `main`, future pushes/merges to `main`
+update that app automatically. Changes to `requirements.txt` trigger dependency
+installation and can take longer. See [Streamlit's update behavior](https://docs.streamlit.io/deploy/streamlit-community-cloud/manage-your-app/edit-your-app)
+and [source selection during deployment](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/deploy).
 
 Recommended workflow:
 
