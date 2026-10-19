@@ -4,9 +4,11 @@ import json
 import math
 from pathlib import Path
 import sqlite3
+from datetime import datetime
 
 from config import DB_PATH
 from core.geo import haversine_m, validate_coordinates, walking_minutes
+from core.opening_hours import evaluate_opening_hours
 
 
 class DatabaseUnavailable(RuntimeError):
@@ -32,10 +34,16 @@ class Candidate:
     distance_m: float = 0
     travel_minutes: float = 0
     total_minutes: float = 0
+    opening_status: str = "unknown"
+    description: str | None = None
+    description_source: str | None = None
+    opening_hours_source_url: str | None = None
+    opening_hours_checked_at: str | None = None
 
 
 KEYWORDS = {
-    "architecture": ("architecture", "architect", "архитект", "сәулет", "байтерек", "unusual", "необыч"),
+    "architecture": ("architecture", "architect", "архитект", "сәулет", "байтерек"),
+    "unusual": ("unusual", "необыч", "ерекше"),
     "museum": ("museum", "музе", "мұражай", "выстав", "gallery", "галере"),
     "coffee": ("coffee", "cafe", "cafes", "кафе", "кофе", "кофей", "кафехана"),
     "quiet": ("quiet", "calm", "тих", "спокой", "тыныш"),
@@ -44,6 +52,7 @@ KEYWORDS = {
     "night": ("night", "ноч", "вечер", "түн"),
     "power_outlets": ("power_outlets", "power outlet", "socket", "розет", "электр розетка"),
     "wifi": ("wifi", "wi-fi", "вайфай", "вай-фай"),
+    "accessibility": ("accessibility", "wheelchair", "accessible", "barrier-free", "безбарьер", "инвалид", "коляс", "мүгедек"),
 }
 
 INTENT_CATEGORIES = {
@@ -54,12 +63,18 @@ INTENT_CATEGORIES = {
     "children": {"playground", "park", "museum", "garden"},
     "nature": {"park", "garden", "viewpoint"},
     "night": {"attraction", "viewpoint", "cafe", "restaurant"},
+    "unusual": {"attraction", "museum", "gallery", "arts_centre", "viewpoint"},
 }
 
 
 def parse_intents(query: str, interests: list[str]) -> set[str]:
     text = " ".join([query, *interests]).casefold()
     return {intent for intent, words in KEYWORDS.items() if any(word in text for word in words)}
+
+
+def is_direct_match(candidate: Candidate, intents: set[str]) -> bool:
+    category_intents = [intent for intent in intents if intent in INTENT_CATEGORIES]
+    return not category_intents or any(candidate.category in INTENT_CATEGORIES[intent] for intent in category_intents)
 
 
 def has_flight_deadline(request) -> bool:
@@ -79,7 +94,7 @@ def _json_object(value: str | None) -> dict:
 
 def get_candidates(origin: tuple[float, float], duration_minutes: int, return_to_start: bool = False,
                    db_path: str | Path | None = None, intents: set[str] | None = None,
-                   reserve_minutes: int = 5) -> list[Candidate]:
+                   reserve_minutes: int = 5, *, evaluation_time: datetime | None = None) -> list[Candidate]:
     """Every returned option fits travel + visit + reserve, independently.
 
     The SQL bounding box is an inexpensive prefilter; Haversine is authoritative.
@@ -112,6 +127,10 @@ def get_candidates(origin: tuple[float, float], duration_minutes: int, return_to
             if visit <= 0 or visit > 480 or not isinstance(record["name"], str) or not record["name"].strip():
                 continue
             tags = _json_object(record.get("tags_json"))
+            field_provenance = _json_object(record.get("verified_fields_json"))
+            hours_provenance = field_provenance.get("opening_hours", {})
+            if not isinstance(hours_provenance, dict):
+                hours_provenance = {}
             if str(tags.get("access", "")).casefold() in {"private", "no"}:
                 continue
             # Exact unconditional OSM values are known closure evidence. Do not
@@ -131,11 +150,19 @@ def get_candidates(origin: tuple[float, float], duration_minutes: int, return_to
                 continue
             if "wifi" in intents and record.get("wifi_status") != "confirmed":
                 continue
+            if "accessibility" in intents and str(tags.get("wheelchair", "")).strip().casefold() != "yes":
+                continue
             distance = haversine_m(lat, lon, *point)
             travel = walking_minutes(distance)
             total = travel * trip_factor + visit + reserve_minutes
             if distance > radius_m or total > duration_minutes + 1e-9:
                 continue
+            opening_status = "unknown"
+            if evaluation_time is not None:
+                opening = evaluate_opening_hours(record.get("opening_hours"), evaluation_time, travel, visit)
+                if opening.status == "listed_closed":
+                    continue
+                opening_status = opening.status
             indoor = record.get("indoor_status", "unknown")
             if indoor not in {"confirmed_indoor", "likely_indoor", "outdoor", "unknown"}:
                 indoor = "unknown"
@@ -147,6 +174,10 @@ def get_candidates(origin: tuple[float, float], duration_minutes: int, return_to
                 source=record.get("source") or "OpenStreetMap", source_url=record.get("source_url") or "",
                 fetched_at=record.get("fetched_at") or "", tags=tags,
                 distance_m=distance, travel_minutes=travel, total_minutes=total,
+                opening_status=opening_status,
+                description=record.get("description"), description_source=record.get("description_source"),
+                opening_hours_source_url=hours_provenance.get("evidence_url") or record.get("source_url") or None,
+                opening_hours_checked_at=hours_provenance.get("checked_at") or record.get("fetched_at") or None,
             ))
         except (KeyError, ValueError, TypeError, OverflowError):
             continue

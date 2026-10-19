@@ -62,11 +62,14 @@ def test_wind_shield_changes_candidates_and_estimated_exposure(synthetic_db):
     shield_off = recommend(request(query="park", weather_mode="wind", climate_shield_enabled=False), synthetic_db)
     shield_on = recommend(request(query="park", weather_mode="wind", climate_shield_enabled=True), synthetic_db)
     assert shield_off.recommendations[0].poi_id == "synthetic:park"
-    assert all(card.indoor_status in {"confirmed_indoor", "likely_indoor"} for card in shield_on.recommendations)
+    assert not shield_on.recommendations
+    assert shield_on.alternatives
+    assert all(card.indoor_status in {"confirmed_indoor", "likely_indoor"} for card in shield_on.alternatives)
     assert shield_on.estimated_outdoor_minutes < shield_off.estimated_outdoor_minutes
     assert all(any("Неблагоприятная" in warning for warning in card.warnings) for card in shield_off.recommendations)
-    assert "Альтернатива" in shield_on.recommendations[0].reason
-    assert any("альтернативный вариант" in warning for warning in shield_on.recommendations[0].warnings)
+    assert "Альтернатива" in shield_on.alternatives[0].reason
+    assert any("альтернативный вариант" in warning for warning in shield_on.alternatives[0].warnings)
+    assert "прямых совпадений" in shield_on.general_message
 
 
 @pytest.mark.parametrize("explicit,query", [(True, "Есть два часа"), (False, "2 часа до вылета"), (False, "two hours before my flight")])

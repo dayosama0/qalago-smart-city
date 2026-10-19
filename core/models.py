@@ -50,6 +50,11 @@ class Recommendation:
     source_url: str
     warnings: list[str] = field(default_factory=list)
     total_minutes_estimated: float = 0
+    opening_status: Literal["listed_open", "unknown"] = "unknown"
+    description: str | None = None
+    description_source: str | None = None
+    opening_hours_source_url: str | None = None
+    opening_hours_checked_at: str | None = None
 
 @dataclass
 class RecommendResponse:
@@ -61,3 +66,4 @@ class RecommendResponse:
     estimated_outdoor_minutes: float = 0
     limitations: list[str] = field(default_factory=list)
     local_datetime: str = ""
+    alternatives: list[Recommendation] = field(default_factory=list)

@@ -1,6 +1,17 @@
-# QalaGo — Умные прогулки по Астане
+# QalaGo
 
-Weather-aware urban guide for Astana: choose a public starting point, interests and available time, then receive up to three real OpenStreetMap places. Climate Shield changes filtering and ranking in adverse weather. Each card is an independent option, not a combined route.
+**Weather-aware Urban Guide for Astana**
+
+Find a place for the time you have and the weather outside. QalaGo retrieves real OpenStreetMap places, checks travel and listed visiting hours, and explains the result with clear uncertainty.
+
+**199 real POIs · no API key required · real Climate Shield comparison**
+
+Browser-checked at **390, 430, 768 and 1440 px** with no horizontal page overflow;
+[actual captures and measurements](docs/VERIFICATION.md) are local evidence.
+
+Try **Гуляю час**, **С ребёнком**, **Сильный ветер** or **Перед вылетом**: each preset runs the actual recommendation engine. Use **Сравнить с Climate Shield** to compare two calculations with the same origin, clock and weather. Direct matches and other-category alternatives are displayed separately; each card is an independent option.
+
+[Evaluation evidence](EVALUATION.md) · [Submission checklist](docs/SUBMISSION_CHECKLIST.md) · [Technical verification](docs/VERIFICATION.md)
 
 **Repository:** [dayosama0/qalago-smart-city](https://github.com/dayosama0/qalago-smart-city). **Public deployment:** not yet verified; the available Streamlit browser session requires sign-in. See [exact deployment steps](docs/DEPLOYMENT.md).
 
@@ -41,6 +52,8 @@ If PowerShell activation is disabled, run `.\.venv\Scripts\python.exe -m pip ins
 
 Copy `.env.example` to `.env` locally. Empty `OPENAI_API_KEY` keeps deterministic explanations. `OPENAI_MODEL` defaults to `gpt-4.1-mini`; any configured model must support the structured output used by the client. API errors, refusals and invalid output fall back to the same selected, source-backed places. No paid API call is required for the demo.
 
+To explicitly verify one real retrieval → LLM → validation call after providing your own key, run `python -m scripts.verify_live_llm`. It records a credential-free report under ignored `artifacts/` and succeeds only when the backend returns validated `answer_mode=llm`. Without credentials it reports `not_attempted`; template fallback is not a successful live LLM check. Comparison deliberately uses templates to isolate Shield's effect.
+
 `WEATHER_ENABLED=0` disables live weather requests. Otherwise, the live selector requests current Open-Meteo conditions with finite timeouts and a short memory cache. An unavailable or invalid response is labeled **unknown**, never silently replaced by clear weather. `OVERPASS_URL` changes the ingestion endpoint only.
 
 On Streamlit Cloud use **Advanced settings → Secrets**, not a committed file. `.env`, `.streamlit/secrets.toml`, environments, caches, logs, original raw responses and private data are ignored by Git. No keys or private user positions belong in this repository.
@@ -50,16 +63,18 @@ On Streamlit Cloud use **Advanced settings → Secrets**, not a committed file. 
 - Start at EXPO / MEGA Silk Way, Baiterek, Central Park, airport NQZ or manually entered coordinates. GPS is never requested.
 - Choose 30, 60 or 120 minutes, interests, a free-text request and optional return trip. Each option must fit estimated travel + visit + a reserve.
 - Confirmed outlets are a strict requirement: unknown does not mean yes. Sparse evidence can produce zero cards.
-- Toggle Climate Shield with the same simulated wind/rain/cold scenario to compare actual ranking/filtering. Weather thresholds are prototype heuristics, not official alerts.
+- Toggle Climate Shield, or run the comparison view, with the same simulated wind/rain/cold scenario. Comparison captures one clock instant and one weather observation for both calculations, uses deterministic explanations, and never reports an empty result as a zero-minute improvement. Weather thresholds are prototype heuristics, not official alerts.
 - Simulate local time separately from weather. Clock mode and weather mode are independently labeled; current weather is not a forecast for the simulated clock.
 - Airport + flight deadline returns a conservative explanation without a city-center excursion. The app does not calculate security, boarding or gate access.
 - Cards show approximate distance, walking/visit estimates, uncertainty, OSM source and **Найти в 2ГИС**. That link opens a name-and-city search; it is not a guaranteed organization match. QalaGo does not scrape or retain 2GIS data.
 
-Opening schedules remain raw source text; availability is not live-verified. Unknown hours remain unknown. Indoor status distinguishes explicit OSM evidence, a category-based inference and unknown. A likely indoor category is not proof of heating, shelter, sockets, Wi-Fi or accessibility.
+Common listed schedules are checked against estimated arrival and the whole visit in `Asia/Almaty`. Results distinguish **listed as open** from **unknown**; listed-closed visits are excluded. The full original schedule remains visible. Unsupported expressions (including public holidays, solar times or conditions) remain unknown, and nothing is labeled live-confirmed open. See [supported grammar and limits](docs/OPENING_HOURS.md).
+
+Indoor status distinguishes explicit OSM evidence, a category-based inference and unknown. A likely indoor category is not proof of heating, shelter, sockets, Wi-Fi or accessibility. `unusual` is a broad cultural/landmark interest, not a synonym for architecture or evidence of an unusual experience.
 
 ## Data and reproducible ingestion
 
-Only genuine OSM records are served by the app. The bundled snapshot contains **199 named POIs and 80 listed schedules**; source validation does not establish current availability. Synthetic data is confined to `tests/fixtures` and test code. See [data provenance and snapshot validation](docs/DATA_PROVENANCE.md) for coverage, download method, timestamps, measured counts and hashes, and [dataset license](data/LICENSE.md).
+Only genuine OSM records are served by the app. The bundled snapshot contains **199 named POIs, 81 listed schedules and 6 sourced descriptions**. Eight referenced field overrides enrich six existing places; they are public-source desk research, not site visits or live availability checks. Synthetic data is confined to `tests/fixtures` and test code. See [data provenance and snapshot validation](docs/DATA_PROVENANCE.md), [enrichment evidence](docs/POI_ENRICHMENT.md), and [dataset license](data/LICENSE.md).
 
 ```bash
 # Refresh through two bounded Overpass queries (main Astana and NQZ).
@@ -112,6 +127,6 @@ GitHub Actions tests and Cloud deployment are independent. No branch-protection 
 
 ## Demo and limitations
 
-See [two-minute demo and seven-slide outline](docs/DEMO_SCRIPT.md), [five acceptance scenarios](docs/TEST_SCENARIOS.md), [privacy and ethics](docs/PRIVACY_ETHICS.md), [architecture](docs/ARCHITECTURE.md), and the [extended MVP specification](CODEX_QALAGO_SPEC.md).
+See [two-minute demo and seven-slide outline](docs/DEMO_SCRIPT.md), [five acceptance scenarios](docs/TEST_SCENARIOS.md), [privacy and ethics](docs/PRIVACY_ETHICS.md), [architecture](docs/ARCHITECTURE.md), and the [original MVP specification](docs/development/CODEX_QALAGO_SPEC.md).
 
 OSM coverage can be incomplete or stale. Quietness, unusual experiences, current opening, prices, accessibility, heating and availability are not guaranteed. Night mode adds uncertainty and caution, not invented events. Weather is contextual information, not an emergency service. No turn-by-turn route, multi-stop optimizer, GPS tracking, authentication, user history or analytics backend is included.

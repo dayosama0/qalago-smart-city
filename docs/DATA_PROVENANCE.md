@@ -3,8 +3,10 @@
 ## What ships with the app
 
 `data/pois.db` is a genuine, locally validated SQLite snapshot derived from
-OpenStreetMap. It contains **199 named POIs**, **80 listed opening schedules**,
-**0 descriptions**, and **0 manual overrides**. All 199 records have unknown
+OpenStreetMap. After the documented public-source desk review it contains
+**199 named POIs**, **81 listed opening schedules**, **6 descriptions**, and
+**8 field-level overrides across 6 POIs**. The original OSM-only snapshot had
+80 schedules and no descriptions. All 199 records have unknown
 power-outlet availability. These are measured data completeness counts, not
 claims that the places are currently open, have been visited, or have been
 independently audited. The app reads this database; app startup does not invoke
@@ -74,9 +76,13 @@ finite coordinates in geographic ranges, selected categories, and SQLite
 Category-based `likely_indoor` is an inference, not confirmation of heating or
 weather protection. Category visit durations are estimates. Raw source hours
 are retained without a static `opening_status` column. No outlets have been
-invented to satisfy the hackathon scenario. `data/manual_overrides.csv` is
-intentionally header-only; future overrides require a whitelisted field,
-appropriate enum/range, public evidence URL and ISO check date/time. An override
+invented to satisfy the hackathon scenario. `data/manual_overrides.csv` contains
+six short original descriptions and two evidenced published schedules from
+operator/institution pages reviewed on 19 October 2026. This is **desk research,
+not a physical inspection or live availability check**; see
+`docs/POI_ENRICHMENT.md` for the evidence and rejected claims. Overrides require
+a whitelisted field, appropriate enum/range, public evidence URL and ISO check
+date/time. An override
 whose OSM ID is missing aborts the build so it cannot silently survive removal.
 
 Measured category counts: cafe 101; restaurant 57; attraction 13; park 12;

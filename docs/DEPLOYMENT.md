@@ -4,6 +4,19 @@ Repository: [dayosama0/qalago-smart-city](https://github.com/dayosama0/qalago-sm
 
 Deployment is **not yet verified**. The available browser session opens the Streamlit sign-in page, rather than an authenticated deployment workspace. No public URL has been claimed.
 
+During the audit the user reported signing in through Google in an ordinary
+browser, but that session was not available in the embedded browser. A new
+embedded authentication tab reached a GitHub `500` error. This is not a
+deployment success or evidence of account permissions. Complete the steps below
+from the ordinary browser where Streamlit is already signed in.
+
+Audit improvements are proposed on `codex/audit-product-improvements` in a PR;
+`main` is preserved. For a stable public app deploy `main`, then merge the
+reviewed PR after its checks pass to receive the improvements automatically.
+To preview the PR before merging, explicitly choose its feature branch in the
+deployment form and record that branch with the preview URL. A deployment of
+the feature branch will follow that branch, not future `main` pushes.
+
 ## First deployment: account owner actions
 
 1. Sign in to [Streamlit Community Cloud](https://share.streamlit.io/) with the GitHub account that can access this repository. If the service requests new GitHub permissions, review and grant them yourself.
