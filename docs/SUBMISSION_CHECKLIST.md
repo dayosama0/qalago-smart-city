@@ -7,6 +7,11 @@ local screenshot or GitHub push does not prove public deployment or live LLM use
   2026; [verified URL and evidence](VERIFICATION.md#public-community-cloud-check--19-october-2026).
   Ordinary, child, wind/comparison, strict outlets and flight scenarios checked;
   source details and generated 2GIS search checked.
+- [x] **Public 23:00:** the PR #1 public preview was checked with explicit
+  simulated clock, listed/unknown hours and late-time notes; see reproduction
+  and actual captures in `docs/TEST_SCENARIOS.md`.
+- [ ] **Reviewed main release:** follow `docs/RELEASE_CHECKLIST.md`. PR #1 is
+  still open; new submission-readiness work is isolated from the public app.
 - [ ] **Cloud build metadata:** the public source button identifies the feature
   branch and `app.py`; account owner still needs to record exact Cloud build SHA
   and Python selection from deployment logs/settings. Do not publish secrets.
@@ -25,6 +30,11 @@ local screenshot or GitHub push does not prove public deployment or live LLM use
 - [ ] **LLM:** if a real successful call is demonstrated, record the model,
   selected public IDs, `answer_mode=llm` and validation result without secrets.
   Otherwise state live LLM verification is incomplete. Templates remain usable.
+- [x] **Automated query evaluation:** 15 authored representative examples run
+  against genuine POIs, with code/data fingerprints and actual results in
+  `evaluation/results/`. These are not collected user queries or human scores.
+- [ ] **Independent human relevance:** two raters complete the blank forms,
+  then a coordinator records disagreements; use `docs/EVALUATION_PROTOCOL.md`.
 - [x] **Repository secrets/privacy:** keep `.env`, Cloud secrets, keys and personal
   locations out of Git, screenshots, video and issue/PR text.
 - [x] **Reproducibility:** include the five scenario settings, tested command,

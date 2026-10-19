@@ -2,6 +2,10 @@
 
 Repository: [dayosama0/qalago-smart-city](https://github.com/dayosama0/qalago-smart-city).
 
+Submission-readiness work is isolated from the public preview. Use the
+[safe merge and main deployment checklist](RELEASE_CHECKLIST.md) after review;
+no migration or public code update has been performed for that work.
+
 **Public app verified on 19 October 2026:**
 [Open QalaGo](https://applago-smart-city-dwywv3hxsdtjbdhhj8qien.streamlit.app/).
 The account owner deployed it from an ordinary browser after embedded sign-in

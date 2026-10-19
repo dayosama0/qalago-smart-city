@@ -15,7 +15,7 @@ import streamlit as st
 from streamlit_folium import st_folium
 
 from config import DB_PATH, PRESETS, TIMEZONE
-from core.links import get_2gis_search_url
+from core.links import get_2gis_search_url, get_walking_navigation_url
 from core.models import RecommendRequest, RecommendResponse
 from core.recommend import recommend
 
@@ -63,6 +63,19 @@ def displayed_options(response: RecommendResponse) -> list:
 
 def request_fingerprint(request: RecommendRequest) -> str:
     return hashlib.sha256(json.dumps(asdict(request), sort_keys=True, ensure_ascii=True).encode()).hexdigest()
+
+
+def navigation_origin_fingerprint(latitude: float, longitude: float) -> str:
+    """Consent identifiers contain no readable precise coordinates."""
+    return hashlib.sha256(json.dumps([latitude, longitude]).encode()).hexdigest()
+
+
+def navigation_origin_is_shared(request: RecommendRequest) -> bool:
+    if request.location_preset != "custom":
+        return True
+    origin = navigation_origin_fingerprint(request.latitude, request.longitude)
+    return (st.session_state.get("navigation_consent_origin") == origin
+            and st.session_state.get("share_navigation_origin") is True)
 
 
 def snapshot_stats() -> dict:
@@ -195,6 +208,12 @@ def render_card(item, index: int, request: RecommendRequest, shared: list[str]) 
         st.write(item.reason)
         st.write(f"Идея: {item.action}")
         st.caption(opening_summary(item))
+        navigation_url = get_walking_navigation_url(
+            request, item.lat, item.lon,
+            share_custom_origin=navigation_origin_is_shared(request),
+        )
+        if navigation_url:
+            st.markdown(f"[Пеший путь · Google Maps ↗]({navigation_url})")
         st.markdown(f"[Найти в 2ГИС ↗]({get_2gis_search_url(item.name)})")
         with st.expander("Источники и ограничения"):
             source_url = safe_web_url(item.source_url)
@@ -216,6 +235,8 @@ def render_card(item, index: int, request: RecommendRequest, shared: list[str]) 
                     st.caption(warning)
             if any(warning in shared for warning in item.warnings):
                 st.caption("Общие для нескольких мест предупреждения приведены под результатами.")
+            if navigation_url:
+                st.caption("Ссылка Google Maps передаёт координаты выбранного старта и точки OSM при открытии. Внешний сервис рассчитывает путь; QalaGo его не проверяет.")
             st.caption("2ГИС — поиск по названию и Астане, не гарантированная карточка конкретной организации. Данные 2ГИС не собираются.")
 
 
@@ -226,6 +247,10 @@ def render_results(response: RecommendResponse, request: RecommendRequest, finge
         st.info(response.general_message)
     options = displayed_options(response)
     shared = shared_warnings(response)
+    if options and navigation_origin_is_shared(request):
+        st.caption("Пеший путь рассчитывает Google Maps. Точка OSM может быть центром объекта, а не входом; проверьте доступ. Корректность и безопасность маршрута не гарантированы.")
+    elif options and request.location_preset == "custom":
+        st.caption("Для внешнего пешего пути разрешите передачу координат старта в Google Maps под полями своей точки. Пока ссылки навигации не созданы.")
     if response.recommendations:
         st.markdown("### По вашим интересам")
         for index, item in enumerate(response.recommendations, 1):
@@ -253,6 +278,7 @@ def render_comparison(comparison, request: RecommendRequest, fingerprint: str) -
     st.markdown("## Сравнение Climate Shield")
     st.write(comparison.explanation)
     st.caption(f"Один запрос, одна погода и время расчёта: {comparison.evaluated_at}. Шаблонные объяснения изолируют влияние Shield.")
+    st.caption("Оценки относятся к разным вариантам. Помещение может быть лишь предполагаемым по категории; доступность, укрытие и безопасность не гарантируются.")
     difference = comparison.outdoor_difference_minutes
     if difference is None:
         st.caption("Изменение минут на улице не рассчитывается: на одной из сторон нет варианта.")
@@ -297,6 +323,19 @@ def build_controls() -> RecommendRequest:
         lat_col, lon_col = st.columns(2)
         latitude = lat_col.number_input("Широта", min_value=-90.0, max_value=90.0, value=51.1282, format="%.5f", key="latitude")
         longitude = lon_col.number_input("Долгота", min_value=-180.0, max_value=180.0, value=71.4304, format="%.5f", key="longitude")
+        consent_origin = navigation_origin_fingerprint(latitude, longitude)
+        if st.session_state.get("navigation_consent_origin") != consent_origin:
+            st.session_state["navigation_consent_origin"] = consent_origin
+            st.session_state["share_navigation_origin"] = False
+        st.checkbox("Разрешить ссылки Google Maps с выбранными координатами старта",
+                    key="share_navigation_origin",
+                    help="При открытии ссылки Google Maps получит точные координаты вашего старта и публичную точку назначения. Выбор действует в этой сессии для текущей точки; смена координат сбрасывает разрешение.")
+        st.caption("По умолчанию ссылки с вашей точкой не создаются. После разрешения передача Google Maps произойдёт при открытии ссылки; без разрешения подбор продолжает работать.")
+    else:
+        # Moving to a preset must not preserve permission if a custom point is
+        # selected again later; nothing is persisted beyond this UI session.
+        st.session_state.pop("navigation_consent_origin", None)
+        st.session_state["share_navigation_origin"] = False
     query = st.text_input("Что хочется?", placeholder="Например: тихое кафе или короткая прогулка по парку", max_chars=1000, key="query")
     selected_interests = st.multiselect("Интересы", list(INTERESTS), key="interests")
     with st.expander("Погода, время и дополнительные условия"):

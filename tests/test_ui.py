@@ -135,3 +135,58 @@ def test_request_fingerprint_tracks_constraints_without_exposing_coordinates():
     second = RecommendRequest(**{**asdict(first), "return_to_start": True})
     assert fingerprint != interface.request_fingerprint(second)
     assert len(fingerprint) == 64 and "51.123456" not in fingerprint
+
+
+def navigation_links(app):
+    return [item.value for item in app.markdown if "https://www.google.com/maps/dir/" in item.value]
+
+
+def test_preset_cards_offer_external_walking_links_and_center_uncertainty(ui_app):
+    ui_app.button(key="generate").click().run()
+    cards = interface.displayed_options(ui_app.session_state["qalago_result"][1])
+    assert cards and len(navigation_links(ui_app)) == len(cards)
+    assert all("travelmode=walking" in link and "api=1" in link for link in navigation_links(ui_app))
+    assert any("центром объекта, а не входом" in item.value and "не гарантированы" in item.value for item in ui_app.caption)
+
+
+def test_custom_navigation_requires_opt_in_and_revocation_removes_links(ui_app):
+    ui_app.selectbox(key="origin").select("custom").run()
+    assert not ui_app.checkbox(key="share_navigation_origin").value
+    ui_app.button(key="generate").click().run()
+    before = ui_app.session_state["qalago_result"]
+    assert ui_app.subheader and not navigation_links(ui_app)
+    assert "Google Maps" in ui_app.checkbox(key="share_navigation_origin").label
+    ui_app.checkbox(key="share_navigation_origin").check().run()
+    assert not ui_app.exception
+    assert navigation_links(ui_app)
+    assert ui_app.session_state["qalago_result"][0] == before[0]  # Consent changes no ranking input.
+    ui_app.checkbox(key="share_navigation_origin").uncheck().run()
+    assert ui_app.subheader and not navigation_links(ui_app)
+
+
+def test_changing_custom_origin_resets_permission_before_new_urls_can_render(ui_app):
+    ui_app.selectbox(key="origin").select("custom").run()
+    ui_app.checkbox(key="share_navigation_origin").check().run()
+    ui_app.button(key="generate").click().run()
+    assert navigation_links(ui_app)
+    old_consent_id = ui_app.session_state["navigation_consent_origin"]
+    ui_app.number_input(key="latitude").set_value(51.1283).run()
+    assert not ui_app.exception
+    assert not ui_app.checkbox(key="share_navigation_origin").value
+    assert ui_app.session_state["navigation_consent_origin"] != old_consent_id
+    assert not ui_app.subheader and not navigation_links(ui_app)
+    ui_app.button(key="generate").click().run()
+    assert ui_app.subheader and not navigation_links(ui_app)
+
+
+def test_custom_comparison_and_reselection_do_not_reuse_consent(ui_app):
+    ui_app.selectbox(key="origin").select("custom").run()
+    ui_app.button(key="compare").click().run()
+    assert not ui_app.exception and ui_app.subheader
+    assert not navigation_links(ui_app)
+    ui_app.checkbox(key="share_navigation_origin").check().run()
+    assert navigation_links(ui_app)
+    ui_app.selectbox(key="origin").select("expo").run()
+    ui_app.selectbox(key="origin").select("custom").run()
+    assert not ui_app.checkbox(key="share_navigation_origin").value
+    assert not navigation_links(ui_app)

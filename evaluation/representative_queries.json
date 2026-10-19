@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "prompt_provenance": "SYNTHETIC REPRESENTATIVE EVALUATION PROMPTS. Authored examples, not collected user requests or human-participant data.",
+  "fixed_local_datetime": "2026-10-19T14:00:00+05:00",
+  "cases": [
+    {"id":"architecture_baiterek","topic":"architecture","query":"Хочу посмотреть архитектуру рядом с Байтереком за час.","location_preset":"baiterek","interests":["architecture"],"duration_minutes":60,"weather_mode":"clear"},
+    {"id":"architecture_expo_short","topic":"architecture","query":"У меня только полчаса у EXPO. Что можно посмотреть из архитектуры?","location_preset":"expo","interests":["architecture"],"duration_minutes":30,"weather_mode":"clear"},
+    {"id":"nature_park","topic":"nature","query":"Хочу погулять среди зелени в парке и вернуться к началу.","location_preset":"central_park","interests":["nature"],"duration_minutes":60,"return_to_start":true,"weather_mode":"clear"},
+    {"id":"quiet_break","topic":"quiet","query":"Нужно спокойное место для короткой передышки без спешки.","location_preset":"central_park","interests":["quiet"],"duration_minutes":60,"weather_mode":"clear"},
+    {"id":"family_park","topic":"family","query":"Гуляю с ребёнком. Подберите парк или площадку на час.","location_preset":"central_park","interests":["children","nature"],"duration_minutes":60,"weather_mode":"clear"},
+    {"id":"family_expo","topic":"family","query":"Мы с ребёнком рядом с MEGA. Есть парк или музей в пределах часа?","location_preset":"expo","interests":["children"],"duration_minutes":60,"weather_mode":"clear"},
+    {"id":"coffee_expo","topic":"cafe","query":"Где остановиться на кофе рядом с MEGA за полчаса?","location_preset":"expo","interests":["coffee"],"duration_minutes":30,"weather_mode":"clear"},
+    {"id":"quiet_confirmed_outlet","topic":"quiet","query":"Нужно тихое кафе с подтверждённой розеткой для ноутбука.","location_preset":"baiterek","interests":["coffee","quiet","power_outlets"],"required_features":["power_outlets_status"],"duration_minutes":60,"weather_mode":"clear","expected_empty":true,"expected_empty_reason":"The committed snapshot has no confirmed power outlets; unknown is insufficient."},
+    {"id":"coffee_wifi","topic":"cafe","query":"Хочу выпить кофе в месте с Wi-Fi.","location_preset":"baiterek","interests":["coffee","wifi"],"required_features":["wifi_status"],"duration_minutes":60,"weather_mode":"clear"},
+    {"id":"wind_nature_off","topic":"bad_weather","query":"Хочу прогулку на природе рядом с EXPO при сильном ветре.","location_preset":"expo","interests":["nature"],"duration_minutes":60,"weather_mode":"wind","climate_shield_enabled":false,"comparison_group":"wind_nature_expo"},
+    {"id":"wind_nature_on","topic":"bad_weather","query":"Хочу прогулку на природе рядом с EXPO при сильном ветре.","location_preset":"expo","interests":["nature"],"duration_minutes":60,"weather_mode":"wind","climate_shield_enabled":true,"comparison_group":"wind_nature_expo"},
+    {"id":"rain_park","topic":"bad_weather","query":"Идёт дождь. Можно ли ненадолго выйти погулять около парка?","location_preset":"central_park","interests":["nature"],"duration_minutes":60,"weather_mode":"rain"},
+    {"id":"cold_architecture","topic":"bad_weather","query":"Очень холодно. Хочу посмотреть что-нибудь культурное рядом с Байтереком.","location_preset":"baiterek","interests":["architecture","museum"],"duration_minutes":60,"weather_mode":"cold"},
+    {"id":"night_2300","topic":"night","query":"Сейчас 23:00. Есть ли поблизости необычное место для короткого осмотра?","location_preset":"baiterek","interests":["unusual","night"],"duration_minutes":60,"weather_mode":"clear","local_datetime":"2026-10-19T23:00:00+05:00"},
+    {"id":"airport_before_flight","topic":"airport","query":"Я в аэропорту. До вылета два часа: куда можно успеть?","location_preset":"airport","interests":[],"duration_minutes":120,"weather_mode":"clear","flight_constraint":true,"expected_empty":true,"expected_empty_reason":"A flight deadline must not produce an excursion away from the airport."}
+  ]
+}

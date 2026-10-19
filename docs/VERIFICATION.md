@@ -1,5 +1,84 @@
 # QalaGo verification history
 
+## Submission-readiness review branch — 19 October 2026
+
+Base: `348b6a4`; branch: `codex/submission-readiness`. This work is separate from
+the unchanged public deployment. Original 153 tests remain present; the expanded
+suite executed locally with provider calls disabled: **219 passed in 26.90s**.
+The isolated local server on port 8503 started; `/_stcore/health` returned
+**HTTP 200 / ok**. Data, source snapshots, pinned requirements and workflow
+remain unchanged.
+
+The new card was also exercised in a browser with the provider key disabled.
+At 390 px, document/body scroll widths were **390/390**; both external links
+wrapped/read correctly with the center/entrance and external-route warning.
+[Actual local capture](images/readiness-navigation-390.jpg). This is evidence
+for the review branch, not the current public preview. Viewport overrides were
+reset afterward.
+
+New checks cover per-POI source-sentence grounding, wrong IDs/reassigned facts,
+prompt-injection fallback, untrusted-context bounds, missing/invalid provenance,
+coordinate redaction, credential-free verifier reporting, navigation privacy
+and consent reset, walking URL validation, and independent evaluation arithmetic.
+Independent review also found that SDK endpoint overrides could make a proxy
+response look like a genuine OpenAI verification. The verifier now rejects
+noncanonical endpoints before any call, pins accepted calls to
+`https://api.openai.com/v1`, restores the environment afterward, and never prints
+rejected URLs. Twelve additional endpoint regressions passed in the full suite.
+
+Google Maps' [documented universal directions URL](https://developers.google.com/maps/documentation/urls/get-started#directions)
+was opened in a browser with two public example coordinates. Its route panel
+showed **Пешком** alternatives, validating the external link/mode. This is not a
+walk-through, entrance check or independent validation of QalaGo's geometric
+time estimates. No manually entered private origin was sent during verification.
+
+The actual [15-query deterministic run](../evaluation/results/report.md) records
+dataset and normalized backend/script hashes, a dirty working-tree marker, exact
+parameters, measured timings and case-level caveats. **9/15** direct-category
+coverage is a proxy; **39/39** cards fit independently recomputed estimated
+budgets. Four cases produce alternatives only, two safely return empty, and
+18 cards have unknown schedules. There are zero snapshot-field mismatches and
+automated constraint failures, not a claim of zero hallucinations. Human
+relevance and arbitrary free-text claims remain unreviewed; the two rater forms
+are blank. See [the protocol](EVALUATION_PROTOCOL.md).
+
+LLM descriptions are bounded, attributed untrusted data. Runtime permits only
+per-POI safe phrases or exact complete source sentences and conservative actions;
+novel factual prose fails closed to the existing templates. This sacrifices
+paraphrase flexibility and can increase fallback. It does not independently
+establish that a source is true/current, and no AI quality improvement is measured.
+The explicit live verifier initially returned `not_attempted / credentials_missing`;
+no paid request was made at that checkpoint. Any subsequent real-call result
+must be recorded separately rather than inferred from offline tests.
+
+Merge/main deployment is a [review checklist](RELEASE_CHECKLIST.md), not an
+executed release. Two-stop itineraries, full localization, independent human
+ratings, demo video/upload and an attested main Cloud build remain outside the
+executed checks.
+
+## Public 23:00 follow-up — 19 October 2026
+
+The existing public app was exercised in a separate signed-out session with
+Baiterek / 60 minutes / unusual / `необычное занятие ночью` / simulated clear
+weather / simulated `2026-10-19T23:00:00+05:00` / Shield on. It showed Bәйтерек,
+CrepeCafe and Degirmen (approximately 25, 28 and 29 minutes including reserve),
+template mode, explicit clock simulation and late-time warnings. Baiterek's
+availability remained unknown; the cafes only fit their listed schedules.
+
+See [exact reproduction and limitations](TEST_SCENARIOS.md#public-2300-reproduction--19-october-2026)
+and actual public captures: [settings](images/public-night-settings-1440.jpg),
+[result](images/public-night-result-1440.jpg),
+[schedule evidence](images/public-night-hours-1440.jpg). The broad night category
+can admit cafes alongside an unusual request; no human relevance score or live
+opening confirmation is inferred from those three direct category matches.
+
+PR #1 head `348b6a4802556f304269d5234bff3009d5bd7f83`, base main `fe40dcd`,
+open/unmerged and [successful exact-head CI](https://github.com/dayosama0/qalago-smart-city/actions/runs/39247495213)
+were rechecked before this follow-up. New code is isolated on
+`codex/submission-readiness`; no public deployment or merge was performed for it.
+The public source link identifies the PR #1 branch, not an attested Cloud build
+SHA. [Migration/release checklist](RELEASE_CHECKLIST.md) preserves that distinction.
+
 ## Public Community Cloud check — 19 October 2026
 
 Verified public URL:
