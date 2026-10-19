@@ -17,8 +17,10 @@ and airport scenarios. Public mobile/desktop captures and results are in
 The app's **source** button opens
 [`codex/audit-product-improvements/app.py`](https://github.com/dayosama0/qalago-smart-city/blob/codex/audit-product-improvements/app.py).
 This confirms the source branch and entrypoint advertised by the deployment.
-The branch head during testing was `d6611beb739e00bd094de3589ad47dcd2e6e7923`;
-the Cloud build SHA, Python selection and secret settings were not inspected.
+The initial audit source was `d6611be`; subsequent public checks (including
+23:00) used the unchanged application on the PR #1 branch at
+`348b6a4802556f304269d5234bff3009d5bd7f83`.
+The Cloud build SHA, Python selection and secret settings were not inspected.
 The public app returned **Без LLM**; that establishes working template mode,
 not the contents of Cloud secrets.
 
@@ -81,5 +83,5 @@ To refresh public POIs, run `python -m ingestion.build_database` locally, review
 - Missing module/build failure: inspect Cloud logs, confirm `requirements.txt` is at the root, Python 3.13 is selected, and entrypoint is `app.py`.
 - Missing data: confirm `data/pois.db` is in the deployed commit. Rebuild from committed sanitized snapshots with `python -m ingestion.build_database --offline` locally and push the reviewed snapshot.
 - No results: try 60 or 120 minutes, remove strict feature requirements or use another origin. Real OSM coverage may be sparse. Do not add synthetic places to the deployed database.
-- Live weather unavailable: use an explicitly labeled simulated scenario. Weather failures must display `unknown`, never simulated sunny weather disguised as live.
+- Live weather unavailable: use an explicitly labeled simulated scenario. Handled failures display `unknown`; malformed `current_units` can still abort selection (see `FINAL_RELEASE_REVIEW.md`). Do not describe simulation as current weather.
 - Optional LLM errors: the app keeps deterministic recommendations. Validate the secret and model access outside Git; live API use may cost money.

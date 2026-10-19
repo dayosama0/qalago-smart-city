@@ -1,5 +1,22 @@
 # QalaGo verification history
 
+## Final release-readiness review — 19 October 2026
+
+Application: `a4537120335ce15c8b3b6c445a4f72f222b66c50`. A fresh detached
+worktree was clean before and after the full suite and 15-case evaluation.
+**236 passed in 29.56s**, Windows / Python 3.13.7. The new
+[release report](../evaluation/release-a453712/report.md) records the actual
+commit, `working_tree_dirty=false`, dataset and code fingerprints. Original
+blank human forms remain unchanged; no human evaluations were fabricated.
+
+[Final assessment](FINAL_RELEASE_REVIEW.md) records both PR head/base SHAs,
+rechecked CI job logs, merge dependencies and the nonblocking malformed
+live-weather-unit finding. The safe LLM report remains historical
+`not_verified / 429 credit_balance_exhausted`; no new API call was made for this
+review. README, evidence matrix, recording script and owner checklists were
+updated; application code was not changed. No merge, retarget, branch deletion,
+force-push or deployment change was performed.
+
 ## Submission-readiness review branch — 19 October 2026
 
 Base: `348b6a4`; branch: `codex/submission-readiness`. This work is separate from

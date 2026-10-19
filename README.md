@@ -2,38 +2,48 @@
 
 **[Open the public QalaGo demo](https://applago-smart-city-dwywv3hxsdtjbdhhj8qien.streamlit.app/)**
 
-Public verification demonstrates the PR #1 source branch at
-[`348b6a4`](https://github.com/dayosama0/qalago-smart-city/tree/348b6a4802556f304269d5234bff3009d5bd7f83),
-including the simulated 23:00 scenario; the exact Cloud build SHA was not
-exposed. New submission-readiness changes are under review on
-`codex/submission-readiness` and have **not** been deployed. See the
-[review/merge/migration checklist](docs/RELEASE_CHECKLIST.md).
-
 **Weather-aware Urban Guide for Astana**
 
-Find a place for the time you have and the weather outside. QalaGo retrieves real OpenStreetMap places, checks travel and listed visiting hours, and explains the result with clear uncertainty.
+Choose a public starting point, interests and a time budget. QalaGo retrieves
+real OpenStreetMap places, checks estimated travel and supported visiting hours,
+and separates direct category matches from other-category alternatives.
 
-**199 real POIs · no API key required · real Climate Shield comparison**
+**199 real POIs in four demo zones · no API key required.** Climate Shield
+compares two calculations with the same clock and weather. Outdoor minutes are
+estimates for different options; a likely-indoor category does not confirm
+shelter or safety. Cards are independent choices, not a combined itinerary.
 
-Local browser checks covered **390, 430, 768 and 1440 px** without horizontal page overflow. The public app was also checked at **390 and 1440 px**; see [actual captures and measurements](docs/VERIFICATION.md).
+**Reviewed application:** [`a453712`](https://github.com/dayosama0/qalago-smart-city/tree/a4537120335ce15c8b3b6c445a4f72f222b66c50).
+A clean checkout passed **236 tests** and a [15-case automated evaluation](evaluation/release-a453712/report.md).
+Its 9/15 category-coverage proxy is not human relevance; independent human
+ratings remain blank. Optional live LLM verification is blocked by a recorded
+API credit error; template mode works. No AI quality improvement is claimed.
 
-Try **Гуляю час**, **С ребёнком**, **Сильный ветер** or **Перед вылетом**: each preset runs the actual recommendation engine. Use **Сравнить с Climate Shield** to compare two calculations with the same origin, clock and weather. Direct matches and other-category alternatives are displayed separately; each card is an independent option.
+**Demo version:** the public link above is the existing PR #1 preview, whose
+source branch was checked at `348b6a4`, including 23:00. Cloud's exact build SHA
+was not exposed. Google Maps walking links and the newer LLM safeguards in
+`a453712` are reviewed functionality awaiting merge and a new main deployment.
 
-[Evaluation evidence](EVALUATION.md) · [Submission checklist](docs/SUBMISSION_CHECKLIST.md) · [Technical verification](docs/VERIFICATION.md)
+[Evidence matrix](EVALUATION.md) · [Final review](docs/FINAL_RELEASE_REVIEW.md) ·
+[Two-minute recording script](docs/DEMO_SCRIPT.md) · [Owner release steps](docs/RELEASE_CHECKLIST.md)
 
-**Live app:** [Open QalaGo](https://applago-smart-city-dwywv3hxsdtjbdhhj8qien.streamlit.app/) — independently verified in a signed-out browser on **19 October 2026**: HTTP 200, 199 POIs, three default cards in template mode, and a working Climate Shield comparison. See [verification evidence](docs/VERIFICATION.md).
-
-**Repository:** [dayosama0/qalago-smart-city](https://github.com/dayosama0/qalago-smart-city) · [Deployment settings and update guidance](docs/DEPLOYMENT.md).
+**Repository:** [dayosama0/qalago-smart-city](https://github.com/dayosama0/qalago-smart-city).
 
 ## Run locally
 
-Python 3.11+; local verification uses Python 3.13. All commands run from the repository root.
+Tested Python versions: **3.11 and 3.13**; the clean local run used 3.13.7. All commands run from the repository root.
 
 ```bash
 git clone https://github.com/dayosama0/qalago-smart-city.git
 cd qalago-smart-city
+git switch --detach a4537120335ce15c8b3b6c445a4f72f222b66c50
 python -m venv .venv
 ```
+
+The checkout above selects the exact reviewed application while the PRs remain
+unmerged. After the owner completes release, use the separately verified main
+SHA recorded for that deployment; cloning the current default main alone still
+selects the older MVP.
 
 Activate the environment:
 
@@ -84,7 +94,7 @@ do not interpret fallback or passing offline tests as model success. The
 [official billing guide](https://help.openai.com/en/articles/8264644-what-is-prepaid-billing)
 explains how to restore API credits.
 
-`WEATHER_ENABLED=0` disables live weather requests. Otherwise, the live selector requests current Open-Meteo conditions with finite timeouts and a short memory cache. An unavailable or invalid response is labeled **unknown**, never silently replaced by clear weather. `OVERPASS_URL` changes the ingestion endpoint only.
+`WEATHER_ENABLED=0` disables live weather requests. Otherwise, the live selector requests current Open-Meteo conditions with finite timeouts and a short memory cache. Handled request/value failures produce **unknown**, never fabricated clear weather. A known malformed-unit payload can still abort live selection; see the nonblocking weather finding in [final review](docs/FINAL_RELEASE_REVIEW.md). Use explicit simulations for the controlled demo. `OVERPASS_URL` changes the ingestion endpoint only.
 
 On Streamlit Cloud use **Advanced settings → Secrets**, not a committed file. `.env`, `.streamlit/secrets.toml`, environments, caches, logs, original raw responses and private data are ignored by Git. No keys or private user positions belong in this repository.
 
@@ -125,7 +135,7 @@ The database is read-only during normal app use. Stable typed OSM IDs prevent du
 
 `OSM → validation/normalization → SQLite → SQL bounding box + Haversine → time/access/feature filters → Climate Shield + ranking → optional grounded explanation → cards + map`.
 
-This is **structured RAG**, using SQL and deterministic geometry rather than embeddings or a vector database. Facts come from SQLite and calculations. Optional LLM output is limited to selected IDs and explanatory text, then validated. Straight-line distance is converted to estimated walking time with `distance_km × 1.3 / 4.5 × 60`; roads, barriers, crossings and access are not modeled. Cards are alternatives, so their times must not be summed as an itinerary.
+This is **structured retrieval with an optional retrieval-augmented explanation path**: SQL and geometry select the POIs, and the optional LLM selects allowed phrases or source sentences for those IDs. Verified successful runs use templates; a successful live LLM response and an AI relevance gain have not been established. Embeddings and a vector index are absent. Straight-line distance is converted to estimated walking time with `distance_km × 1.3 / 4.5 × 60`; roads, barriers, crossings and access are not modeled. Cards are alternatives, so their times must not be summed as an itinerary.
 
 ```text
 app.py                         Streamlit entrypoint
@@ -142,13 +152,18 @@ docs/                         Provenance, deployment, privacy and demo material
 
 ## Verification
 
-The [15-query automated evaluation](evaluation/results/report.md) uses genuine
+The [clean committed 15-query evaluation](evaluation/release-a453712/report.md) uses genuine
 POIs, fixed clocks and simulated weather with network disabled. Its prompts
 are authored representative examples, not collected user requests. Observed
 direct-category coverage is **9/15** and **39/39** returned cards fit independently
 recomputed estimated budgets. These are automated proxies, not human relevance
 or proof of zero hallucinations; **18** cards retain unknown schedules. Two
 independent human reviews are still pending. See the [protocol and blank forms](docs/EVALUATION_PROTOCOL.md).
+
+The release run records commit `a4537120335ce15c8b3b6c445a4f72f222b66c50`
+and `working_tree_dirty=false`, with dataset/code hashes in its JSON. Earlier
+working-tree runs under `evaluation/results/` remain historical evidence and
+their original blank human forms are preserved.
 
 ```bash
 python -m pytest -q

@@ -1,45 +1,31 @@
-# QalaGo — evidence for reviewers
+# QalaGo — submission evidence
 
-This matrix links claims to inspectable code and executed checks. It does not
-predict selection results. Public deployment and live OpenAI use require their
-own successful checks; neither follows from the presence of integration code.
+Application reviewed: [`a4537120335ce15c8b3b6c445a4f72f222b66c50`](https://github.com/dayosama0/qalago-smart-city/tree/a4537120335ce15c8b3b6c445a4f72f222b66c50), 19 October 2026.
+The final documentation/report follow-up changes no application code.
 
-The [public QalaGo app](https://applago-smart-city-dwywv3hxsdtjbdhhj8qien.streamlit.app/) was independently exercised in a signed-out browser on **19 October 2026**. Runtime observations and public screenshots are recorded in [verification](docs/VERIFICATION.md). A credentialed official OpenAI check returned HTTP 429 / `credit_balance_exhausted`; [actual report](docs/live-llm-verification.json). Live LLM success remains unverified; template fallback worked.
+The [existing public preview](https://applago-smart-city-dwywv3hxsdtjbdhhj8qien.streamlit.app/) demonstrates the PR #1 branch checked at `348b6a4`, including 23:00. Its exact Cloud build SHA was not exposed. PR #2 navigation/LLM safeguards are reviewed code awaiting the authorized merge/main deployment sequence.
 
-Public evidence demonstrates the PR #1 branch at
-[`348b6a4`](https://github.com/dayosama0/qalago-smart-city/tree/348b6a4802556f304269d5234bff3009d5bd7f83),
-including 23:00; Cloud's exact build SHA was not exposed. Navigation and tighter
-LLM context/validation in `codex/submission-readiness` are local review work,
-not yet public features. The [release checklist](docs/RELEASE_CHECKLIST.md)
-separates review, merging and deployment.
-
-[Actual automated results for 15 authored representative queries](evaluation/results/report.md):
-9/15 direct-category coverage proxy, 39/39 cards within independently recomputed
-estimated budgets, 0 snapshot-field mismatches and 18 unknown schedules. Four
-cases have only alternatives; two correctly return empty. These measurements
-do not establish human relevance or count unsupported prose assertions.
-[Two independent human ratings](docs/EVALUATION_PROTOCOL.md) remain uncollected;
-their provided forms are blank.
-
-| Requirement | Implementation / evidence | What it establishes |
+| Claim | Verified evidence | Scope and limit |
 | --- | --- | --- |
-| Runnable prototype without secrets | `app.py`, `requirements.txt`, `tests/test_cloud.py`, [public runtime evidence](docs/VERIFICATION.md) | Local no-key tests; public HTTP 200, 199 POIs and three default template cards. Cloud secrets configuration was not inspected |
-| Genuine public places | `data/pois.db`, `data/pois.manifest.json`, `data/snapshots/`, [provenance](docs/DATA_PROVENANCE.md) | 199 named OSM POIs in four small demo zones, not full-city coverage |
-| Repeatable ingestion | `ingestion/`, `tests/test_ingestion.py` | Bounded collection, stable IDs, validation, offline rebuild, genuine OSM API fallback history |
-| Time-aware selection | `core/opening_hours.py`, `tests/test_opening_hours.py`, [grammar](docs/OPENING_HOURS.md) | Common listed schedules checked for arrival and visit; unsupported schedules unknown; no live opening confirmation |
-| Relevant recommendations | `core/retrieval.py`, `core/recommend.py`, backend regressions | Direct category matches separated from other-category alternatives; unusual has its own broad cultural taxonomy |
-| Climate Shield | `core/ranking.py`, `core/comparison.py`, `tests/test_comparison.py`, public comparison in verification | Shared weather/clock; public wind run showed first-option estimates of 35.0 minutes OFF and 0.7 ON. These are estimates for different alternatives, not a guaranteed improvement |
-| Five reproducible contexts | [Scenario settings and observations](docs/TEST_SCENARIOS.md), quick buttons in `app.py` | Real engine calls for ordinary, child, weather, strict-feature and flight use cases |
-| Structured RAG and optional generation | SQL/Haversine retrieval → filters → `core/llm.py` → ID/text validation | Code and offline provider-failure tests; live LLM success is only established if recorded in verification |
-| Hallucination resistance | `tests/test_recommend.py` | Wrong IDs, malformed output, refusals and unsupported facts fall back to source-backed cards |
-| Sourced enrichment | `data/manual_overrides.csv`, [field evidence](docs/POI_ENRICHMENT.md) | Only referenced fields are changed; no invented feature confirmations or on-site checks |
-| Responsive usability | `app.py`, `tests/test_ui.py`, browser measurements and captures in verification | Local 390/430/768/1440 px checks; public 390/1440 px checks with document/body width matching the viewport |
-| Privacy | [Privacy/ethics](docs/PRIVACY_ETHICS.md), `.gitignore`, readonly DB checks | Manual origin, no GPS request or stored user history, optional third-party disclosures |
-| Reliability | [GitHub Actions](https://github.com/dayosama0/qalago-smart-city/actions), `tests/` | Check the run for the PR revision; historic green main is not proof that new changes passed |
-| Deployment | [Verified public app](https://applago-smart-city-dwywv3hxsdtjbdhhj8qien.streamlit.app/), [public source link](https://github.com/dayosama0/qalago-smart-city/blob/codex/audit-product-improvements/app.py), [evidence](docs/VERIFICATION.md) | Public runtime verified; source button identifies `codex/audit-product-improvements`. The PR is unmerged; exact build SHA, Cloud Python setting and secrets remain uninspected |
-| Walking navigation (review branch) | `core/links.py`, `tests/test_navigation.py`, UI consent regressions | Google Maps URL format and browser walking mode checked between public points; custom precise origin withheld until explicit consent; route/entrance access is not verified |
-| Source-aware LLM context (review branch) | `core/llm.py`, `tests/test_llm_grounding.py` | Bounded attributed description supplied as untrusted data; per-POI allowed text prevents novel prose/reassigned facts; benign paraphrases can also fall back |
+| Starts without an API key | Complete clean-checkout suite: **236 passed in 29.56s**, including Streamlit AppTest and no-key integration | Windows / Python 3.13.7; provider calls disabled. [Final review](docs/FINAL_RELEASE_REVIEW.md) |
+| CI for PR #1 | [Run 39247495213](https://github.com/dayosama0/qalago-smart-city/actions/runs/39247495213), head `348b6a4`; fetched logs show **153 passed** on Python 3.11 and 3.13 | Existing `main` base; not evidence of a future retargeted PR #2 integration |
+| CI for PR #2 application | [Run 39254324101](https://github.com/dayosama0/qalago-smart-city/actions/runs/39254324101), head `a453712`; fetched logs show **236 passed** on both versions | Tested against its feature-branch base. Fresh CI is required after retargeting to main |
+| Genuine public data | `data/pois.db`, manifest and [provenance](docs/DATA_PROVENANCE.md): **199 named OSM POIs**, 81 schedules, six sourced descriptions | Four small demo zones; structural/source checks, not whole-city coverage or on-site/live verification. ODbL attribution retained |
+| Listed-hours and time budgets | `core/opening_hours.py`, retrieval and regression tests; [supported grammar](docs/OPENING_HOURS.md) | Selected time, arrival and whole visit checked for supported schedules; unsupported/missing hours remain unknown |
+| Automated evaluation | [Clean committed run](evaluation/release-a453712/report.md), [raw JSON](evaluation/release-a453712/automated_results.json): **15/15 cases**, **9/15 direct-category coverage proxy**, **39/39 estimated budgets** | Authored representative prompts, not collected user requests. Four cases have alternatives only; two safely return empty; 18 returned schedules are unknown |
+| Grounding/source fidelity | Clean run: **0 snapshot-field mismatches**, 39 canonical OSM links, no returned listed-closed card or strict-feature violation | Local checks use snapshot identity and the app's hours parser. No HTTP reachability, arbitrary prose truth or zero-hallucination proof |
+| Human relevance | [Protocol](docs/EVALUATION_PROTOCOL.md) and original two independent blank forms preserved | **Not measured.** No participants, ratings or agreement statistics were generated |
+| Retrieval-augmented explanation path | SQL/Haversine retrieval and deterministic filters/ranking, followed by optional `core/llm.py` source-sentence/allowed-phrase selection | No embeddings/vector index; model does not rank/select POIs. Successful verified runs use templates; AI quality improvement is unmeasured |
+| Live LLM check | [Safe report](docs/live-llm-verification.json), recorded 19 October at 17:42 UTC+5: official API **429 / credit_balance_exhausted**, `not_verified`, `answer_mode=template` | Billing blocker to verification; neither a successful model call nor proof the implementation fails. No new API request in this final review |
+| Climate Shield | Shared clock/weather comparison code, offline regressions and recorded public wind comparison: **35.0 vs 0.7 estimated outdoor minutes** | First options differ (NU Park / Mega Silk Way). Likely-indoor classification is inferred; no observed safety benefit, verified shelter or universal reduction percentage |
+| Navigation and privacy | `core/links.py`, UI consent tests, prior browser walking-mode check | Google Maps computes the external route; QalaGo only supplies points. Manual start withheld until explicit consent; changing it resets permission. OSM center may not be an entrance |
+| 2GIS | Encoded name-and-Astana search, prior browser check | Search only; no guaranteed business match, scraping, retained directory data or partnership |
+| Responsive UI | [Actual captures and measurements](docs/VERIFICATION.md): local 390/430/768/1440 px; PR #2 navigation card 390/390 document/body width | Browser viewport checks, not physical-device certification; existing public preview has its own version-specific captures |
+| Live-weather resilience | Request/value failures have unknown-weather handling; **known P2 malformed-unit response issue** in [final review](docs/FINAL_RELEASE_REVIEW.md) | `current_units: null` can abort selection. The controlled submission demo uses labeled simulations; blanket failure-resilience claims are withheld |
+| Main release | [Merge sequence](docs/RELEASE_CHECKLIST.md), [new-main smoke checklist](docs/MAIN_DEPLOY_SMOKE.md) | No merge, retarget, deletion, force-push or deployment setting change performed; new main deployment remains owner work |
 
-Use [the submission checklist](docs/SUBMISSION_CHECKLIST.md) before sharing.
-Comparison output is a model estimate for independent alternatives, not a safe
-route guarantee. Unknown schedules and missing features remain visible.
+Dataset SHA-256: `b7f26c59fac6ce5868e8dec1ee406d185b4a5656f20cbafaee975294066b8ab4`.
+Normalized backend/config/evaluator/case fingerprint: `119b60c4496fff6c89a18a2b0bfc8336d3591cd2e3e25dec0f44a534eba1c9fa`.
+The clean run records the actual full commit above and `working_tree_dirty=false`; earlier dirty runs remain historical under `evaluation/results/`.
+
+Use [the two-minute script](docs/DEMO_SCRIPT.md) with a revision label. Do not attach new-feature claims to the older preview, infer human relevance from category coverage, or describe local tests as proof of a deployed main build.

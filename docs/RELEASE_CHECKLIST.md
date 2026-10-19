@@ -4,6 +4,12 @@ This is a plan for the account owner/reviewer. No merge, Cloud source change,
 app deletion or redeployment was performed for the submission-readiness work.
 The existing public feature preview stays available during review.
 
+Final application review: **a4537120335ce15c8b3b6c445a4f72f222b66c50**,
+[clean-commit evidence and finding](FINAL_RELEASE_REVIEW.md). A documentation-only
+follow-up may advance PR #2's head; re-read its current SHA and green checks
+before merge and verify the application diff against that reviewed revision is
+empty. Any new application change needs review.
+
 ## Verified starting point — 19 October 2026
 
 - [PR #1](https://github.com/dayosama0/qalago-smart-city/pull/1) is open, unmerged,
@@ -12,6 +18,9 @@ The existing public feature preview stays available during review.
 - [CI for that exact head](https://github.com/dayosama0/qalago-smart-city/actions/runs/39247495213)
   completed successfully; the two job logs contain 153 passing tests on Python
   3.11 and 3.13.
+- PR #2 intake head: `a4537120335ce15c8b3b6c445a4f72f222b66c50`, currently
+  targeting the PR #1 branch at `348b6a4`; [its CI](https://github.com/dayosama0/qalago-smart-city/actions/runs/39254324101)
+  has 236 passing tests on both Python versions. No retarget/merge was done.
 - [Public QalaGo](https://applago-smart-city-dwywv3hxsdtjbdhhj8qien.streamlit.app/)
   was exercised independently, including a simulated 23:00 request. Its source
   button identifies `codex/audit-product-improvements/app.py`. This public
@@ -25,7 +34,8 @@ The existing public feature preview stays available during review.
 
 1. Review the exact current PR #1 head and green checks. If the head changed,
    recheck the diff and checks before merging. Use GitHub's ordinary merge
-   controls; preserve existing history and never force-push.
+   controls; prefer a merge commit to retain the ancestry needed for the
+   stacked PR. Preserve existing history and never force-push.
 2. After approval, merge PR #1 into `main`. Record the resulting main commit
    from GitHub, rather than assuming it equals the PR head (merge/squash/rebase
    methods produce different identities). Keep the deployed feature branch
@@ -40,6 +50,13 @@ The existing public feature preview stays available during review.
    directly into the deployed feature branch as a shortcut. Record the final
    main SHA and its passing CI run.
 
+After retargeting, verify a new CI run for the new base. This workflow uses
+default pull_request activity types; do not assume a base edit triggers checks.
+If none run, an owner-authorized ordinary empty commit can trigger synchronize.
+An old run's Re-run button retains the original SHA/ref and is not evidence for
+the new base. [Event defaults](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows),
+[rerun semantics](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/re-run-workflows-and-jobs).
+
 The local credentialed LLM check currently fails with **429 /
 `credit_balance_exhausted`**; see the [latest safe report](live-llm-verification.json).
 The API organization owner must resolve its credit balance and rerun the
@@ -47,6 +64,10 @@ explicit verifier before claiming LLM success. Passing unit tests and working
 template mode are separate evidence.
 
 ## Deploy main without disturbing the working preview
+
+Use [the compact new-main smoke checklist](MAIN_DEPLOY_SMOKE.md) to record
+pass/fail evidence. The following steps describe account setup, not a completed
+deployment.
 
 1. In the owner's ordinary authenticated browser, open
    [Community Cloud](https://share.streamlit.io/) and create a separate app from

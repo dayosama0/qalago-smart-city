@@ -8,12 +8,24 @@ agreement results have been recorded. Do not present this as a user study.
 
 ## Reproduce the automated run
 
+The final release artifact is [evaluation/release-a453712/report.md](../evaluation/release-a453712/report.md).
+It was executed from a separate clean checkout of full commit
+`a4537120335ce15c8b3b6c445a4f72f222b66c50`, with output written outside that
+checkout. Its JSON records `working_tree_dirty=false`, dataset SHA and normalized
+code fingerprint. Original `evaluation/results/` and both original blank forms
+are retained as historical artifacts, not relabeled as clean runs.
+
 From the repository root with dependencies installed:
 
 ```bash
 python -m scripts.evaluate_queries
 python -m pytest tests/test_evaluation.py -q
 ```
+
+For exact release reproduction, checkout that full commit in a clean worktree
+and pass `--output-dir` pointing outside it. Keep the checkout clean before and
+afterward. The default command above intentionally creates a new current run;
+it does not make the recorded release timings into a benchmark.
 
 The command reads the genuine committed SQLite database in read-only mode. It
 does not ingest or modify POIs, load secrets, call an LLM or request weather.

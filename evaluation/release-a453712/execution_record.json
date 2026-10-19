@@ -1,0 +1,105 @@
+{
+  "application_commit": "a4537120335ce15c8b3b6c445a4f72f222b66c50",
+  "clean_checkout_before_and_after": true,
+  "local_tests": {
+    "result": "passed",
+    "passed": 236,
+    "duration_seconds": 29.56,
+    "python": "3.13.7",
+    "os": "Windows",
+    "provider_calls_disabled": true
+  },
+  "evaluation_report": "automated_results.json",
+  "evaluation_command": "python -m scripts.evaluate_queries --output-dir OUTSIDE_CLEAN_CHECKOUT",
+  "test_invocation": "python -c \"import os,pytest; os.environ['OPENAI_API_KEY']=''; os.environ['WEATHER_ENABLED']='0'; raise SystemExit(pytest.main(['-q']))\"",
+  "human_ratings_generated": false,
+  "original_forms_preserved": true,
+  "pr_snapshot": [
+    {
+      "number": 1,
+      "head_sha": "348b6a4802556f304269d5234bff3009d5bd7f83",
+      "base": "main",
+      "base_sha": "fe40dcd9a5d27dd1b391fbb28b988febdb7b552c",
+      "state": "open",
+      "merged": false,
+      "ci": [
+        {
+          "id": 39247495213,
+          "status": "completed",
+          "conclusion": "success",
+          "event": "pull_request",
+          "url": "https://github.com/dayosama0/qalago-smart-city/actions/runs/39247495213",
+          "jobs": "https://api.github.com/repos/dayosama0/qalago-smart-city/actions/runs/39247495213/jobs"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "head_sha": "a4537120335ce15c8b3b6c445a4f72f222b66c50",
+      "base": "codex/audit-product-improvements",
+      "base_sha": "348b6a4802556f304269d5234bff3009d5bd7f83",
+      "state": "open",
+      "merged": false,
+      "ci": [
+        {
+          "id": 39254324101,
+          "status": "completed",
+          "conclusion": "success",
+          "event": "pull_request",
+          "url": "https://github.com/dayosama0/qalago-smart-city/actions/runs/39254324101",
+          "jobs": "https://api.github.com/repos/dayosama0/qalago-smart-city/actions/runs/39254324101/jobs"
+        }
+      ]
+    }
+  ],
+  "ci_job_log_counts": [
+    {
+      "id": 118042886222,
+      "name": "test (3.13)",
+      "status": "completed",
+      "conclusion": "success",
+      "pr": 1,
+      "expected": 153,
+      "passed": [
+        "153 passed in 4.34s"
+      ]
+    },
+    {
+      "id": 118042886593,
+      "name": "test (3.11)",
+      "status": "completed",
+      "conclusion": "success",
+      "pr": 1,
+      "expected": 153,
+      "passed": [
+        "153 passed in 3.10s"
+      ]
+    },
+    {
+      "id": 118065674484,
+      "name": "test (3.11)",
+      "status": "completed",
+      "conclusion": "success",
+      "pr": 2,
+      "expected": 236,
+      "passed": [
+        "236 passed in 3.83s"
+      ]
+    },
+    {
+      "id": 118065675102,
+      "name": "test (3.13)",
+      "status": "completed",
+      "conclusion": "success",
+      "pr": 2,
+      "expected": 236,
+      "passed": [
+        "236 passed in 6.17s"
+      ]
+    }
+  ],
+  "new_live_api_request_in_final_review": false,
+  "application_changes_in_final_review": false,
+  "pip_check": "No broken requirements found",
+  "installed_direct_pins_match_requirements": true
+}
