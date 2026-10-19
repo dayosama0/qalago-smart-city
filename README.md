@@ -6,14 +6,15 @@ Find a place for the time you have and the weather outside. QalaGo retrieves rea
 
 **199 real POIs · no API key required · real Climate Shield comparison**
 
-Browser-checked at **390, 430, 768 and 1440 px** with no horizontal page overflow;
-[actual captures and measurements](docs/VERIFICATION.md) are local evidence.
+Local browser checks covered **390, 430, 768 and 1440 px** without horizontal page overflow. The public app was also checked at **390 and 1440 px**; see [actual captures and measurements](docs/VERIFICATION.md).
 
 Try **Гуляю час**, **С ребёнком**, **Сильный ветер** or **Перед вылетом**: each preset runs the actual recommendation engine. Use **Сравнить с Climate Shield** to compare two calculations with the same origin, clock and weather. Direct matches and other-category alternatives are displayed separately; each card is an independent option.
 
 [Evaluation evidence](EVALUATION.md) · [Submission checklist](docs/SUBMISSION_CHECKLIST.md) · [Technical verification](docs/VERIFICATION.md)
 
-**Repository:** [dayosama0/qalago-smart-city](https://github.com/dayosama0/qalago-smart-city). **Public deployment:** not yet verified; the available Streamlit browser session requires sign-in. See [exact deployment steps](docs/DEPLOYMENT.md).
+**Live app:** [Open QalaGo](https://applago-smart-city-dwywv3hxsdtjbdhhj8qien.streamlit.app/) — independently verified in a signed-out browser on **19 October 2026**: HTTP 200, 199 POIs, three default cards in template mode, and a working Climate Shield comparison. See [verification evidence](docs/VERIFICATION.md).
+
+**Repository:** [dayosama0/qalago-smart-city](https://github.com/dayosama0/qalago-smart-city) · [Deployment settings and update guidance](docs/DEPLOYMENT.md).
 
 ## Run locally
 
@@ -121,7 +122,11 @@ Actual execution results and manual checks are recorded in [verification report]
 
 ## Publish and update
 
-Deploy from `dayosama0/qalago-smart-city`, branch **main**, entrypoint **app.py**, Python **3.13**, with empty secrets for the default no-key app. Follow [deployment and verification steps](docs/DEPLOYMENT.md). After the first successful Cloud setup, future pushes to the configured `main` branch update the app automatically; dependency edits trigger installation. [Official Streamlit documentation](https://docs.streamlit.io/deploy/streamlit-community-cloud/manage-your-app/edit-your-app) explains this behavior.
+For a new deployment, choose `dayosama0/qalago-smart-city`, entrypoint **app.py**, and the reviewed branch you intend to host. Python **3.13** is locally tested; the default template app needs no secrets. Follow [deployment and verification steps](docs/DEPLOYMENT.md).
+
+The public app's source button points to [`codex/audit-product-improvements/app.py`](https://github.com/dayosama0/qalago-smart-city/blob/codex/audit-product-improvements/app.py), identifying the deployed source branch. The audit PR is still unmerged and `main` remains at `fe40dcd`. Community Cloud updates the **configured branch**, so this deployment follows feature-branch pushes. For automatic updates from future `main` pushes, deploy an app from `main` after PR review/merge; changing the existing app's branch requires redeployment. Changes to `requirements.txt` trigger dependency installation. See [official Streamlit update behavior](https://docs.streamlit.io/deploy/streamlit-community-cloud/manage-your-app/edit-your-app) and [branch migration](https://docs.streamlit.io/deploy/streamlit-community-cloud/manage-your-app/rename-your-app).
+
+The exact deployed build SHA, Cloud Python setting and secrets remain uninspected. A visible template response does not establish whether Cloud secrets are configured.
 
 GitHub Actions tests and Cloud deployment are independent. No branch-protection gate is assumed. Review a change and its passing checks before merging; never force-push existing branches. Refresh datasets locally and commit only reviewed public data, not user state or secrets. SQLite edits on Cloud are ephemeral and are not an ingestion or persistence strategy.
 
