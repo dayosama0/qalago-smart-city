@@ -4,7 +4,7 @@ This matrix links claims to inspectable code and executed checks. It does not
 predict selection results. Public deployment and live OpenAI use require their
 own successful checks; neither follows from the presence of integration code.
 
-The [public QalaGo app](https://applago-smart-city-dwywv3hxsdtjbdhhj8qien.streamlit.app/) was independently exercised in a signed-out browser on **19 October 2026**. Runtime observations and public screenshots are recorded in [verification](docs/VERIFICATION.md). Live OpenAI success remains unverified.
+The [public QalaGo app](https://applago-smart-city-dwywv3hxsdtjbdhhj8qien.streamlit.app/) was independently exercised in a signed-out browser on **19 October 2026**. Runtime observations and public screenshots are recorded in [verification](docs/VERIFICATION.md). A credentialed official OpenAI check returned HTTP 429 / `credit_balance_exhausted`; [actual report](docs/live-llm-verification.json). Live LLM success remains unverified; template fallback worked.
 
 Public evidence demonstrates the PR #1 branch at
 [`348b6a4`](https://github.com/dayosama0/qalago-smart-city/tree/348b6a4802556f304269d5234bff3009d5bd7f83),

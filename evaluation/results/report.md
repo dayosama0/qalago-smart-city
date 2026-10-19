@@ -1,38 +1,38 @@
 # Automated representative-query evaluation
 
-Executed: 2026-10-19T12:17:41+00:00.
+Executed: 2026-10-19T12:35:58+00:00.
 
 **These 15 prompts are authored synthetic examples. No human participants or relevance ratings have been collected.**
 
-Dataset SHA-256: `b7f26c59fac6ce5868e8dec1ee406d185b4a5656f20cbafaee975294066b8ab4`. Backend/script fingerprint: `2b4d18b2acf016ff5311ac45b6c18ed6f384bb84cc701b216bb2b46f15f0d4ef`.
+Dataset SHA-256: `b7f26c59fac6ce5868e8dec1ee406d185b4a5656f20cbafaee975294066b8ab4`. Backend/script fingerprint: `119b60c4496fff6c89a18a2b0bfc8336d3591cd2e3e25dec0f44a534eba1c9fa`.
 
-Base HEAD: `348b6a4802556f304269d5234bff3009d5bd7f83`; working tree dirty at run: `True`. A dirty run is not a claim that HEAD contains the evaluated changes.
+Base HEAD: `25b41e91e95bf1deb863c1b57d912d109487b2fa`; working tree dirty at run: `True`. A dirty run is not a claim that HEAD contains the evaluated changes.
 
 Automated checks: **15/15 cases**. Direct-category-match proxy: **9/15** (60.0%); this is not a human relevance score.
 
 Cards within the independently recomputed estimated budget: **39/39**. Source-field mismatches: **0**. Strict-feature violations: **0**. Listed-closed returned cards: **0**. Unknown schedules: **18**.
 
-Recommendation-only latency min / median / max: **0.025 / 2.662 / 10.605 ms**; no warm-up, single run on Windows / Python 3.13.7. This is not a performance benchmark.
+Recommendation-only latency min / median / max: **0.017 / 2.231 / 10.423 ms**; no warm-up, single run on Windows / Python 3.13.7. This is not a performance benchmark.
 
 Source links were checked locally for canonical OSM format and matching snapshot objects; no HTTP reachability or current opening was verified.
 
 | Case | Direct | Other-category alternatives | ms | Automated assertions |
 | --- | ---: | ---: | ---: | --- |
-| architecture_baiterek | 2 | 1 | 10.605 | PASS |
-| architecture_expo_short | 0 | 3 | 1.827 | PASS |
-| nature_park | 1 | 2 | 3.942 | PASS |
-| quiet_break | 3 | 0 | 8.727 | PASS |
-| family_park | 3 | 0 | 6.943 | PASS |
-| family_expo | 3 | 0 | 2.662 | PASS |
-| coffee_expo | 3 | 0 | 1.119 | PASS |
-| quiet_confirmed_outlet | 0 | 0 | 1.405 | PASS |
-| coffee_wifi | 2 | 1 | 1.516 | PASS |
-| wind_nature_off | 3 | 0 | 1.506 | PASS |
-| wind_nature_on | 0 | 3 | 1.437 | PASS |
-| rain_park | 0 | 3 | 5.419 | PASS |
-| cold_architecture | 0 | 3 | 2.716 | PASS |
-| night_2300 | 3 | 0 | 2.924 | PASS |
-| airport_before_flight | 0 | 0 | 0.025 | PASS |
+| architecture_baiterek | 2 | 1 | 8.659 | PASS |
+| architecture_expo_short | 0 | 3 | 2.231 | PASS |
+| nature_park | 1 | 2 | 5.334 | PASS |
+| quiet_break | 3 | 0 | 10.423 | PASS |
+| family_park | 3 | 0 | 6.284 | PASS |
+| family_expo | 3 | 0 | 4.515 | PASS |
+| coffee_expo | 3 | 0 | 1.43 | PASS |
+| quiet_confirmed_outlet | 0 | 0 | 1.456 | PASS |
+| coffee_wifi | 2 | 1 | 1.458 | PASS |
+| wind_nature_off | 3 | 0 | 1.516 | PASS |
+| wind_nature_on | 0 | 3 | 1.28 | PASS |
+| rain_park | 0 | 3 | 3.604 | PASS |
+| cold_architecture | 0 | 3 | 2.484 | PASS |
+| night_2300 | 3 | 0 | 1.907 | PASS |
+| airport_before_flight | 0 | 0 | 0.017 | PASS |
 
 ## Empty, alternative-only and failed cases
 

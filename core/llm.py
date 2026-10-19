@@ -3,9 +3,75 @@ import json
 import ipaddress
 import os
 import re
+from contextvars import ContextVar
+from dataclasses import asdict, dataclass
 from urllib.parse import urlparse
 
 from config import OPENAI_MODEL
+
+
+@dataclass(frozen=True)
+class _LLMDiagnostic:
+    status: str = "not_attempted"
+    stage: str = "preflight"
+    category: str = "not_called"
+    http_status: int | None = None
+    provider_error_code: str | None = None
+
+
+_LAST_DIAGNOSTIC: ContextVar[_LLMDiagnostic] = ContextVar("qalago_llm_diagnostic", default=_LLMDiagnostic())
+_KNOWN_PROVIDER_CODES = frozenset({
+    "insufficient_quota", "invalid_api_key", "model_not_found", "rate_limit_exceeded",
+    "billing_hard_limit_reached", "billing_not_active", "organization_deactivated",
+    "account_deactivated", "invalid_request_error", "context_length_exceeded",
+    "unsupported_value", "unsupported_parameter", "model_not_supported", "permission_denied",
+    "access_terminated", "server_error", "invalid_json_schema", "content_filter",
+    "request_timeout", "authentication_error", "project_not_found",
+    "credit_balance_exhausted", "organization_spend_limit_exceeded",
+    "project_spend_limit_exceeded", "organization_usage_limit_exceeded",
+    "slow_down", "server_is_overloaded",
+})
+_EXCEPTION_CATEGORIES = {
+    "AuthenticationError": "authentication_error", "PermissionDeniedError": "permission_error",
+    "BadRequestError": "invalid_request", "NotFoundError": "not_found",
+    "RateLimitError": "rate_limit_error", "InternalServerError": "server_error",
+    "APITimeoutError": "timeout", "TimeoutError": "timeout",
+    "APIConnectionError": "connection_error", "APIStatusError": "provider_http_error",
+    "APIError": "provider_error", "APIResponseValidationError": "schema_validation_error",
+    "ValidationError": "schema_validation_error", "LengthFinishReasonError": "output_truncated",
+    "ContentFilterFinishReasonError": "content_filtered", "ImportError": "dependency_unavailable",
+    "ModuleNotFoundError": "dependency_unavailable",
+}
+
+
+def reset_llm_diagnostic(category: str = "not_called") -> None:
+    """Clear this context only; verifier preflight reasons are fixed safe enums."""
+    if category not in {"not_called", "missing_key", "no_candidates", "non_official_endpoint"}:
+        raise ValueError("Unknown diagnostic preflight category")
+    _LAST_DIAGNOSTIC.set(_LLMDiagnostic(category=category))
+
+
+def get_last_llm_diagnostic() -> dict:
+    """A detached safe summary; no exception text, response body or prompt."""
+    return asdict(_LAST_DIAGNOSTIC.get())
+
+
+def _record_exception(error: Exception, stage: str) -> None:
+    category = next((_EXCEPTION_CATEGORIES[cls.__name__] for cls in type(error).__mro__
+                     if cls.__name__ in _EXCEPTION_CATEGORIES), "unexpected_error")
+    try:
+        status = getattr(error, "status_code", None)
+    except Exception:
+        status = None
+    if type(status) is not int or not 100 <= status <= 599:
+        status = None
+    try:
+        code = getattr(error, "code", None)
+    except Exception:
+        code = None
+    if type(code) is not str or code not in _KNOWN_PROVIDER_CODES:
+        code = None
+    _LAST_DIAGNOSTIC.set(_LLMDiagnostic("not_verified", stage, category, status, code))
 
 # Conservative fail-closed guard: these subjects remain in server-rendered notes.
 # Rejecting even a cautious mention is preferable to publishing an invented fact.
@@ -144,9 +210,15 @@ def validate_explanations(raw: object, allowed_ids: set[str], *, allowed_texts: 
 
 def generate_explanations(candidates, request, weather) -> dict[str, dict] | None:
     """Return None on every provider/schema/grounding failure; never log prompts."""
+    reset_llm_diagnostic()
     key = os.getenv("OPENAI_API_KEY", "").strip()
-    if not key or not candidates:
+    if not key:
+        reset_llm_diagnostic("missing_key")
         return None
+    if not candidates:
+        reset_llm_diagnostic("no_candidates")
+        return None
+    stage = "prepare"
     try:
         from openai import OpenAI
         from pydantic import BaseModel, ConfigDict
@@ -178,6 +250,7 @@ def generate_explanations(candidates, request, weather) -> dict[str, dict] | Non
                             "indoor_status": c.indoor_status, "untrusted_source_context": contexts[c.id],
                             "allowed_explanations": allowed[c.id]} for c in candidates],
         }
+        stage = "provider"
         with OpenAI(api_key=key, timeout=8, max_retries=0) as client:
             completion = client.chat.completions.parse(
                 model=os.getenv("OPENAI_MODEL", OPENAI_MODEL),
@@ -200,11 +273,23 @@ def generate_explanations(candidates, request, weather) -> dict[str, dict] | Non
                 response_format=ExplanationBatch,
                 max_completion_tokens=700,
             )
+        stage = "response"
         message = completion.choices[0].message
-        if message.refusal or message.parsed is None:
+        if message.refusal:
+            _LAST_DIAGNOSTIC.set(_LLMDiagnostic("not_verified", stage, "refusal"))
             return None
-        return validate_explanations(message.parsed.model_dump(), {candidate.id for candidate in candidates}, allowed_texts=allowed)
-    except Exception:
+        if message.parsed is None:
+            _LAST_DIAGNOSTIC.set(_LLMDiagnostic("not_verified", stage, "no_parsed_output"))
+            return None
+        stage = "post_validation"
+        result = validate_explanations(message.parsed.model_dump(), {candidate.id for candidate in candidates}, allowed_texts=allowed)
+        if result is None:
+            _LAST_DIAGNOSTIC.set(_LLMDiagnostic("not_verified", stage, "post_validation_failed"))
+        else:
+            _LAST_DIAGNOSTIC.set(_LLMDiagnostic("verified", "complete", "validated"))
+        return result
+    except Exception as error:
         # Provider errors, timeout, optional SDK absence and validation all share
         # the same bounded, deterministic fallback. No secrets appear in logs.
+        _record_exception(error, stage)
         return None

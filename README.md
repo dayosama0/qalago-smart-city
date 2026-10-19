@@ -76,6 +76,14 @@ The verification command accepts the official OpenAI endpoint only. A custom
 `OPENAI_BASE_URL` is rejected without a request and is never printed; a proxy
 response cannot establish a genuine OpenAI verification.
 
+Latest credentialed check, **19 October 2026**: the official API returned
+**429 / `credit_balance_exhausted`**; the app used templates and live LLM success
+remains **unverified**. See the [sanitized actual report](docs/live-llm-verification.json).
+The API organization owner needs to check its balance, then rerun the command;
+do not interpret fallback or passing offline tests as model success. The
+[official billing guide](https://help.openai.com/en/articles/8264644-what-is-prepaid-billing)
+explains how to restore API credits.
+
 `WEATHER_ENABLED=0` disables live weather requests. Otherwise, the live selector requests current Open-Meteo conditions with finite timeouts and a short memory cache. An unavailable or invalid response is labeled **unknown**, never silently replaced by clear weather. `OVERPASS_URL` changes the ingestion endpoint only.
 
 On Streamlit Cloud use **Advanced settings → Secrets**, not a committed file. `.env`, `.streamlit/secrets.toml`, environments, caches, logs, original raw responses and private data are ignored by Git. No keys or private user positions belong in this repository.

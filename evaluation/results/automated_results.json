@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "evaluated_at_utc": "2026-10-19T12:17:41+00:00",
+  "evaluated_at_utc": "2026-10-19T12:35:58+00:00",
   "prompt_provenance": "SYNTHETIC REPRESENTATIVE EVALUATION PROMPTS. Authored examples, not collected user requests or human-participant data.",
   "dataset_sha256": "b7f26c59fac6ce5868e8dec1ee406d185b4a5656f20cbafaee975294066b8ab4",
-  "code_sha256": "2b4d18b2acf016ff5311ac45b6c18ed6f384bb84cc701b216bb2b46f15f0d4ef",
+  "code_sha256": "119b60c4496fff6c89a18a2b0bfc8336d3591cd2e3e25dec0f44a534eba1c9fa",
   "git": {
-    "head_commit": "348b6a4802556f304269d5234bff3009d5bd7f83",
+    "head_commit": "25b41e91e95bf1deb863c1b57d912d109487b2fa",
     "working_tree_dirty": true,
     "note": "HEAD identifies the base when dirty; code_sha256 identifies evaluated backend/config/script text."
   },
@@ -35,9 +35,9 @@
     "strict_feature_returned_cards": 3,
     "listed_closed_cards": 0,
     "unknown_schedule_cards": 18,
-    "latency_ms_min": 0.025,
-    "latency_ms_median": 2.662,
-    "latency_ms_max": 10.605,
+    "latency_ms_min": 0.017,
+    "latency_ms_median": 2.231,
+    "latency_ms_max": 10.423,
     "database_unchanged": true,
     "human_relevance": "not_measured",
     "unsupported_free_text_claims": "not_human_reviewed"
@@ -64,7 +64,7 @@
         "flight_constraint": false,
         "language": "ru"
       },
-      "latency_ms": 10.605,
+      "latency_ms": 8.659,
       "expected_empty": false,
       "expected_empty_reason": null,
       "comparison_group": null,
@@ -237,7 +237,7 @@
         "flight_constraint": false,
         "language": "ru"
       },
-      "latency_ms": 1.827,
+      "latency_ms": 2.231,
       "expected_empty": false,
       "expected_empty_reason": null,
       "comparison_group": null,
@@ -409,7 +409,7 @@
         "flight_constraint": false,
         "language": "ru"
       },
-      "latency_ms": 3.942,
+      "latency_ms": 5.334,
       "expected_empty": false,
       "expected_empty_reason": null,
       "comparison_group": null,
@@ -581,7 +581,7 @@
         "flight_constraint": false,
         "language": "ru"
       },
-      "latency_ms": 8.727,
+      "latency_ms": 10.423,
       "expected_empty": false,
       "expected_empty_reason": null,
       "comparison_group": null,
@@ -752,7 +752,7 @@
         "flight_constraint": false,
         "language": "ru"
       },
-      "latency_ms": 6.943,
+      "latency_ms": 6.284,
       "expected_empty": false,
       "expected_empty_reason": null,
       "comparison_group": null,
@@ -922,7 +922,7 @@
         "flight_constraint": false,
         "language": "ru"
       },
-      "latency_ms": 2.662,
+      "latency_ms": 4.515,
       "expected_empty": false,
       "expected_empty_reason": null,
       "comparison_group": null,
@@ -1092,7 +1092,7 @@
         "flight_constraint": false,
         "language": "ru"
       },
-      "latency_ms": 1.119,
+      "latency_ms": 1.43,
       "expected_empty": false,
       "expected_empty_reason": null,
       "comparison_group": null,
@@ -1262,7 +1262,7 @@
         "flight_constraint": false,
         "language": "ru"
       },
-      "latency_ms": 1.405,
+      "latency_ms": 1.456,
       "expected_empty": true,
       "expected_empty_reason": "The committed snapshot has no confirmed power outlets; unknown is insufficient.",
       "comparison_group": null,
@@ -1325,7 +1325,7 @@
         "flight_constraint": false,
         "language": "ru"
       },
-      "latency_ms": 1.516,
+      "latency_ms": 1.458,
       "expected_empty": false,
       "expected_empty_reason": null,
       "comparison_group": null,
@@ -1496,7 +1496,7 @@
         "flight_constraint": false,
         "language": "ru"
       },
-      "latency_ms": 1.506,
+      "latency_ms": 1.516,
       "expected_empty": false,
       "expected_empty_reason": null,
       "comparison_group": "wind_nature_expo",
@@ -1667,7 +1667,7 @@
         "flight_constraint": false,
         "language": "ru"
       },
-      "latency_ms": 1.437,
+      "latency_ms": 1.28,
       "expected_empty": false,
       "expected_empty_reason": null,
       "comparison_group": "wind_nature_expo",
@@ -1843,7 +1843,7 @@
         "flight_constraint": false,
         "language": "ru"
       },
-      "latency_ms": 5.419,
+      "latency_ms": 3.604,
       "expected_empty": false,
       "expected_empty_reason": null,
       "comparison_group": null,
@@ -2020,7 +2020,7 @@
         "flight_constraint": false,
         "language": "ru"
       },
-      "latency_ms": 2.716,
+      "latency_ms": 2.484,
       "expected_empty": false,
       "expected_empty_reason": null,
       "comparison_group": null,
@@ -2197,7 +2197,7 @@
         "flight_constraint": false,
         "language": "ru"
       },
-      "latency_ms": 2.924,
+      "latency_ms": 1.907,
       "expected_empty": false,
       "expected_empty_reason": null,
       "comparison_group": null,
@@ -2371,7 +2371,7 @@
         "flight_constraint": true,
         "language": "ru"
       },
-      "latency_ms": 0.025,
+      "latency_ms": 0.017,
       "expected_empty": true,
       "expected_empty_reason": "A flight deadline must not produce an excursion away from the airport.",
       "comparison_group": null,

@@ -4,7 +4,7 @@
 
 Base: `348b6a4`; branch: `codex/submission-readiness`. This work is separate from
 the unchanged public deployment. Original 153 tests remain present; the expanded
-suite executed locally with provider calls disabled: **219 passed in 26.90s**.
+suite executed locally with provider calls disabled: **236 passed in 33.75s**.
 The isolated local server on port 8503 started; `/_stcore/health` returned
 **HTTP 200 / ok**. Data, source snapshots, pinned requirements and workflow
 remain unchanged.
@@ -47,9 +47,32 @@ per-POI safe phrases or exact complete source sentences and conservative actions
 novel factual prose fails closed to the existing templates. This sacrifices
 paraphrase flexibility and can increase fallback. It does not independently
 establish that a source is true/current, and no AI quality improvement is measured.
-The explicit live verifier initially returned `not_attempted / credentials_missing`;
-no paid request was made at that checkpoint. Any subsequent real-call result
-must be recorded separately rather than inferred from offline tests.
+The explicit live verifier initially returned `not_attempted / credentials_missing`.
+After a local key was supplied, three credentialed verification runs were made.
+The first returned template mode without a detailed cause. Context-local safe
+diagnostics were added and a single diagnostic retest on
+`2026-10-19T17:33:33.253566+05:00` identified **HTTP 429 /
+`credit_balance_exhausted`** at the official OpenAI endpoint. The model did not
+produce a validated answer; status remains **not_verified**, `answer_mode=template`.
+[Actual sanitized report](live-llm-verification.json). The runs used a fixed
+non-personal request and public EXPO preset; no key, prompt, private origin,
+raw exception, headers or response body was retained in the public report.
+After the owner's later readiness message, a final check at
+`2026-10-19T17:42:14.795423+05:00` returned the same 429 / credit error. The linked
+JSON records this latest result; no successful generated answer was received.
+
+Diagnostics are reset for each attempt and isolated by context. Only fixed
+categories, a bounded numeric HTTP status and allowlisted provider error codes
+can enter the report; tests cover stale state, concurrent contexts and error
+objects containing private test values. No further retries followed the latest
+credit error. This does not verify successful LLM integration
+or an improvement in recommendation quality.
+
+The organization owner must check/fund its API balance, then explicitly rerun
+`python -m scripts.verify_live_llm`. Only validated `answer_mode=llm` is success.
+See [OpenAI's error definition](https://developers.openai.com/api/docs/guides/error-codes)
+and [API prepaid billing instructions](https://help.openai.com/en/articles/8264644-what-is-prepaid-billing).
+ChatGPT billing is separate from [API billing](https://help.openai.com/en/articles/9039756-managing-billing-settings-on-chatgpt-web-and-platform).
 
 Merge/main deployment is a [review checklist](RELEASE_CHECKLIST.md), not an
 executed release. Two-stop itineraries, full localization, independent human

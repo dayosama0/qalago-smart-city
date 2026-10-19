@@ -40,6 +40,12 @@ The existing public feature preview stays available during review.
    directly into the deployed feature branch as a shortcut. Record the final
    main SHA and its passing CI run.
 
+The local credentialed LLM check currently fails with **429 /
+`credit_balance_exhausted`**; see the [latest safe report](live-llm-verification.json).
+The API organization owner must resolve its credit balance and rerun the
+explicit verifier before claiming LLM success. Passing unit tests and working
+template mode are separate evidence.
+
 ## Deploy main without disturbing the working preview
 
 1. In the owner's ordinary authenticated browser, open

@@ -30,6 +30,9 @@ local screenshot or GitHub push does not prove public deployment or live LLM use
 - [ ] **LLM:** if a real successful call is demonstrated, record the model,
   selected public IDs, `answer_mode=llm` and validation result without secrets.
   Otherwise state live LLM verification is incomplete. Templates remain usable.
+  The real check returned `429 / credit_balance_exhausted`; see
+  `docs/live-llm-verification.json`. Owner API billing action and a successful
+  explicit recheck are still required before checking this box.
 - [x] **Automated query evaluation:** 15 authored representative examples run
   against genuine POIs, with code/data fingerprints and actual results in
   `evaluation/results/`. These are not collected user queries or human scores.

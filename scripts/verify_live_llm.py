@@ -15,13 +15,14 @@ from dotenv import load_dotenv
 
 from config import OPENAI_MODEL, ROOT, TIMEZONE
 from core.models import RecommendRequest
-from core.llm import source_description_context
+from core.llm import get_last_llm_diagnostic, reset_llm_diagnostic, source_description_context
 from core.recommend import recommend
 
 OFFICIAL_OPENAI_ENDPOINT = "https://api.openai.com/v1"
 
 
 def verify() -> tuple[dict, int]:
+    reset_llm_diagnostic()
     configured_model = os.getenv("OPENAI_MODEL", OPENAI_MODEL)
     safe_model = (configured_model if re.fullmatch(r"[A-Za-z0-9._:-]{1,100}", configured_model)
                   and not configured_model.startswith("sk-") else "invalid_or_redacted")
@@ -30,16 +31,21 @@ def verify() -> tuple[dict, int]:
               "status": "not_attempted", "answer_mode": None,
               "poi_ids": [], "weather_is_simulated": True,
               "clock_is_simulated": True, "source_description_poi_ids": [],
-              "grounding_mode": "bounded_source_sentence_selection"}
+              "grounding_mode": "bounded_source_sentence_selection",
+              "llm_diagnostic": get_last_llm_diagnostic()}
     # The installed SDK honors OPENAI_BASE_URL. A successful response through a
     # custom service cannot establish a genuine request to the OpenAI endpoint.
     # Compare exact strings: never echo a rejected URL, which may contain keys.
     configured_endpoint = os.getenv("OPENAI_BASE_URL", "")
     if configured_endpoint not in {"", OFFICIAL_OPENAI_ENDPOINT, OFFICIAL_OPENAI_ENDPOINT + "/"}:
+        reset_llm_diagnostic("non_official_endpoint")
+        report["llm_diagnostic"] = get_last_llm_diagnostic()
         report["reason"] = "non_official_endpoint; live OpenAI verification not attempted"
         return report, 2
     report["official_endpoint"] = OFFICIAL_OPENAI_ENDPOINT
     if not os.getenv("OPENAI_API_KEY", "").strip():
+        reset_llm_diagnostic("missing_key")
+        report["llm_diagnostic"] = get_last_llm_diagnostic()
         report["reason"] = "credentials_missing; live LLM verification incomplete"
         return report, 2
     # A fixed public preset and non-personal request; no user location/query.
@@ -54,6 +60,7 @@ def verify() -> tuple[dict, int]:
         # accepted invocation to the canonical endpoint, then restore the env.
         os.environ["OPENAI_BASE_URL"] = OFFICIAL_OPENAI_ENDPOINT
         response = recommend(request)
+        report["llm_diagnostic"] = get_last_llm_diagnostic()
         report["answer_mode"] = response.answer_mode
         cards = [*response.recommendations, *response.alternatives]
         report["poi_ids"] = [p.poi_id for p in cards]
@@ -65,6 +72,7 @@ def verify() -> tuple[dict, int]:
     except Exception:
         # Provider exceptions may include headers or request data; never print them.
         report.update(status="not_verified", reason="verification failed; inspect configuration without exposing secrets")
+        report["llm_diagnostic"] = get_last_llm_diagnostic()
     finally:
         if previous_endpoint is None:
             os.environ.pop("OPENAI_BASE_URL", None)

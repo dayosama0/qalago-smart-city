@@ -1,0 +1,26 @@
+{
+  "checked_at": "2026-10-19T17:42:14.795423+05:00",
+  "model": "gpt-4.1-mini",
+  "status": "not_verified",
+  "answer_mode": "template",
+  "poi_ids": [
+    "osm:way:499328514",
+    "osm:node:13397061026",
+    "osm:node:12520559591"
+  ],
+  "weather_is_simulated": true,
+  "clock_is_simulated": true,
+  "source_description_poi_ids": [
+    "osm:way:499328514"
+  ],
+  "grounding_mode": "bounded_source_sentence_selection",
+  "llm_diagnostic": {
+    "status": "not_verified",
+    "stage": "provider",
+    "category": "rate_limit_error",
+    "http_status": 429,
+    "provider_error_code": "credit_balance_exhausted"
+  },
+  "official_endpoint": "https://api.openai.com/v1",
+  "reason": "no candidates, no sourced description context, or deterministic fallback; no successful live LLM result"
+}
