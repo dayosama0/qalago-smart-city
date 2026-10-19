@@ -1,0 +1,2421 @@
+{
+  "schema_version": 1,
+  "evaluated_at_utc": "2026-10-19T12:35:58+00:00",
+  "prompt_provenance": "SYNTHETIC REPRESENTATIVE EVALUATION PROMPTS. Authored examples, not collected user requests or human-participant data.",
+  "dataset_sha256": "b7f26c59fac6ce5868e8dec1ee406d185b4a5656f20cbafaee975294066b8ab4",
+  "code_sha256": "119b60c4496fff6c89a18a2b0bfc8336d3591cd2e3e25dec0f44a534eba1c9fa",
+  "git": {
+    "head_commit": "25b41e91e95bf1deb863c1b57d912d109487b2fa",
+    "working_tree_dirty": true,
+    "note": "HEAD identifies the base when dirty; code_sha256 identifies evaluated backend/config/script text."
+  },
+  "environment": {
+    "python": "3.13.7",
+    "os": "Windows"
+  },
+  "mode": "offline_templates_simulated_weather_and_clock",
+  "warm_up_calls": 0,
+  "latency_scope": "recommend() only; excludes validation, output and network; single-machine observations, not a benchmark",
+  "source_link_validation": "Local canonical OSM URLs and snapshot identity only; HTTP availability not tested",
+  "metrics": {
+    "cases": 15,
+    "cases_passing_automated_checks": 15,
+    "direct_category_match_cases": 9,
+    "direct_category_match_coverage_proxy": 0.6,
+    "nonempty_cases": 13,
+    "alternatives_only_cases": 4,
+    "empty_cases": 2,
+    "expected_empty_cases": 2,
+    "expected_empty_cases_satisfied": 2,
+    "returned_cards": 39,
+    "time_budget_compliant_cards": 39,
+    "source_field_mismatch_cards": 0,
+    "canonical_osm_source_links": 39,
+    "strict_feature_violation_cards": 0,
+    "strict_feature_returned_cards": 3,
+    "listed_closed_cards": 0,
+    "unknown_schedule_cards": 18,
+    "latency_ms_min": 0.017,
+    "latency_ms_median": 2.231,
+    "latency_ms_max": 10.423,
+    "database_unchanged": true,
+    "human_relevance": "not_measured",
+    "unsupported_free_text_claims": "not_human_reviewed"
+  },
+  "results": [
+    {
+      "case_id": "architecture_baiterek",
+      "topic": "architecture",
+      "request": {
+        "location_preset": "baiterek",
+        "latitude": null,
+        "longitude": null,
+        "query": "Хочу посмотреть архитектуру рядом с Байтереком за час.",
+        "interests": [
+          "architecture"
+        ],
+        "duration_minutes": 60,
+        "walking_only": true,
+        "return_to_start": false,
+        "climate_shield_enabled": true,
+        "weather_mode": "clear",
+        "time_mode": "simulated",
+        "simulated_datetime": "2026-10-19T14:00:00+05:00",
+        "flight_constraint": false,
+        "language": "ru"
+      },
+      "latency_ms": 8.659,
+      "expected_empty": false,
+      "expected_empty_reason": null,
+      "comparison_group": null,
+      "mechanical_caveats": [
+        "At least one returned option has unknown or unsupported hours; its availability is unverified.",
+        "At least one indoor classification is category-based likely_indoor; actual shelter/heating is unverified."
+      ],
+      "response": {
+        "recommendations": [
+          {
+            "poi_id": "osm:way:230401645",
+            "name": "Бәйтерек",
+            "category": "attraction",
+            "lat": 51.12828825,
+            "lon": 71.4304546,
+            "distance_m": 10.5,
+            "travel_minutes_estimated": 0.2,
+            "visit_minutes_estimated": 20,
+            "reason": "Категория места может соответствовать вашим интересам.",
+            "action": "Рассмотрите короткий осмотр; перед выходом уточните доступ.",
+            "opening_note": "Часы работы неизвестны; доступность сейчас не проверена. Источник: OpenStreetMap; загружено 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "unknown",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/way/230401645",
+            "warnings": [
+              "Неизвестно, находится ли место в помещении.",
+              "Точка на карте может быть центром объекта, а не входом."
+            ],
+            "total_minutes_estimated": 25.2,
+            "opening_status": "unknown",
+            "description": "Монумент «Байтерек» на бульваре Нуржол. Его архитектурный образ связан с древом жизни; внутри представлены композиции «Аялы алакан» и «Бата».",
+            "description_source": "https://a-vm.kz/en/objects/bayterek/",
+            "opening_hours_source_url": "https://www.openstreetmap.org/way/230401645",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          },
+          {
+            "poi_id": "osm:way:230358847",
+            "name": "Көрме",
+            "category": "gallery",
+            "lat": 51.12864055,
+            "lon": 71.42037955,
+            "distance_m": 701.0,
+            "travel_minutes_estimated": 12.2,
+            "visit_minutes_estimated": 25,
+            "reason": "Категория места может соответствовать вашим интересам.",
+            "action": "Рассмотрите осмотр экспозиции, если вход доступен.",
+            "opening_note": "Часы работы неизвестны; доступность сейчас не проверена. Источник: OpenStreetMap; загружено 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "likely_indoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/way/230358847",
+            "warnings": [
+              "Вероятно в помещении по тегам или категории; отопление и защищённость от погоды не проверены.",
+              "Точка на карте может быть центром объекта, а не входом."
+            ],
+            "total_minutes_estimated": 42.2,
+            "opening_status": "unknown",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/way/230358847",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          }
+        ],
+        "general_message": null,
+        "weather": {
+          "status": "normal",
+          "is_simulated": true,
+          "source": "scenario:clear",
+          "observed_at": null,
+          "temperature": 18,
+          "apparent_temperature": 18,
+          "wind_speed": 2,
+          "wind_gusts": 4,
+          "precipitation": 0,
+          "note": "СИМУЛЯЦИЯ погоды. Пороговые значения — эвристики прототипа, не официальное предупреждение."
+        },
+        "time_is_simulated": true,
+        "answer_mode": "template",
+        "estimated_outdoor_minutes": 20.2,
+        "limitations": [
+          "Расстояния и время пешком — геометрические оценки, не проверенные маршруты; препятствия и доступ неизвестны.",
+          "Каждая карточка — отдельный вариант: путь + посещение + запас 5 минут; обратный путь включён, если выбран.",
+          "Поддерживаемые недельные графики ограничивают выбранное время и расчётное посещение; сложные графики остаются неизвестными. Живая доступность не проверена.",
+          "Время снаружи — модельная оценка первого показанного варианта, включая альтернативы; предполагаемое помещение не подтверждено."
+        ],
+        "local_datetime": "2026-10-19T14:00:00+05:00",
+        "alternatives": [
+          {
+            "poi_id": "osm:node:6408271985",
+            "name": "CrepeCafe",
+            "category": "cafe",
+            "lat": 51.1293821,
+            "lon": 71.4285934,
+            "distance_m": 182.1,
+            "travel_minutes_estimated": 3.2,
+            "visit_minutes_estimated": 20,
+            "reason": "Альтернатива в другой категории в пределах выбранных ограничений.",
+            "action": "Рассмотрите короткую остановку; заранее уточните условия посещения.",
+            "opening_note": "Согласно указанному расписанию, выбранное время и расчётное посещение укладываются в часы работы. Указанное расписание: Mo-Fr 08:00-00:00; Sa-Su 09:00-00:00. Доступность сейчас не проверена. Источник расписания: https://www.openstreetmap.org/node/6408271985; дата сведений/загрузки: 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "likely_indoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/node/6408271985",
+            "warnings": [
+              "Категория не совпадает с выбранными интересами; это альтернативный вариант.",
+              "Вероятно в помещении по тегам или категории; отопление и защищённость от погоды не проверены."
+            ],
+            "total_minutes_estimated": 28.2,
+            "opening_status": "listed_open",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/node/6408271985",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          }
+        ]
+      },
+      "checks": {
+        "passed": true,
+        "errors": [],
+        "cards": [
+          {
+            "poi_id": "osm:way:230401645",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "unknown",
+            "direct_category_label": true,
+            "source_link": true
+          },
+          {
+            "poi_id": "osm:way:230358847",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "unknown",
+            "direct_category_label": true,
+            "source_link": true
+          },
+          {
+            "poi_id": "osm:node:6408271985",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "listed_open",
+            "direct_category_label": true,
+            "source_link": true
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "architecture_expo_short",
+      "topic": "architecture",
+      "request": {
+        "location_preset": "expo",
+        "latitude": null,
+        "longitude": null,
+        "query": "У меня только полчаса у EXPO. Что можно посмотреть из архитектуры?",
+        "interests": [
+          "architecture"
+        ],
+        "duration_minutes": 30,
+        "walking_only": true,
+        "return_to_start": false,
+        "climate_shield_enabled": true,
+        "weather_mode": "clear",
+        "time_mode": "simulated",
+        "simulated_datetime": "2026-10-19T14:00:00+05:00",
+        "flight_constraint": false,
+        "language": "ru"
+      },
+      "latency_ms": 2.231,
+      "expected_empty": false,
+      "expected_empty_reason": null,
+      "comparison_group": null,
+      "mechanical_caveats": [
+        "At least one indoor classification is category-based likely_indoor; actual shelter/heating is unverified.",
+        "No direct category match remains; only explicitly separate other-category alternatives are returned."
+      ],
+      "response": {
+        "recommendations": [],
+        "general_message": "После ограничений времени, расписания и погоды прямых совпадений по категории нет. Ниже отдельно показаны альтернативы в других категориях с сохранением обязательных удобств.",
+        "weather": {
+          "status": "normal",
+          "is_simulated": true,
+          "source": "scenario:clear",
+          "observed_at": null,
+          "temperature": 18,
+          "apparent_temperature": 18,
+          "wind_speed": 2,
+          "wind_gusts": 4,
+          "precipitation": 0,
+          "note": "СИМУЛЯЦИЯ погоды. Пороговые значения — эвристики прототипа, не официальное предупреждение."
+        },
+        "time_is_simulated": true,
+        "answer_mode": "template",
+        "estimated_outdoor_minutes": 1.1,
+        "limitations": [
+          "Расстояния и время пешком — геометрические оценки, не проверенные маршруты; препятствия и доступ неизвестны.",
+          "Каждая карточка — отдельный вариант: путь + посещение + запас 5 минут; обратный путь включён, если выбран.",
+          "Поддерживаемые недельные графики ограничивают выбранное время и расчётное посещение; сложные графики остаются неизвестными. Живая доступность не проверена.",
+          "Время снаружи — модельная оценка первого показанного варианта, включая альтернативы; предполагаемое помещение не подтверждено."
+        ],
+        "local_datetime": "2026-10-19T14:00:00+05:00",
+        "alternatives": [
+          {
+            "poi_id": "osm:node:12520559591",
+            "name": "Лепим и варим",
+            "category": "cafe",
+            "lat": 51.0891569,
+            "lon": 71.4078454,
+            "distance_m": 64.9,
+            "travel_minutes_estimated": 1.1,
+            "visit_minutes_estimated": 20,
+            "reason": "Альтернатива в другой категории в пределах выбранных ограничений.",
+            "action": "Рассмотрите короткую остановку; заранее уточните условия посещения.",
+            "opening_note": "Согласно указанному расписанию, выбранное время и расчётное посещение укладываются в часы работы. Указанное расписание: Mo-Su 10:00-23:00. Доступность сейчас не проверена. Источник расписания: https://www.openstreetmap.org/node/12520559591; дата сведений/загрузки: 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "likely_indoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/node/12520559591",
+            "warnings": [
+              "Категория не совпадает с выбранными интересами; это альтернативный вариант.",
+              "Вероятно в помещении по тегам или категории; отопление и защищённость от погоды не проверены."
+            ],
+            "total_minutes_estimated": 26.1,
+            "opening_status": "listed_open",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/node/12520559591",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          },
+          {
+            "poi_id": "osm:node:14275682079",
+            "name": "Drinkit",
+            "category": "cafe",
+            "lat": 51.0890765,
+            "lon": 71.40609,
+            "distance_m": 73.0,
+            "travel_minutes_estimated": 1.3,
+            "visit_minutes_estimated": 20,
+            "reason": "Альтернатива в другой категории в пределах выбранных ограничений.",
+            "action": "Рассмотрите короткую остановку; заранее уточните условия посещения.",
+            "opening_note": "Согласно указанному расписанию, выбранное время и расчётное посещение укладываются в часы работы. Указанное расписание: Mo-Su 08:00-22:00. Доступность сейчас не проверена. Источник расписания: https://www.openstreetmap.org/node/14275682079; дата сведений/загрузки: 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "likely_indoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/node/14275682079",
+            "warnings": [
+              "Категория не совпадает с выбранными интересами; это альтернативный вариант.",
+              "Вероятно в помещении по тегам или категории; отопление и защищённость от погоды не проверены."
+            ],
+            "total_minutes_estimated": 26.3,
+            "opening_status": "listed_open",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/node/14275682079",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          },
+          {
+            "poi_id": "osm:node:9047331879",
+            "name": "Starbucks",
+            "category": "cafe",
+            "lat": 51.0890092,
+            "lon": 71.4089158,
+            "distance_m": 140.7,
+            "travel_minutes_estimated": 2.4,
+            "visit_minutes_estimated": 20,
+            "reason": "Альтернатива в другой категории в пределах выбранных ограничений.",
+            "action": "Рассмотрите короткую остановку; заранее уточните условия посещения.",
+            "opening_note": "Согласно указанному расписанию, выбранное время и расчётное посещение укладываются в часы работы. Указанное расписание: Mo-Su 08:00-22:00. Доступность сейчас не проверена. Источник расписания: https://www.openstreetmap.org/node/9047331879; дата сведений/загрузки: 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "likely_indoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/node/9047331879",
+            "warnings": [
+              "Категория не совпадает с выбранными интересами; это альтернативный вариант.",
+              "Вероятно в помещении по тегам или категории; отопление и защищённость от погоды не проверены."
+            ],
+            "total_minutes_estimated": 27.4,
+            "opening_status": "listed_open",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/node/9047331879",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          }
+        ]
+      },
+      "checks": {
+        "passed": true,
+        "errors": [],
+        "cards": [
+          {
+            "poi_id": "osm:node:12520559591",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "listed_open",
+            "direct_category_label": true,
+            "source_link": true
+          },
+          {
+            "poi_id": "osm:node:14275682079",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "listed_open",
+            "direct_category_label": true,
+            "source_link": true
+          },
+          {
+            "poi_id": "osm:node:9047331879",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "listed_open",
+            "direct_category_label": true,
+            "source_link": true
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "nature_park",
+      "topic": "nature",
+      "request": {
+        "location_preset": "central_park",
+        "latitude": null,
+        "longitude": null,
+        "query": "Хочу погулять среди зелени в парке и вернуться к началу.",
+        "interests": [
+          "nature"
+        ],
+        "duration_minutes": 60,
+        "walking_only": true,
+        "return_to_start": true,
+        "climate_shield_enabled": true,
+        "weather_mode": "clear",
+        "time_mode": "simulated",
+        "simulated_datetime": "2026-10-19T14:00:00+05:00",
+        "flight_constraint": false,
+        "language": "ru"
+      },
+      "latency_ms": 5.334,
+      "expected_empty": false,
+      "expected_empty_reason": null,
+      "comparison_group": null,
+      "mechanical_caveats": [
+        "At least one returned option has unknown or unsupported hours; its availability is unverified.",
+        "At least one indoor classification is category-based likely_indoor; actual shelter/heating is unverified."
+      ],
+      "response": {
+        "recommendations": [
+          {
+            "poi_id": "osm:relation:15957444",
+            "name": "Астана саябағы",
+            "category": "park",
+            "lat": 51.15481525,
+            "lon": 71.4195693,
+            "distance_m": 2.7,
+            "travel_minutes_estimated": 0.0,
+            "visit_minutes_estimated": 25,
+            "reason": "Категория места может соответствовать вашим интересам.",
+            "action": "Рассмотрите короткую прогулку после проверки погоды и доступа.",
+            "opening_note": "Часы работы неизвестны; доступность сейчас не проверена. Источник: OpenStreetMap; загружено 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "outdoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/relation/15957444",
+            "warnings": [
+              "Точка на карте может быть центром объекта, а не входом."
+            ],
+            "total_minutes_estimated": 30.1,
+            "opening_status": "unknown",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/relation/15957444",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          }
+        ],
+        "general_message": null,
+        "weather": {
+          "status": "normal",
+          "is_simulated": true,
+          "source": "scenario:clear",
+          "observed_at": null,
+          "temperature": 18,
+          "apparent_temperature": 18,
+          "wind_speed": 2,
+          "wind_gusts": 4,
+          "precipitation": 0,
+          "note": "СИМУЛЯЦИЯ погоды. Пороговые значения — эвристики прототипа, не официальное предупреждение."
+        },
+        "time_is_simulated": true,
+        "answer_mode": "template",
+        "estimated_outdoor_minutes": 25.1,
+        "limitations": [
+          "Расстояния и время пешком — геометрические оценки, не проверенные маршруты; препятствия и доступ неизвестны.",
+          "Каждая карточка — отдельный вариант: путь + посещение + запас 5 минут; обратный путь включён, если выбран.",
+          "Поддерживаемые недельные графики ограничивают выбранное время и расчётное посещение; сложные графики остаются неизвестными. Живая доступность не проверена.",
+          "Время снаружи — модельная оценка первого показанного варианта, включая альтернативы; предполагаемое помещение не подтверждено."
+        ],
+        "local_datetime": "2026-10-19T14:00:00+05:00",
+        "alternatives": [
+          {
+            "poi_id": "osm:node:12135832778",
+            "name": "PizBurg",
+            "category": "cafe",
+            "lat": 51.1573571,
+            "lon": 71.4194573,
+            "distance_m": 284.5,
+            "travel_minutes_estimated": 4.9,
+            "visit_minutes_estimated": 20,
+            "reason": "Альтернатива в другой категории в пределах выбранных ограничений.",
+            "action": "Рассмотрите короткую остановку; заранее уточните условия посещения.",
+            "opening_note": "Часы работы неизвестны; доступность сейчас не проверена. Источник: OpenStreetMap; загружено 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "likely_indoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/node/12135832778",
+            "warnings": [
+              "Категория не совпадает с выбранными интересами; это альтернативный вариант.",
+              "Вероятно в помещении по тегам или категории; отопление и защищённость от погоды не проверены."
+            ],
+            "total_minutes_estimated": 34.9,
+            "opening_status": "unknown",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/node/12135832778",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          },
+          {
+            "poi_id": "osm:node:13230417216",
+            "name": "La Belle restaurant&terrace",
+            "category": "restaurant",
+            "lat": 51.1603123,
+            "lon": 71.4149143,
+            "distance_m": 694.6,
+            "travel_minutes_estimated": 12.0,
+            "visit_minutes_estimated": 30,
+            "reason": "Альтернатива в другой категории в пределах выбранных ограничений.",
+            "action": "Рассмотрите короткую остановку; заранее уточните условия посещения.",
+            "opening_note": "Согласно указанному расписанию, выбранное время и расчётное посещение укладываются в часы работы. Указанное расписание: Mo-Su 12:00-02:00. Доступность сейчас не проверена. Источник расписания: https://www.openstreetmap.org/node/13230417216; дата сведений/загрузки: 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "likely_indoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/node/13230417216",
+            "warnings": [
+              "Категория не совпадает с выбранными интересами; это альтернативный вариант.",
+              "Вероятно в помещении по тегам или категории; отопление и защищённость от погоды не проверены."
+            ],
+            "total_minutes_estimated": 59.1,
+            "opening_status": "listed_open",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/node/13230417216",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          }
+        ]
+      },
+      "checks": {
+        "passed": true,
+        "errors": [],
+        "cards": [
+          {
+            "poi_id": "osm:relation:15957444",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "unknown",
+            "direct_category_label": true,
+            "source_link": true
+          },
+          {
+            "poi_id": "osm:node:12135832778",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "unknown",
+            "direct_category_label": true,
+            "source_link": true
+          },
+          {
+            "poi_id": "osm:node:13230417216",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "listed_open",
+            "direct_category_label": true,
+            "source_link": true
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "quiet_break",
+      "topic": "quiet",
+      "request": {
+        "location_preset": "central_park",
+        "latitude": null,
+        "longitude": null,
+        "query": "Нужно спокойное место для короткой передышки без спешки.",
+        "interests": [
+          "quiet"
+        ],
+        "duration_minutes": 60,
+        "walking_only": true,
+        "return_to_start": false,
+        "climate_shield_enabled": true,
+        "weather_mode": "clear",
+        "time_mode": "simulated",
+        "simulated_datetime": "2026-10-19T14:00:00+05:00",
+        "flight_constraint": false,
+        "language": "ru"
+      },
+      "latency_ms": 10.423,
+      "expected_empty": false,
+      "expected_empty_reason": null,
+      "comparison_group": null,
+      "mechanical_caveats": [
+        "Quietness is inferred from broad categories; noise was not measured or confirmed.",
+        "At least one returned option has unknown or unsupported hours; its availability is unverified.",
+        "At least one indoor classification is category-based likely_indoor; actual shelter/heating is unverified."
+      ],
+      "response": {
+        "recommendations": [
+          {
+            "poi_id": "osm:relation:15957444",
+            "name": "Астана саябағы",
+            "category": "park",
+            "lat": 51.15481525,
+            "lon": 71.4195693,
+            "distance_m": 2.7,
+            "travel_minutes_estimated": 0.0,
+            "visit_minutes_estimated": 25,
+            "reason": "Категория места может соответствовать вашим интересам.",
+            "action": "Рассмотрите короткую прогулку после проверки погоды и доступа.",
+            "opening_note": "Часы работы неизвестны; доступность сейчас не проверена. Источник: OpenStreetMap; загружено 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "outdoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/relation/15957444",
+            "warnings": [
+              "Точка на карте может быть центром объекта, а не входом."
+            ],
+            "total_minutes_estimated": 30.0,
+            "opening_status": "unknown",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/relation/15957444",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          },
+          {
+            "poi_id": "osm:node:12135832778",
+            "name": "PizBurg",
+            "category": "cafe",
+            "lat": 51.1573571,
+            "lon": 71.4194573,
+            "distance_m": 284.5,
+            "travel_minutes_estimated": 4.9,
+            "visit_minutes_estimated": 20,
+            "reason": "Категория места может соответствовать вашим интересам.",
+            "action": "Рассмотрите короткую остановку; заранее уточните условия посещения.",
+            "opening_note": "Часы работы неизвестны; доступность сейчас не проверена. Источник: OpenStreetMap; загружено 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "likely_indoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/node/12135832778",
+            "warnings": [
+              "Вероятно в помещении по тегам или категории; отопление и защищённость от погоды не проверены."
+            ],
+            "total_minutes_estimated": 29.9,
+            "opening_status": "unknown",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/node/12135832778",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          },
+          {
+            "poi_id": "osm:node:5889720185",
+            "name": "Costa",
+            "category": "cafe",
+            "lat": 51.1597436,
+            "lon": 71.4285152,
+            "distance_m": 829.9,
+            "travel_minutes_estimated": 14.4,
+            "visit_minutes_estimated": 20,
+            "reason": "Категория места может соответствовать вашим интересам.",
+            "action": "Рассмотрите короткую остановку; заранее уточните условия посещения.",
+            "opening_note": "Согласно указанному расписанию, выбранное время и расчётное посещение укладываются в часы работы. Указанное расписание: Mo-Su 08:00-22:00. Доступность сейчас не проверена. Источник расписания: https://www.openstreetmap.org/node/5889720185; дата сведений/загрузки: 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "likely_indoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/node/5889720185",
+            "warnings": [
+              "Вероятно в помещении по тегам или категории; отопление и защищённость от погоды не проверены."
+            ],
+            "total_minutes_estimated": 39.4,
+            "opening_status": "listed_open",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/node/5889720185",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          }
+        ],
+        "general_message": null,
+        "weather": {
+          "status": "normal",
+          "is_simulated": true,
+          "source": "scenario:clear",
+          "observed_at": null,
+          "temperature": 18,
+          "apparent_temperature": 18,
+          "wind_speed": 2,
+          "wind_gusts": 4,
+          "precipitation": 0,
+          "note": "СИМУЛЯЦИЯ погоды. Пороговые значения — эвристики прототипа, не официальное предупреждение."
+        },
+        "time_is_simulated": true,
+        "answer_mode": "template",
+        "estimated_outdoor_minutes": 25.0,
+        "limitations": [
+          "Расстояния и время пешком — геометрические оценки, не проверенные маршруты; препятствия и доступ неизвестны.",
+          "Каждая карточка — отдельный вариант: путь + посещение + запас 5 минут; обратный путь включён, если выбран.",
+          "Поддерживаемые недельные графики ограничивают выбранное время и расчётное посещение; сложные графики остаются неизвестными. Живая доступность не проверена.",
+          "Время снаружи — модельная оценка первого показанного варианта, включая альтернативы; предполагаемое помещение не подтверждено."
+        ],
+        "local_datetime": "2026-10-19T14:00:00+05:00",
+        "alternatives": []
+      },
+      "checks": {
+        "passed": true,
+        "errors": [],
+        "cards": [
+          {
+            "poi_id": "osm:relation:15957444",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "unknown",
+            "direct_category_label": true,
+            "source_link": true
+          },
+          {
+            "poi_id": "osm:node:12135832778",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "unknown",
+            "direct_category_label": true,
+            "source_link": true
+          },
+          {
+            "poi_id": "osm:node:5889720185",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "listed_open",
+            "direct_category_label": true,
+            "source_link": true
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "family_park",
+      "topic": "family",
+      "request": {
+        "location_preset": "central_park",
+        "latitude": null,
+        "longitude": null,
+        "query": "Гуляю с ребёнком. Подберите парк или площадку на час.",
+        "interests": [
+          "children",
+          "nature"
+        ],
+        "duration_minutes": 60,
+        "walking_only": true,
+        "return_to_start": false,
+        "climate_shield_enabled": true,
+        "weather_mode": "clear",
+        "time_mode": "simulated",
+        "simulated_datetime": "2026-10-19T14:00:00+05:00",
+        "flight_constraint": false,
+        "language": "ru"
+      },
+      "latency_ms": 6.284,
+      "expected_empty": false,
+      "expected_empty_reason": null,
+      "comparison_group": null,
+      "mechanical_caveats": [
+        "A child-oriented category match does not verify age suitability, facilities or access.",
+        "Multiple category intents use OR matching; a card can match one requested category without matching all.",
+        "At least one returned option has unknown or unsupported hours; its availability is unverified."
+      ],
+      "response": {
+        "recommendations": [
+          {
+            "poi_id": "osm:relation:15957444",
+            "name": "Астана саябағы",
+            "category": "park",
+            "lat": 51.15481525,
+            "lon": 71.4195693,
+            "distance_m": 2.7,
+            "travel_minutes_estimated": 0.0,
+            "visit_minutes_estimated": 25,
+            "reason": "Категория места может соответствовать вашим интересам.",
+            "action": "Рассмотрите короткую прогулку после проверки погоды и доступа.",
+            "opening_note": "Часы работы неизвестны; доступность сейчас не проверена. Источник: OpenStreetMap; загружено 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "outdoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/relation/15957444",
+            "warnings": [
+              "Точка на карте может быть центром объекта, а не входом."
+            ],
+            "total_minutes_estimated": 30.0,
+            "opening_status": "unknown",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/relation/15957444",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          },
+          {
+            "poi_id": "osm:way:262166875",
+            "name": "Сквер шахматистов",
+            "category": "park",
+            "lat": 51.1648537,
+            "lon": 71.42655415,
+            "distance_m": 1218.6,
+            "travel_minutes_estimated": 21.1,
+            "visit_minutes_estimated": 25,
+            "reason": "Категория места может соответствовать вашим интересам.",
+            "action": "Рассмотрите короткую прогулку после проверки погоды и доступа.",
+            "opening_note": "Часы работы неизвестны; доступность сейчас не проверена. Источник: OpenStreetMap; загружено 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "outdoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/way/262166875",
+            "warnings": [
+              "Точка на карте может быть центром объекта, а не входом."
+            ],
+            "total_minutes_estimated": 51.1,
+            "opening_status": "unknown",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/way/262166875",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          },
+          {
+            "poi_id": "osm:relation:3573848",
+            "name": "Гүл бақшасы",
+            "category": "park",
+            "lat": 51.16623405,
+            "lon": 71.41532635,
+            "distance_m": 1305.9,
+            "travel_minutes_estimated": 22.6,
+            "visit_minutes_estimated": 25,
+            "reason": "Категория места может соответствовать вашим интересам.",
+            "action": "Рассмотрите короткую прогулку после проверки погоды и доступа.",
+            "opening_note": "Часы работы неизвестны; доступность сейчас не проверена. Источник: OpenStreetMap; загружено 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "outdoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/relation/3573848",
+            "warnings": [
+              "Точка на карте может быть центром объекта, а не входом."
+            ],
+            "total_minutes_estimated": 52.6,
+            "opening_status": "unknown",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/relation/3573848",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          }
+        ],
+        "general_message": null,
+        "weather": {
+          "status": "normal",
+          "is_simulated": true,
+          "source": "scenario:clear",
+          "observed_at": null,
+          "temperature": 18,
+          "apparent_temperature": 18,
+          "wind_speed": 2,
+          "wind_gusts": 4,
+          "precipitation": 0,
+          "note": "СИМУЛЯЦИЯ погоды. Пороговые значения — эвристики прототипа, не официальное предупреждение."
+        },
+        "time_is_simulated": true,
+        "answer_mode": "template",
+        "estimated_outdoor_minutes": 25.0,
+        "limitations": [
+          "Расстояния и время пешком — геометрические оценки, не проверенные маршруты; препятствия и доступ неизвестны.",
+          "Каждая карточка — отдельный вариант: путь + посещение + запас 5 минут; обратный путь включён, если выбран.",
+          "Поддерживаемые недельные графики ограничивают выбранное время и расчётное посещение; сложные графики остаются неизвестными. Живая доступность не проверена.",
+          "Время снаружи — модельная оценка первого показанного варианта, включая альтернативы; предполагаемое помещение не подтверждено."
+        ],
+        "local_datetime": "2026-10-19T14:00:00+05:00",
+        "alternatives": []
+      },
+      "checks": {
+        "passed": true,
+        "errors": [],
+        "cards": [
+          {
+            "poi_id": "osm:relation:15957444",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "unknown",
+            "direct_category_label": true,
+            "source_link": true
+          },
+          {
+            "poi_id": "osm:way:262166875",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "unknown",
+            "direct_category_label": true,
+            "source_link": true
+          },
+          {
+            "poi_id": "osm:relation:3573848",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "unknown",
+            "direct_category_label": true,
+            "source_link": true
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "family_expo",
+      "topic": "family",
+      "request": {
+        "location_preset": "expo",
+        "latitude": null,
+        "longitude": null,
+        "query": "Мы с ребёнком рядом с MEGA. Есть парк или музей в пределах часа?",
+        "interests": [
+          "children"
+        ],
+        "duration_minutes": 60,
+        "walking_only": true,
+        "return_to_start": false,
+        "climate_shield_enabled": true,
+        "weather_mode": "clear",
+        "time_mode": "simulated",
+        "simulated_datetime": "2026-10-19T14:00:00+05:00",
+        "flight_constraint": false,
+        "language": "ru"
+      },
+      "latency_ms": 4.515,
+      "expected_empty": false,
+      "expected_empty_reason": null,
+      "comparison_group": null,
+      "mechanical_caveats": [
+        "A child-oriented category match does not verify age suitability, facilities or access.",
+        "Multiple category intents use OR matching; a card can match one requested category without matching all.",
+        "At least one returned option has unknown or unsupported hours; its availability is unverified."
+      ],
+      "response": {
+        "recommendations": [
+          {
+            "poi_id": "osm:way:1467797207",
+            "name": "NU Park",
+            "category": "park",
+            "lat": 51.087269899999995,
+            "lon": 71.3994394,
+            "distance_m": 578.7,
+            "travel_minutes_estimated": 10.0,
+            "visit_minutes_estimated": 25,
+            "reason": "Категория места может соответствовать вашим интересам.",
+            "action": "Рассмотрите короткую прогулку после проверки погоды и доступа.",
+            "opening_note": "Часы работы неизвестны; доступность сейчас не проверена. Источник: OpenStreetMap; загружено 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "outdoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/way/1467797207",
+            "warnings": [
+              "Точка на карте может быть центром объекта, а не входом."
+            ],
+            "total_minutes_estimated": 40.0,
+            "opening_status": "unknown",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/way/1467797207",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          },
+          {
+            "poi_id": "osm:way:1470723968",
+            "name": "Японский сад",
+            "category": "garden",
+            "lat": 51.09213615,
+            "lon": 71.39949924999999,
+            "distance_m": 605.8,
+            "travel_minutes_estimated": 10.5,
+            "visit_minutes_estimated": 20,
+            "reason": "Категория места может соответствовать вашим интересам.",
+            "action": "Рассмотрите короткую прогулку после проверки погоды и доступа.",
+            "opening_note": "Часы работы неизвестны; доступность сейчас не проверена. Источник: OpenStreetMap; загружено 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "outdoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/way/1470723968",
+            "warnings": [
+              "Точка на карте может быть центром объекта, а не входом."
+            ],
+            "total_minutes_estimated": 35.5,
+            "opening_status": "unknown",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/way/1470723968",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          },
+          {
+            "poi_id": "osm:way:1456208624",
+            "name": "Бейбітшілік пен Келісім аллеясы",
+            "category": "park",
+            "lat": 51.0938123,
+            "lon": 71.41694975,
+            "distance_m": 850.6,
+            "travel_minutes_estimated": 14.7,
+            "visit_minutes_estimated": 25,
+            "reason": "Категория места может соответствовать вашим интересам.",
+            "action": "Рассмотрите короткую прогулку после проверки погоды и доступа.",
+            "opening_note": "Часы работы неизвестны; доступность сейчас не проверена. Источник: OpenStreetMap; загружено 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "outdoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/way/1456208624",
+            "warnings": [
+              "Точка на карте может быть центром объекта, а не входом."
+            ],
+            "total_minutes_estimated": 44.7,
+            "opening_status": "unknown",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/way/1456208624",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          }
+        ],
+        "general_message": null,
+        "weather": {
+          "status": "normal",
+          "is_simulated": true,
+          "source": "scenario:clear",
+          "observed_at": null,
+          "temperature": 18,
+          "apparent_temperature": 18,
+          "wind_speed": 2,
+          "wind_gusts": 4,
+          "precipitation": 0,
+          "note": "СИМУЛЯЦИЯ погоды. Пороговые значения — эвристики прототипа, не официальное предупреждение."
+        },
+        "time_is_simulated": true,
+        "answer_mode": "template",
+        "estimated_outdoor_minutes": 35.0,
+        "limitations": [
+          "Расстояния и время пешком — геометрические оценки, не проверенные маршруты; препятствия и доступ неизвестны.",
+          "Каждая карточка — отдельный вариант: путь + посещение + запас 5 минут; обратный путь включён, если выбран.",
+          "Поддерживаемые недельные графики ограничивают выбранное время и расчётное посещение; сложные графики остаются неизвестными. Живая доступность не проверена.",
+          "Время снаружи — модельная оценка первого показанного варианта, включая альтернативы; предполагаемое помещение не подтверждено."
+        ],
+        "local_datetime": "2026-10-19T14:00:00+05:00",
+        "alternatives": []
+      },
+      "checks": {
+        "passed": true,
+        "errors": [],
+        "cards": [
+          {
+            "poi_id": "osm:way:1467797207",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "unknown",
+            "direct_category_label": true,
+            "source_link": true
+          },
+          {
+            "poi_id": "osm:way:1470723968",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "unknown",
+            "direct_category_label": true,
+            "source_link": true
+          },
+          {
+            "poi_id": "osm:way:1456208624",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "unknown",
+            "direct_category_label": true,
+            "source_link": true
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "coffee_expo",
+      "topic": "cafe",
+      "request": {
+        "location_preset": "expo",
+        "latitude": null,
+        "longitude": null,
+        "query": "Где остановиться на кофе рядом с MEGA за полчаса?",
+        "interests": [
+          "coffee"
+        ],
+        "duration_minutes": 30,
+        "walking_only": true,
+        "return_to_start": false,
+        "climate_shield_enabled": true,
+        "weather_mode": "clear",
+        "time_mode": "simulated",
+        "simulated_datetime": "2026-10-19T14:00:00+05:00",
+        "flight_constraint": false,
+        "language": "ru"
+      },
+      "latency_ms": 1.43,
+      "expected_empty": false,
+      "expected_empty_reason": null,
+      "comparison_group": null,
+      "mechanical_caveats": [
+        "At least one indoor classification is category-based likely_indoor; actual shelter/heating is unverified."
+      ],
+      "response": {
+        "recommendations": [
+          {
+            "poi_id": "osm:node:12520559591",
+            "name": "Лепим и варим",
+            "category": "cafe",
+            "lat": 51.0891569,
+            "lon": 71.4078454,
+            "distance_m": 64.9,
+            "travel_minutes_estimated": 1.1,
+            "visit_minutes_estimated": 20,
+            "reason": "Категория места может соответствовать вашим интересам.",
+            "action": "Рассмотрите короткую остановку; заранее уточните условия посещения.",
+            "opening_note": "Согласно указанному расписанию, выбранное время и расчётное посещение укладываются в часы работы. Указанное расписание: Mo-Su 10:00-23:00. Доступность сейчас не проверена. Источник расписания: https://www.openstreetmap.org/node/12520559591; дата сведений/загрузки: 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "likely_indoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/node/12520559591",
+            "warnings": [
+              "Вероятно в помещении по тегам или категории; отопление и защищённость от погоды не проверены."
+            ],
+            "total_minutes_estimated": 26.1,
+            "opening_status": "listed_open",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/node/12520559591",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          },
+          {
+            "poi_id": "osm:node:14275682079",
+            "name": "Drinkit",
+            "category": "cafe",
+            "lat": 51.0890765,
+            "lon": 71.40609,
+            "distance_m": 73.0,
+            "travel_minutes_estimated": 1.3,
+            "visit_minutes_estimated": 20,
+            "reason": "Категория места может соответствовать вашим интересам.",
+            "action": "Рассмотрите короткую остановку; заранее уточните условия посещения.",
+            "opening_note": "Согласно указанному расписанию, выбранное время и расчётное посещение укладываются в часы работы. Указанное расписание: Mo-Su 08:00-22:00. Доступность сейчас не проверена. Источник расписания: https://www.openstreetmap.org/node/14275682079; дата сведений/загрузки: 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "likely_indoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/node/14275682079",
+            "warnings": [
+              "Вероятно в помещении по тегам или категории; отопление и защищённость от погоды не проверены."
+            ],
+            "total_minutes_estimated": 26.3,
+            "opening_status": "listed_open",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/node/14275682079",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          },
+          {
+            "poi_id": "osm:node:9047331879",
+            "name": "Starbucks",
+            "category": "cafe",
+            "lat": 51.0890092,
+            "lon": 71.4089158,
+            "distance_m": 140.7,
+            "travel_minutes_estimated": 2.4,
+            "visit_minutes_estimated": 20,
+            "reason": "Категория места может соответствовать вашим интересам.",
+            "action": "Рассмотрите короткую остановку; заранее уточните условия посещения.",
+            "opening_note": "Согласно указанному расписанию, выбранное время и расчётное посещение укладываются в часы работы. Указанное расписание: Mo-Su 08:00-22:00. Доступность сейчас не проверена. Источник расписания: https://www.openstreetmap.org/node/9047331879; дата сведений/загрузки: 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "likely_indoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/node/9047331879",
+            "warnings": [
+              "Вероятно в помещении по тегам или категории; отопление и защищённость от погоды не проверены."
+            ],
+            "total_minutes_estimated": 27.4,
+            "opening_status": "listed_open",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/node/9047331879",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          }
+        ],
+        "general_message": null,
+        "weather": {
+          "status": "normal",
+          "is_simulated": true,
+          "source": "scenario:clear",
+          "observed_at": null,
+          "temperature": 18,
+          "apparent_temperature": 18,
+          "wind_speed": 2,
+          "wind_gusts": 4,
+          "precipitation": 0,
+          "note": "СИМУЛЯЦИЯ погоды. Пороговые значения — эвристики прототипа, не официальное предупреждение."
+        },
+        "time_is_simulated": true,
+        "answer_mode": "template",
+        "estimated_outdoor_minutes": 1.1,
+        "limitations": [
+          "Расстояния и время пешком — геометрические оценки, не проверенные маршруты; препятствия и доступ неизвестны.",
+          "Каждая карточка — отдельный вариант: путь + посещение + запас 5 минут; обратный путь включён, если выбран.",
+          "Поддерживаемые недельные графики ограничивают выбранное время и расчётное посещение; сложные графики остаются неизвестными. Живая доступность не проверена.",
+          "Время снаружи — модельная оценка первого показанного варианта, включая альтернативы; предполагаемое помещение не подтверждено."
+        ],
+        "local_datetime": "2026-10-19T14:00:00+05:00",
+        "alternatives": []
+      },
+      "checks": {
+        "passed": true,
+        "errors": [],
+        "cards": [
+          {
+            "poi_id": "osm:node:12520559591",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "listed_open",
+            "direct_category_label": true,
+            "source_link": true
+          },
+          {
+            "poi_id": "osm:node:14275682079",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "listed_open",
+            "direct_category_label": true,
+            "source_link": true
+          },
+          {
+            "poi_id": "osm:node:9047331879",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "listed_open",
+            "direct_category_label": true,
+            "source_link": true
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "quiet_confirmed_outlet",
+      "topic": "quiet",
+      "request": {
+        "location_preset": "baiterek",
+        "latitude": null,
+        "longitude": null,
+        "query": "Нужно тихое кафе с подтверждённой розеткой для ноутбука.",
+        "interests": [
+          "coffee",
+          "quiet",
+          "power_outlets"
+        ],
+        "duration_minutes": 60,
+        "walking_only": true,
+        "return_to_start": false,
+        "climate_shield_enabled": true,
+        "weather_mode": "clear",
+        "time_mode": "simulated",
+        "simulated_datetime": "2026-10-19T14:00:00+05:00",
+        "flight_constraint": false,
+        "language": "ru"
+      },
+      "latency_ms": 1.456,
+      "expected_empty": true,
+      "expected_empty_reason": "The committed snapshot has no confirmed power outlets; unknown is insufficient.",
+      "comparison_group": null,
+      "mechanical_caveats": [
+        "Quietness is inferred from broad categories; noise was not measured or confirmed.",
+        "Multiple category intents use OR matching; a card can match one requested category without matching all."
+      ],
+      "response": {
+        "recommendations": [],
+        "general_message": "В пределах времени и погодных ограничений нет места с подтверждёнными обязательными удобствами. Неизвестные свойства не считаются подтверждёнными.",
+        "weather": {
+          "status": "normal",
+          "is_simulated": true,
+          "source": "scenario:clear",
+          "observed_at": null,
+          "temperature": 18,
+          "apparent_temperature": 18,
+          "wind_speed": 2,
+          "wind_gusts": 4,
+          "precipitation": 0,
+          "note": "СИМУЛЯЦИЯ погоды. Пороговые значения — эвристики прототипа, не официальное предупреждение."
+        },
+        "time_is_simulated": true,
+        "answer_mode": "empty",
+        "estimated_outdoor_minutes": 0,
+        "limitations": [
+          "Расстояния и время пешком — геометрические оценки, не проверенные маршруты; препятствия и доступ неизвестны.",
+          "Каждая карточка — отдельный вариант: путь + посещение + запас 5 минут; обратный путь включён, если выбран.",
+          "Поддерживаемые недельные графики ограничивают выбранное время и расчётное посещение; сложные графики остаются неизвестными. Живая доступность не проверена.",
+          "Время снаружи — модельная оценка первого показанного варианта, включая альтернативы; предполагаемое помещение не подтверждено."
+        ],
+        "local_datetime": "2026-10-19T14:00:00+05:00",
+        "alternatives": []
+      },
+      "checks": {
+        "passed": true,
+        "errors": [],
+        "cards": []
+      }
+    },
+    {
+      "case_id": "coffee_wifi",
+      "topic": "cafe",
+      "request": {
+        "location_preset": "baiterek",
+        "latitude": null,
+        "longitude": null,
+        "query": "Хочу выпить кофе в месте с Wi-Fi.",
+        "interests": [
+          "coffee",
+          "wifi"
+        ],
+        "duration_minutes": 60,
+        "walking_only": true,
+        "return_to_start": false,
+        "climate_shield_enabled": true,
+        "weather_mode": "clear",
+        "time_mode": "simulated",
+        "simulated_datetime": "2026-10-19T14:00:00+05:00",
+        "flight_constraint": false,
+        "language": "ru"
+      },
+      "latency_ms": 1.458,
+      "expected_empty": false,
+      "expected_empty_reason": null,
+      "comparison_group": null,
+      "mechanical_caveats": [
+        "At least one indoor classification is category-based likely_indoor; actual shelter/heating is unverified."
+      ],
+      "response": {
+        "recommendations": [
+          {
+            "poi_id": "osm:node:4853972122",
+            "name": "Фаттуш",
+            "category": "cafe",
+            "lat": 51.1277607,
+            "lon": 71.4251746,
+            "distance_m": 367.9,
+            "travel_minutes_estimated": 6.4,
+            "visit_minutes_estimated": 20,
+            "reason": "Категория места может соответствовать вашим интересам. Wi-Fi отмечен в базе как подтверждённый источником.",
+            "action": "Рассмотрите короткую остановку; заранее уточните условия посещения.",
+            "opening_note": "Согласно указанному расписанию, выбранное время и расчётное посещение укладываются в часы работы. Указанное расписание: Mo-Su 10:00-23:00. Доступность сейчас не проверена. Источник расписания: https://www.openstreetmap.org/node/4853972122; дата сведений/загрузки: 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "likely_indoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/node/4853972122",
+            "warnings": [
+              "Вероятно в помещении по тегам или категории; отопление и защищённость от погоды не проверены."
+            ],
+            "total_minutes_estimated": 31.4,
+            "opening_status": "listed_open",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/node/4853972122",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          },
+          {
+            "poi_id": "osm:node:11162304905",
+            "name": "Атлас",
+            "category": "restaurant",
+            "lat": 51.131615,
+            "lon": 71.4275325,
+            "distance_m": 429.2,
+            "travel_minutes_estimated": 7.4,
+            "visit_minutes_estimated": 30,
+            "reason": "Категория места может соответствовать вашим интересам. Wi-Fi отмечен в базе как подтверждённый источником.",
+            "action": "Рассмотрите короткую остановку; заранее уточните условия посещения.",
+            "opening_note": "Согласно указанному расписанию, выбранное время и расчётное посещение укладываются в часы работы. Указанное расписание: Su-Sa 10:00-02:00. Доступность сейчас не проверена. Источник расписания: https://www.openstreetmap.org/node/11162304905; дата сведений/загрузки: 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "likely_indoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/node/11162304905",
+            "warnings": [
+              "Вероятно в помещении по тегам или категории; отопление и защищённость от погоды не проверены."
+            ],
+            "total_minutes_estimated": 42.4,
+            "opening_status": "listed_open",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/node/11162304905",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          }
+        ],
+        "general_message": null,
+        "weather": {
+          "status": "normal",
+          "is_simulated": true,
+          "source": "scenario:clear",
+          "observed_at": null,
+          "temperature": 18,
+          "apparent_temperature": 18,
+          "wind_speed": 2,
+          "wind_gusts": 4,
+          "precipitation": 0,
+          "note": "СИМУЛЯЦИЯ погоды. Пороговые значения — эвристики прототипа, не официальное предупреждение."
+        },
+        "time_is_simulated": true,
+        "answer_mode": "template",
+        "estimated_outdoor_minutes": 6.4,
+        "limitations": [
+          "Расстояния и время пешком — геометрические оценки, не проверенные маршруты; препятствия и доступ неизвестны.",
+          "Каждая карточка — отдельный вариант: путь + посещение + запас 5 минут; обратный путь включён, если выбран.",
+          "Поддерживаемые недельные графики ограничивают выбранное время и расчётное посещение; сложные графики остаются неизвестными. Живая доступность не проверена.",
+          "Время снаружи — модельная оценка первого показанного варианта, включая альтернативы; предполагаемое помещение не подтверждено."
+        ],
+        "local_datetime": "2026-10-19T14:00:00+05:00",
+        "alternatives": [
+          {
+            "poi_id": "osm:way:108096984",
+            "name": "Керуен",
+            "category": "mall",
+            "lat": 51.127790149999996,
+            "lon": 71.42530995,
+            "distance_m": 358.1,
+            "travel_minutes_estimated": 6.2,
+            "visit_minutes_estimated": 30,
+            "reason": "Альтернатива в другой категории в пределах выбранных ограничений. Wi-Fi отмечен в базе как подтверждённый источником.",
+            "action": "Рассмотрите короткий осмотр; перед выходом уточните доступ.",
+            "opening_note": "Согласно указанному расписанию, выбранное время и расчётное посещение укладываются в часы работы. Указанное расписание: Mo-Su 10:00-24:00. Доступность сейчас не проверена. Источник расписания: https://www.keruen.kz/o_kompanii?language=ru; дата сведений/загрузки: 2026-10-19.",
+            "indoor_status": "likely_indoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/way/108096984",
+            "warnings": [
+              "Категория не совпадает с выбранными интересами; это альтернативный вариант.",
+              "Вероятно в помещении по тегам или категории; отопление и защищённость от погоды не проверены.",
+              "Точка на карте может быть центром объекта, а не входом."
+            ],
+            "total_minutes_estimated": 41.2,
+            "opening_status": "listed_open",
+            "description": "Торгово-развлекательный центр «Керуен» рядом с Байтереком на бульваре Нуржол. Концепция оформления посвящена Великому шёлковому пути.",
+            "description_source": "https://www.keruen.kz/o_kompanii?language=ru",
+            "opening_hours_source_url": "https://www.keruen.kz/o_kompanii?language=ru",
+            "opening_hours_checked_at": "2026-10-19"
+          }
+        ]
+      },
+      "checks": {
+        "passed": true,
+        "errors": [],
+        "cards": [
+          {
+            "poi_id": "osm:node:4853972122",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "listed_open",
+            "direct_category_label": true,
+            "source_link": true
+          },
+          {
+            "poi_id": "osm:node:11162304905",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "listed_open",
+            "direct_category_label": true,
+            "source_link": true
+          },
+          {
+            "poi_id": "osm:way:108096984",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "listed_open",
+            "direct_category_label": true,
+            "source_link": true
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "wind_nature_off",
+      "topic": "bad_weather",
+      "request": {
+        "location_preset": "expo",
+        "latitude": null,
+        "longitude": null,
+        "query": "Хочу прогулку на природе рядом с EXPO при сильном ветре.",
+        "interests": [
+          "nature"
+        ],
+        "duration_minutes": 60,
+        "walking_only": true,
+        "return_to_start": false,
+        "climate_shield_enabled": false,
+        "weather_mode": "wind",
+        "time_mode": "simulated",
+        "simulated_datetime": "2026-10-19T14:00:00+05:00",
+        "flight_constraint": false,
+        "language": "ru"
+      },
+      "latency_ms": 1.516,
+      "expected_empty": false,
+      "expected_empty_reason": null,
+      "comparison_group": "wind_nature_expo",
+      "mechanical_caveats": [
+        "At least one returned option has unknown or unsupported hours; its availability is unverified."
+      ],
+      "response": {
+        "recommendations": [
+          {
+            "poi_id": "osm:way:1467797207",
+            "name": "NU Park",
+            "category": "park",
+            "lat": 51.087269899999995,
+            "lon": 71.3994394,
+            "distance_m": 578.7,
+            "travel_minutes_estimated": 10.0,
+            "visit_minutes_estimated": 25,
+            "reason": "Категория места может соответствовать вашим интересам.",
+            "action": "Рассмотрите короткую прогулку после проверки погоды и доступа.",
+            "opening_note": "Часы работы неизвестны; доступность сейчас не проверена. Источник: OpenStreetMap; загружено 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "outdoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/way/1467797207",
+            "warnings": [
+              "Неблагоприятная погода: проверьте текущие условия; путь к месту проходит снаружи.",
+              "Точка на карте может быть центром объекта, а не входом."
+            ],
+            "total_minutes_estimated": 40.0,
+            "opening_status": "unknown",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/way/1467797207",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          },
+          {
+            "poi_id": "osm:way:1470723968",
+            "name": "Японский сад",
+            "category": "garden",
+            "lat": 51.09213615,
+            "lon": 71.39949924999999,
+            "distance_m": 605.8,
+            "travel_minutes_estimated": 10.5,
+            "visit_minutes_estimated": 20,
+            "reason": "Категория места может соответствовать вашим интересам.",
+            "action": "Рассмотрите короткую прогулку после проверки погоды и доступа.",
+            "opening_note": "Часы работы неизвестны; доступность сейчас не проверена. Источник: OpenStreetMap; загружено 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "outdoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/way/1470723968",
+            "warnings": [
+              "Неблагоприятная погода: проверьте текущие условия; путь к месту проходит снаружи.",
+              "Точка на карте может быть центром объекта, а не входом."
+            ],
+            "total_minutes_estimated": 35.5,
+            "opening_status": "unknown",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/way/1470723968",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          },
+          {
+            "poi_id": "osm:way:1456208624",
+            "name": "Бейбітшілік пен Келісім аллеясы",
+            "category": "park",
+            "lat": 51.0938123,
+            "lon": 71.41694975,
+            "distance_m": 850.6,
+            "travel_minutes_estimated": 14.7,
+            "visit_minutes_estimated": 25,
+            "reason": "Категория места может соответствовать вашим интересам.",
+            "action": "Рассмотрите короткую прогулку после проверки погоды и доступа.",
+            "opening_note": "Часы работы неизвестны; доступность сейчас не проверена. Источник: OpenStreetMap; загружено 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "outdoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/way/1456208624",
+            "warnings": [
+              "Неблагоприятная погода: проверьте текущие условия; путь к месту проходит снаружи.",
+              "Точка на карте может быть центром объекта, а не входом."
+            ],
+            "total_minutes_estimated": 44.7,
+            "opening_status": "unknown",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/way/1456208624",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          }
+        ],
+        "general_message": null,
+        "weather": {
+          "status": "caution",
+          "is_simulated": true,
+          "source": "scenario:wind",
+          "observed_at": null,
+          "temperature": 7,
+          "apparent_temperature": 2,
+          "wind_speed": 14,
+          "wind_gusts": 20,
+          "precipitation": 0,
+          "note": "СИМУЛЯЦИЯ погоды. Пороговые значения — эвристики прототипа, не официальное предупреждение."
+        },
+        "time_is_simulated": true,
+        "answer_mode": "template",
+        "estimated_outdoor_minutes": 35.0,
+        "limitations": [
+          "Расстояния и время пешком — геометрические оценки, не проверенные маршруты; препятствия и доступ неизвестны.",
+          "Каждая карточка — отдельный вариант: путь + посещение + запас 5 минут; обратный путь включён, если выбран.",
+          "Поддерживаемые недельные графики ограничивают выбранное время и расчётное посещение; сложные графики остаются неизвестными. Живая доступность не проверена.",
+          "Время снаружи — модельная оценка первого показанного варианта, включая альтернативы; предполагаемое помещение не подтверждено."
+        ],
+        "local_datetime": "2026-10-19T14:00:00+05:00",
+        "alternatives": []
+      },
+      "checks": {
+        "passed": true,
+        "errors": [],
+        "cards": [
+          {
+            "poi_id": "osm:way:1467797207",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "unknown",
+            "direct_category_label": true,
+            "source_link": true
+          },
+          {
+            "poi_id": "osm:way:1470723968",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "unknown",
+            "direct_category_label": true,
+            "source_link": true
+          },
+          {
+            "poi_id": "osm:way:1456208624",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "unknown",
+            "direct_category_label": true,
+            "source_link": true
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "wind_nature_on",
+      "topic": "bad_weather",
+      "request": {
+        "location_preset": "expo",
+        "latitude": null,
+        "longitude": null,
+        "query": "Хочу прогулку на природе рядом с EXPO при сильном ветре.",
+        "interests": [
+          "nature"
+        ],
+        "duration_minutes": 60,
+        "walking_only": true,
+        "return_to_start": false,
+        "climate_shield_enabled": true,
+        "weather_mode": "wind",
+        "time_mode": "simulated",
+        "simulated_datetime": "2026-10-19T14:00:00+05:00",
+        "flight_constraint": false,
+        "language": "ru"
+      },
+      "latency_ms": 1.28,
+      "expected_empty": false,
+      "expected_empty_reason": null,
+      "comparison_group": "wind_nature_expo",
+      "mechanical_caveats": [
+        "At least one indoor classification is category-based likely_indoor; actual shelter/heating is unverified.",
+        "No direct category match remains; only explicitly separate other-category alternatives are returned."
+      ],
+      "response": {
+        "recommendations": [],
+        "general_message": "После ограничений времени, расписания и погоды прямых совпадений по категории нет. Ниже отдельно показаны альтернативы в других категориях с сохранением обязательных удобств.",
+        "weather": {
+          "status": "caution",
+          "is_simulated": true,
+          "source": "scenario:wind",
+          "observed_at": null,
+          "temperature": 7,
+          "apparent_temperature": 2,
+          "wind_speed": 14,
+          "wind_gusts": 20,
+          "precipitation": 0,
+          "note": "СИМУЛЯЦИЯ погоды. Пороговые значения — эвристики прототипа, не официальное предупреждение."
+        },
+        "time_is_simulated": true,
+        "answer_mode": "template",
+        "estimated_outdoor_minutes": 0.7,
+        "limitations": [
+          "Расстояния и время пешком — геометрические оценки, не проверенные маршруты; препятствия и доступ неизвестны.",
+          "Каждая карточка — отдельный вариант: путь + посещение + запас 5 минут; обратный путь включён, если выбран.",
+          "Поддерживаемые недельные графики ограничивают выбранное время и расчётное посещение; сложные графики остаются неизвестными. Живая доступность не проверена.",
+          "Время снаружи — модельная оценка первого показанного варианта, включая альтернативы; предполагаемое помещение не подтверждено."
+        ],
+        "local_datetime": "2026-10-19T14:00:00+05:00",
+        "alternatives": [
+          {
+            "poi_id": "osm:way:499328514",
+            "name": "Mega Silk Way",
+            "category": "mall",
+            "lat": 51.0890897,
+            "lon": 71.40733035,
+            "distance_m": 41.5,
+            "travel_minutes_estimated": 0.7,
+            "visit_minutes_estimated": 30,
+            "reason": "Альтернатива в другой категории в пределах выбранных ограничений.",
+            "action": "Рассмотрите короткий осмотр; перед выходом уточните доступ.",
+            "opening_note": "Согласно указанному расписанию, выбранное время и расчётное посещение укладываются в часы работы. Указанное расписание: Mo-Su 10:00-22:00. Доступность сейчас не проверена. Источник расписания: https://mega.kz/Tenant/MEGA-Silk-Way; дата сведений/загрузки: 2026-10-19.",
+            "indoor_status": "likely_indoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/way/499328514",
+            "warnings": [
+              "Категория не совпадает с выбранными интересами; это альтернативный вариант.",
+              "Вероятно в помещении по тегам или категории; отопление и защищённость от погоды не проверены.",
+              "Неблагоприятная погода: проверьте текущие условия; путь к месту проходит снаружи.",
+              "Точка на карте может быть центром объекта, а не входом."
+            ],
+            "total_minutes_estimated": 35.7,
+            "opening_status": "listed_open",
+            "description": "Торгово-развлекательный центр MEGA Silk Way на проспекте Кабанбай батыра 62. Оператор перечисляет кинотеатр и ледовый каток среди его площадок досуга.",
+            "description_source": "https://mega.kz/Tenant/MEGA-Silk-Way",
+            "opening_hours_source_url": "https://mega.kz/Tenant/MEGA-Silk-Way",
+            "opening_hours_checked_at": "2026-10-19"
+          },
+          {
+            "poi_id": "osm:node:13397061026",
+            "name": "Luckee Yu",
+            "category": "restaurant",
+            "lat": 51.0892714,
+            "lon": 71.4078873,
+            "distance_m": 63.6,
+            "travel_minutes_estimated": 1.1,
+            "visit_minutes_estimated": 30,
+            "reason": "Альтернатива в другой категории в пределах выбранных ограничений.",
+            "action": "Рассмотрите короткую остановку; заранее уточните условия посещения.",
+            "opening_note": "Согласно указанному расписанию, выбранное время и расчётное посещение укладываются в часы работы. Указанное расписание: Fr-Sa 10:00-00:00; Mo-Th,Su 10:00-23:00. Доступность сейчас не проверена. Источник расписания: https://www.openstreetmap.org/node/13397061026; дата сведений/загрузки: 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "likely_indoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/node/13397061026",
+            "warnings": [
+              "Категория не совпадает с выбранными интересами; это альтернативный вариант.",
+              "Вероятно в помещении по тегам или категории; отопление и защищённость от погоды не проверены.",
+              "Неблагоприятная погода: проверьте текущие условия; путь к месту проходит снаружи."
+            ],
+            "total_minutes_estimated": 36.1,
+            "opening_status": "listed_open",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/node/13397061026",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          },
+          {
+            "poi_id": "osm:node:12520559591",
+            "name": "Лепим и варим",
+            "category": "cafe",
+            "lat": 51.0891569,
+            "lon": 71.4078454,
+            "distance_m": 64.9,
+            "travel_minutes_estimated": 1.1,
+            "visit_minutes_estimated": 20,
+            "reason": "Альтернатива в другой категории в пределах выбранных ограничений.",
+            "action": "Рассмотрите короткую остановку; заранее уточните условия посещения.",
+            "opening_note": "Согласно указанному расписанию, выбранное время и расчётное посещение укладываются в часы работы. Указанное расписание: Mo-Su 10:00-23:00. Доступность сейчас не проверена. Источник расписания: https://www.openstreetmap.org/node/12520559591; дата сведений/загрузки: 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "likely_indoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/node/12520559591",
+            "warnings": [
+              "Категория не совпадает с выбранными интересами; это альтернативный вариант.",
+              "Вероятно в помещении по тегам или категории; отопление и защищённость от погоды не проверены.",
+              "Неблагоприятная погода: проверьте текущие условия; путь к месту проходит снаружи."
+            ],
+            "total_minutes_estimated": 26.1,
+            "opening_status": "listed_open",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/node/12520559591",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          }
+        ]
+      },
+      "checks": {
+        "passed": true,
+        "errors": [],
+        "cards": [
+          {
+            "poi_id": "osm:way:499328514",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "listed_open",
+            "direct_category_label": true,
+            "source_link": true
+          },
+          {
+            "poi_id": "osm:node:13397061026",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "listed_open",
+            "direct_category_label": true,
+            "source_link": true
+          },
+          {
+            "poi_id": "osm:node:12520559591",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "listed_open",
+            "direct_category_label": true,
+            "source_link": true
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "rain_park",
+      "topic": "bad_weather",
+      "request": {
+        "location_preset": "central_park",
+        "latitude": null,
+        "longitude": null,
+        "query": "Идёт дождь. Можно ли ненадолго выйти погулять около парка?",
+        "interests": [
+          "nature"
+        ],
+        "duration_minutes": 60,
+        "walking_only": true,
+        "return_to_start": false,
+        "climate_shield_enabled": true,
+        "weather_mode": "rain",
+        "time_mode": "simulated",
+        "simulated_datetime": "2026-10-19T14:00:00+05:00",
+        "flight_constraint": false,
+        "language": "ru"
+      },
+      "latency_ms": 3.604,
+      "expected_empty": false,
+      "expected_empty_reason": null,
+      "comparison_group": null,
+      "mechanical_caveats": [
+        "At least one returned option has unknown or unsupported hours; its availability is unverified.",
+        "At least one indoor classification is category-based likely_indoor; actual shelter/heating is unverified.",
+        "No direct category match remains; only explicitly separate other-category alternatives are returned."
+      ],
+      "response": {
+        "recommendations": [],
+        "general_message": "После ограничений времени, расписания и погоды прямых совпадений по категории нет. Ниже отдельно показаны альтернативы в других категориях с сохранением обязательных удобств.",
+        "weather": {
+          "status": "caution",
+          "is_simulated": true,
+          "source": "scenario:rain",
+          "observed_at": null,
+          "temperature": 10,
+          "apparent_temperature": 7,
+          "wind_speed": 5,
+          "wind_gusts": 8,
+          "precipitation": 2,
+          "note": "СИМУЛЯЦИЯ погоды. Пороговые значения — эвристики прототипа, не официальное предупреждение."
+        },
+        "time_is_simulated": true,
+        "answer_mode": "template",
+        "estimated_outdoor_minutes": 4.9,
+        "limitations": [
+          "Расстояния и время пешком — геометрические оценки, не проверенные маршруты; препятствия и доступ неизвестны.",
+          "Каждая карточка — отдельный вариант: путь + посещение + запас 5 минут; обратный путь включён, если выбран.",
+          "Поддерживаемые недельные графики ограничивают выбранное время и расчётное посещение; сложные графики остаются неизвестными. Живая доступность не проверена.",
+          "Время снаружи — модельная оценка первого показанного варианта, включая альтернативы; предполагаемое помещение не подтверждено."
+        ],
+        "local_datetime": "2026-10-19T14:00:00+05:00",
+        "alternatives": [
+          {
+            "poi_id": "osm:node:12135832778",
+            "name": "PizBurg",
+            "category": "cafe",
+            "lat": 51.1573571,
+            "lon": 71.4194573,
+            "distance_m": 284.5,
+            "travel_minutes_estimated": 4.9,
+            "visit_minutes_estimated": 20,
+            "reason": "Альтернатива в другой категории в пределах выбранных ограничений.",
+            "action": "Рассмотрите короткую остановку; заранее уточните условия посещения.",
+            "opening_note": "Часы работы неизвестны; доступность сейчас не проверена. Источник: OpenStreetMap; загружено 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "likely_indoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/node/12135832778",
+            "warnings": [
+              "Категория не совпадает с выбранными интересами; это альтернативный вариант.",
+              "Вероятно в помещении по тегам или категории; отопление и защищённость от погоды не проверены.",
+              "Неблагоприятная погода: проверьте текущие условия; путь к месту проходит снаружи."
+            ],
+            "total_minutes_estimated": 29.9,
+            "opening_status": "unknown",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/node/12135832778",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          },
+          {
+            "poi_id": "osm:node:13230417216",
+            "name": "La Belle restaurant&terrace",
+            "category": "restaurant",
+            "lat": 51.1603123,
+            "lon": 71.4149143,
+            "distance_m": 694.6,
+            "travel_minutes_estimated": 12.0,
+            "visit_minutes_estimated": 30,
+            "reason": "Альтернатива в другой категории в пределах выбранных ограничений.",
+            "action": "Рассмотрите короткую остановку; заранее уточните условия посещения.",
+            "opening_note": "Согласно указанному расписанию, выбранное время и расчётное посещение укладываются в часы работы. Указанное расписание: Mo-Su 12:00-02:00. Доступность сейчас не проверена. Источник расписания: https://www.openstreetmap.org/node/13230417216; дата сведений/загрузки: 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "likely_indoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/node/13230417216",
+            "warnings": [
+              "Категория не совпадает с выбранными интересами; это альтернативный вариант.",
+              "Вероятно в помещении по тегам или категории; отопление и защищённость от погоды не проверены.",
+              "Неблагоприятная погода: проверьте текущие условия; путь к месту проходит снаружи."
+            ],
+            "total_minutes_estimated": 47.0,
+            "opening_status": "listed_open",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/node/13230417216",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          },
+          {
+            "poi_id": "osm:node:5866018459",
+            "name": "Демалыс",
+            "category": "restaurant",
+            "lat": 51.1582681,
+            "lon": 71.4216068,
+            "distance_m": 410.2,
+            "travel_minutes_estimated": 7.1,
+            "visit_minutes_estimated": 30,
+            "reason": "Альтернатива в другой категории в пределах выбранных ограничений.",
+            "action": "Рассмотрите короткую остановку; заранее уточните условия посещения.",
+            "opening_note": "Часы работы неизвестны; доступность сейчас не проверена. Источник: OpenStreetMap; загружено 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "likely_indoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/node/5866018459",
+            "warnings": [
+              "Категория не совпадает с выбранными интересами; это альтернативный вариант.",
+              "Вероятно в помещении по тегам или категории; отопление и защищённость от погоды не проверены.",
+              "Неблагоприятная погода: проверьте текущие условия; путь к месту проходит снаружи."
+            ],
+            "total_minutes_estimated": 42.1,
+            "opening_status": "unknown",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/node/5866018459",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          }
+        ]
+      },
+      "checks": {
+        "passed": true,
+        "errors": [],
+        "cards": [
+          {
+            "poi_id": "osm:node:12135832778",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "unknown",
+            "direct_category_label": true,
+            "source_link": true
+          },
+          {
+            "poi_id": "osm:node:13230417216",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "listed_open",
+            "direct_category_label": true,
+            "source_link": true
+          },
+          {
+            "poi_id": "osm:node:5866018459",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "unknown",
+            "direct_category_label": true,
+            "source_link": true
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "cold_architecture",
+      "topic": "bad_weather",
+      "request": {
+        "location_preset": "baiterek",
+        "latitude": null,
+        "longitude": null,
+        "query": "Очень холодно. Хочу посмотреть что-нибудь культурное рядом с Байтереком.",
+        "interests": [
+          "architecture",
+          "museum"
+        ],
+        "duration_minutes": 60,
+        "walking_only": true,
+        "return_to_start": false,
+        "climate_shield_enabled": true,
+        "weather_mode": "cold",
+        "time_mode": "simulated",
+        "simulated_datetime": "2026-10-19T14:00:00+05:00",
+        "flight_constraint": false,
+        "language": "ru"
+      },
+      "latency_ms": 2.484,
+      "expected_empty": false,
+      "expected_empty_reason": null,
+      "comparison_group": null,
+      "mechanical_caveats": [
+        "Multiple category intents use OR matching; a card can match one requested category without matching all.",
+        "At least one indoor classification is category-based likely_indoor; actual shelter/heating is unverified.",
+        "No direct category match remains; only explicitly separate other-category alternatives are returned."
+      ],
+      "response": {
+        "recommendations": [],
+        "general_message": "После ограничений времени, расписания и погоды прямых совпадений по категории нет. Ниже отдельно показаны альтернативы в других категориях с сохранением обязательных удобств.",
+        "weather": {
+          "status": "severe",
+          "is_simulated": true,
+          "source": "scenario:cold",
+          "observed_at": null,
+          "temperature": -22,
+          "apparent_temperature": -30,
+          "wind_speed": 7,
+          "wind_gusts": 12,
+          "precipitation": 0,
+          "note": "СИМУЛЯЦИЯ погоды. Пороговые значения — эвристики прототипа, не официальное предупреждение."
+        },
+        "time_is_simulated": true,
+        "answer_mode": "template",
+        "estimated_outdoor_minutes": 3.2,
+        "limitations": [
+          "Расстояния и время пешком — геометрические оценки, не проверенные маршруты; препятствия и доступ неизвестны.",
+          "Каждая карточка — отдельный вариант: путь + посещение + запас 5 минут; обратный путь включён, если выбран.",
+          "Поддерживаемые недельные графики ограничивают выбранное время и расчётное посещение; сложные графики остаются неизвестными. Живая доступность не проверена.",
+          "Время снаружи — модельная оценка первого показанного варианта, включая альтернативы; предполагаемое помещение не подтверждено."
+        ],
+        "local_datetime": "2026-10-19T14:00:00+05:00",
+        "alternatives": [
+          {
+            "poi_id": "osm:node:6408271985",
+            "name": "CrepeCafe",
+            "category": "cafe",
+            "lat": 51.1293821,
+            "lon": 71.4285934,
+            "distance_m": 182.1,
+            "travel_minutes_estimated": 3.2,
+            "visit_minutes_estimated": 20,
+            "reason": "Альтернатива в другой категории в пределах выбранных ограничений.",
+            "action": "Рассмотрите короткую остановку; заранее уточните условия посещения.",
+            "opening_note": "Согласно указанному расписанию, выбранное время и расчётное посещение укладываются в часы работы. Указанное расписание: Mo-Fr 08:00-00:00; Sa-Su 09:00-00:00. Доступность сейчас не проверена. Источник расписания: https://www.openstreetmap.org/node/6408271985; дата сведений/загрузки: 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "likely_indoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/node/6408271985",
+            "warnings": [
+              "Категория не совпадает с выбранными интересами; это альтернативный вариант.",
+              "Вероятно в помещении по тегам или категории; отопление и защищённость от погоды не проверены.",
+              "Неблагоприятная погода: проверьте текущие условия; путь к месту проходит снаружи."
+            ],
+            "total_minutes_estimated": 28.2,
+            "opening_status": "listed_open",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/node/6408271985",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          },
+          {
+            "poi_id": "osm:node:10564988185",
+            "name": "Degirmen",
+            "category": "cafe",
+            "lat": 51.1285659,
+            "lon": 71.4333254,
+            "distance_m": 208.2,
+            "travel_minutes_estimated": 3.6,
+            "visit_minutes_estimated": 20,
+            "reason": "Альтернатива в другой категории в пределах выбранных ограничений.",
+            "action": "Рассмотрите короткую остановку; заранее уточните условия посещения.",
+            "opening_note": "Согласно указанному расписанию, выбранное время и расчётное посещение укладываются в часы работы. Указанное расписание: Mo-Su 08:00-00:00. Доступность сейчас не проверена. Источник расписания: https://www.openstreetmap.org/node/10564988185; дата сведений/загрузки: 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "likely_indoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/node/10564988185",
+            "warnings": [
+              "Категория не совпадает с выбранными интересами; это альтернативный вариант.",
+              "Вероятно в помещении по тегам или категории; отопление и защищённость от погоды не проверены.",
+              "Неблагоприятная погода: проверьте текущие условия; путь к месту проходит снаружи."
+            ],
+            "total_minutes_estimated": 28.6,
+            "opening_status": "listed_open",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/node/10564988185",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          },
+          {
+            "poi_id": "osm:node:12909752901",
+            "name": "Центр плова и лагмана",
+            "category": "restaurant",
+            "lat": 51.1294267,
+            "lon": 71.4279654,
+            "distance_m": 217.9,
+            "travel_minutes_estimated": 3.8,
+            "visit_minutes_estimated": 30,
+            "reason": "Альтернатива в другой категории в пределах выбранных ограничений.",
+            "action": "Рассмотрите короткую остановку; заранее уточните условия посещения.",
+            "opening_note": "Согласно указанному расписанию, выбранное время и расчётное посещение укладываются в часы работы. Указанное расписание: Mo-Su 11:00-23:00. Доступность сейчас не проверена. Источник расписания: https://www.openstreetmap.org/node/12909752901; дата сведений/загрузки: 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "likely_indoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/node/12909752901",
+            "warnings": [
+              "Категория не совпадает с выбранными интересами; это альтернативный вариант.",
+              "Вероятно в помещении по тегам или категории; отопление и защищённость от погоды не проверены.",
+              "Неблагоприятная погода: проверьте текущие условия; путь к месту проходит снаружи."
+            ],
+            "total_minutes_estimated": 38.8,
+            "opening_status": "listed_open",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/node/12909752901",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          }
+        ]
+      },
+      "checks": {
+        "passed": true,
+        "errors": [],
+        "cards": [
+          {
+            "poi_id": "osm:node:6408271985",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "listed_open",
+            "direct_category_label": true,
+            "source_link": true
+          },
+          {
+            "poi_id": "osm:node:10564988185",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "listed_open",
+            "direct_category_label": true,
+            "source_link": true
+          },
+          {
+            "poi_id": "osm:node:12909752901",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "listed_open",
+            "direct_category_label": true,
+            "source_link": true
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "night_2300",
+      "topic": "night",
+      "request": {
+        "location_preset": "baiterek",
+        "latitude": null,
+        "longitude": null,
+        "query": "Сейчас 23:00. Есть ли поблизости необычное место для короткого осмотра?",
+        "interests": [
+          "unusual",
+          "night"
+        ],
+        "duration_minutes": 60,
+        "walking_only": true,
+        "return_to_start": false,
+        "climate_shield_enabled": true,
+        "weather_mode": "clear",
+        "time_mode": "simulated",
+        "simulated_datetime": "2026-10-19T23:00:00+05:00",
+        "flight_constraint": false,
+        "language": "ru"
+      },
+      "latency_ms": 1.907,
+      "expected_empty": false,
+      "expected_empty_reason": null,
+      "comparison_group": null,
+      "mechanical_caveats": [
+        "Unusual is a broad cultural taxonomy, not evidence of a distinctive experience.",
+        "Multiple category intents use OR matching; a card can match one requested category without matching all.",
+        "At least one returned option has unknown or unsupported hours; its availability is unverified.",
+        "At least one indoor classification is category-based likely_indoor; actual shelter/heating is unverified."
+      ],
+      "response": {
+        "recommendations": [
+          {
+            "poi_id": "osm:way:230401645",
+            "name": "Бәйтерек",
+            "category": "attraction",
+            "lat": 51.12828825,
+            "lon": 71.4304546,
+            "distance_m": 10.5,
+            "travel_minutes_estimated": 0.2,
+            "visit_minutes_estimated": 20,
+            "reason": "Категория места может соответствовать вашим интересам.",
+            "action": "Рассмотрите короткий осмотр; перед выходом уточните доступ.",
+            "opening_note": "Часы работы неизвестны; доступность сейчас не проверена. Источник: OpenStreetMap; загружено 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "unknown",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/way/230401645",
+            "warnings": [
+              "Неизвестно, находится ли место в помещении.",
+              "Точка на карте может быть центром объекта, а не входом.",
+              "Позднее местное время: перед выходом уточните доступ и расписание."
+            ],
+            "total_minutes_estimated": 25.2,
+            "opening_status": "unknown",
+            "description": "Монумент «Байтерек» на бульваре Нуржол. Его архитектурный образ связан с древом жизни; внутри представлены композиции «Аялы алакан» и «Бата».",
+            "description_source": "https://a-vm.kz/en/objects/bayterek/",
+            "opening_hours_source_url": "https://www.openstreetmap.org/way/230401645",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          },
+          {
+            "poi_id": "osm:node:6408271985",
+            "name": "CrepeCafe",
+            "category": "cafe",
+            "lat": 51.1293821,
+            "lon": 71.4285934,
+            "distance_m": 182.1,
+            "travel_minutes_estimated": 3.2,
+            "visit_minutes_estimated": 20,
+            "reason": "Категория места может соответствовать вашим интересам.",
+            "action": "Рассмотрите короткую остановку; заранее уточните условия посещения.",
+            "opening_note": "Согласно указанному расписанию, выбранное время и расчётное посещение укладываются в часы работы. Указанное расписание: Mo-Fr 08:00-00:00; Sa-Su 09:00-00:00. Доступность сейчас не проверена. Источник расписания: https://www.openstreetmap.org/node/6408271985; дата сведений/загрузки: 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "likely_indoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/node/6408271985",
+            "warnings": [
+              "Вероятно в помещении по тегам или категории; отопление и защищённость от погоды не проверены.",
+              "Позднее местное время: перед выходом уточните доступ и расписание."
+            ],
+            "total_minutes_estimated": 28.2,
+            "opening_status": "listed_open",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/node/6408271985",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          },
+          {
+            "poi_id": "osm:node:10564988185",
+            "name": "Degirmen",
+            "category": "cafe",
+            "lat": 51.1285659,
+            "lon": 71.4333254,
+            "distance_m": 208.2,
+            "travel_minutes_estimated": 3.6,
+            "visit_minutes_estimated": 20,
+            "reason": "Категория места может соответствовать вашим интересам.",
+            "action": "Рассмотрите короткую остановку; заранее уточните условия посещения.",
+            "opening_note": "Согласно указанному расписанию, выбранное время и расчётное посещение укладываются в часы работы. Указанное расписание: Mo-Su 08:00-00:00. Доступность сейчас не проверена. Источник расписания: https://www.openstreetmap.org/node/10564988185; дата сведений/загрузки: 2026-10-19T10:36:00+00:00.",
+            "indoor_status": "likely_indoor",
+            "source": "OpenStreetMap",
+            "source_url": "https://www.openstreetmap.org/node/10564988185",
+            "warnings": [
+              "Вероятно в помещении по тегам или категории; отопление и защищённость от погоды не проверены.",
+              "Позднее местное время: перед выходом уточните доступ и расписание."
+            ],
+            "total_minutes_estimated": 28.6,
+            "opening_status": "listed_open",
+            "description": null,
+            "description_source": null,
+            "opening_hours_source_url": "https://www.openstreetmap.org/node/10564988185",
+            "opening_hours_checked_at": "2026-10-19T10:36:00+00:00"
+          }
+        ],
+        "general_message": null,
+        "weather": {
+          "status": "normal",
+          "is_simulated": true,
+          "source": "scenario:clear",
+          "observed_at": null,
+          "temperature": 18,
+          "apparent_temperature": 18,
+          "wind_speed": 2,
+          "wind_gusts": 4,
+          "precipitation": 0,
+          "note": "СИМУЛЯЦИЯ погоды. Пороговые значения — эвристики прототипа, не официальное предупреждение."
+        },
+        "time_is_simulated": true,
+        "answer_mode": "template",
+        "estimated_outdoor_minutes": 20.2,
+        "limitations": [
+          "Расстояния и время пешком — геометрические оценки, не проверенные маршруты; препятствия и доступ неизвестны.",
+          "Каждая карточка — отдельный вариант: путь + посещение + запас 5 минут; обратный путь включён, если выбран.",
+          "Поддерживаемые недельные графики ограничивают выбранное время и расчётное посещение; сложные графики остаются неизвестными. Живая доступность не проверена.",
+          "Время снаружи — модельная оценка первого показанного варианта, включая альтернативы; предполагаемое помещение не подтверждено.",
+          "Позднее местное время: самостоятельно проверьте доступ, транспорт и возможность посещения; расписание не является живым подтверждением."
+        ],
+        "local_datetime": "2026-10-19T23:00:00+05:00",
+        "alternatives": []
+      },
+      "checks": {
+        "passed": true,
+        "errors": [],
+        "cards": [
+          {
+            "poi_id": "osm:way:230401645",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "unknown",
+            "direct_category_label": true,
+            "source_link": true
+          },
+          {
+            "poi_id": "osm:node:6408271985",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "listed_open",
+            "direct_category_label": true,
+            "source_link": true
+          },
+          {
+            "poi_id": "osm:node:10564988185",
+            "source_fields": true,
+            "time_budget": true,
+            "strict_features": true,
+            "schedule": true,
+            "schedule_status": "listed_open",
+            "direct_category_label": true,
+            "source_link": true
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "airport_before_flight",
+      "topic": "airport",
+      "request": {
+        "location_preset": "airport",
+        "latitude": null,
+        "longitude": null,
+        "query": "Я в аэропорту. До вылета два часа: куда можно успеть?",
+        "interests": [],
+        "duration_minutes": 120,
+        "walking_only": true,
+        "return_to_start": false,
+        "climate_shield_enabled": true,
+        "weather_mode": "clear",
+        "time_mode": "simulated",
+        "simulated_datetime": "2026-10-19T14:00:00+05:00",
+        "flight_constraint": true,
+        "language": "ru"
+      },
+      "latency_ms": 0.017,
+      "expected_empty": true,
+      "expected_empty_reason": "A flight deadline must not produce an excursion away from the airport.",
+      "comparison_group": null,
+      "mechanical_caveats": [],
+      "response": {
+        "recommendations": [],
+        "general_message": "При ограничении до вылета не предлагаем покидать аэропорт. Уточните сроки регистрации и посадки у авиакомпании; база POI не подтверждает доступ из терминала, до или после контроля.",
+        "weather": {
+          "status": "normal",
+          "is_simulated": true,
+          "source": "scenario:clear",
+          "observed_at": null,
+          "temperature": 18,
+          "apparent_temperature": 18,
+          "wind_speed": 2,
+          "wind_gusts": 4,
+          "precipitation": 0,
+          "note": "СИМУЛЯЦИЯ погоды. Пороговые значения — эвристики прототипа, не официальное предупреждение."
+        },
+        "time_is_simulated": true,
+        "answer_mode": "empty",
+        "estimated_outdoor_minutes": 0,
+        "limitations": [
+          "Расстояния и время пешком — геометрические оценки, не проверенные маршруты; препятствия и доступ неизвестны.",
+          "Каждая карточка — отдельный вариант: путь + посещение + запас 5 минут; обратный путь включён, если выбран.",
+          "Поддерживаемые недельные графики ограничивают выбранное время и расчётное посещение; сложные графики остаются неизвестными. Живая доступность не проверена.",
+          "Время снаружи — модельная оценка первого показанного варианта, включая альтернативы; предполагаемое помещение не подтверждено."
+        ],
+        "local_datetime": "2026-10-19T14:00:00+05:00",
+        "alternatives": []
+      },
+      "checks": {
+        "passed": true,
+        "errors": [],
+        "cards": []
+      }
+    }
+  ],
+  "limitations": [
+    "Authored representative prompts; no human participants or collected user data.",
+    "Direct category match is a taxonomy proxy, not human relevance, quietness or family suitability.",
+    "Source-field checks do not establish that all explanation prose is factual; independent human review remains blank.",
+    "Shared opening-hours parser is checked against returned visits; grammar correctness is covered by its separate regression suite.",
+    "Small four-zone OSM coverage; no new data or live availability verification.",
+    "Outdoor exposure uses assumed category-based indoor status and is not observed safety."
+  ]
+}
