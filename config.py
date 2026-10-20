@@ -13,4 +13,5 @@ PRESETS = {
     "central_park": {"name": "Парк Астана / Центральный парк", "lat": 51.1548, "lon": 71.4196},
     "airport": {"name": "Аэропорт NQZ", "lat": 51.0280, "lon": 71.4635},
 }
-OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4.1-mini")
+GROQ_MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-20b")
+GROQ_BASE_URL = "https://api.groq.com/openai/v1"

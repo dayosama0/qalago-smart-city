@@ -1,15 +1,21 @@
 {
-  "usable": 199,
-  "opening_hours_available": 107,
-  "descriptions_available": 199,
-  "merged_replaced": 199,
+  "usable": 207,
+  "opening_hours_available": 149,
+  "descriptions_available": 207,
+  "merged_replaced": 207,
   "removed_stale": 0,
   "sqlite_integrity": "ok",
+  "duplicate_places_removed": 2,
+  "curated_places_loaded": 10,
+  "curated_dataset": {
+    "file": "curated_places.json",
+    "sha256": "57abb67b20a25329c4067d568db5490abdc1f7cccee0107a6f26a45e3e2ccdf1"
+  },
   "downloaded_elements": 296,
   "dropped_invalid_or_unnamed": 97,
   "duplicate_osm_ids": 0,
-  "overrides_applied": 237,
-  "last_fetched_at": "2026-10-19T10:36:02+00:00",
+  "overrides_applied": 271,
+  "last_fetched_at": "2026-10-20",
   "source_snapshots": [
     {
       "file": "astana.json",
@@ -26,7 +32,7 @@
       "osm_timestamp": null
     }
   ],
-  "database_sha256": "8141c2598ef92237c854ea2187649a873a9ad0e8a5c38dc4c895b16688c76d5a",
+  "database_sha256": "b27a70a3ffb1bbc2ddb05568e6325779355c9da9658dd1bc0f3d9176e074b49a",
   "build_mode": "offline_cached_osm",
-  "built_at": "2026-10-19T20:23:50+00:00"
+  "built_at": "2026-10-20T17:14:11+00:00"
 }

@@ -18,6 +18,10 @@ class RecommendRequest:
     simulated_datetime: str | None = None
     flight_constraint: bool = False
     language: str = "ru"
+    allow_fallback: bool = False
+    group_size: int = 1
+    member_preferences: list[str] = field(default_factory=list)
+    require_open_hours: bool = False
 
 @dataclass
 class Weather:

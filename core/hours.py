@@ -11,6 +11,8 @@ def format_hours(value: str | None) -> str:
         return "Расписание не указано"
     if value.strip() == "24/7":
         return "Круглосуточно · каждый день"
+    value = re.sub(r"\b(Mo|Tu|We|Th|Fr|Sa|Su)\[-1\]",
+                   lambda m: "последний " + DAY_LABELS[m[1]] + " месяца", value)
     text = re.sub(r"\b(Mo|Tu|We|Th|Fr|Sa|Su)\b", lambda m: DAY_LABELS[m[0]], value)
     text = re.sub(r"\b(off|closed)\b", "выходной", text)
     return re.sub(r";\s*", " · ", text)
@@ -19,6 +21,10 @@ def format_hours(value: str | None) -> str:
 def _parse(value: str):
     rules = []
     for part in value.split(";"):
+        last_day = re.fullmatch(r"\s*(Mo|Tu|We|Th|Fr|Sa|Su)\[-1\]\s+(?:off|closed)\s*", part)
+        if last_day:
+            rules.append(({DAYS.index(last_day[1])}, [], True))
+            continue
         match = re.fullmatch(r"\s*(?:(Mo|Tu|We|Th|Fr|Sa|Su)([A-Za-z,\-]*)\s+)?(off|closed|\d{2}:\d{2}-\d{2}:\d{2}(?:\s*,\s*\d{2}:\d{2}-\d{2}:\d{2})*)\s*", part)
         if not match:
             return None
@@ -42,14 +48,14 @@ def _parse(value: str):
                 if times[0] >= 1440 or times[0] == times[1]:
                     return None
                 intervals.append(tuple(times))
-        rules.append((days, intervals))
+        rules.append((days, intervals, False))
     return rules
 
 
 def visit_status(value: str | None, arrival: datetime, visit_minutes: int) -> str:
     """Check the whole visit, including overnight hours and closing boundaries.
 
-    No holiday/calendar/solar-time inference: those schedules return unknown.
+    Supports last-weekday monthly closures; other calendar expressions stay unknown.
     """
     if not value or not value.strip():
         return "unknown"
@@ -63,7 +69,9 @@ def visit_status(value: str | None, arrival: datetime, visit_minutes: int) -> st
     for offset in (-1, 0, 1):
         midnight = (arrival + timedelta(days=offset)).replace(hour=0, minute=0, second=0, microsecond=0)
         intervals = []
-        for days, spans in rules:
+        for days, spans, last_only in rules:
+            if last_only and (midnight + timedelta(days=7)).month == midnight.month:
+                continue
             if midnight.weekday() in days:
                 if not spans:
                     intervals = []

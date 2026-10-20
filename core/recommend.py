@@ -1,5 +1,7 @@
 """Unified UI/backend entry point for deterministic structured RAG."""
 from datetime import datetime, timedelta
+from dataclasses import replace
+from core.ai_search import AIUnavailable, plan_query, filter_requirements, select_places
 import math
 from pathlib import Path
 
@@ -7,7 +9,6 @@ from config import TIMEZONE
 from core.clock import local_now
 from core.geo import resolve_origin
 from core.hours import visit_status
-from core.llm import generate_explanations
 from core.models import RecommendRequest, RecommendResponse, Recommendation
 from core.ranking import estimated_outdoor_minutes, rank_candidates
 from core.retrieval import DatabaseUnavailable, INTENT_CATEGORIES, get_candidates, has_flight_deadline, parse_intents
@@ -35,9 +36,17 @@ def _validate_request(request: RecommendRequest) -> None:
         raise ValueError("Query must be text of at most 4000 characters")
     if not isinstance(request.interests, list) or any(not isinstance(value, str) for value in request.interests):
         raise ValueError("Interests must be a list of strings")
+    if type(request.group_size) is not int or not 1 <= request.group_size <= 5:
+        raise ValueError("Group size must be an integer between 1 and 5")
+    if (not isinstance(request.member_preferences, list)
+            or len(request.member_preferences) > request.group_size
+            or any(not isinstance(value, str) or len(value) > 300 for value in request.member_preferences)):
+        raise ValueError("Provide at most one preference per member, up to 300 characters each")
+    if request.language not in {"auto", "ru", "kk", "en"}:
+        raise ValueError("Unsupported recommendation language")
     if request.weather_mode not in {"live", "clear", "wind", "rain", "cold"}:
         raise ValueError("Unknown weather mode")
-    for flag in (request.walking_only, request.return_to_start, request.climate_shield_enabled, request.flight_constraint):
+    for flag in (request.walking_only, request.return_to_start, request.climate_shield_enabled, request.flight_constraint, request.require_open_hours):
         if not isinstance(flag, bool):
             raise ValueError("Request flags must be booleans")
 
@@ -117,28 +126,73 @@ def recommend(request: RecommendRequest, db_path: str | Path | None = None, *, u
             if english else "При ограничении до вылета не предлагаем покидать аэропорт. Уточните сроки регистрации и посадки у авиакомпании; база POI не подтверждает доступ из терминала, до или после контроля."
         )
         return response
+    plan = None
+    ai_failed = False
+    if use_llm:
+        try:
+            plan = plan_query(request)
+            if plan.duration_minutes is not None:
+                request = replace(request, duration_minutes=min(request.duration_minutes, plan.duration_minutes))
+        except AIUnavailable as error:
+            if not request.allow_fallback:
+                response.answer_mode = "ai_error"
+                response.general_message = error.user_message
+                return response
+            ai_failed = True
     intents = parse_intents(request.query, request.interests)
     try:
         candidates = get_candidates(origin, request.duration_minutes, request.return_to_start, db_path, intents)
     except DatabaseUnavailable:
         response.general_message = ("POI data is unavailable. Run: python -m ingestion.build_database" if english else "База мест недоступна. Выполните: python -m ingestion.build_database")
         return response
+    if plan is not None:
+        candidates = filter_requirements(candidates, plan)
     ranked = rank_candidates(candidates, intents, weather, request.climate_shield_enabled,
                              request.duration_minutes, request.return_to_start)
     statuses = {candidate.id: visit_status(candidate.opening_hours,
                 local_time + timedelta(minutes=candidate.travel_minutes), candidate.visit_minutes)
                 for candidate in ranked}
+    if request.require_open_hours:
+        ranked = [candidate for candidate in ranked if statuses[candidate.id] == "open"]
     # Keep closed options as a clearly marked fallback, after all viable options.
     ranked.sort(key=lambda candidate: statuses[candidate.id] in {"closed", "closes_during_visit"})
+    generated = None
     selected = ranked[:MAX_RESULTS]
+    if selected and use_llm and not ai_failed:
+        try:
+            viable = [c for c in ranked if statuses[c.id] not in {"closed", "closes_during_visit"}]
+            selection = select_places(viable[:12], request, weather) if viable else None
+            choices = selection.recommendations if selection else []
+            by_id = {c.id: c for c in viable}
+            selected = [by_id[c.poi_id] for c in choices]
+            generated = {c.poi_id: {"description": c.description, "reason": c.reason, "action": c.action, "warnings": []} for c in choices}
+            response.general_message = selection.message if selection and selection.message else None
+        except AIUnavailable as error:
+            if not request.allow_fallback:
+                response.answer_mode = "ai_error"
+                response.general_message = error.user_message
+                return response
+            ai_failed = True
+    if ai_failed:
+        response.general_message = "ИИ недоступен. Используется разрешённый вами резервный подбор по правилам."
+    if generated is None and request.group_size > 1 and selected:
+        group_note = "Резервный режим учитывает общие условия, но не согласует пожелания участников."
+        response.general_message = " ".join(filter(None, [response.general_message, group_note]))
+
     if not selected:
-        if intents & {"power_outlets", "wifi"}:
+        if request.require_open_hours:
+            response.general_message = ("No matching places are open for the entire visit according to available schedules. Try another time or change the search conditions."
+                if english else "По выбранным условиям нет мест, открытых по расписанию на всё время посещения. Попробуйте другое время или измените условия поиска.")
+        elif plan is not None and plan.max_average_check_kzt is not None:
+            response.general_message = "По указанному бюджету подходящие места не найдены. Попробуйте изменить условия поиска."
+        elif plan is not None and (plan.categories or plan.coffee_shop_only):
+            response.general_message = "По указанным условиям места не найдены. Попробуйте изменить условия поиска."
+        elif intents & {"power_outlets", "wifi"}:
             response.general_message = ("No place with the required confirmed features fits the time and weather constraints. Unknown features are not treated as confirmed." if english else "В пределах времени и погодных ограничений нет места с подтверждёнными обязательными удобствами. Неизвестные свойства не считаются подтверждёнными.")
         else:
             response.general_message = ("No place fits the time, access and selected weather constraints. Try another origin, more time, or check the available source data." if english else "Нет места, подходящего по времени, доступу и выбранным погодным ограничениям. Попробуйте другую отправную точку, увеличьте время или проверьте исходные данные.")
         return response
-    # Background clock updates must not cause repeated paid explanation calls.
-    generated = generate_explanations(selected, request, weather) if use_llm else None
+
     for candidate in selected:
         reason, action, warnings = _template(candidate, intents, weather, english)
         if nighttime:
@@ -159,7 +213,8 @@ def recommend(request: RecommendRequest, db_path: str | Path | None = None, *, u
             opening_hours_checked_at=candidate.opening_hours_checked_at,
             opening_status_now=visit_status(candidate.opening_hours, local_time, 0),
             arrival_datetime=(local_time + timedelta(minutes=candidate.travel_minutes)).isoformat(),
-            description=candidate.description, description_source=candidate.description_source,
+            description=generated[candidate.id]["description"] if generated is not None else candidate.description,
+            description_source="" if generated is not None else candidate.description_source,
         )
         if not all(math.isfinite(value) for value in (card.lat, card.lon, card.distance_m, card.travel_minutes_estimated, card.total_minutes_estimated)):
             continue

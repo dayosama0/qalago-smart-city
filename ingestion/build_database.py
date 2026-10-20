@@ -13,6 +13,8 @@ from urllib.parse import urlparse
 
 from ingestion.fetch_osm import AREAS, DownloadError, cached_snapshots, download_area, utc_now
 from ingestion.normalize import normalize_elements
+from ingestion.deduplicate import deduplicate_records
+from ingestion.curated import load_curated
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 SCHEMA = """
@@ -126,7 +128,8 @@ def write_database(records: list[dict], db_path: Path) -> dict:
             "sqlite_integrity": validation}
 
 
-def build_database(raw_paths: list[Path], db_path: Path, overrides_path: Path | None = None) -> dict:
+def build_database(raw_paths: list[Path], db_path: Path, overrides_path: Path | None = None,
+                   curated_path: Path | None = None) -> dict:
     all_records: dict[str, dict] = {}
     downloaded = dropped = duplicates = 0
     source_snapshots = []
@@ -151,8 +154,16 @@ def build_database(raw_paths: list[Path], db_path: Path, overrides_path: Path | 
                                  "raw_elements": len(payload["elements"]), "fetched_at": fetched_at,
                                  "osm_timestamp": payload.get("osm3s", {}).get("timestamp_osm_base")})
     records = list(all_records.values())
+    curated = load_curated(curated_path) if curated_path is not None else []
+    records.extend(curated)
     overrides_applied = apply_overrides(records, overrides_path) if overrides_path is not None else 0
+    records, duplicate_places = deduplicate_records(records)
     stats = write_database(records, db_path)
+    stats["duplicate_places_removed"] = duplicate_places
+    stats["curated_places_loaded"] = len(curated)
+    if curated_path is not None:
+        stats["curated_dataset"] = {"file": curated_path.name,
+                                    "sha256": hashlib.sha256(curated_path.read_bytes()).hexdigest()}
     stats.update({"downloaded_elements": downloaded, "dropped_invalid_or_unnamed": dropped,
                   "duplicate_osm_ids": duplicates, "overrides_applied": overrides_applied,
                   "last_fetched_at": max(row["fetched_at"] for row in records),
@@ -168,6 +179,7 @@ def main() -> int:
     parser.add_argument("--raw-dir", type=Path, default=None,
                         help="Defaults to shipped data/snapshots offline, data/raw for live Overpass")
     parser.add_argument("--overrides", type=Path, default=PROJECT_ROOT / "data" / "manual_overrides.csv")
+    parser.add_argument("--curated", type=Path, default=PROJECT_ROOT / "data" / "curated_places.json")
     parser.add_argument("--attempts", type=int, choices=range(1, 4), default=3)
     args = parser.parse_args()
     if args.raw_dir is None:
@@ -176,7 +188,7 @@ def main() -> int:
         paths = cached_snapshots(args.raw_dir) if args.offline else [
             download_area(area, args.raw_dir, attempts=args.attempts) for area in AREAS
         ]
-        stats = build_database(paths, args.db, args.overrides)
+        stats = build_database(paths, args.db, args.overrides, args.curated)
         stats["build_mode"] = "offline_cached_osm" if args.offline else "live_download"
         stats["built_at"] = utc_now()
         args.db.with_suffix(".manifest.json").write_text(

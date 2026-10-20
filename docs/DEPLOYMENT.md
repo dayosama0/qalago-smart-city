@@ -9,17 +9,17 @@ Deployment is **not yet verified**. The available browser session opens the Stre
 1. Sign in to [Streamlit Community Cloud](https://share.streamlit.io/) with the GitHub account that can access this repository. If the service requests new GitHub permissions, review and grant them yourself.
 2. Select **Create app → Yup, I have an app**.
 3. Set **Repository** to `dayosama0/qalago-smart-city`, **Branch** to `main`, and **Main file path** to `app.py`. Enter the values manually if the repository picker has not refreshed.
-4. In **Advanced settings**, choose **Python 3.13** (the local verification version). Leave secrets empty for the deterministic demo. Optional secrets, entered only in that UI:
+4. In **Advanced settings**, choose **Python 3.13** (the local verification version). Set the Groq credentials in that UI for AI search (without a key, only the explicitly enabled reserve mode works):
 
    ```toml
-   OPENAI_API_KEY = "your-own-key"
-   OPENAI_MODEL = "gpt-4.1-mini"
+   GROQ_API_KEY = "your-own-key"
+   GROQ_MODEL = "openai/gpt-oss-20b"
    WEATHER_ENABLED = "1"
    ```
 
    Never put a real key in GitHub, README, `.env.example`, issues or deployment screenshots. `WEATHER_ENABLED = "0"` disables live weather calls; simulated weather still works.
 5. Optionally choose an available subdomain. Click **Deploy** and wait for dependency installation and app startup. Use the generated URL; do not assume `qalago-smart-city.streamlit.app` is available.
-6. Open the URL in a separate signed-out browser. Confirm the real POI count appears, use EXPO / 60 minutes / simulated clear weather, and click **Подобрать прогулку**. Confirm cards and source links work with no OpenAI secret.
+6. Open the URL in a separate signed-out browser. Confirm the real POI count appears, use EXPO / 60 minutes / simulated clear weather, and click **Подобрать прогулку**. Confirm cards and source links work with a Groq secret, or explicitly enable reserve mode when testing offline.
 7. Compare simulated wind with Climate Shield off/on; test confirmed outlets and the airport flight checkbox. Confirm simulations and unknown hours are labeled. Open one **Найти в 2ГИС** link and check the search text.
 8. Copy the tested public URL into the README and record the deployed commit and verification date. Until this check succeeds, deployment remains unverified.
 
@@ -52,4 +52,4 @@ To refresh public POIs, run `python -m ingestion.build_database` locally, review
 - Missing data: confirm `data/pois.db` is in the deployed commit. Rebuild from committed sanitized snapshots with `python -m ingestion.build_database --offline` locally and push the reviewed snapshot.
 - No results: try 60 or 120 minutes, remove strict feature requirements or use another origin. Real OSM coverage may be sparse. Do not add synthetic places to the deployed database.
 - Live weather unavailable: use an explicitly labeled simulated scenario. Weather failures must display `unknown`, never simulated sunny weather disguised as live.
-- Optional LLM errors: the app keeps deterministic recommendations. Validate the secret and model access outside Git; live API use may cost money.
+- Optional LLM errors: the app displays a Groq error unless reserve mode is explicitly enabled. Validate GROQ_API_KEY and strict JSON-schema model access; free-plan quotas apply.

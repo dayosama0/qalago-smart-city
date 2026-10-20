@@ -1,7 +1,5 @@
 from dataclasses import asdict
 import json
-import sys
-from types import SimpleNamespace
 
 import pytest
 
@@ -11,7 +9,7 @@ from core.recommend import recommend
 
 
 def request(**kwargs):
-    defaults = dict(location_preset="custom", latitude=51.1, longitude=71.4,
+    defaults = dict(allow_fallback=True, location_preset="custom", latitude=51.1, longitude=71.4,
                     weather_mode="clear", time_mode="simulated", simulated_datetime="2026-01-05T12:00:00")
     return RecommendRequest(**{**defaults, **kwargs})
 
@@ -89,45 +87,40 @@ def test_missing_db_has_actionable_empty_state(tmp_path):
 
 
 def test_no_key_never_contacts_llm(synthetic_db, monkeypatch):
-    class MustNotRun:
-        def __init__(self, *args, **kwargs):
-            pytest.fail("SDK must not be instantiated without a key")
-    monkeypatch.setitem(sys.modules, "openai", SimpleNamespace(OpenAI=MustNotRun))
+    import requests
+    def must_not_run(*args, **kwargs):
+        pytest.fail("No HTTP request is allowed without a Groq key")
+    monkeypatch.setattr(requests, "post", must_not_run)
     assert recommend(request(), synthetic_db).answer_mode == "template"
 
 
-@pytest.mark.parametrize("failure", ["timeout", "malformed", "unprovided_id", "unsupported_fact", "refusal"])
-def test_provider_failures_preserve_identical_grounded_template(synthetic_db, monkeypatch, failure):
-    baseline = recommend(request(), synthetic_db)
-    class FakeClient:
-        def __init__(self, **kwargs):
-            assert kwargs["timeout"] == 8
-            assert kwargs["max_retries"] == 0
-            self.chat = SimpleNamespace(completions=SimpleNamespace(parse=self.parse))
-        def __enter__(self):
-            return self
-        def __exit__(self, *args):
-            pass
-        def parse(self, **kwargs):
-            if failure == "timeout":
-                raise TimeoutError("offline test")
-            candidates = json.loads(kwargs["messages"][1]["content"])["candidates"]
-            if failure == "malformed":
-                payload = {"arbitrary": "bad schema"}
-            else:
-                payload = {"recommendations": [{"poi_id": item["poi_id"], "reason": "Место подходит для короткого осмотра.", "action": "Рассмотрите остановку.", "warnings": []} for item in candidates]}
-                if failure == "unprovided_id":
-                    payload["recommendations"][0]["poi_id"] = "invented:id"
-                if failure == "unsupported_fact":
-                    payload["recommendations"][0]["reason"] = "Есть бесплатный Wi-Fi и розетки."
-            message = SimpleNamespace(refusal="refused" if failure == "refusal" else None,
-                                      parsed=SimpleNamespace(model_dump=lambda: payload))
-            return SimpleNamespace(choices=[SimpleNamespace(message=message)])
-    monkeypatch.setenv("OPENAI_API_KEY", "test-only-not-a-real-secret")
-    monkeypatch.setitem(sys.modules, "openai", SimpleNamespace(OpenAI=FakeClient))
+@pytest.mark.parametrize("failure", ["timeout", "malformed", "invalid_category", "refusal", "quota"])
+def test_provider_failures_preserve_grounded_template(synthetic_db, monkeypatch, failure):
+    import requests
+    baseline = recommend(request(), synthetic_db, use_llm=False)
+    def post(url, **kwargs):
+        assert url == "https://api.groq.com/openai/v1/chat/completions"
+        if failure == "timeout":
+            raise requests.Timeout("offline test")
+        response = requests.Response()
+        response.status_code = 429 if failure == "quota" else 200
+        if failure == "quota":
+            body = {"error":{"code":"rate_limit_exceeded"}}
+        elif failure == "malformed":
+            body = {"arbitrary":"bad schema"}
+        else:
+            content = json.dumps({"categories":["invented"], "coffee_shop_only":False,
+                "max_average_check_kzt":None, "duration_minutes":None})
+            body = {"choices":[{"finish_reason":"stop", "message":{
+                "content":content, "refusal":"refused" if failure == "refusal" else None}}]}
+        response._content = json.dumps(body).encode()
+        return response
+    monkeypatch.setenv("GROQ_API_KEY", "test-only-not-a-real-secret")
+    monkeypatch.setattr(requests, "post", post)
     result = recommend(request(), synthetic_db)
     assert result.answer_mode == "template"
-    assert asdict(result) == asdict(baseline)
+    assert [asdict(c) for c in result.recommendations] == [asdict(c) for c in baseline.recommendations]
+    assert result.general_message
 
 
 def test_postvalidation_rejects_untrusted_facts_and_ids():
@@ -143,3 +136,32 @@ def test_postvalidation_rejects_untrusted_facts_and_ids():
 def test_invalid_inputs_rejected(synthetic_db, kwargs):
     with pytest.raises(ValueError):
         recommend(request(**kwargs), synthetic_db)
+
+
+@pytest.mark.parametrize("kwargs", [
+    {"group_size": 0}, {"group_size": 6}, {"group_size": True},
+    {"member_preferences": ["a", "b"]}, {"member_preferences": ["x" * 301]},
+    {"member_preferences": "coffee"}, {"language": "unsupported"}, {"require_open_hours": "yes"},
+])
+def test_invalid_group_preferences_rejected(synthetic_db, kwargs):
+    with pytest.raises(ValueError):
+        recommend(request(**kwargs), synthetic_db, use_llm=False)
+
+
+def test_open_hours_filter_also_applies_to_fallback(synthetic_db):
+    import sqlite3
+    with sqlite3.connect(synthetic_db) as connection:
+        connection.execute("UPDATE pois SET opening_hours='Mo-Fr 09:00-18:00' WHERE id='synthetic:cafe-confirmed'")
+    daytime = recommend(request(require_open_hours=True), synthetic_db, use_llm=False)
+    assert [card.poi_id for card in daytime.recommendations] == ["synthetic:cafe-confirmed"]
+    for time in ("2026-01-05T23:00:00", "2026-01-05T17:50:00"):
+        result = recommend(request(require_open_hours=True, simulated_datetime=time), synthetic_db, use_llm=False)
+        assert not result.recommendations
+        assert "на всё время посещения" in result.general_message
+
+
+def test_group_fallback_does_not_claim_personalized_compromise(synthetic_db):
+    result = recommend(request(group_size=3, member_preferences=["кофе", "музей", "прогулка"]),
+                       synthetic_db, use_llm=False)
+    assert result.recommendations
+    assert "не согласует пожелания" in result.general_message

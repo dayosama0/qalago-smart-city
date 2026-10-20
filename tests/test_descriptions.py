@@ -5,7 +5,9 @@ from pathlib import Path
 import sqlite3
 
 from core.models import RecommendRequest
-from core.recommend import recommend
+from core.recommend import recommend as _recommend
+from functools import partial
+recommend = partial(_recommend, use_llm=False)
 from ingestion.build_database import build_database
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -16,7 +18,12 @@ def test_all_shipped_descriptions_are_distinct_and_evidenced():
         overrides = {row["poi_id"]: row for row in csv.DictReader(handle) if row["field"] == "description"}
     with sqlite3.connect(ROOT / "data/pois.db") as connection:
         rows = connection.execute("SELECT id,description,description_source,verified_fields_json FROM pois").fetchall()
-    assert len(rows) == len(overrides) == len({row[1] for row in rows}) == 199
+    curated = json.loads((ROOT / "data/curated_places.json").read_text(encoding="utf-8"))
+    assert len(rows) == len({row[1] for row in rows}) == 197 + len(curated)
+    assert len(overrides) == 199
+    overrides.update({row["id"]: {"value": row["description"],
+                                  "evidence_url": row["evidence"]["description"],
+                                  "checked_at": row["checked_at"]} for row in curated})
     for poi_id, text, source, metadata in rows:
         assert 40 <= len(text) <= 320
         assert text == overrides[poi_id]["value"]
@@ -28,8 +35,8 @@ def test_all_shipped_descriptions_are_distinct_and_evidenced():
 def test_offline_rebuild_preserves_editorial_texts_and_sources(tmp_path):
     database = tmp_path / "rebuilt.db"
     stats = build_database([ROOT / "data/snapshots/astana.json", ROOT / "data/snapshots/airport.json"],
-                           database, ROOT / "data/manual_overrides.csv")
-    assert stats["descriptions_available"] == 199
+                           database, ROOT / "data/manual_overrides.csv", ROOT / "data/curated_places.json")
+    assert stats["descriptions_available"] == 207
     with (ROOT / "data/manual_overrides.csv").open(encoding="utf-8", newline="") as handle:
         assert stats["overrides_applied"] == len(list(csv.DictReader(handle)))
     query = "SELECT id,description,description_source FROM pois ORDER BY id"
@@ -38,7 +45,7 @@ def test_offline_rebuild_preserves_editorial_texts_and_sources(tmp_path):
 
 
 def test_recommendations_keep_exact_database_descriptions(monkeypatch):
-    monkeypatch.setenv("OPENAI_API_KEY", "")
+    monkeypatch.setenv("GROQ_API_KEY", "")
     result = recommend(RecommendRequest(location_preset="baiterek", weather_mode="clear",
                        time_mode="simulated", simulated_datetime="2026-10-20T12:00:00"))
     assert result.recommendations

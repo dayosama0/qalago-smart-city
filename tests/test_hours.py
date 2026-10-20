@@ -5,7 +5,9 @@ import pytest
 
 from core.hours import format_hours, visit_status
 from core.models import RecommendRequest
-from core.recommend import recommend
+from core.recommend import recommend as _recommend
+from functools import partial
+recommend = partial(_recommend, use_llm=False)
 
 
 @pytest.mark.parametrize("hours,when,minutes,status", [

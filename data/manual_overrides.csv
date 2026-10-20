@@ -104,7 +104,7 @@ osm:node:12101883884,description,«Манат» — кафе в старом ц�
 osm:node:2638206825,description,«Мангал» — кафе на восточной стороне охваченной снимком старой части города. Точка расположена восточнее площади Дворца молодёжи.,https://www.openstreetmap.org/node/2638206825,2026-10-20
 osm:node:5890018987,description,"«Незнакомка» находится рядом с Sushifox в старом центре. В OSM у кафе указаны столики внутри, без наружной посадки.",https://www.openstreetmap.org/node/5890018987,2026-10-20
 osm:node:4207115191,description,«Пекарня Мишеля» — кафе с французской выпечкой. Здесь можно рассмотреть остановку на кофе с багетом или круассаном либо взять выпечку с собой.,https://www.astanagid.kz/zavedeniya/restorany/pekarnya_mishelya/,2026-10-20
-osm:node:4499897795,description,"«Рыба моей мечты» — кафе в северной части старого центра, рядом с «Зеленой чашкой». В OSM отмечены столики в помещении.",https://www.openstreetmap.org/node/4499897795,2026-10-20
+osm:node:4499897795,description,"«Рыба моей мечты» на Бейбитшилик, 20/1 — караоке-клуб в старой части Астаны. Посещение по предварительной записи.",https://2gis.kz/astana/firm/70000001035969735,2026-10-20
 osm:node:5244218857,description,"«Сладкая Сказка» — кафе рядом с Costa в районе проспекта Республики. Несмотря на название, среди тегов кухни в OSM указаны пицца и суши.",https://www.openstreetmap.org/node/5244218857,2026-10-20
 osm:node:5890018687,description,«Столичная столовая» расположена рядом с Baton coffee. В исходных данных у этой точки отмечена посадка внутри помещения.,https://www.openstreetmap.org/node/5890018687,2026-10-20
 osm:node:6552437087,description,"«Столовая» — точка питания в окрестностях аэропорта NQZ, северо-восточнее терминальной зоны. Публичный доступ и связь с терминалами в OSM не уточнены.",https://www.openstreetmap.org/node/6552437087,2026-10-20
@@ -236,3 +236,37 @@ osm:node:4876041621,opening_hours,Mo-Su 12:00-02:00,https://www.astanagid.kz/zav
 osm:node:12093489321,opening_hours,Mo-Su 10:00-22:00,https://restaurants.mega.kz/ru/?sm=2,2026-10-20
 osm:node:10861996205,opening_hours,Mo-Su 10:00-21:00,https://veganhouse.kz/index.php?route=information/contact,2026-10-20
 osm:node:1843876263,opening_hours,Mo-Fr 08:00-00:00; Sa-Su 10:00-00:00,https://www.astanagid.kz/zavedeniya/restorany/rafe_coffee_food/,2026-10-20
+osm:node:12973424137,opening_hours,Mo-Fr 08:00-22:00; Sa-Su 09:00-23:00,https://astana.jsprav.ru/konditerskie-magazinyi/basqur/,2026-10-20
+osm:node:5074875221,opening_hours,Mo-Fr 07:30-22:30; Sa-Su 08:00-23:00,https://astana.restoran.kz/coffee/2729-espresso-bar-na-auezova,2026-10-20
+osm:way:264403130,opening_hours,closed,https://yandex.kz/maps/ru/org/flowerhub/45810541913/,2026-10-20
+osm:way:1342224679,opening_hours,Mo-Su 07:00-23:45,https://im.kz/restaurants/kenesary,2026-10-20
+osm:node:5966393585,opening_hours,Mo-Su 10:00-24:00,https://2gis.kz/firm/70000001029784169,2026-10-20
+osm:node:6404769888,opening_hours,Mo-Su 09:00-24:00,https://2gis.kz/astana/firm/70000001030168078,2026-10-20
+osm:node:14100100183,opening_hours,Mo-Su 08:00-02:00,https://www.visitastana.kz/public/file/gastro-guide.pdf,2026-10-20
+osm:node:10171023215,opening_hours,Mo-Su 10:00-24:00,https://banqet.kz/vendors/pivovaroff-na-syganak-astana,2026-10-20
+osm:node:12993953677,opening_hours,24/7,https://ru.restaurantguru.com/Tddb-Astana,2026-10-20
+osm:node:12146103477,opening_hours,closed,https://yandex.kz/maps/ru/org/tez_besh/11933938376/,2026-10-20
+osm:node:4384857439,opening_hours,"Mo-Th,Su 09:00-24:00; Fr-Sa 09:00-01:00",https://astana.spravker.ru/kafe/the-kitchen.htm,2026-10-20
+osm:node:10168258158,opening_hours,Mo-Su 10:00-23:00,https://astana.restoran.kz/cafe/98780-yakitoriya-na-syganak,2026-10-20
+osm:node:12993941023,opening_hours,Mo-Su 06:30-23:00,https://restaurantguru.com/Yessil-Astana,2026-10-20
+osm:node:6404773385,opening_hours,"Mo-Th,Su 10:00-23:00; Fr-Sa 10:00-24:00",https://banqet.kz/vendors/ocean-basket-na-sarayshyk-astana,2026-10-20
+osm:node:12973410493,opening_hours,"Mo-Th,Su 12:00-24:00; Fr-Sa 12:00-02:00",https://new.redtable.kz/place/asatu,2026-10-20
+osm:node:4624217690,opening_hours,Mo-Th 08:00-24:00; Fr 08:00-02:00; Sa 09:00-02:00; Su 09:00-24:00,https://new.redtable.kz/place/koktem-bistro,2026-10-20
+2gis:70000001061880425,opening_hours,24/7,https://yandex.kz/maps/ru/org/astaninskiy_botanicheskiy_sad/239055286027/,2026-10-20
+osm:node:12959449801,opening_hours,Mo-Fr 08:00-23:00; Sa-Su 09:00-23:00,https://new.redtable.kz/place/kultura_diktuet,2026-10-20
+osm:node:4913160607,opening_hours,Mo-Su 09:00-21:00,https://astana.spravker.ru/restoranyi/meruert.htm,2026-10-20
+osm:node:5936655589,opening_hours,closed,https://yandex.kz/maps/ru/org/most/1141267110/,2026-10-20
+osm:node:4953253121,opening_hours,Mo-Su 09:00-02:00,https://rest-kz.com/kz/restorany/saksaul,2026-10-20
+osm:way:262166875,opening_hours,24/7,https://astana.spravker.ru/parki-kultury-i-otdyha/shahmatshyilar-gl-bayi-skver-shahmatistov.htm,2026-10-20
+osm:node:5244218857,opening_hours,Mo-Su 09:30-24:00,https://astana.restoran.kz/cafe/5708-sladkaya-skazka-na-respubliki,2026-10-20
+osm:way:1428966977,opening_hours,24/7,https://astana.spravker.ru/zagorodnyij-otdyih/park-muzeya-pervogo-prezidenta.htm,2026-10-20
+osm:node:1843876240,opening_hours,Mo-Su 11:00-23:00,https://new.redtable.kz/place/farhi,2026-10-20
+osm:node:12146103478,opening_hours,closed,https://yandex.com/maps/org/central_pizza_coffee/125614521760/,2026-10-20
+osm:node:5890174288,opening_hours,Mo off; Tu-Sa 17:00-02:00; Su 17:00-24:00,https://new.redtable.kz/place/fullers,2026-10-20
+osm:node:4922406025,opening_hours,Mo-Fr 08:00-01:00; Sa-Su 10:00-01:00,https://new.redtable.kz/place/astana-nury,2026-10-20
+osm:node:12917106289,opening_hours,Mo-Su 09:00-21:00,https://www.visitastana.kz/public/file/gastro-guide.pdf,2026-10-20
+osm:node:12917093975,opening_hours,Mo-Su 11:00-22:00,https://astanews.kz/mesta/kafe-drujba-astana/,2026-10-20
+osm:node:6312771198,opening_hours,Mo-Su 08:00-24:00,https://2gis.kz/astana/firm/70000001084057591,2026-10-20
+osm:node:4133854089,opening_hours,Mo-Su 08:00-22:00,https://astana.restoran.kz/coffee/7761-rafe,2026-10-20
+osm:node:4499897795,opening_hours,Mo-Su 10:00-05:00,https://2gis.kz/astana/firm/70000001035969735,2026-10-20
+osm:node:12876977238,opening_hours,Mo-Su 09:00-23:00,https://astana.restoran.kz/coffee/13380-french-cafe-na-kenesary,2026-10-20

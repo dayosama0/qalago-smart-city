@@ -14,3 +14,15 @@ snapshot metadata for source URLs, retrieval times, scope, and transformations.
 Preserve attribution and the ODbL notice when redistributing these data. A public
 derived database must comply with the ODbL attribution and share-alike terms.
 There are no manually invented POIs or private user locations in this snapshot.
+
+The supplemental `2gis:*` records originate from public 2GIS organization cards
+and separately cited official venue pages, not from OpenStreetMap. Their field
+sources and access dates are recorded in `curated_places.json`. This OSM notice
+does not assign an OSM license to those external sources. See
+`docs/DATA_EXPANSION_2026-10-20.md` for the exact references.
+
+Additional hours and closure facts from public venue pages, 2GIS, Yandex Maps,
+Visit Astana and directories are attributed individually in `manual_overrides.csv`,
+`hours_review.tsv`, `hours_gap_review_2026-10-20.json` and
+`hours_followup_2026-10-20.json`. The OSM notice above
+does not assign an OSM license to those external source pages.

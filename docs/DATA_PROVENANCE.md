@@ -3,12 +3,19 @@
 ## What ships with the app
 
 `data/pois.db` is a genuine, locally validated SQLite snapshot derived from
-OpenStreetMap. It contains **199 named POIs**, **107 listed opening schedules**,
-**199 editorial descriptions**, and **237 field overrides (199 descriptions and 38 schedules)**. All 199 records have unknown
+OpenStreetMap plus manually reviewed public venue pages. It contains **207 named POIs**, **144 listed opening schedules and 5 closure markers**,
+**207 editorial descriptions**, and **271 field overrides (199 descriptions and 72 hours/closure values)**. All 207 records have unknown
 power-outlet availability. These are measured data completeness counts, not
 claims that the places are currently open, have been visited, or have been
 independently audited. The app reads this database; app startup does not invoke
 Overpass or recreate the database.
+
+The 20 October expansion adds 10 source-identified places from 2GIS and official
+pages, with 9 schedules and 5 average checks. Two duplicate source representations
+are merged from the 199 OSM records, including MEGA Silk Way. See
+[the expansion review](DATA_EXPANSION_2026-10-20.md) for field evidence and limits.
+`data/curated_places.json` is validated before any database writes; its hash is
+recorded in the manifest. The CLI includes it in both offline and live rebuilds.
 
 The successful source downloads were four small, unauthenticated, read-only
 [OSM API 0.6 map requests](https://wiki.openstreetmap.org/wiki/API_v0.6#Retrieving_map_data_by_bounding_box:_GET_/api/0.6/map)
@@ -24,13 +31,23 @@ otherwise real places will be absent, and a zero-result recommendation is valid.
 
 ## Opening-hours review (20 October 2026)
 
-38 schedules were manually checked against public venue and directory pages, matched
-to branch addresses or coordinates. 27 records previously had no hours; 11 already
-had hours and were confirmed or updated. Sources and review dates are retained per
-field and displayed in card details. The resulting 107 nonempty values include one
-original `closed` record, which retrieval excludes. The remaining 92 records have no
-confirmed schedule and keep an unknown status. This is not a full current audit of
-the other 69 OSM schedules. See [review ledger and remaining gaps](OPENING_HOURS_REVIEW.md).
+The first review checked 38 schedules (27 gaps filled and 11 existing values
+confirmed or updated). The later expansion added 10 places with 9 schedules.
+The follow-up search then covered the 92 remaining gaps: **22 schedules added,
+2 permanent closures and 1 temporary closure recorded; 67 remained unknown**.
+A further pass added **8 schedules and 1 temporary closure**, leaving **58 gaps**.
+The [continuation audit](../data/hours_followup_2026-10-20.json) records those changes
+and how source conflicts were resolved. The description of Рыба моей мечты now
+includes the reservation requirement from its 2GIS card.
+Sources are matched to branch addresses or coordinates and retained per field
+with a review date. The shipped 149 nonempty opening-hours values consist of
+144 schedules and 5 closure markers (including one original OSM `closed`).
+Retrieval excludes all five closed records. Temporary closures of Flowerhub and
+Central Pizza & Coffee at Respubliki 5 are explicitly distinguished in the audit
+and must be rechecked before restoring those places.
+This is not a fresh audit of every existing OSM schedule. See the
+[review ledger and remaining gaps](OPENING_HOURS_REVIEW.md) and
+[the 92-record follow-up audit](../data/hours_gap_review_2026-10-20.json).
 
 ## Geographic coverage
 
@@ -85,9 +102,9 @@ Category-based `likely_indoor` is an inference, not confirmation of heating or
 weather protection. Category visit durations are estimates. Source hours are retained unless a documented field override replaces them; original snapshot tags remain available. Hours
 are stored without a static `opening_status` column. No outlets have been
 invented to satisfy the hackathon scenario. `data/manual_overrides.csv` contains
-one individually written Russian description per surviving OSM ID and 38 sourced schedule overrides. Overrides require a whitelisted field,
+199 individually written Russian descriptions and 72 sourced hours/closure overrides applied before deduplication. Overrides require a whitelisted field,
 appropriate enum/range, public evidence URL and ISO check date/time. An override
-whose OSM ID is missing aborts the build so it cannot silently survive removal.
+whose place ID is missing aborts the build so it cannot silently survive removal.
 
 ### Editorial descriptions (20 October 2026)
 
@@ -97,12 +114,13 @@ are stored in `data/manual_overrides.csv` and applied on offline or live rebuild
 The original OSM snapshots are unchanged. The source for each text is copied to
 `description_source`; field-level metadata is retained in `verified_fields_json`.
 
-29 records use additional web references: the official sites of the philharmonic,
+30 records use additional web references, including the newly matched 2GIS
+card for Рыба моей мечты and the previously checked sources: the official sites of the philharmonic,
 MEGA, Keruen, Abu Dhabi Plaza, The Ritz-Carlton, Rafe, Lepim i Varim and Flowerhub;
 Visit Astana, Kazakhstan Travel and individual destination/dining references.
-The other 170 descriptions use the existing OSM categories, tags, addresses and
+The other 169 descriptions use the existing OSM categories, tags, addresses and
 spatial relationships between records in the shipped snapshot. These are not
-170 additional live web verifications. Nearby-place references are geographic
+169 additional live web verifications. Nearby-place references are geographic
 orientation, not assertions of common ownership, shared entrances or walking access.
 The `manual_reference` provenance method means an editorial source check, not
 an on-site inspection or confirmation that a business is still operating.

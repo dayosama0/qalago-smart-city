@@ -1,138 +1,144 @@
-# Opening-hours review - 20 October 2026
+# Проверка расписаний — 20 октября 2026
 
-The database contains 199 POIs. 38 schedules were checked against public web
-references: 27 newly populated and 11 existing values confirmed or updated.
-107 records now have nonempty hours, including one original `closed` record
-excluded from recommendations. 92 records still have no confirmed schedule.
-The remaining 69 original OSM values were not independently rechecked.
+В базе **207 уникальных мест**: у **144** есть расписание, ещё **5** помечены
+закрытыми, у **58** график неизвестен. Закрытые точки исключаются из рекомендаций.
 
-Canonical values, evidence URLs and dates are in
-[manual_overrides.csv](../data/manual_overrides.csv).
-The [review ledger](../data/hours_review.tsv) retains matched branch addresses
-and qualifications. Overrides survive offline rebuilds. A reference check date
-is not a statement that the owner updated the schedule on that date.
+Повторный поиск сначала закрыл 25 из 92 пробелов: **22 графика**, два сообщения о
+прекращении работы («Мост», Tez Besh) и одно о временном закрытии (Flowerhub).
+Продолжение добавило **ещё 8 расписаний** и временное закрытие **Central Pizza &
+Coffee на Республики, 5**. Итого среди исходных 92 пробелов: 30 расписаний,
+2 постоянных и 2 временных закрытия, 58 неизвестных графиков.
 
-Sources include official venue websites (MEGA, Keruen, Ritz-Carlton, Ribambelle,
-Astana museums, Ayashka and Veggie House), 2GIS cards considered during research,
-Yandex Maps, Sxodim and other directories. Delivery hours are not visit hours.
-Open-air locations were not automatically assigned 24/7 access.
+Временное закрытие не означает окончательного; Flowerhub и Central Pizza & Coffee
+нужно перепроверить перед возвращением в подбор. У «Рыбы моей мечты» в описание
+добавлено условие предварительной записи. Источники и причины выбора расписаний
+последнего прохода — в [отдельном аудите](../data/hours_followup_2026-10-20.json).
 
-## Unresolved and qualified cases
+Использованы 2ГИС, Яндекс Карты, официальные страницы заведений и Visit Astana,
+RedTable, Restoran.kz и другие справочники. Проверялись конкретные адреса и филиалы.
+График доставки, кассы, соседнего филиала или всего торгового центра не переносился
+на заведение. Дата проверки — дата чтения источника, а не подтверждение владельцем
+или дата обновления его карточки. Праздничные исключения без источника не добавлялись.
 
-- Philharmonic and organ hall: visits depend on event schedules; ticket-office
-  hours do not establish access to performances. See
-  [Philharmonic](https://astana-filarmonia.kz/) and
-  [Organ Hall](https://organhall.kz/).
-- National Academic Library: weekly hours alone omit the maintenance day;
-  a complete current access schedule was not established.
-- Korme: tenant/office hours do not establish exhibition access.
-- Flowerhub: a temporary closure notice requires further confirmation.
-- Kultura Diktuet, Ma Famille, Segafredo and Rafe at Konaev 12/2:
-  references disagree about opening, closing or weekend hours.
-- University parks/gardens: public unrestricted access was not established.
-  Other outdoor locations without explicit published hours also stay unknown.
-- Veggie House: the site's general header says 22:00, but the branch section
-  and footer both say 21:00. The explicit branch schedule 10:00-21:00 is used.
-- Sazan at Kenesary 24: the card matched by address and coordinates now uses
-  the name FSN. Hours were not transferred to Sazan because the identity of
-  the organization is uncertain; this needs a separate name review.
+Канонические значения, ссылки и даты хранятся в
+[manual_overrides.csv](../data/manual_overrides.csv) и попадают в
+`verified_fields_json` базы при каждой пересборке. Адреса и оговорки — в
+[hours_review.tsv](../data/hours_review.tsv). Полный результат повторного поиска
+по всем 92 записям — в [JSON-аудите](../data/hours_gap_review_2026-10-20.json).
+Исходные снимки OSM сохранены без изменений.
 
-## Records without confirmed hours
+Первый этап проверил 38 расписаний: 27 заполнены впервые, 11 подтверждены или
+исправлены. Последующее расширение добавило 10 мест с 9 расписаниями. Этот отчёт
+отражает состояние после повторного поиска; старые непустые графики заново
+целиком не проверялись.
 
-This is the complete gap list, not a claim that each location was verified
-with its owner. Unknown hours never imply that the venue is open.
+## Добавленные расписания и статусы
 
-| POI | Category | ID |
+| Место | Расписание / статус | Адрес и замечание | Источник |
+| --- | --- | --- | --- |
+| Astana-Nury | `Mo-Fr 08:00-01:00; Sa-Su 10:00-01:00` | Республики, 3/2. Полный график конкретного ресторана в RedTable совпадает с Restoran.kz; различия выходных сохранены. Альтернативный график Astanews не принят. | [Источник](https://new.redtable.kz/place/astana-nury) |
+| Basqur | `Mo-Fr 08:00-22:00; Sa-Su 09:00-23:00` | Республики, 6. Использован полный график, а не часы другого филиала на Сыганак. | [Источник](https://astana.jsprav.ru/konditerskie-magazinyi/basqur/) |
+| Central pizza & coffee | `Временно не работает` | Республики, 5. Яндекс отмечает временное закрытие именно филиала на Республики; часы точки в Центральном парке не перенесены. | [Источник](https://yandex.com/maps/org/central_pizza_coffee/125614521760/) |
+| Espresso Bar | `Mo-Fr 07:30-22:30; Sa-Su 08:00-23:00` | Мухтара Ауэзова, 2. Часы зала; часы доставки Wolt отличаются и не использованы. | [Источник](https://astana.restoran.kz/coffee/2729-espresso-bar-na-auezova) |
+| Flowerhub | `Временно не работает` | Богенбай батыра, 29. Временно не работает по карточке Яндекса. Не считать окончательным закрытием; требуется повторная проверка перед включением в подбор. | [Источник](https://yandex.kz/maps/ru/org/flowerhub/45810541913/) |
+| Fuller's Pub | `Mo off; Tu-Sa 17:00-02:00; Su 17:00-24:00` | Желтоксан, 2Т. Филиал подтверждён ссылкой с fullers.kz на 2ГИС (71.420803, 51.162379). Полная неделя в RedTable совпадает с прежним гастрогидом Visit Astana; 2ГИС подтверждает 17:00–02:00 для текущего дня. Время 04:00 из Astanews не принято. | [Источник](https://new.redtable.kz/place/fullers) |
+| Im | `Mo-Su 07:00-23:45` | Сарыарка, 9Д (ресторан Кенесары). Часы зала из официальной страницы филиала; круглосуточный автомобильный сервис не перенесён. | [Источник](https://im.kz/restaurants/kenesary) |
+| Lugano | `Mo-Su 10:00-24:00` | Абая, 39. 2ГИС и Banqet указывают одинаковые часы. | [Источник](https://2gis.kz/firm/70000001029784169) |
+| Ma Famille French Cafe | `Mo-Su 09:00-23:00` | Кенесары, 30. Найдена отдельная карточка под названием French Cafe на Кенесары. Полная неделя совпадает с Spravker, Jsprav и Gorodella; Яндекс подтверждает закрытие 23:00. Старые статьи с 22:00 не использованы. | [Источник](https://astana.restoran.kz/coffee/13380-french-cafe-na-kenesary) |
+| Mado | `Mo-Su 09:00-24:00` | Конаев, 14, восточнее Байтерека. Прямой график 2ГИС; старое 08:00–02:00 из Restoran не использовано. | [Источник](https://2gis.kz/astana/firm/70000001030168078) |
+| Peek-a-boo | `Mo-Su 08:00-02:00` | Конаев, 12/1. График из гастрогида Visit Astana; Яндекс подтверждает закрытие 02:00. | [Источник](https://www.visitastana.kz/public/file/gastro-guide.pdf) |
+| Pivovaroff | `Mo-Su 10:00-24:00` | Сыганак, 60/5, Abu Dhabi Plaza. Совпадает с карточкой сети Spravker, где комплекс имеет адрес 60/3. | [Источник](https://banqet.kz/vendors/pivovaroff-na-syganak-astana) |
+| Rafe | `Mo-Su 08:00-22:00` | Кунаева, 12/2. Выбрана отдельная карточка кофейни, адрес подтверждён официальным rafe.kz/contacts; часы 10:00–21:00 салона красоты и старые статьи 2017 года не использованы. | [Источник](https://astana.restoran.kz/coffee/7761-rafe) |
+| Tagam | `24/7` | Кенесары, 8. Полный недельный график столовой Тагам. | [Источник](https://ru.restaurantguru.com/Tddb-Astana) |
+| Tez besh | `Больше не работает` | Республики, 5. Карточка помечена «Больше не работает». | [Источник](https://yandex.kz/maps/ru/org/tez_besh/11933938376/) |
+| The Kitchen | `Mo-Th,Su 09:00-24:00; Fr-Sa 09:00-01:00` | Достык, 5. Недельный график конкретного ресторана. | [Источник](https://astana.spravker.ru/kafe/the-kitchen.htm) |
+| Yakitoriya | `Mo-Su 10:00-23:00` | Сыганак, 60/5, Abu Dhabi Plaza. Филиал на Сыганак; не график торгового центра. | [Источник](https://astana.restoran.kz/cafe/98780-yakitoriya-na-syganak) |
+| Yessil | `Mo-Su 06:30-23:00` | Бейбитшилик, 8. Ежедневный режим описан в справочнике; Яндекс подтверждает начало 06:30 и конец 23:00. | [Источник](https://restaurantguru.com/Yessil-Astana) |
+| Z-1 | `Mo-Su 08:00-24:00` | Конаев, 14г. Точка Z-1 сопоставлена с Узбечка №1 по координатам 51.1289, 71.438398. Использованы часы зала именно этого филиала в 2ГИС; 11:00–23:00 доставки с общего сайта не перенесены. | [Источник](https://2gis.kz/astana/firm/70000001084057591) |
+| ocean basket | `Mo-Th,Su 10:00-23:00; Fr-Sa 10:00-24:00` | Сарайшык, 7. Недельный график ресторана из карточки, обновлённой 05.10.2026; не часы приёма доставки. | [Источник](https://banqet.kz/vendors/ocean-basket-na-sarayshyk-astana) |
+| Асату | `Mo-Th,Su 12:00-24:00; Fr-Sa 12:00-02:00` | Сарыарка, 22. Учтены поздние часы в пятницу и субботу. | [Источник](https://new.redtable.kz/place/asatu) |
+| Бистро Коктем | `Mo-Th 08:00-24:00; Fr 08:00-02:00; Sa 09:00-02:00; Su 09:00-24:00` | Кенесары, 32. Bistro Koktem на правом берегу, не другое заведение сети. | [Источник](https://new.redtable.kz/place/koktem-bistro) |
+| Ботанический сад | `24/7` | Ботанический сад, парковая территория. Найдена отдельная карточка парка с круглосуточным режимом; подтверждается Spravker. Не распространяется на оранжереи. | [Источник](https://yandex.kz/maps/ru/org/astaninskiy_botanicheskiy_sad/239055286027/) |
+| Дружба | `Mo-Su 11:00-22:00` | Бейбитшилик, 1. Найдено под латинским названием Drujba. Полная неделя в Astanews и RestaurantGuru, закрытие 22:00 подтверждено Яндексом. | [Источник](https://astanews.kz/mesta/kafe-drujba-astana/) |
+| Культура Диктует | `Mo-Fr 08:00-23:00; Sa-Su 09:00-23:00` | Сыганак, 33. Полный недельный график; Яндекс подтверждает закрытие в 23:00. Старые справочники указывают 22:00. | [Источник](https://new.redtable.kz/place/kultura_diktuet) |
+| Меруерт | `Mo-Su 09:00-21:00` | Республики, 19. Публичный график банкетного зала; доступ к мероприятию не гарантируется. | [Источник](https://astana.spravker.ru/restoranyi/meruert.htm) |
+| Мост | `Больше не работает` | Сарайшык, 36. Карточка помечена «Больше не работает»; старые расписания не перенесены. | [Источник](https://yandex.kz/maps/ru/org/most/1141267110/) |
+| Рыба моей мечты | `Mo-Su 10:00-05:00` | Бейбитшилик, 20/1. Ссылка с официального rmmkaraoke.kz подтверждает филиал и координаты. В 2ГИС полный ежедневный график с условием предварительной записи; условие добавлено в описание. | [Источник](https://2gis.kz/astana/firm/70000001035969735) |
+| Саксаул | `Mo-Su 09:00-02:00` | Достык, 5. Тот же график в spravka.kz; после полуночи. | [Источник](https://rest-kz.com/kz/restorany/saksaul) |
+| Сквер шахматистов | `24/7` | Проспект Республики, Сквер шахматистов. Источник явно указывает круглосуточный режим сквера. | [Источник](https://astana.spravker.ru/parki-kultury-i-otdyha/shahmatshyilar-gl-bayi-skver-shahmatistov.htm) |
+| Сладкая Сказка | `Mo-Su 09:30-24:00` | Республики, 8. Конкретный филиал, не кондитерская на Женис. | [Источник](https://astana.restoran.kz/cafe/5708-sladkaya-skazka-na-respubliki) |
+| Точка | `Mo-Su 09:00-21:00` | Бейбитшилик, 5. В новом гастрогиде Visit Astana явно указана полная неделя; карточка Яндекса подтверждает адрес и открытие 09:00. | [Источник](https://www.visitastana.kz/public/file/gastro-guide.pdf) |
+| Тұңғыш Президент мұражайының алаңы | `24/7` | Президентский сквер у бывшего музея. Часы парковой территории, не музея. | [Источник](https://astana.spravker.ru/zagorodnyij-otdyih/park-muzeya-pervogo-prezidenta.htm) |
+| Фархи | `Mo-Su 11:00-23:00` | Азербайжана Мамбетова, 3. Полный недельный график ресторана, не старые часы из банковского справочника. | [Источник](https://new.redtable.kz/place/farhi) |
+
+Обозначения: Mo — пн, Tu — вт, We — ср, Th — чт, Fr — пт, Sa — сб, Su — вс.
+Время после полуночи относится к смене предыдущего дня. `24/7` у парков относится
+к территории, а не к оранжереям, аттракционам или другим заведениям внутри.
+
+## Оставшиеся пробелы
+
+Для этих записей `opening_hours` оставлен пустым. Отсутствие расписания не означает,
+что место открыто. Для площадок с афишей нужен график конкретного мероприятия;
+для части заведений необходима повторная проверка владельцем или картографическим
+сервисом. Уличным объектам круглосуточный доступ автоматически не приписывался.
+
+| Место | ID | Почему график не внесён |
 | --- | --- | --- |
-| [Artist](https://www.openstreetmap.org/node/12973428159) | arts_centre | `osm:node:12973428159` |
-| [Е. Рахмадиев атындағы Мемлекеттік академиялық филармония](https://www.openstreetmap.org/node/4916363251) | arts_centre | `osm:node:4916363251` |
-| [Органный зал Национальной академии музыки РК](https://www.openstreetmap.org/node/3824846563) | arts_centre | `osm:node:3824846563` |
-| [А. Құнанбайұлы](https://www.openstreetmap.org/node/3743119878) | attraction | `osm:node:3743119878` |
-| [Айтеке-би, Казыбек-би и Толе-би](https://www.openstreetmap.org/node/4109068594) | attraction | `osm:node:4109068594` |
-| [Атырау көпірі](https://www.openstreetmap.org/way/1239177393) | attraction | `osm:way:1239177393` |
-| [М. Мәметова](https://www.openstreetmap.org/node/7142226485) | attraction | `osm:node:7142226485` |
-| [Мемориал Великой Отечественной войны](https://www.openstreetmap.org/node/7149180388) | attraction | `osm:node:7149180388` |
-| [Памятник "Жанибек и Керей хандары"](https://www.openstreetmap.org/node/2712544129) | attraction | `osm:node:2712544129` |
-| [Памятник Богенбай Батыру](https://www.openstreetmap.org/way/384145918) | attraction | `osm:way:384145918` |
-| [Памятник жертвам голодомора](https://www.openstreetmap.org/node/4113550330) | attraction | `osm:node:4113550330` |
-| [С. Сейфуллин](https://www.openstreetmap.org/node/2349679958) | attraction | `osm:node:2349679958` |
-| [Тәуелсіздіктің 25 жылдығы](https://www.openstreetmap.org/way/1460763574) | attraction | `osm:way:1460763574` |
-| [#Забери с собой](https://www.openstreetmap.org/node/12917106648) | cafe | `osm:node:12917106648` |
-| [Amore Mio](https://www.openstreetmap.org/node/5077232622) | cafe | `osm:node:5077232622` |
-| [Asia mix](https://www.openstreetmap.org/node/12947062984) | cafe | `osm:node:12947062984` |
-| [Basqur](https://www.openstreetmap.org/node/12973424137) | cafe | `osm:node:12973424137` |
-| [Baton coffee](https://www.openstreetmap.org/node/12917088083) | cafe | `osm:node:12917088083` |
-| [Cafe](https://www.openstreetmap.org/node/13408518301) | cafe | `osm:node:13408518301` |
-| [Central pizza & coffee](https://www.openstreetmap.org/node/12146103478) | cafe | `osm:node:12146103478` |
-| [Chaleur](https://www.openstreetmap.org/node/10170946745) | cafe | `osm:node:10170946745` |
-| [Coffee Decaf](https://www.openstreetmap.org/node/12993958970) | cafe | `osm:node:12993958970` |
-| [Coffee Stories](https://www.openstreetmap.org/node/12973394495) | cafe | `osm:node:12973394495` |
-| [Coffee Stories](https://www.openstreetmap.org/node/12990081601) | cafe | `osm:node:12990081601` |
-| [Coffee Way](https://www.openstreetmap.org/node/12896611717) | cafe | `osm:node:12896611717` |
-| [Drinkit](https://www.openstreetmap.org/node/14100100182) | cafe | `osm:node:14100100182` |
-| [Durum](https://www.openstreetmap.org/node/12896623405) | cafe | `osm:node:12896623405` |
-| [Espresso Bar](https://www.openstreetmap.org/node/5074875221) | cafe | `osm:node:5074875221` |
-| [EzHub](https://www.openstreetmap.org/node/12917107318) | cafe | `osm:node:12917107318` |
-| [Global Coffee](https://www.openstreetmap.org/node/12973419508) | cafe | `osm:node:12973419508` |
-| [HamStar](https://www.openstreetmap.org/node/4792472508) | cafe | `osm:node:4792472508` |
-| [Im](https://www.openstreetmap.org/way/1342224679) | cafe | `osm:way:1342224679` |
-| [Kunde Cafe](https://www.openstreetmap.org/node/13462282540) | cafe | `osm:node:13462282540` |
-| [La Belle](https://www.openstreetmap.org/node/12896579454) | cafe | `osm:node:12896579454` |
-| [LatTea](https://www.openstreetmap.org/node/12973421415) | cafe | `osm:node:12973421415` |
-| [Ma Famille French Cafe](https://www.openstreetmap.org/node/12876977238) | cafe | `osm:node:12876977238` |
-| [Mado](https://www.openstreetmap.org/node/6404769888) | cafe | `osm:node:6404769888` |
-| [Moment coffee](https://www.openstreetmap.org/node/12135824881) | cafe | `osm:node:12135824881` |
-| [PizBurg](https://www.openstreetmap.org/node/12135832778) | cafe | `osm:node:12135832778` |
-| [Qazaq coffee](https://www.openstreetmap.org/node/12095545748) | cafe | `osm:node:12095545748` |
-| [Rafe](https://www.openstreetmap.org/node/4133854089) | cafe | `osm:node:4133854089` |
-| [Sazan](https://www.openstreetmap.org/node/12135831824) | cafe | `osm:node:12135831824` |
-| [Segafredo](https://www.openstreetmap.org/node/12747390104) | cafe | `osm:node:12747390104` |
-| [Tagam](https://www.openstreetmap.org/node/12993953677) | cafe | `osm:node:12993953677` |
-| [Tez besh](https://www.openstreetmap.org/node/12146103477) | cafe | `osm:node:12146103477` |
-| [Vanil' Coffee](https://www.openstreetmap.org/node/12896556565) | cafe | `osm:node:12896556565` |
-| [Zefir coffee](https://www.openstreetmap.org/node/12093501445) | cafe | `osm:node:12093501445` |
-| [marrone rosso](https://www.openstreetmap.org/node/11910202470) | cafe | `osm:node:11910202470` |
-| [Дружба](https://www.openstreetmap.org/node/12917093975) | cafe | `osm:node:12917093975` |
-| [Кафела](https://www.openstreetmap.org/node/5936638686) | cafe | `osm:node:5936638686` |
-| [Культура Диктует](https://www.openstreetmap.org/node/12959449801) | cafe | `osm:node:12959449801` |
-| [Пекарня Мишеля](https://www.openstreetmap.org/node/4207115191) | cafe | `osm:node:4207115191` |
-| [Рыба моей мечты](https://www.openstreetmap.org/node/4499897795) | cafe | `osm:node:4499897795` |
-| [Сладкая Сказка](https://www.openstreetmap.org/node/5244218857) | cafe | `osm:node:5244218857` |
-| [Тамсан](https://www.openstreetmap.org/way/158630906) | cafe | `osm:way:158630906` |
-| [Точка](https://www.openstreetmap.org/node/12917106289) | cafe | `osm:node:12917106289` |
-| [завтрак бар](https://www.openstreetmap.org/node/6408255389) | cafe | `osm:node:6408255389` |
-| [Көрме](https://www.openstreetmap.org/way/230358847) | gallery | `osm:way:230358847` |
-| [Японский сад](https://www.openstreetmap.org/way/1470723968) | garden | `osm:way:1470723968` |
-| [Қазақстан Республикасының Ұлттық академиялық кітапханасы](https://www.openstreetmap.org/way/230358855) | library | `osm:way:230358855` |
-| [Flowerhub](https://www.openstreetmap.org/way/264403130) | mall | `osm:way:264403130` |
-| [ҚР Тұңғыш Президенті Н. Ә. Назарбаевтың мұражайы](https://www.openstreetmap.org/way/51431624) | museum | `osm:way:51431624` |
-| [NU Park](https://www.openstreetmap.org/way/1467797207) | park | `osm:way:1467797207` |
-| [Арай саябағы](https://www.openstreetmap.org/way/243041609) | park | `osm:way:243041609` |
-| [Бейбітшілік пен Келісім аллеясы](https://www.openstreetmap.org/way/1456208624) | park | `osm:way:1456208624` |
-| [Гүл бақшасы](https://www.openstreetmap.org/relation/3573848) | park | `osm:relation:3573848` |
-| [Жастар сарайы алаңы](https://www.openstreetmap.org/way/1428964223) | park | `osm:way:1428964223` |
-| [Сквер](https://www.openstreetmap.org/way/230358854) | park | `osm:way:230358854` |
-| [Сквер шахматистов](https://www.openstreetmap.org/way/262166875) | park | `osm:way:262166875` |
-| [Тұңғыш Президент мұражайының алаңы](https://www.openstreetmap.org/way/1428966977) | park | `osm:way:1428966977` |
-| [Astana-Nury](https://www.openstreetmap.org/node/4922406025) | restaurant | `osm:node:4922406025` |
-| [Authentica Roni Napoletana](https://www.openstreetmap.org/node/10171023214) | restaurant | `osm:node:10171023214` |
-| [Bekbota](https://www.openstreetmap.org/node/10171023216) | restaurant | `osm:node:10171023216` |
-| [Coffee Bus Expresso Luxury](https://www.openstreetmap.org/node/10171023213) | restaurant | `osm:node:10171023213` |
-| [Fuller's Pub](https://www.openstreetmap.org/node/5890174288) | restaurant | `osm:node:5890174288` |
-| [Lugano](https://www.openstreetmap.org/node/5966393585) | restaurant | `osm:node:5966393585` |
-| [Peek-a-boo](https://www.openstreetmap.org/node/14100100183) | restaurant | `osm:node:14100100183` |
-| [Pivovaroff](https://www.openstreetmap.org/node/10171023215) | restaurant | `osm:node:10171023215` |
-| [The Kitchen](https://www.openstreetmap.org/node/4384857439) | restaurant | `osm:node:4384857439` |
-| [Yakitoriya](https://www.openstreetmap.org/node/10168258158) | restaurant | `osm:node:10168258158` |
-| [Yessil](https://www.openstreetmap.org/node/12993941023) | restaurant | `osm:node:12993941023` |
-| [Z-1](https://www.openstreetmap.org/node/6312771198) | restaurant | `osm:node:6312771198` |
-| [ocean basket](https://www.openstreetmap.org/node/6404773385) | restaurant | `osm:node:6404773385` |
-| [Арай](https://www.openstreetmap.org/node/4915119663) | restaurant | `osm:node:4915119663` |
-| [Асату](https://www.openstreetmap.org/node/12973410493) | restaurant | `osm:node:12973410493` |
-| [Бистро Коктем](https://www.openstreetmap.org/node/4624217690) | restaurant | `osm:node:4624217690` |
-| [Демалыс](https://www.openstreetmap.org/node/5866018459) | restaurant | `osm:node:5866018459` |
-| [Жагалау](https://www.openstreetmap.org/node/5889814892) | restaurant | `osm:node:5889814892` |
-| [Меруерт](https://www.openstreetmap.org/node/4913160607) | restaurant | `osm:node:4913160607` |
-| [Мост](https://www.openstreetmap.org/node/5936655589) | restaurant | `osm:node:5936655589` |
-| [Саксаул](https://www.openstreetmap.org/node/4953253121) | restaurant | `osm:node:4953253121` |
-| [Фархи](https://www.openstreetmap.org/node/1843876240) | restaurant | `osm:node:1843876240` |
+| #Забери с собой | `osm:node:12917106648` | Проверенный недельный график для конкретной точки по названию и координатам не найден. |
+| [Amore Mio](https://yandex.kz/maps/ru/org/amore_mio/133145258381/) | `osm:node:5077232622` | Подтверждён адрес Жакыпа Омарова, 53. Яндекс показывает закрытие 21:00, RestaurantGuru — 10:00–01:00 пн–сб; график остаётся неоднозначным. |
+| Artist | `osm:node:12973428159` | Проверенный недельный график для конкретной точки по названию и координатам не найден. |
+| [Asia mix](https://astana.jsprav.ru/kafe/asia-mix/) | `osm:node:12947062984` | Для Желтоксан, 24 справочники расходятся по времени открытия 09:00/10:00. |
+| Authentica Roni Napoletana | `osm:node:10171023214` | Для точки Authentica Roni Napoletana в Abu Dhabi Plaza подтверждённый график не найден. |
+| Baton coffee | `osm:node:12917088083` | Проверенный недельный график для конкретной точки по названию и координатам не найден. |
+| Bekbota | `osm:node:10171023216` | График заведения Bekbota в Abu Dhabi Plaza не найден; часы самого ТЦ не перенесены. |
+| Cafe | `osm:node:13408518301` | Общее название Cafe в аэропорту не позволяет установить конкретное заведение и его режим. |
+| [Chaleur](https://yandex.com/maps/org/168315684548/) | `osm:node:10170946745` | Chaleur на Сыганак, 60/4: Яндекс показывает открытие 09:00, RestaurantGuru — ежедневно 10:00–22:00. Объявления о сменах работников не использованы как часы посещения. |
+| Coffee Bus Expresso Luxury | `osm:node:10171023213` | Публикации о перемещении Coffee Bus не подтверждают режим конкретной точки в Abu Dhabi Plaza. |
+| Coffee Decaf | `osm:node:12993958970` | Проверенный недельный график для конкретной точки по названию и координатам не найден. |
+| [Coffee Stories](https://ru.restaurantguru.com/Coffee-stories-Astana) | `osm:node:12973394495` | RestaurantGuru указывает пн–сб 07:00–19:00, Spravker для того же адреса — пн–сб 09:00–21:00; расхождение не разрешено. |
+| Coffee Way | `osm:node:12896611717` | Найденные графики Coffee Way относятся к другим адресам; филиал по координатам не подтверждён. |
+| Drinkit | `osm:node:14100100182` | Полный недельный график конкретной точки Drinkit у Байтерека не найден. |
+| Durum | `osm:node:12896623405` | Проверенный недельный график для конкретной точки по названию и координатам не найден. |
+| [EzHub](https://astanews.kz/mesta/antikafe-ezhub-astana/) | `osm:node:12917107318` | Источники расходятся: Astanews 12:00, Яндекс 13:00; полного согласованного графика нет. |
+| Global Coffee | `osm:node:12973419508` | Найденные часы филиалов Global Coffee не удалось надёжно сопоставить с этой точкой. |
+| [HamStar](https://spravka.kz/restorany/kofejna-hamstar-2) | `osm:node:4792472508` | RestaurantGuru показывает 24/7, Spravka — 08:00–04:00 с круглосуточными пятницей и субботой; актуальность не установлена. |
+| [Kunde Cafe](https://astana.restoran.kz/cafe/96255-kunde-cafe) | `osm:node:13462282540` | Найдено указание 24/7, но режим кафе и условия доступа в университетский кампус не подтверждены. |
+| La Belle | `osm:node:12896579454` | Найдена одноимённая ресторанная точка на Женис, 3; её часы не перенесены на эту кофейню. |
+| LatTea | `osm:node:12973421415` | Точка LatTea на Республики найдена, полного недельного расписания нет. |
+| Moment coffee | `osm:node:12135824881` | Поиск даёт другой ресторан Momento; часы не перенесены в Moment coffee. |
+| NU Park | `osm:way:1467797207` | Публикации о NU Park не устанавливают расписание и условия доступа в кампус. |
+| PizBurg | `osm:node:12135832778` | Проверенный недельный график для конкретной точки по названию и координатам не найден. |
+| Qazaq coffee | `osm:node:12095545748` | Проверенный недельный график для конкретной точки по названию и координатам не найден. |
+| Sazan | `osm:node:12135831824` | В прежней проверке карточка по адресу Кенесары, 24 называлась FSN; часы другой организации Sazan не перенесены. |
+| [Segafredo](https://astana.restoran.kz/coffee/7100-segafredo-zanetti-espresso-na-saryarke) | `osm:node:12747390104` | В Restoran неоднозначное 08:00–12:00 по будням и другой график выходных; туристический гид не разрешает расхождение. |
+| Vanil' Coffee | `osm:node:12896556565` | Проверенный недельный график для конкретной точки по названию и координатам не найден. |
+| Zefir coffee | `osm:node:12093501445` | Карточка на Женис, 26а показывает закрытие 22:00; полный недельный график не найден. |
+| [marrone rosso](https://astana.jsprav.ru/chain-marrone-rosso/) | `osm:node:11910202470` | Для филиала у Керуена расходятся часы закрытия и график пятницы/выходных. |
+| А. Құнанбайұлы | `osm:node:3743119878` | Прямого опубликованного расписания не найдено; круглосуточный доступ не предполагается автоматически. |
+| Айтеке-би, Казыбек-би и Толе-би | `osm:node:4109068594` | Прямого опубликованного расписания не найдено; круглосуточный доступ не предполагается автоматически. |
+| [Арай](https://yandex.kz/maps/ru/org/aray/29301234890/) | `osm:node:4915119663` | Restoran указывает 09:00–00:00, Яндекс — закрытие 01:00; требуется уточнение графика ресторана/банкетного зала. |
+| Арай саябағы | `osm:way:243041609` | Не удалось подтвердить график именно этой территории; часы другого парка Жетысу (бывший Арай) не перенесены. |
+| Атырау көпірі | `osm:way:1239177393` | Описания одноимённого моста в туристических источниках противоречат географии; часы не подтверждены. |
+| Бейбітшілік пен Келісім аллеясы | `osm:way:1456208624` | Часы Экспо-парка не перенесены автоматически на отдельную аллею; прямого расписания нет. |
+| Гүл бақшасы | `osm:relation:3573848` | Прямого опубликованного расписания не найдено; круглосуточный доступ не предполагается автоматически. |
+| [Демалыс](https://2gis.kz/astana/firm/70000001025100707) | `osm:node:5866018459` | Найдена точная карточка семейного кафе: 2ГИС показывает 11:00–01:00 только на текущий день, Restoran/UrbanPlaces — ежедневно 10:00–00:00. Полной актуальной недели для 11:00 не найдено. |
+| [Е. Рахмадиев атындағы Мемлекеттік академиялық филармония](https://www.astana-filarmonia.kz/ru/o-nas/kontakty) | `osm:node:4916363251` | Доступ зависит от афиши концертов; часы администрации не являются расписанием посещения. |
+| Жагалау | `osm:node:5889814892` | Найдены одноимённые заведения по другим адресам; филиал старого центра не сопоставлен. |
+| Жастар сарайы алаңы | `osm:way:1428964223` | Часы Дворца Жастар не являются расписанием прилегающего сквера. |
+| Кафела | `osm:node:5936638686` | Проверенный недельный график для конкретной точки по названию и координатам не найден. |
+| [Көрме](https://yandex.kz/maps/ru/org/korme_ortalyghy_expo_center/1123373296/) | `osm:way:230358847` | Найдены часы магазинов/офисов в Корме; они не подтверждают часы посещения выставок. |
+| М. Мәметова | `osm:node:7142226485` | Прямого опубликованного расписания не найдено; круглосуточный доступ не предполагается автоматически. |
+| Мемориал Великой Отечественной войны | `osm:node:7149180388` | Прямого опубликованного расписания не найдено; круглосуточный доступ не предполагается автоматически. |
+| [Органный зал Национальной академии музыки РК](https://organhall.kz/) | `osm:node:3824846563` | Посещение по концертной афише; постоянный график доступа не установлен. |
+| Памятник "Жанибек и Керей хандары" | `osm:node:2712544129` | Прямого опубликованного расписания не найдено; круглосуточный доступ не предполагается автоматически. |
+| Памятник Богенбай Батыру | `osm:way:384145918` | Прямого опубликованного расписания не найдено; круглосуточный доступ не предполагается автоматически. |
+| Памятник жертвам голодомора | `osm:node:4113550330` | Прямого опубликованного расписания не найдено; круглосуточный доступ не предполагается автоматически. |
+| Пекарня Мишеля | `osm:node:4207115191` | Источники относятся преимущественно к другим филиалам; расписание точки у Желтоксан/набережной не установлено. |
+| С. Сейфуллин | `osm:node:2349679958` | Прямого опубликованного расписания не найдено; круглосуточный доступ не предполагается автоматически. |
+| Сквер | `osm:way:230358854` | Название «Сквер» не позволяет однозначно сопоставить участок с внешней карточкой. |
+| Тамсан | `osm:way:158630906` | Проверенный недельный график для конкретной точки по названию и координатам не найден. |
+| Тәуелсіздіктің 25 жылдығы | `osm:way:1460763574` | Прямого опубликованного расписания не найдено; круглосуточный доступ не предполагается автоматически. |
+| [Японский сад](https://nu.edu.kz/news-ru/place-oriental-philosophy-nu-campus-3/) | `osm:way:1470723968` | Официальная страница подтверждает сад в кампусе NU, но не часы и свободный доступ. |
+| завтрак бар | `osm:node:6408255389` | Проверенный недельный график для конкретной точки по названию и координатам не найден. |
+| ҚР Тұңғыш Президенті Н. Ә. Назарбаевтың мұражайы | `osm:way:51431624` | Часы бывшего музея на Бейбитшилик, 11 не подтверждены после переезда экспозиции; часы нового музея не перенесены. |
+| [Қазақстан Республикасының Ұлттық академиялық кітапханасы](https://astana.spravker.ru/biblioteki/natsionalnaya-akademicheskaya-biblioteka.htm) | `osm:way:230358855` | Найдены недельные часы 09:00–20:00/09:00–18:00 и указание последней пятницы месяца как санитарного дня. Упоминается отдельный летний режим без точных дат; полного подтверждённого годового графика нет. |

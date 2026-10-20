@@ -8,7 +8,7 @@ import pytest
 
 @pytest.fixture
 def synthetic_db(tmp_path, monkeypatch):
-    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
+    monkeypatch.delenv("GROQ_API_KEY", raising=False)
     path = tmp_path / "synthetic-test-only.db"
     fixture = json.loads((Path(__file__).parent / "fixtures" / "pois_test.json").read_text(encoding="utf-8"))
     assert "SYNTHETIC" in fixture["provenance"]
