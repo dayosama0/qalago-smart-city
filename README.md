@@ -2,9 +2,9 @@
 
 Weather-aware urban guide for Astana: choose a public starting point, interests and available time, then receive up to three AI-selected places from the local database. Climate Shield changes filtering and ranking in adverse weather. Each card is an independent option, not a combined route.
 
-**Repository:** [dayosama0/qalago-smart-city](https://github.com/dayosama0/qalago-smart-city)
-**Public deployment:** https://applago-smart-city-zqz3zanh7aq62duqh6wezj.streamlit.app/
-**Video Demonstration** https://github.com/dayosama0/qalago-smart-city/releases/tag/demonstration
+**Repository:** [dayosama0/qalago-smart-city](https://github.com/dayosama0/qalago-smart-city).
+**Public deployment:** https://applago-smart-city-zqz3zanh7aq62duqh6wezj.streamlit.app/.
+**Video Demonstration** https://github.com/dayosama0/qalago-smart-city/releases/tag/demonstration.
 
 ## Run locally
 
