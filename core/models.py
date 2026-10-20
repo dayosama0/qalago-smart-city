@@ -50,6 +50,14 @@ class Recommendation:
     source_url: str
     warnings: list[str] = field(default_factory=list)
     total_minutes_estimated: float = 0
+    opening_hours: str | None = None
+    opening_status: str = "unknown"
+    opening_status_now: str = "unknown"
+    arrival_datetime: str = ""
+    description: str = ""
+    description_source: str = ""
+    opening_hours_source: str = ""
+    opening_hours_checked_at: str = ""
 
 @dataclass
 class RecommendResponse:

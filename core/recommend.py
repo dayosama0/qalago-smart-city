@@ -1,20 +1,24 @@
 """Unified UI/backend entry point for deterministic structured RAG."""
-from datetime import datetime
+from datetime import datetime, timedelta
 import math
 from pathlib import Path
 
 from config import TIMEZONE
+from core.clock import local_now
 from core.geo import resolve_origin
+from core.hours import visit_status
 from core.llm import generate_explanations
 from core.models import RecommendRequest, RecommendResponse, Recommendation
 from core.ranking import estimated_outdoor_minutes, rank_candidates
 from core.retrieval import DatabaseUnavailable, INTENT_CATEGORIES, get_candidates, has_flight_deadline, parse_intents
 from core.weather import get_weather
 
+MAX_RESULTS = 20
+
 
 def _request_time(request: RecommendRequest) -> datetime:
     if request.time_mode == "live":
-        return datetime.now(TIMEZONE)
+        return local_now()
     if request.time_mode != "simulated" or not request.simulated_datetime:
         raise ValueError("Simulated time requires a valid ISO datetime")
     try:
@@ -39,11 +43,12 @@ def _validate_request(request: RecommendRequest) -> None:
 
 
 def _opening_note(candidate, english: bool) -> str:
-    freshness = candidate.fetched_at or ("unknown" if english else "неизвестно")
+    freshness = candidate.opening_hours_checked_at or candidate.fetched_at or ("unknown" if english else "неизвестно")
+    source = candidate.opening_hours_source or candidate.source
     if candidate.opening_hours:
         if english:
-            return f"Listed hours: {candidate.opening_hours}. Current availability not verified. Source: {candidate.source}; fetched {freshness}."
-        return f"Указанное расписание: {candidate.opening_hours}. Доступность сейчас не проверена. Источник: {candidate.source}; загружено {freshness}."
+            return f"Listed hours: {candidate.opening_hours}. Current availability not verified. Source: {source}; reference date {freshness}."
+        return f"Указанное расписание: {candidate.opening_hours}. Доступность сейчас не проверена. Источник: {source}; дата сведений {freshness}."
     if english:
         return f"Opening hours unknown; current availability not verified. Source: {candidate.source}; fetched {freshness}."
     return f"Часы работы неизвестны; доступность сейчас не проверена. Источник: {candidate.source}; загружено {freshness}."
@@ -87,7 +92,7 @@ def _template(candidate, intents, weather, english: bool) -> tuple[str, str, lis
     return " ".join(reasons), action, warnings
 
 
-def recommend(request: RecommendRequest, db_path: str | Path | None = None) -> RecommendResponse:
+def recommend(request: RecommendRequest, db_path: str | Path | None = None, *, use_llm: bool = True) -> RecommendResponse:
     _validate_request(request)
     origin = resolve_origin(request)
     local_time = _request_time(request)
@@ -103,7 +108,7 @@ def recommend(request: RecommendRequest, db_path: str | Path | None = None) -> R
                                  limitations=limitations, local_datetime=local_time.isoformat())
     nighttime = local_time.hour >= 22 or local_time.hour < 6
     if nighttime:
-        response.limitations.append("Late local time: verify access, transport and venue availability independently; no open/closed decision is inferred." if english else "Позднее местное время: самостоятельно проверьте доступ, транспорт и возможность посещения; открытие или закрытие не предполагается.")
+        response.limitations.append("Late local time: verify access and transport independently; opening status is based on supported source schedules, not live verification." if english else "Позднее местное время: самостоятельно проверьте доступ и транспорт; статус работы рассчитан по расписанию источника, без проверки на месте.")
     if request.time_mode == "simulated" and request.weather_mode == "live":
         response.limitations.append("Live weather describes current conditions, not the simulated date." if english else "Текущая погода относится к реальным условиям, а не к смоделированной дате.")
     if request.location_preset == "airport" and has_flight_deadline(request):
@@ -118,15 +123,22 @@ def recommend(request: RecommendRequest, db_path: str | Path | None = None) -> R
     except DatabaseUnavailable:
         response.general_message = ("POI data is unavailable. Run: python -m ingestion.build_database" if english else "База мест недоступна. Выполните: python -m ingestion.build_database")
         return response
-    selected = rank_candidates(candidates, intents, weather, request.climate_shield_enabled,
-                               request.duration_minutes, request.return_to_start)[:3]
+    ranked = rank_candidates(candidates, intents, weather, request.climate_shield_enabled,
+                             request.duration_minutes, request.return_to_start)
+    statuses = {candidate.id: visit_status(candidate.opening_hours,
+                local_time + timedelta(minutes=candidate.travel_minutes), candidate.visit_minutes)
+                for candidate in ranked}
+    # Keep closed options as a clearly marked fallback, after all viable options.
+    ranked.sort(key=lambda candidate: statuses[candidate.id] in {"closed", "closes_during_visit"})
+    selected = ranked[:MAX_RESULTS]
     if not selected:
         if intents & {"power_outlets", "wifi"}:
             response.general_message = ("No place with the required confirmed features fits the time and weather constraints. Unknown features are not treated as confirmed." if english else "В пределах времени и погодных ограничений нет места с подтверждёнными обязательными удобствами. Неизвестные свойства не считаются подтверждёнными.")
         else:
             response.general_message = ("No place fits the time, access and selected weather constraints. Try another origin, more time, or check the available source data." if english else "Нет места, подходящего по времени, доступу и выбранным погодным ограничениям. Попробуйте другую отправную точку, увеличьте время или проверьте исходные данные.")
         return response
-    generated = generate_explanations(selected, request, weather)
+    # Background clock updates must not cause repeated paid explanation calls.
+    generated = generate_explanations(selected, request, weather) if use_llm else None
     for candidate in selected:
         reason, action, warnings = _template(candidate, intents, weather, english)
         if nighttime:
@@ -142,6 +154,12 @@ def recommend(request: RecommendRequest, db_path: str | Path | None = None) -> R
             opening_note=_opening_note(candidate, english), indoor_status=candidate.indoor_status,
             source=candidate.source, source_url=candidate.source_url, warnings=warnings,
             total_minutes_estimated=round(candidate.total_minutes, 1),
+            opening_hours=candidate.opening_hours, opening_status=statuses[candidate.id],
+            opening_hours_source=candidate.opening_hours_source,
+            opening_hours_checked_at=candidate.opening_hours_checked_at,
+            opening_status_now=visit_status(candidate.opening_hours, local_time, 0),
+            arrival_datetime=(local_time + timedelta(minutes=candidate.travel_minutes)).isoformat(),
+            description=candidate.description, description_source=candidate.description_source,
         )
         if not all(math.isfinite(value) for value in (card.lat, card.lon, card.distance_m, card.travel_minutes_estimated, card.total_minutes_estimated)):
             continue

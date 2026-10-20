@@ -85,7 +85,7 @@ def generate_explanations(candidates, request, weather) -> dict[str, dict] | Non
                     {"role": "user", "content": json.dumps(payload, ensure_ascii=False)},
                 ],
                 response_format=ExplanationBatch,
-                max_completion_tokens=700,
+                max_completion_tokens=max(700, len(candidates) * 180),
             )
         message = completion.choices[0].message
         if message.refusal or message.parsed is None:

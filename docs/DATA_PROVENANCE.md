@@ -3,8 +3,8 @@
 ## What ships with the app
 
 `data/pois.db` is a genuine, locally validated SQLite snapshot derived from
-OpenStreetMap. It contains **199 named POIs**, **80 listed opening schedules**,
-**0 descriptions**, and **0 manual overrides**. All 199 records have unknown
+OpenStreetMap. It contains **199 named POIs**, **107 listed opening schedules**,
+**199 editorial descriptions**, and **237 field overrides (199 descriptions and 38 schedules)**. All 199 records have unknown
 power-outlet availability. These are measured data completeness counts, not
 claims that the places are currently open, have been visited, or have been
 independently audited. The app reads this database; app startup does not invoke
@@ -21,6 +21,16 @@ across several endpoints. Consequently, **the shipped dataset is the explicitly
 documented small-area OSM API fallback, not a successful full Overpass city
 download**. The API fallback does not supply complete coverage of Astana. Some
 otherwise real places will be absent, and a zero-result recommendation is valid.
+
+## Opening-hours review (20 October 2026)
+
+38 schedules were manually checked against public venue and directory pages, matched
+to branch addresses or coordinates. 27 records previously had no hours; 11 already
+had hours and were confirmed or updated. Sources and review dates are retained per
+field and displayed in card details. The resulting 107 nonempty values include one
+original `closed` record, which retrieval excludes. The remaining 92 records have no
+confirmed schedule and keep an unknown status. This is not a full current audit of
+the other 69 OSM schedules. See [review ledger and remaining gaps](OPENING_HOURS_REVIEW.md).
 
 ## Geographic coverage
 
@@ -72,12 +82,42 @@ finite coordinates in geographic ranges, selected categories, and SQLite
 `PRAGMA integrity_check` (`ok` on the shipped database).
 
 Category-based `likely_indoor` is an inference, not confirmation of heating or
-weather protection. Category visit durations are estimates. Raw source hours
-are retained without a static `opening_status` column. No outlets have been
-invented to satisfy the hackathon scenario. `data/manual_overrides.csv` is
-intentionally header-only; future overrides require a whitelisted field,
+weather protection. Category visit durations are estimates. Source hours are retained unless a documented field override replaces them; original snapshot tags remain available. Hours
+are stored without a static `opening_status` column. No outlets have been
+invented to satisfy the hackathon scenario. `data/manual_overrides.csv` contains
+one individually written Russian description per surviving OSM ID and 38 sourced schedule overrides. Overrides require a whitelisted field,
 appropriate enum/range, public evidence URL and ISO check date/time. An override
 whose OSM ID is missing aborts the build so it cannot silently survive removal.
+
+### Editorial descriptions (20 October 2026)
+
+All 199 descriptions are distinct, short editorial summaries rather than copied
+reviews or live LLM output. The canonical texts, evidence URLs and review dates
+are stored in `data/manual_overrides.csv` and applied on offline or live rebuilds.
+The original OSM snapshots are unchanged. The source for each text is copied to
+`description_source`; field-level metadata is retained in `verified_fields_json`.
+
+29 records use additional web references: the official sites of the philharmonic,
+MEGA, Keruen, Abu Dhabi Plaza, The Ritz-Carlton, Rafe, Lepim i Varim and Flowerhub;
+Visit Astana, Kazakhstan Travel and individual destination/dining references.
+The other 170 descriptions use the existing OSM categories, tags, addresses and
+spatial relationships between records in the shipped snapshot. These are not
+170 additional live web verifications. Nearby-place references are geographic
+orientation, not assertions of common ownership, shared entrances or walking access.
+The `manual_reference` provenance method means an editorial source check, not
+an on-site inspection or confirmation that a business is still operating.
+
+Sparse records stay sparse: descriptions do not invent dishes from a business
+name, quietness, quality, prices, ratings or access. Potential duplicate OSM
+records (MEGA and Coffee Stories) are identified in their descriptions but kept
+as separate source records. Museum and airport records retain explicit uncertainty
+about current use or terminal access. Website descriptions do not override the
+OSM hours, features or category used by the recommendation engine.
+
+Cards show the description immediately beneath the place heading in secondary
+text; the reference link is inside the collapsed details. Descriptions pass
+unchanged from SQLite through retrieval and recommendations and do not require
+an API key or internet at runtime.
 
 Measured category counts: cafe 101; restaurant 57; attraction 13; park 12;
 mall 7; arts centre 3; museum 2; gallery 1; garden 1; library 1; playground 1.
@@ -160,6 +200,7 @@ Data: **© OpenStreetMap contributors (ODbL 1.0)**. Redistribution of this deriv
 database uses the same [ODbL 1.0](https://opendatacommons.org/licenses/odbl/1-0/)
 terms; preserve attribution and comply with share-alike requirements when
 publishing derivatives. See [OpenStreetMap copyright](https://www.openstreetmap.org/copyright)
-and `data/LICENSE.md`. No 2GIS data is copied into this dataset; app links to
-2GIS are searches for additional information. The dataset contains public POI
+and `data/LICENSE.md`. Public references for manual hours checks include 2GIS cards considered during research.
+The general 2GIS button remains a name-and-city search. See
+[opening-hours review](OPENING_HOURS_REVIEW.md) for the evidence ledger and gaps. The dataset contains public POI
 locations and fixed landmark request boxes, never private user GPS or queries.
