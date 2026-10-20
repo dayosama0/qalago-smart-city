@@ -1,0 +1,99 @@
+{
+  "status": "verified",
+  "checked_at_utc": "2026-10-20T17:57:16+00:00",
+  "application_commit": "c8ac0d680555914b67e7886eb0b1693f95010233",
+  "checkout_commit_at_execution": "907bf0e01617436eaa8edb67d8ec5514ecb3aab7",
+  "dataset_sha256": "b27a70a3ffb1bbc2ddb05568e6325779355c9da9658dd1bc0f3d9176e074b49a",
+  "provider": "Groq",
+  "endpoint": "https://api.groq.com/openai/v1/chat/completions",
+  "model": "openai/gpt-oss-20b",
+  "credential_present": true,
+  "scope": "One successful real planning-and-selection search, plus an earlier planning-only search with no candidates.",
+  "search_attempts": 2,
+  "provider_http_requests": 3,
+  "raw_responses_saved": false,
+  "credentials_saved_in_report": false,
+  "cloud_deployment_verified": false,
+  "generated_prose_independently_reviewed": false,
+  "limitations": [
+    "No conclusion about all generated factual claims, group preference quality or multilingual quality.",
+    "Fixed public presets, simulated clock and clear simulated weather; not a live opening or route check."
+  ],
+  "attempts": [
+    {
+      "checked_at_utc": "2026-10-20T17:56:37+00:00",
+      "application_commit": "c8ac0d680555914b67e7886eb0b1693f95010233",
+      "checkout_commit": "907bf0e01617436eaa8edb67d8ec5514ecb3aab7",
+      "dataset_sha256": "b27a70a3ffb1bbc2ddb05568e6325779355c9da9658dd1bc0f3d9176e074b49a",
+      "provider": "Groq",
+      "endpoint": "https://api.groq.com/openai/v1/chat/completions",
+      "model": "openai/gpt-oss-20b",
+      "credential_present": true,
+      "public_preset": "expo",
+      "duration_minutes": 60,
+      "weather_mode": "clear_simulation",
+      "time_mode": "fixed_simulation",
+      "simulated_datetime": "2026-10-20T14:00:00+05:00",
+      "language_requested": "ru",
+      "group_size": 1,
+      "allow_fallback": false,
+      "status": "not_verified",
+      "http_statuses": [
+        200
+      ],
+      "generated_prose_independently_reviewed": false,
+      "answer_mode": "empty",
+      "recommendation_count": 0,
+      "poi_ids": [],
+      "checks": {
+        "nonempty": false,
+        "all_ids_from_snapshot": true,
+        "unique_ids": true,
+        "up_to_three": true,
+        "estimated_budgets_fit": true,
+        "no_listed_closed_or_closes_during_visit": true
+      },
+      "elapsed_seconds": 1.281
+    },
+    {
+      "checked_at_utc": "2026-10-20T17:57:16+00:00",
+      "application_commit": "c8ac0d680555914b67e7886eb0b1693f95010233",
+      "checkout_commit": "907bf0e01617436eaa8edb67d8ec5514ecb3aab7",
+      "dataset_sha256": "b27a70a3ffb1bbc2ddb05568e6325779355c9da9658dd1bc0f3d9176e074b49a",
+      "provider": "Groq",
+      "endpoint": "https://api.groq.com/openai/v1/chat/completions",
+      "model": "openai/gpt-oss-20b",
+      "credential_present": true,
+      "public_preset": "baiterek",
+      "duration_minutes": 60,
+      "weather_mode": "clear_simulation",
+      "time_mode": "fixed_simulation",
+      "simulated_datetime": "2026-10-20T14:00:00+05:00",
+      "language_requested": "ru",
+      "group_size": 1,
+      "allow_fallback": false,
+      "status": "verified",
+      "http_statuses": [
+        200,
+        200
+      ],
+      "generated_prose_independently_reviewed": false,
+      "answer_mode": "llm",
+      "recommendation_count": 3,
+      "poi_ids": [
+        "osm:node:6408271985",
+        "osm:node:6404769888",
+        "osm:way:230401645"
+      ],
+      "checks": {
+        "nonempty": true,
+        "all_ids_from_snapshot": true,
+        "unique_ids": true,
+        "up_to_three": true,
+        "estimated_budgets_fit": true,
+        "no_listed_closed_or_closes_during_visit": true
+      },
+      "elapsed_seconds": 3.425
+    }
+  ]
+}

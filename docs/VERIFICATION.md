@@ -94,3 +94,32 @@ exist as the owner reports; the required next evidence is its actual URL,
 source settings and signed-out smoke results. See the exact machine-readable
 [dated check](deployment-check-2026-10-20.json) and
 [account-owner deployment steps](DEPLOYMENT.md).
+
+
+## Subsequent live Groq verification — 20 October 2026, 17:57 UTC
+
+After the owner supplied a key in the ignored local `.env`, the port-8503
+server was restarted and its health endpoint again returned `ok`. The new
+local interface was opened in the browser. No key was displayed or committed.
+
+Two searches were executed against the real fixed Groq endpoint with the
+`openai/gpt-oss-20b` model and fallback disabled. The first EXPO/architecture
+search received HTTP 200 for planning but had no matching candidates, so it
+did not establish the selection path. A broad Baiterek search with fixed
+14:00 local time and clear simulated weather then received HTTP 200 for
+both planning and selection and returned **three recommendations in `llm`
+mode**. There were three provider HTTP requests in total, with no automatic
+retry. Snapshot membership, unique IDs, the three-card limit, estimated
+budgets and absence of listed-closed returned cards passed the recorded
+checks. These are bounded checks, not human relevance or generated-prose
+factuality measurements. No further API requests were made for this record.
+
+See [the credential-safe report](live-groq-verification.json), including both
+attempts, exact application/checkout SHAs, dataset hash and HTTP status codes.
+Raw prompts, responses, exception text, headers and credentials are excluded.
+The earlier 17:49 local-test record remains historical and unchanged.
+
+Native Chrome automation was again stopped by its policy check because it
+could not determine the current browser URL confidently. No Cloud deployment
+or public main verification is claimed. The published URL/source settings
+and signed-out Cloud checks remain required.
