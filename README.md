@@ -1,6 +1,6 @@
 # QalaGo — Умные прогулки по Астане
 
-Weather-aware urban guide for Astana: choose a public starting point, interests and available time, then receive up to three real OpenStreetMap places. Climate Shield changes filtering and ranking in adverse weather. Each card is an independent option, not a combined route.
+Weather-aware urban guide for Astana: choose a public starting point, interests and available time, then receive up to 20 real OpenStreetMap places. Climate Shield changes filtering and ranking in adverse weather. Each card is an independent option, not a combined route.
 
 **Repository:** [dayosama0/qalago-smart-city](https://github.com/dayosama0/qalago-smart-city). **Public deployment:** not yet verified; the available Streamlit browser session requires sign-in. See [exact deployment steps](docs/DEPLOYMENT.md).
 
@@ -33,7 +33,7 @@ python -m pip install -r requirements.txt
 python -m streamlit run app.py
 ```
 
-Open [localhost:8501](http://localhost:8501). The committed public SQLite snapshot is used immediately. No ingestion command or API key is required. Default weather is **simulated clear**, visibly labeled. The recommendations and controls work without a network connection; map tiles and external source/search links still require internet.
+Open [localhost:8501](http://localhost:8501). The committed public SQLite snapshot is used immediately. No ingestion command or API key is required. Default weather is **current Open-Meteo conditions**, falling back to unknown when unavailable. The recommendations and controls also work offline; map tiles and external source/search links require internet. Weather simulations are optional advanced controls, visibly labeled when selected.
 
 If PowerShell activation is disabled, run `.\.venv\Scripts\python.exe -m pip install -r requirements.txt` and `.\.venv\Scripts\python.exe -m streamlit run app.py` directly.
 
@@ -48,18 +48,24 @@ On Streamlit Cloud use **Advanced settings → Secrets**, not a committed file. 
 ## Controls and honest results
 
 - Start at EXPO / MEGA Silk Way, Baiterek, Central Park, airport NQZ or manually entered coordinates. GPS is never requested.
-- Choose 30, 60 or 120 minutes, interests, a free-text request and optional return trip. Each option must fit estimated travel + visit + a reserve.
+- Choose 15, 30, 45, 60, 90 or 120 minutes, or enter a custom 1–480 minute budget, interests, a free-text request and optional return trip. Each option must fit estimated travel + visit + a reserve.
 - Confirmed outlets are a strict requirement: unknown does not mean yes. Sparse evidence can produce zero cards.
 - Toggle Climate Shield with the same simulated wind/rain/cold scenario to compare actual ranking/filtering. Weather thresholds are prototype heuristics, not official alerts.
 - Simulate local time separately from weather. Clock mode and weather mode are independently labeled; current weather is not a forecast for the simulated clock.
 - Airport + flight deadline returns a conservative explanation without a city-center excursion. The app does not calculate security, boarding or gate access.
-- Cards show approximate distance, walking/visit estimates, uncertainty, OSM source and **Найти в 2ГИС**. That link opens a name-and-city search; it is not a guaranteed organization match. QalaGo does not scrape or retain 2GIS data.
+- Cards show approximate distance, walking/visit estimates, uncertainty, OSM source and **Найти в 2ГИС**. That link opens a name-and-city search; it is not a guaranteed organization match. Some hours were manually checked against public references, including official venue sites and directories; these sources are linked separately in card details.
 
-Opening schedules remain raw source text; availability is not live-verified. Unknown hours remain unknown. Indoor status distinguishes explicit OSM evidence, a category-based inference and unknown. A likely indoor category is not proof of heating, shelter, sockets, Wi-Fi or accessibility.
+Cards highlight opening hours and a schedule-based status at estimated arrival, including the full visit duration. Simple weekly schedules, breaks, overnight hours and 24/7 are supported; holiday, seasonal and other unsupported expressions remain unknown. Closed places and places closing during the visit are marked and ranked last before selecting up to 20 results. Availability is not live-verified. Explanations and source details are collapsed by default. Indoor status distinguishes explicit OSM evidence, a category-based inference and unknown. A likely indoor category is not proof of heating, shelter, sockets, Wi-Fi or accessibility.
+
+The main search has three inputs: starting point, available time and interests. Wishes, return trip, outlets, flight constraints, weather and time scenarios are under collapsed advanced controls. Results show six cards initially, with more available without repeating retrieval or LLM calls. Each card highlights walking time, total time, a short description and opening hours; calculations, uncertainties and sources are under Details. The map is accessible above the cards in a collapsed panel. On small screens, card rows stack vertically.
+
+Live clock mode displays current Astana schedule status separately from arrival feasibility and refreshes results every minute while the session is active. Automatic updates use local explanation templates without new OpenAI calls; simulated clock mode remains fixed. A short time/weather summary appears above results; technical details remain in the initially collapsed sidebar. Current weather unavailability and simulated conditions are labeled explicitly.
 
 ## Data and reproducible ingestion
 
-Only genuine OSM records are served by the app. The bundled snapshot contains **199 named POIs and 80 listed schedules**; source validation does not establish current availability. Synthetic data is confined to `tests/fixtures` and test code. See [data provenance and snapshot validation](docs/DATA_PROVENANCE.md) for coverage, download method, timestamps, measured counts and hashes, and [dataset license](data/LICENSE.md).
+Only genuine OSM records are served by the app. The bundled snapshot contains **199 named POIs and 107 listed schedules**; source validation does not establish current availability. Synthetic data is confined to `tests/fixtures` and test code. See [data provenance and snapshot validation](docs/DATA_PROVENANCE.md) for coverage, download method, timestamps, measured counts and hashes, and [dataset license](data/LICENSE.md).
+
+Each POI also has a distinct short Russian editorial description, stored in `data/manual_overrides.csv` with an evidence URL and review date. 29 descriptions use additional web references; 170 use the existing OSM snapshot and geographic context. Texts appear below the card heading, with sources in collapsed details, and survive offline database rebuilds. They are not live availability checks or reviews.
 
 ```bash
 # Refresh through two bounded Overpass queries (main Astana and NQZ).
@@ -115,3 +121,5 @@ GitHub Actions tests and Cloud deployment are independent. No branch-protection 
 See [two-minute demo and seven-slide outline](docs/DEMO_SCRIPT.md), [five acceptance scenarios](docs/TEST_SCENARIOS.md), [privacy and ethics](docs/PRIVACY_ETHICS.md), [architecture](docs/ARCHITECTURE.md), and the [extended MVP specification](CODEX_QALAGO_SPEC.md).
 
 OSM coverage can be incomplete or stale. Quietness, unusual experiences, current opening, prices, accessibility, heating and availability are not guaranteed. Night mode adds uncertainty and caution, not invented events. Weather is contextual information, not an emergency service. No turn-by-turn route, multi-stop optimizer, GPS tracking, authentication, user history or analytics backend is included.
+
+Results can be sorted by recommendation, distance, total estimated time or name without repeating the search. Places closed at arrival or closing during the visit stay last in every order. Map numbering follows the displayed order.

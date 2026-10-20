@@ -1,14 +1,14 @@
 {
   "usable": 199,
-  "opening_hours_available": 80,
-  "descriptions_available": 0,
+  "opening_hours_available": 107,
+  "descriptions_available": 199,
   "merged_replaced": 199,
   "removed_stale": 0,
   "sqlite_integrity": "ok",
   "downloaded_elements": 296,
   "dropped_invalid_or_unnamed": 97,
   "duplicate_osm_ids": 0,
-  "overrides_applied": 0,
+  "overrides_applied": 237,
   "last_fetched_at": "2026-10-19T10:36:02+00:00",
   "source_snapshots": [
     {
@@ -26,7 +26,7 @@
       "osm_timestamp": null
     }
   ],
-  "database_sha256": "6848c9f6d314311bbfef97f9c7ebff31d24b356f8fc68c9e675183cc81d81278",
+  "database_sha256": "8141c2598ef92237c854ea2187649a873a9ad0e8a5c38dc4c895b16688c76d5a",
   "build_mode": "offline_cached_osm",
-  "built_at": "2026-10-19T10:44:02+00:00"
+  "built_at": "2026-10-19T20:23:50+00:00"
 }

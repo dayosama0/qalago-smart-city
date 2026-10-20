@@ -32,6 +32,10 @@ class Candidate:
     distance_m: float = 0
     travel_minutes: float = 0
     total_minutes: float = 0
+    description: str = ""
+    description_source: str = ""
+    opening_hours_source: str = ""
+    opening_hours_checked_at: str = ""
 
 
 KEYWORDS = {
@@ -112,6 +116,9 @@ def get_candidates(origin: tuple[float, float], duration_minutes: int, return_to
             if visit <= 0 or visit > 480 or not isinstance(record["name"], str) or not record["name"].strip():
                 continue
             tags = _json_object(record.get("tags_json"))
+            hours_evidence = _json_object(record.get("verified_fields_json")).get("opening_hours", {})
+            if not isinstance(hours_evidence, dict):
+                hours_evidence = {}
             if str(tags.get("access", "")).casefold() in {"private", "no"}:
                 continue
             # Exact unconditional OSM values are known closure evidence. Do not
@@ -147,6 +154,10 @@ def get_candidates(origin: tuple[float, float], duration_minutes: int, return_to
                 source=record.get("source") or "OpenStreetMap", source_url=record.get("source_url") or "",
                 fetched_at=record.get("fetched_at") or "", tags=tags,
                 distance_m=distance, travel_minutes=travel, total_minutes=total,
+                description=record.get("description") or "",
+                description_source=record.get("description_source") or "",
+                opening_hours_source=hours_evidence.get("evidence_url") or record.get("source_url") or "",
+                opening_hours_checked_at=hours_evidence.get("checked_at") or record.get("fetched_at") or "",
             ))
         except (KeyError, ValueError, TypeError, OverflowError):
             continue

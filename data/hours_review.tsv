@@ -1,0 +1,39 @@
+poi_id	opening_hours	evidence_url	matched_location	note
+osm:way:230401645	Mo-Su 09:00-13:00,13:30-18:00,18:30-21:00	https://sxodim.com/astana/place/monument-bayterek-otkrylsya-dlya-posetiteley	Бульвар Нуржол, 14	Посещение монумента; учтены два технических перерыва. Сезонные изменения уточнять у оператора.
+osm:node:1278114185	24/7	https://yandex.kz/maps/ru/org/kenesary_khan/79362591514/	Улица Азербайжана Мамбетова, памятник Кенесары	Режим внешнего осмотра памятника.
+osm:node:10170946742	Mo-Su 10:00-22:00	https://astanews.kz/mesta/coffee-boom-kofejnya-v-tcz-abu-dhabi-plaza/	Сыганак, 60/5, ТЦ Abu Dhabi Plaza, 2 этаж	Часы конкретного филиала.
+osm:node:12135856708	Mo-Su 08:00-22:00	https://as.ayle.ru/v-astane/955179-coffee-hub/	Кенесары, 24	Адрес подтверждён картографической карточкой дома; не филиал на Кабанбай батыра.
+osm:node:12973310461	Mo-Su 08:00-23:00	https://astana.spravker.ru/kofe-s-soboi/dala-coffee.htm	Кенесары, 45	Не переносить на другие кофейни с похожим названием.
+osm:node:13313122337	Mo-Su 09:00-00:00	https://new.redtable.kz/place/gasteria-one	Конаева, 8/1, The One	Часы совпадают с полной недельной таблицей другого справочника.
+osm:node:12041597369	Mo-Su 07:00-00:00	https://www.ritzcarlton.com/ru/hotels/tserz-the-ritz-carlton-astana/dining/	Достык, 16, The Ritz-Carlton, Mökki	Часы ресторана, не сезонной террасы Mökki Terrace.
+osm:node:14089471172	24/7	https://sxodim.com/astana/place/kaganat	Достык, 5, Qaganat	Режим посещения подтверждён несколькими источниками; часы доставки не использованы.
+osm:node:1843876259	Mo-Fr 08:00-00:00; Sa-Su 10:00-00:00	https://www.astanagid.kz/zavedeniya/restorany/rafe_coffee_food/	Кунаева, 14, Rafe	Отличается от соседнего филиала на Кунаева, 12/2.
+osm:node:12973341171	Mo-Su 09:00-21:00	https://ayashkabakery.kz/address	Проспект Республики, 5, Аяшка	Официальный список адресов; режим этого филиала, не доставки по городу.
+osm:node:12101883884	Mo-Su 11:00-00:00	https://ru.restaurantguru.com/Manat-Astana	Желтоксан, 21	Адрес подтверждён координатами дома и названием заведения.
+osm:node:5890018687	Mo-Su 09:00-22:00	https://as.ayle.ru/v-astane/348303-stolichnaya/	Проспект Женис, 10	Точка Столичная; не сеть Столичная трапеза на левом берегу.
+osm:node:5889815192	Mo-Fr 16:00-02:00; Sa-Su 11:00-02:00	https://real-kz.com/page.php?city=2&item_id=17063&page_id=236&parent_id=139	ЖК Гранд Алатау, набережная, Чили гриль	Разные часы начала работы в будни и выходные.
+osm:node:2158757218	Mo-Su 12:00-02:00	https://mestam.info/kz/astana/mesto/83728-yamaika-abaya-prospekt-27-1-etaj	Проспект Абая, 27, Ямайка	Полная недельная таблица в справочнике; адрес сопоставлен со старым центром.
+osm:way:108096984	Mo-Su 10:00-00:00	https://www.keruen.kz/	Достык, 9, ТРЦ Керуен	Часы торгового центра; арендаторы могут работать по собственному графику.
+osm:way:499328514	Mo-Su 10:00-22:00	https://mega.kz/Tenant/MEGA-Silk-Way	Кабанбай батыра, 62, MEGA Silk Way	Часы ТРЦ, не индивидуальных ресторанов.
+osm:node:4965336822	Mo-Su 10:00-22:00	https://mega.kz/Tenant/MEGA-Silk-Way	Кабанбай батыра, 62, точечная запись MEGA Silk Way	Та же территория ТРЦ; отдельная исходная запись OSM.
+osm:way:242953032	Mo-Su 10:00-19:30	https://astana.jsprav.ru/torgovyie-tsentryi/everest-2/	Алиби Жангельдина, 18, ТД Эверест	Исправлена исходная отметка 24/7; не путать с кафе Эверест в том же здании.
+osm:way:240376692	Tu-Su 09:00-18:00; Mo off	https://www.astanamuseums.kz/contacts	Мухтара Ауэзова, 20А, музей Сейфуллина	Официальный режим музея; касса отдельно работает до 17:00.
+osm:relation:15957444	24/7	https://astanews.kz/mesta/czentralnyj-park-astana/	Проспект Туран, Центральный парк / Парк Астана	Доступ к парковой территории; аттракционы и прокат имеют собственные часы.
+osm:way:765450049	24/7	https://yandex.kz/maps/ru/org/skver_akzhayyk/24919453549/panorama/	Сквер Акжайык, старый центр	Режим сквера; не соседних объектов инфраструктуры.
+osm:way:69232075	24/7	https://sxodim.com/astana/place/zhetisu	Парк Жетысу, Сарайшык	Только парковая территория, не аттракционы.
+osm:way:734514013	24/7	https://yandex.kz/maps/ru/org/lineynyy_sayabaghy/22092842586/	Линейный парк, южнее Abu Dhabi Plaza	Режим внешней прогулки по парку.
+osm:node:2691137163	Mo-Su 09:00-20:00	https://edu-kz.com/balalar-baqshasy-men-bobekter-baqshasy/detskyj-razvyvayushyj-centr-gymboree	Достык, 5, Gymboree	Режим детского центра; посещение занятий может требовать записи.
+osm:node:13397061028	Mo-Su 10:00-00:00	https://restaurants.mega.kz/ru/?sm=2	MEGA Silk Way, Coco	Сверено по официальному ресторанному каталогу MEGA.
+osm:node:12093489323	Mo-Su 10:00-22:00	https://restaurants.mega.kz/ru/?sm=2	MEGA Silk Way, Del Papa	Обновлено по официальному каталогу; не филиал на правом берегу.
+osm:node:14107301089	Mo-Su 10:00-22:00	https://restaurants.mega.kz/ru/?sm=2	MEGA Silk Way, Korean House	Режим посещения ресторана, не общие часы здания.
+osm:node:13397061026	Mo-Su 10:00-00:00	https://restaurants.mega.kz/ru/?sm=2	MEGA Silk Way, Luckee Yu	Обновлено по официальному ресторанному каталогу.
+osm:node:6404769885	Mo-Su 10:00-23:00	https://restaurants.mega.kz/ru/?sm=2	MEGA Silk Way, Ocean Basket	Часы из отдельной секции ресторана в каталоге MEGA.
+osm:node:12293708057	Mo-Su 09:00-22:00	https://restaurants.mega.kz/ru/?sm=2	MEGA Silk Way, Paul	Не филиал возле Керуена.
+osm:node:9047331879	Mo-Su 08:00-23:00	https://restaurants.mega.kz/ru/?sm=2	MEGA Silk Way, Starbucks	Сверено по странице конкретного ТРЦ, не по другим филиалам сети.
+osm:node:4246528694	Mo-Su 12:00-02:00	https://banqet.kz/vendors/pivovaroff-po-beybitshilik-astana	Бейбитшилик, 24, Пивоварофф	Режим ресторана; не более короткое окно доставки Wolt.
+osm:node:12041597269	Mo-Su 10:00-22:00	https://ribambelle.kz/	Достык, 16, Talan Towers, RIBAMBELLE	Официальный сайт заведения.
+osm:node:10798946230	Mo-Su 12:00-00:00	https://www.ritzcarlton.com/ru/hotels/tserz-the-ritz-carlton-astana/dining/	Достык, 16, The Ritz-Carlton, Selfie	Сверено по официальной странице ресторанов отеля.
+osm:node:4876041621	Mo-Su 12:00-02:00	https://www.astanagid.kz/zavedeniya/bary/pivovaroff/	Сарайшык, 5Г, Пивоварофф	Не филиалы в Abu Dhabi Plaza и на Бейбитшилик.
+osm:node:12093489321	Mo-Su 10:00-22:00	https://restaurants.mega.kz/ru/?sm=2	MEGA Silk Way, Дареджани	Сверено по официальному ресторанному каталогу.
+osm:node:10861996205	Mo-Su 10:00-21:00	https://veganhouse.kz/index.php?route=information/contact	Uly Dala 56/1	Branch section and footer both list 10:00-21:00; general header says 22:00, kitchen until 21:00. Using explicit branch hours.
+osm:node:1843876263	Mo-Fr 08:00-00:00; Sa-Su 10:00-00:00	https://www.astanagid.kz/zavedeniya/restorany/rafe_coffee_food/	Bukeikhan 16 (now Mambetov 16)	Published schedule explicitly lists this branch.
