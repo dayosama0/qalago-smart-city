@@ -2,14 +2,14 @@
 
 Weather-aware urban guide for Astana: choose a public starting point, interests and available time, then receive up to three AI-selected places from the local database. Climate Shield changes filtering and ranking in adverse weather. Each card is an independent option, not a combined route.
 
-**Repository:** [dayosama0/qalago-smart-city](https://github.com/dayosama0/qalago-smart-city). **Public deployment:** not yet verified; the available Streamlit browser session requires sign-in. See [exact deployment steps](docs/DEPLOYMENT.md).
+**Repository:** [dayosama0/qalago-smart-city](https://github.com/dayosama0/qalago-smart-city). **Status, 20 October 2026:** latest-main revision `c8ac0d6` started locally and its health endpoint returned HTTP 200. The owner reports that a teammate deployed an app, but the current main deployment URL has not been supplied or independently verified. The older 199-place preview does not establish deployment of the current 207-place version. See [deployment status and owner steps](docs/DEPLOYMENT.md) and the [dated verification record](docs/deployment-check-2026-10-20.json).
 
 ## Run locally
 
 Python 3.11+; local verification uses Python 3.13. All commands run from the repository root.
 
 ```bash
-git clone https://github.com/dayosama0/qalago-smart-city.git
+git clone --branch main https://github.com/dayosama0/qalago-smart-city.git
 cd qalago-smart-city
 python -m venv .venv
 ```
@@ -33,7 +33,9 @@ python -m pip install -r requirements.txt
 python -m streamlit run app.py
 ```
 
-Open [localhost:8501](http://localhost:8501). The committed public SQLite snapshot is used immediately. No ingestion command is required. Set GROQ_API_KEY in your local .env or Streamlit secrets to use the main AI search. Default weather is **current Open-Meteo conditions**, falling back to unknown when unavailable. The explicitly enabled reserve mode and controls also work offline; map tiles and external source/search links require internet. Weather simulations are optional advanced controls, visibly labeled when selected.
+Open [localhost:8501](http://localhost:8501). The committed public SQLite snapshot is used immediately; no ingestion command is required. Set `GROQ_API_KEY` in an ignored local `.env` or Streamlit secrets for the main AI search. The interface starts without a key, but the default search reports the missing key. To use rules-based results without Groq, open **Дополнительные условия** and explicitly enable **Разрешить резервный режим без ИИ (не рекомендуется)**. For an offline check, also choose a visibly labeled weather simulation. Reserve mode is not equivalent to the AI search.
+
+Default weather is **current Open-Meteo conditions**, falling back to unknown when unavailable. Map tiles, background photographs and external source/search links require internet. The current verification session uses [127.0.0.1:8503](http://127.0.0.1:8503), started from the isolated latest-main checkout; that local URL is available only while the process is running and is not a public deployment.
 
 If PowerShell activation is disabled, run `.\.venv\Scripts\python.exe -m pip install -r requirements.txt` and `.\.venv\Scripts\python.exe -m streamlit run app.py` directly.
 
@@ -41,7 +43,7 @@ If PowerShell activation is disabled, run `.\.venv\Scripts\python.exe -m pip ins
 
 The search supports **groups of up to five people**, with individual preferences balanced against shared requirements. AI descriptions can use **Russian, Kazakh or English**, with automatic language selection from the query. The **Только открытые по расписанию** filter excludes unknown hours and places that will close before the visit ends, including in reserve mode. See [three demo scenarios and the incomplete-data policy](docs/USER_SCENARIOS.md). Interface labels and reserve-mode editorial descriptions are not translated.
 
-Create a local `.env` containing `GROQ_API_KEY=your-key`. `GROQ_MODEL` defaults to `openai/gpt-oss-20b`; any configured model must support strict JSON-schema structured outputs on Groq. Requests use HTTPS via the existing `requests` dependency with a fixed Groq endpoint (`https://api.groq.com/openai/v1`); no requests are sent to OpenAI. The Groq model first interprets the request (mandatory category, coffee shop requirement, maximum average check, available time). Python enforces those requirements together with distance, travel time and weather. The Groq model then selects up to three candidates from a bounded shortlist of at most 12 candidates and writes individual explanations. Unknown or repeated IDs are rejected.
+Copy [`.env.example`](.env.example) to `.env` beside `app.py`, then set your own `GROQ_API_KEY` in that ignored file. `GROQ_MODEL` defaults to `openai/gpt-oss-20b`; any configured model must support strict JSON-schema structured outputs on Groq. Requests use HTTPS via the existing `requests` dependency with a fixed Groq endpoint (`https://api.groq.com/openai/v1`); no requests are sent to OpenAI. The Groq model first interprets the request (mandatory category, coffee shop requirement, maximum average check, available time). Python enforces those requirements together with distance, travel time and weather. The Groq model then selects up to three candidates from a bounded shortlist of at most 12 candidates and writes individual explanations. Unknown or repeated IDs are rejected.
 
 API failures show an explicit error. The advanced **Разрешить резервный режим без ИИ (не рекомендуется)** checkbox is off by default; enabling it permits a clearly labeled rules-based fallback with up to 20 results. Search text, interests and candidate information are sent to Groq; origin coordinates are not included as separate fields. Do not enter private information in the search text.
 
@@ -123,11 +125,13 @@ python -m ingestion.build_database --offline
 python -m streamlit run app.py --server.headless true
 ```
 
-Actual execution results and manual checks are recorded in [verification report](docs/VERIFICATION.md). Tests use synthetic fixtures, mocked weather/LLM failures and real-snapshot integrity checks; they need no API key. The local startup check also requests `/_stcore/health` and exercises the UI. A running local server does not establish a public deployment.
+Actual execution results and manual checks are recorded in [verification report](docs/VERIFICATION.md). On 20 October 2026 the full automated suite completed with **166 passed**, including existing Streamlit AppTests, and local port 8503 returned HTTP 200 at `/_stcore/health`. Tests use fixtures, mocked provider calls and real-snapshot integrity checks; they do not establish a live Groq response. No local Groq key was available for this check. Manual browser smoke checks and a successful live Groq response remain pending; use the [deployment checklist](docs/DEPLOYMENT.md). A running local server does not establish a public deployment.
 
 ## Publish and update
 
-Deploy from `dayosama0/qalago-smart-city`, branch **main**, entrypoint **app.py**, Python **3.13**, with empty secrets for the default no-key app. Follow [deployment and verification steps](docs/DEPLOYMENT.md). After the first successful Cloud setup, future pushes to the configured `main` branch update the app automatically; dependency edits trigger installation. [Official Streamlit documentation](https://docs.streamlit.io/deploy/streamlit-community-cloud/manage-your-app/edit-your-app) explains this behavior.
+Use `dayosama0/qalago-smart-city`, branch **main**, entrypoint **app.py** and Python **3.13**. Add `GROQ_API_KEY` through Cloud secrets for AI search; `GROQ_MODEL` defaults to `openai/gpt-oss-20b`. Empty secrets allow startup and the explicitly enabled reserve mode, not default AI recommendations. The reported teammate deployment may already exist: inspect its source settings and copy its actual URL before creating another app. Follow [exact owner steps and manual smoke checks](docs/DEPLOYMENT.md).
+
+Community Cloud follows the configured source branch. Once an app is configured to **main**, later main pushes/merges update that app automatically; dependency edits trigger installation. Local edits and pushes to a different branch do not update that main deployment. See [official update behavior](https://docs.streamlit.io/deploy/streamlit-community-cloud/manage-your-app/edit-your-app). The latest-main public URL remains unverified in this session; this status does not contradict the owner's report of an earlier deployment.
 
 GitHub Actions tests and Cloud deployment are independent. No branch-protection gate is assumed. Review a change and its passing checks before merging; never force-push existing branches. Refresh datasets locally and commit only reviewed public data, not user state or secrets. SQLite edits on Cloud are ephemeral and are not an ingestion or persistence strategy.
 

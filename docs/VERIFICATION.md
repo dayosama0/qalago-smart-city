@@ -61,3 +61,36 @@ unknown outlet availability, so strict outlet requests correctly return empty.
 Browser evidence is saved locally as ignored `artifacts/local-smoke.jpg`; it is
 not a public deployment screenshot. The five real-snapshot demonstration cases
 and their measured observations appear in `TEST_SCENARIOS.md`.
+
+## Latest-main local check — 20 October 2026
+
+The 19 October sections above are preserved as historical results. Their
+199-place database, OpenAI integration and deployment-access observations do
+not describe the current main revision.
+
+| Check or observed state | Actual result |
+| --- | --- |
+| Source checked | Main revision `c8ac0d6`, isolated checkout on `codex/main-deployment-refresh` |
+| Local runtime | Python 3.13.7; Streamlit started at `http://127.0.0.1:8503` |
+| Local health | GET `http://127.0.0.1:8503/_stcore/health` returned HTTP 200 |
+| Complete automated suite | **166 passed in 16.73 seconds**, including existing Streamlit AppTests; `python -m pytest -q -p no:cacheprovider` using the existing repository venv |
+| SQLite snapshot | **207 POIs, 207 descriptions, 144 schedules and 5 closure markers**; 149 nonempty hours fields when markers are included |
+| Database SHA-256 | `b27a70a3ffb1bbc2ddb05568e6325779355c9da9658dd1bc0f3d9176e074b49a` |
+| Groq credentials/live service | No local Groq key was available. No successful live Groq request is claimed; default AI search requires a key, and rules-based reserve mode requires separate explicit opt-in |
+| New manual browser smoke | Not completed: the built-in computer-use policy blocked native Chrome control because its active URL could not be determined |
+| Cloud work in this session | No deployment or source-setting change performed; current authentication state was not established |
+| Owner's deployment report | Owner says a teammate deployed an app. Its latest-main URL was not supplied or independently verified; the older public preview still shows 199 places |
+
+For the automated run, `GROQ_API_KEY`, `OPENAI_API_KEY`, `OPENAI_ADMIN_KEY` and
+`OPENAI_BASE_URL` were cleared; `WEATHER_ENABLED=0` and
+`PYTHONDONTWRITEBYTECODE=1` were set. The worktree had no `.env` during testing.
+After the tests, a blank ignored local `.env` was created from the example for
+setup convenience; it contains no Groq key. App startup loads only its own
+checkout's `.env`, not configuration from the older root checkout.
+
+The local server health response and AppTests do not establish manual browser
+behavior, live AI success or public deployment of main. Deployment may already
+exist as the owner reports; the required next evidence is its actual URL,
+source settings and signed-out smoke results. See the exact machine-readable
+[dated check](deployment-check-2026-10-20.json) and
+[account-owner deployment steps](DEPLOYMENT.md).

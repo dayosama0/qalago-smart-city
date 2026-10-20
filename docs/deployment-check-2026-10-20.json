@@ -1,0 +1,66 @@
+{
+  "review_date_local": "2026-10-20",
+  "recorded_at_utc": "2026-10-20T17:49:05Z",
+  "timezone": "Asia/Qyzylorda",
+  "application_commit": "c8ac0d680555914b67e7886eb0b1693f95010233",
+  "application_changes_in_followup": false,
+  "local_runtime": {
+    "url": "http://127.0.0.1:8503/",
+    "health_path": "/_stcore/health",
+    "health_http_status": 200,
+    "health_body": "ok",
+    "browser_render_in_this_followup": "not_verified",
+    "python": "3.13.7",
+    "os": "Windows",
+    "local_groq_key_configured": false
+  },
+  "tests": {
+    "command": "python -m pytest -q -p no:cacheprovider",
+    "scope": "complete tests/ suite selected by pytest.ini",
+    "passed": 166,
+    "duration_seconds": 16.73,
+    "credentials_disabled": true,
+    "live_weather_disabled": true,
+    "environment": {
+      "GROQ_API_KEY": "",
+      "OPENAI_API_KEY": "",
+      "OPENAI_ADMIN_KEY": "",
+      "OPENAI_BASE_URL": "",
+      "WEATHER_ENABLED": "0",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "local_env_file_present_during_tests": false,
+    "tracked_checkout_clean_before_tests": true,
+    "tracked_checkout_clean_after_tests": true,
+    "installed_direct_pins_match": true,
+    "pip_check": "No broken requirements found"
+  },
+  "dataset": {
+    "sha256": "b27a70a3ffb1bbc2ddb05568e6325779355c9da9658dd1bc0f3d9176e074b49a",
+    "poi_count": 207,
+    "osm_records": 197,
+    "reviewed_additions": 10,
+    "listed_schedules": 144,
+    "closure_markers": 5,
+    "descriptions": 207,
+    "sqlite_integrity": "ok",
+    "manifest_hash_matches": true
+  },
+  "application_ci": {
+    "url": "https://github.com/dayosama0/qalago-smart-city/actions/runs/39466910217",
+    "head_sha": "c8ac0d680555914b67e7886eb0b1693f95010233",
+    "python_3_11": "166 passed in 6.13s",
+    "python_3_13": "166 passed in 6.94s"
+  },
+  "cloud": {
+    "owner_reports_teammate_deployed": true,
+    "new_main_public_url": null,
+    "independently_verified_new_main_deployment": false,
+    "deployment_performed_in_this_followup": false,
+    "deployment_settings_changed_in_this_followup": false,
+    "blocker": "Browser automation was stopped by its policy check because it could not determine the active Chrome URL with enough confidence.",
+    "existing_preview_preserved": true
+  },
+  "credentials_published": false,
+  "live_groq_call_in_this_followup": false
+}
