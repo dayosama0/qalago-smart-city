@@ -4,7 +4,7 @@ Weather-aware urban guide for Astana: choose a public starting point, interests 
 
 **Repository:** [dayosama0/qalago-smart-city](https://github.com/dayosama0/qalago-smart-city).
 **Public deployment:** https://applago-smart-city-zqz3zanh7aq62duqh6wezj.streamlit.app/.
-**Video Demonstration** https://github.com/dayosama0/qalago-smart-city/releases/tag/demonstration.
+**Video Demonstration** https://youtu.be/LEHWeCDjqfA https://github.com/dayosama0/qalago-smart-city/releases/tag/demonstration.
 
 ## Run locally
 
@@ -134,8 +134,6 @@ Deploy from `dayosama0/qalago-smart-city`, branch **main**, entrypoint **app.py*
 GitHub Actions tests and Cloud deployment are independent. No branch-protection gate is assumed. Review a change and its passing checks before merging; never force-push existing branches. Refresh datasets locally and commit only reviewed public data, not user state or secrets. SQLite edits on Cloud are ephemeral and are not an ingestion or persistence strategy.
 
 ## Demo and limitations
-
-See [two-minute demo and seven-slide outline](docs/DEMO_SCRIPT.md), [five acceptance scenarios](docs/TEST_SCENARIOS.md), [privacy and ethics](docs/PRIVACY_ETHICS.md), [architecture](docs/ARCHITECTURE.md), and the [extended MVP specification](CODEX_QALAGO_SPEC.md).
 
 OSM coverage can be incomplete or stale. Quietness, unusual experiences, current opening, prices, accessibility, heating and availability are not guaranteed. Night mode adds uncertainty and caution, not invented events. Weather is contextual information, not an emergency service. No turn-by-turn route, multi-stop optimizer, GPS tracking, authentication, user history or analytics backend is included.
 
